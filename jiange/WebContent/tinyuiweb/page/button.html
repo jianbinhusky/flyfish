@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<!--[if IE 7 ]>		 <html class="no-js ie ie7 lte7 lte8 lte9" lang="zh-cmn-Hans-CN"> <![endif]-->
+<!--[if IE 8 ]>		 <html class="no-js ie ie8 lte8 lte9" lang="zh-cmn-Hans-CN"> <![endif]-->
+<!--[if IE 9 ]>		 <html class="no-js ie ie9 lte9" lang="zh-cmn-Hans-CN"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html class="no-js" lang="zh-cmn-Hans-CN">
+  <!--<![endif]-->
+  <head> 
+    <meta charset="utf-8" /> 
+    <meta name="renderer" content="webkit|ie-comp|ie-stand" /> 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" /> 
+    <meta http-equiv="Cache-Control" content="no-siteapp" /> 
+    <title>
+			TinyUiEnterprise展示
+        </title> 
+    <meta name="keywords" content="TinyUi 是基于bootscrap的前端UI组件框架。" /> 
+    <meta name="description" content="java,j2ee,j2ee.top, tinygroup,tinygroup.org,eclipse,插件,idea,TinyFramework,悠然,悠悠然然,Tiny,Framework,CEP,通用事件处理,ui引擎,ui engine,模块化,业务单元,文档生成,xml parser,html parser,xml,html,parser,spider,网络爬虫,flow,流程,业务流,页面流,Java,SOA,框架,组件,分层,水平扩展,分区,分表,db router,db cluster,framework,框架,分布式计算,VFS,Web" /> 
+    <script>
+            var contextPath = "/tinyuiweb";             var UPLOAD_ACTION_URL = '/tinyuiweb/action/savepic.pagelet';         </script> 
+    <link rel="shortcut icon" href="/tinyuiweb/img/tiny32.png" /> 
+    <script src="/tinyuiweb/org/tinygroup/jquery/js/jquery-1.11.2.min.js"></script> 
+    <script src="/tinyuiweb/org/tinygroup/jquery/js/jquery.brower.js"></script> 
+    <script src="/tinyuiweb/org/tinygroup/jquery/js/moment.js"></script> 
+    <link href="/tinyuiweb/org/tinygroup/bootstrap/css/bootstrap.min.css" rel="stylesheet" /> 
+    <script src="/tinyuiweb/org/tinygroup/bootstrap/js/bootstrap.min.js"></script> 
+    <link href="/tinyuiweb/org/tinygroup/frameCommon/assets/stylesheets/tiny-admin.min.css" rel="stylesheet" /> 
+    <link href="/tinyuiweb/org/tinygroup/frameCommon/assets/stylesheets/widgets.min.css" rel="stylesheet" /> 
+    <script src="/tinyuiweb/org/tinygroup/frameCommon/assets/javascripts/tiny-admin.min.js"></script> 
+    <script>
+	var tinyTplList=[];	</script> 
+    <link href="/tinyuiweb/org/tinygroup/frameTplDeepblue/assets/stylesheets/themes.min.css" rel="stylesheet" /> 
+    <script>
+	tinyTplList.push({sort:2,name: 'adminflare',  title: '深蓝', img: contextPath+'/img/themes/deep-blue.png' });	</script> 
+    <link href="/tinyuiweb/org/tinygroup/publicComponent/css/tiny-ui.css" rel="stylesheet" /> 
+    <link href="/tinyuiweb/org/tinygroup/publicComponent/iconfont/iconfont.css" rel="stylesheet" /> 
+    <link href="/tinyuiweb/org/tinygroup/publicComponent/css/font-awesome.min.css" rel="stylesheet" /> 
+    <script src="/tinyuiweb/org/tinygroup/publicComponent/js/stickUp.min.js"></script> 
+    <script src="/tinyuiweb/org/tinygroup/publicComponent/js/tiny-ui.js"></script> 
+    <script src="/tinyuiweb/org/tinygroup/publicComponent/js/common.js"></script> 
+    <script src="/tinyuiweb/org/tinygroup/publicComponent/js/Tinyui.admin.js"></script> 
+    <script src="/tinyuiweb/org/tinygroup/publicComponent/js/Tinyui.admin.doc.js"></script> 
+    <script src="/tinyuiweb/org/tinygroup/publicComponent/js/jquery.cookie.js"></script> 
+    <!--[if lt IE 9]>
+																																																							<link href="/tinyuiweb/org/tinygroup/publicComponent/css/ie8apply.css" rel="stylesheet" />
+																																																														<script src="/tinyuiweb/org/tinygroup/publicComponent/js/html5shiv.min.js"></script>
+																												<script src="/tinyuiweb"></script>
+																	                            <![endif]--> 
+    <link href="/tinyuiweb/org/tinygroup/interfaceElements/css/jquery.range.css" rel="stylesheet" /> 
+    <script src="/tinyuiweb/org/tinygroup/interfaceElements/js/jquery.spinner.js"></script> 
+    <script src="/tinyuiweb/org/tinygroup/interfaceElements/js/jquery.range.js"></script> 
+    <script src="/tinyuiweb/org/tinygroup/interfaceElements/js/jquery.twbsPagination.js"></script> 
+    <script src="/tinyuiweb/org/tinygroup/interfaceElements/js/dataPaging.js"></script> 
+    <link href="/tinyuiweb/org/tinygroup/timeline/css/history.css" rel="stylesheet" /> 
+    <script src="/tinyuiweb/org/tinygroup/timeline/js/main.js"></script> 
+    <script src="/tinyuiweb/org/tinygroup/timeline/js/jquery.timelinr.js"></script> 
+    <script src="/tinyuiweb/org/tinygroup/lineChart/js/chartMain.js"></script> 
+    <script src="/tinyuiweb/org/tinygroup/lineChart/js/chart.line.min.js"></script> 
+    <link href="/tinyuiweb/org/tinygroup/buttonGroup/css/buttonGroup.css" rel="stylesheet" /> 
+    <link href="/tinyuiweb/org/tinygroup/thumbnails/css/thumbnails.css" rel="stylesheet" /> 
+    <script src="/tinyuiweb/org/tinygroup/thumbnails/js/thumbnails.js"></script> 
+    <link href="/tinyuiweb/org/tinygroup/labelBadge/css/labelBadge.css" rel="stylesheet" /> 
+    <link href="/tinyuiweb/org/tinygroup/superBox/css/superBox.css" rel="stylesheet" /> 
+    <script src="/tinyuiweb/org/tinygroup/superBox/js/superbox.js"></script> 
+    <link href="/tinyuiweb/org/tinygroup/tabShow/css/tabcut.css" rel="stylesheet" /> 
+    <script src="/tinyuiweb/org/tinygroup/tabShow/js/artTabs.js"></script> 
+    <link href="/tinyuiweb/org/tinygroup/button/css/button.css" rel="stylesheet" /> 
+    <link href="/tinyuiweb/org/tinygroup/example/css/example.css" rel="stylesheet" /> 
+    <link href="/tinyuiweb/org/tinygroup/bootstrapDate/css/daterangepicker-bs3.css" rel="stylesheet" /> 
+    <script src="/tinyuiweb/org/tinygroup/bootstrapDate/js/daterangepicker.js"></script> 
+    <script src="/tinyuiweb/org/tinygroup/bootstrapDate/js/WdatePicker.js"></script> 
+    <link href="/tinyuiweb/org/tinygroup/modal/css/modal.css" rel="stylesheet" /> 
+    <script src="/tinyuiweb/org/tinygroup/modal/js/jquery-drag.js"></script> 
+    <script src="/tinyuiweb/org/tinygroup/modal/js/bootstrap-modalmanager.js"></script> 
+    <script src="/tinyuiweb/org/tinygroup/modal/js/bootstrap-modal.js"></script> 
+    <link href="/tinyuiweb/org/tinygroup/fullCalendar/css/fullcalendar.css" rel="stylesheet" /> 
+    <script src="/tinyuiweb/org/tinygroup/fullCalendar/js/fullcalendar.min.js"></script> 
+    <script src="/tinyuiweb/org/tinygroup/jqueryForm/js/jquery.form.js"></script> 
+    <link href="/tinyuiweb/org/tinygroup/tourbus/css/jquery-tourbus.css" rel="stylesheet" /> 
+    <script src="/tinyuiweb/org/tinygroup/tourbus/js/jquery.scrollTo.min.js"></script> 
+    <script src="/tinyuiweb/org/tinygroup/tourbus/js/jquery-tourbus.js"></script> 
+    <link href="/tinyuiweb/org/tinygroup/mmGrid/src/mmGrid.css" rel="stylesheet" /> 
+    <link href="/tinyuiweb/org/tinygroup/mmGrid/src/theme/bootstrap/mmGrid-bootstrap.css" rel="stylesheet" /> 
+    <link href="/tinyuiweb/org/tinygroup/mmGrid/src/mmPaginator.css" rel="stylesheet" /> 
+    <link href="/tinyuiweb/org/tinygroup/mmGrid/src/theme/bootstrap/mmPaginator-bootstrap.css" rel="stylesheet" /> 
+    <script src="/tinyuiweb/org/tinygroup/mmGrid/examples/js/plugins.js"></script> 
+    <script src="/tinyuiweb/org/tinygroup/mmGrid/examples/js/vendor/json2.js"></script> 
+    <script src="/tinyuiweb/org/tinygroup/mmGrid/src/mmGrid.js"></script> 
+    <script src="/tinyuiweb/org/tinygroup/mmGrid/src/mmPaginator.js"></script> 
+    <link href="/tinyuiweb/org/tinygroup/jqueryUi/css/ui-production.min.css" rel="stylesheet" /> 
+    <script src="/tinyuiweb/org/tinygroup/jqueryUi/js/jquery-ui-1.10.3.min.js"></script> 
+    <script src="/tinyuiweb/org/tinygroup/widget/js/app.config.js"></script> 
+    <script src="/tinyuiweb/org/tinygroup/widget/js/jarvis.widget.min.js"></script> 
+    <script src="/tinyuiweb/org/tinygroup/widget/js/app.min.js"></script> 
+    <script src="/tinyuiweb/org/tinygroup/morris/js/raphael.min.js"></script> 
+    <script src="/tinyuiweb/org/tinygroup/morris/js/morris.min.js"></script> 
+    <link href="/tinyuiweb/org/tinygroup/frameTplFashion/assets/stylesheets/themes.min.css" rel="stylesheet" /> 
+    <script>
+	tinyTplList.push({sort:10, name: 'white',  title: '时尚', img: contextPath+'/img/themes/fashion.png' });	</script> 
+    <link href="/tinyuiweb/org/tinygroup/progress/css/progress.css" rel="stylesheet" /> 
+    <script src="/tinyuiweb/org/tinygroup/progress/js/progress.js"></script> 
+    <link href="/tinyuiweb/org/tinygroup/search/css/search.css" rel="stylesheet" /> 
+    <script src="/tinyuiweb/org/tinygroup/search/js/search.js"></script> 
+    <link href="/tinyuiweb/org/tinygroup/highCharts/css/highCharts.css" rel="stylesheet" /> 
+    <script src="/tinyuiweb/org/tinygroup/highCharts/js/highcharts.js"></script> 
+    <script src="/tinyuiweb/org/tinygroup/highCharts/js/exporting.js"></script> 
+    <script src="/tinyuiweb/org/tinygroup/highCharts/js/data.js"></script> 
+    <script src="/tinyuiweb/org/tinygroup/highCharts/js/highcharts-3d.js"></script> 
+    <script src="/tinyuiweb/org/tinygroup/pieCharts/js/jsapi.js"></script> 
+    <script src="/tinyuiweb/org/tinygroup/pieCharts/js/corechart.js"></script> 
+    <script src="/tinyuiweb/org/tinygroup/pieCharts/js/jquery.gvChart-1.0.1.min.js"></script> 
+    <script>
+	$(document).ready(function(){
+                gvChartInit();
+            });	</script> 
+    <link href="/tinyuiweb/org/tinygroup/searchPage/css/searchPage.css" rel="stylesheet" /> 
+    <link href="/tinyuiweb/org/tinygroup/frameTplOrange/assets/stylesheets/themes.min.css" rel="stylesheet" /> 
+    <script>
+	tinyTplList.push({sort:5,name: 'dust',  title: '橙色', img: contextPath+'/img/themes/orange.png'});	</script> 
+    <link href="/tinyuiweb/org/tinygroup/picture/css/picture.css" rel="stylesheet" /> 
+    <link href="/tinyuiweb/org/tinygroup/frameTplPurple/assets/stylesheets/themes.min.css" rel="stylesheet" /> 
+    <script>
+	tinyTplList.push({ sort:8,name: 'purple-hills', title: '紫色', img: contextPath+'/img/themes/purple-hills.png' });	</script> 
+    <link href="/tinyuiweb/org/tinygroup/uedTips/css/uedTip.css" rel="stylesheet" /> 
+    <script src="/tinyuiweb/org/tinygroup/uedTips/js/uedTip.js"></script> 
+    <link href="/tinyuiweb/org/tinygroup/dropDown/css/dropDown.css" rel="stylesheet" /> 
+    <script src="/tinyuiweb/org/tinygroup/dropDown/js/dropDown.js"></script> 
+    <link href="/tinyuiweb/org/tinygroup/webupload/lib/webuploader.css" rel="stylesheet" /> 
+    <script src="/tinyuiweb/org/tinygroup/webupload/lib/webuploader.min.js"></script> 
+    <link href="/tinyuiweb/org/tinygroup/loginRegistered/images/ue_grid.css" rel="stylesheet" /> 
+    <link href="/tinyuiweb/org/tinygroup/loginRegistered/images/style.css" rel="stylesheet" /> 
+    <link href="/tinyuiweb/org/tinygroup/loginRegistered/css/style.css" rel="stylesheet" /> 
+    <script src="/tinyuiweb/org/tinygroup/loginRegistered/script/jquery.easing.min.js"></script> 
+    <script src="/tinyuiweb/org/tinygroup/loginRegistered/script/custom.js"></script> 
+    <link href="/tinyuiweb/org/tinygroup/zoomPic/css/zoomPic.css" rel="stylesheet" /> 
+    <script src="/tinyuiweb/org/tinygroup/zoomPic/js/zoominfo.js"></script> 
+    <link href="/tinyuiweb/org/tinygroup/unslider/css/slide.css" rel="stylesheet" /> 
+    <script src="/tinyuiweb/org/tinygroup/unslider/js/jquery.touchSlider.js"></script> 
+    <link href="/tinyuiweb/org/tinygroup/ad/css/ad.css" rel="stylesheet" /> 
+    <script src="/tinyuiweb/org/tinygroup/ad/js/ad.js"></script> 
+    <link href="/tinyuiweb/org/tinygroup/tab/css/tab.css" rel="stylesheet" /> 
+    <script src="/tinyuiweb/org/tinygroup/tab/js/tab.js"></script> 
+    <link href="/tinyuiweb/org/tinygroup/code/css/code.css" rel="stylesheet" /> 
+    <script src="/tinyuiweb/org/tinygroup/code/js/prettify.js"></script> 
+    <link href="/tinyuiweb/org/tinygroup/easy/css/jquery.easy-pie-chart.css" rel="stylesheet" /> 
+    <script src="/tinyuiweb/org/tinygroup/easy/js/excanvas.js"></script> 
+    <script src="/tinyuiweb/org/tinygroup/easy/js/jquery.easy-pie-chart.js"></script> 
+    <link href="/tinyuiweb/org/tinygroup/flot/css/flot.css" rel="stylesheet" /> 
+    <script src="/tinyuiweb/org/tinygroup/flot/js/jquery.flot.cust.min.js"></script> 
+    <script src="/tinyuiweb/org/tinygroup/flot/js/jquery.flot.resize.min.js"></script> 
+    <script src="/tinyuiweb/org/tinygroup/flot/js/jquery.flot.fillbetween.min.js"></script> 
+    <script src="/tinyuiweb/org/tinygroup/flot/js/jquery.flot.orderBar.min.js"></script> 
+    <script src="/tinyuiweb/org/tinygroup/flot/js/jquery.flot.pie.min.js"></script> 
+    <script src="/tinyuiweb/org/tinygroup/flot/js/jquery.flot.time.min.js"></script> 
+    <script src="/tinyuiweb/org/tinygroup/flot/js/jquery.flot.tooltip.min.js"></script> 
+    <link href="/tinyuiweb/org/tinygroup/fold/fold/css/fold.css" rel="stylesheet" /> 
+    <script src="/tinyuiweb/org/tinygroup/fold/fold/js/fold.js"></script> 
+    <link href="/tinyuiweb/org/tinygroup/layer/skin/layer.css" rel="stylesheet" /> 
+    <script src="/tinyuiweb/org/tinygroup/layer/layer.min.js"></script> 
+    <script src="/tinyuiweb/org/tinygroup/layer/extend/layer.ext.js"></script> 
+    <link href="/tinyuiweb/org/tinygroup/form/css/form.css" rel="stylesheet" /> 
+    <script src="/tinyuiweb/org/tinygroup/form/js/Validform_v5.3.2.js"></script> 
+    <script src="/tinyuiweb/org/tinygroup/form/js/jquery.icheck.min.js"></script> 
+    <script src="/tinyuiweb/org/tinygroup/form/js/ajaxfileupload.js"></script> 
+    <script src="/tinyuiweb/org/tinygroup/form/js/jquery.queryFor.js"></script> 
+    <link href="/tinyuiweb/org/tinygroup/icon/css/icon.css" rel="stylesheet" /> 
+    <link href="/tinyuiweb/org/tinygroup/tags/css/tags.css" rel="stylesheet" /> 
+    <script src="/tinyuiweb/org/tinygroup/tags/js/tags.js"></script> 
+    <link href="/tinyuiweb/org/tinygroup/alert/css/alert.css" rel="stylesheet" /> 
+    <script src="/tinyuiweb/org/tinygroup/alert/js/alert.js"></script> 
+    <link href="/tinyuiweb/org/tinygroup/UEditor/css.css" rel="stylesheet" /> 
+    <script src="/tinyuiweb/org/tinygroup/UEditor/umeditor.config.js"></script> 
+    <script src="/tinyuiweb/org/tinygroup/UEditor/umeditor.js"></script> 
+    <script src="/tinyuiweb/org/tinygroup/UEditor/lang/zh-cn/zh-cn.js"></script> 
+    <script src="/tinyuiweb/org/tinygroup/UEditor/dialogs/link/link.js"></script> 
+    <script src="/tinyuiweb/org/tinygroup/UEditor/dialogs/image/image.js"></script> 
+    <script src="/tinyuiweb/org/tinygroup/UEditor/dialogs/video/video.js"></script> 
+    <script src="/tinyuiweb/org/tinygroup/UEditor/dialogs/map/map.js"></script> 
+    <script src="/tinyuiweb/org/tinygroup/UEditor/dialogs/formula/formula.js"></script> 
+    <script src="/tinyuiweb/org/tinygroup/UEditor/dialogs/emotion/emotion.js"></script> 
+    <link href="/tinyuiweb/org/tinygroup/forum/css/forum.css" rel="stylesheet" /> 
+    <link href="/tinyuiweb/org/tinygroup/gantt/css/jsgantt.css" rel="stylesheet" /> 
+    <script src="/tinyuiweb/org/tinygroup/gantt/js/jsgantt.js"></script> 
+    <link href="/tinyuiweb/org/tinygroup/media/css/media.css" rel="stylesheet" /> 
+    <link href="/tinyuiweb/org/tinygroup/table/css/table.css" rel="stylesheet" /> 
+    <script src="/tinyuiweb/org/tinygroup/table/js/jquery.form.js"></script> 
+    <script src="/tinyuiweb/org/tinygroup/table/js/jquery.twbsPagination.js"></script> 
+    <link href="/tinyuiweb/org/tinygroup/toTop/css/toTop.css" rel="stylesheet" /> 
+    <script src="/tinyuiweb/org/tinygroup/toTop/js/toTop.js"></script> 
+    <link href="/tinyuiweb/org/tinygroup/zTree/css/zTreeStyle/zTreeStyle.css" rel="stylesheet" /> 
+    <link href="/tinyuiweb/org/tinygroup/zTree/css/awesomeStyle/awesome.css" rel="stylesheet" /> 
+    <script src="/tinyuiweb/org/tinygroup/zTree/js/jquery.ztree.core-3.5.js"></script> 
+    <script src="/tinyuiweb/org/tinygroup/zTree/js/jquery.ztree.exhide-3.5.js"></script> 
+    <script src="/tinyuiweb/org/tinygroup/zTree/js/jquery.ztree.excheck-3.5.js"></script> 
+    <script src="/tinyuiweb/org/tinygroup/zTree/js/jquery.ztree.exedit-3.5.js"></script> 
+    <script src="/tinyuiweb/org/tinygroup/zTree/js/ztree.selected.js"></script> 
+    <link href="/tinyuiweb/org/tinygroup/gridSystems/css/gridSystems.css" rel="stylesheet" /> 
+    <link href="/tinyuiweb/org/tinygroup/Smart-treeview/css/Smart-treeview.css" rel="stylesheet" /> 
+    <link href="/tinyuiweb/org/tinygroup/Smart-treeview/css/treeview.css" rel="stylesheet" /> 
+    <script src="/tinyuiweb/org/tinygroup/Smart-treeview/js/treeview.js"></script> 
+    <link href="/tinyuiweb/org/tinygroup/fooTable/css/footable.core.css" rel="stylesheet" /> 
+    <link href="/tinyuiweb/org/tinygroup/fooTable/css/fooTable.css" rel="stylesheet" /> 
+    <script src="/tinyuiweb/org/tinygroup/fooTable/js/footable.all.min.js"></script> 
+    <link href="/tinyuiweb/org/tinygroup/userComment/css/zyComment.css" rel="stylesheet" /> 
+    <script src="/tinyuiweb/org/tinygroup/userComment/js/zyComment.js"></script> 
+    <link href="/tinyuiweb/org/tinygroup/frameTplDark/assets/stylesheets/themes.min.css" rel="stylesheet" /> 
+    <script>
+	tinyTplList.push({sort:1, name: 'clean',  title: '深色', img: contextPath+'/img/themes/dark.png' });	</script> 
+    <link href="/tinyuiweb/org/tinygroup/frameTplGray/assets/stylesheets/themes.min.css" rel="stylesheet" /> 
+    <script>
+	tinyTplList.push({sort:4, name: 'default', title: '灰色', img: contextPath+'/img/themes/default.png' });	</script> 
+    <link href="/tinyuiweb/org/tinygroup/viewsControl/css/styles.min.css" rel="stylesheet" /> 
+    <script src="/tinyuiweb/org/tinygroup/viewsControl/js/jplist.min.js"></script> 
+    <link href="/tinyuiweb/org/tinygroup/maskBar/css/maskBar.css" rel="stylesheet" /> 
+    <link href="/tinyuiweb/org/tinygroup/comment/css/comment.css" rel="stylesheet" /> 
+    <script src="/tinyuiweb/org/tinygroup/comment/js/myComment.js"></script> 
+    <link href="/tinyuiweb/org/tinygroup/compose/css/compose.css" rel="stylesheet" /> 
+    <link href="/tinyuiweb/org/tinygroup/emailTemplate/css/email.css" rel="stylesheet" /> 
+    <link href="/tinyuiweb/org/tinygroup/frameTplLightblue/assets/stylesheets/themes.min.css" rel="stylesheet" /> 
+    <script>
+	tinyTplList.push({sort:7,name: 'frost',  title: '浅蓝', img: contextPath+'/img/themes/light-blue.png' });	</script> 
+    <link href="/tinyuiweb/org/tinygroup/animation/css/animation.css" rel="stylesheet" /> 
+    <link href="/tinyuiweb/org/tinygroup/Smart-navigation/css/Smart-navigation.css" rel="stylesheet" /> 
+    <link href="/tinyuiweb/org/tinygroup/voteCharts/css/voteCharts.css" rel="stylesheet" /> 
+    <script src="/tinyuiweb/org/tinygroup/voteCharts/js/voteCharts.js"></script> 
+    <link href="/tinyuiweb/org/tinygroup/dataTables/css/jquery.dataTables.min.css" rel="stylesheet" /> 
+    <script src="/tinyuiweb/org/tinygroup/dataTables/js/jquery.dataTables.min.js"></script> 
+    <script src="/tinyuiweb/newLogin/js/cloud.js"></script> 
+    <link href="/tinyuiweb/org/tinygroup/rolling/css/rolling.css" rel="stylesheet" /> 
+    <script src="/tinyuiweb/org/tinygroup/rolling/js/jcarousellite.min.js"></script> 
+    <script src="/tinyuiweb/org/tinygroup/rolling/js/jquery.textSlider.js"></script> 
+    <script src="/tinyuiweb/org/tinygroup/rolling/js/dropDown.js"></script> 
+    <link href="/tinyuiweb/org/tinygroup/frameTplBlack/assets/stylesheets/themes.min.css" rel="stylesheet" /> 
+    <script>
+	tinyTplList.push({sort:9, name: 'silver',  title: '黑色', img: contextPath+'/img/themes/black.png' });	</script> 
+    <link href="/tinyuiweb/org/tinygroup/frameTplGreen/assets/stylesheets/themes.min.css" rel="stylesheet" /> 
+    <script>
+	tinyTplList.push({sort:3,name: 'asphalt', title: '绿色', img: contextPath+'/img/themes/asphalt.png'});	</script> 
+    <link href="/tinyuiweb/org/tinygroup/frameTplGreenyellow/assets/stylesheets/themes.min.css" rel="stylesheet" /> 
+    <script>
+	tinyTplList.push({sort:6,name: 'fresh',  title: '绿黄', img: contextPath+'/img/themes/green.png' });	</script> 
+    <link href="/tinyuiweb/org/tinygroup/trumbowyg/css/trumbowyg.min.css" rel="stylesheet" /> 
+    <script src="/tinyuiweb/org/tinygroup/trumbowyg/js/trumbowyg.min.js"></script> 
+    <script src="/tinyuiweb/org/tinygroup/trumbowyg/js/trumbowyg.base64.min.js"></script> 
+    <script src="/tinyuiweb/org/tinygroup/trumbowyg/js/trumbowyg.colors.min.js"></script> 
+    <script src="/tinyuiweb/org/tinygroup/trumbowyg/js/trumbowyg.upload.js"></script> 
+    <script src="/tinyuiweb/org/tinygroup/trumbowyg/js/trumbowyg.editlink.min.js"></script> 
+    <script src="/tinyuiweb/org/tinygroup/trumbowyg/js/zh_cn.js"></script> 
+    <link href="/tinyuiweb/org/tinygroup/syntaxhighlighter/styles/shCore.css" rel="stylesheet" /> 
+    <script src="/tinyuiweb/org/tinygroup/syntaxhighlighter/scripts/shCore.js"></script> 
+    <script src="/tinyuiweb/org/tinygroup/syntaxhighlighter/scripts/shBrushCss.js"></script> 
+    <script src="/tinyuiweb/org/tinygroup/syntaxhighlighter/scripts/shBrushJava.js"></script> 
+    <script src="/tinyuiweb/org/tinygroup/syntaxhighlighter/scripts/shBrushJScript.js"></script> 
+    <script src="/tinyuiweb/org/tinygroup/syntaxhighlighter/scripts/shBrushXml.js"></script> 
+    <script src="/tinyuiweb/org/tinygroup/syntaxhighlighter/scripts/shBrushTiny.js"></script> 
+    <script>
+	$(document).ready(function(){
+                SyntaxHighlighter.highlight();
+            });	</script> 
+    <link href="/tinyuiweb/org/tinygroup/iconTab/css/iconTab.css" rel="stylesheet" /> 
+    <link href="/tinyuiweb/org/tinygroup/burndownChart/css/burndownChart.css" rel="stylesheet" /> 
+    <script src="/tinyuiweb/org/tinygroup/burndownChart/js/burndownChart.js"></script> 
+    <link href="/tinyuiweb/org/tinygroup/navigation/css/navigation.css" rel="stylesheet" /> 
+    <script src="/tinyuiweb/org/tinygroup/navigation/js/pagenav.cn.js"></script> 
+    <style>
+            @media (min-width:768px) {
+                #main-navbar .navbar-form,#main-navbar .navbar-nav {
+					width:600px;
+                    margin-right: calc(100%-100vw);
+                }
+
+            }
+			</style> 
+  </head> 
+  <body class=" main-menu-animated"> 
+    <script>var init = [];</script> 
+    <script src="/tinyuiweb/js/setting.js"></script> 
+    <div id="main-wrapper"> 
+      <div id="main-navbar" class="navbar navbar-inverse" role="navigation"> 
+        <!-- Main menu toggle --> 
+        <button type="button" id="main-menu-toggle"><i class="navbar-icon fa fa-bars icon"></i><span class="hide-menu-text"></span></button> 
+        <div class="navbar-inner"> 
+          <!-- navbar-header start--> 
+          <div class="navbar-header"> 
+            <!-- Logo --> 
+            <a href="index.html" class="navbar-brand"> 
+              <div>
+                <img title="Tinyframework" src="/tinyuiweb/img/main-navbar-logo.png" />
+              </div> 
+              <!--TinyAdmin--> </a> 
+            <!-- navbar-toggle start --> 
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-navbar-collapse"><i class="navbar-icon fa fa-bars"></i></button> 
+            <!-- navbar-toggle end --> 
+          </div> 
+          <div id="main-navbar-collapse" class="collapse navbar-collapse main-navbar-collapse"> 
+            <div> 
+              <ul class="nav navbar-nav"> 
+                <li class="tttt"> <a href="/tinyuiweb/ajax.html">切换到AJAX</a> </li> 
+                <li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">下拉菜单</a> 
+                  <ul class="dropdown-menu"> 
+                    <li> <a href="#">第一项</a> </li> 
+                    <li> <a href="#">第二项</a> </li> 
+                    <li class="divider"></li> 
+                    <li> <a href="#">第三项</a> </li> 
+                  </ul> </li> 
+              </ul> 
+              <div class="right clearfix"> 
+                <ul class="nav navbar-nav pull-right right-navbar-nav"> 
+                  <li class="nav-icon-btn nav-icon-btn-danger dropdown"> <a href="javascript:void(0);notifications" class="dropdown-toggle" data-toggle="dropdown"> <span class="label">5</span> <i class="nav-icon fa fa-bullhorn"></i> <span class="small-screen-text">通知</span> </a> 
+                    <!-- NOTIFICATIONS --> 
+                    <!-- Javascript --> <script>
+									init.push(function () {
+										$('#main-navbar-notifications').slimScroll({ height: 250});
+									});
+								</script> 
+                    <!-- / Javascript --> 
+                    <div class="dropdown-menu widget-notifications no-padding" style="width: 300px"> 
+                      <div class="notifications-list" id="main-navbar-notifications"> 
+                        <div class="notification"> 
+                          <div class="notification-title text-danger">
+                            系统
+                          </div> 
+                          <div class="notification-description"> 
+                            <strong>500错误</strong>: 语法错误在索引&times;&times;行 
+                            <strong>461</strong>. 
+                          </div> 
+                          <div class="notification-ago">
+                            12小时前
+                          </div> 
+                          <div class="notification-icon fa fa-hdd-o bg-danger"></div> 
+                        </div> 
+                        <div class="notification"> 
+                          <div class="notification-title text-info">
+                            仓库
+                          </div> 
+                          <div class="notification-description">
+                             你有 
+                            <strong>9</strong> 新订单。 
+                          </div> 
+                          <div class="notification-ago">
+                            12小时前
+                          </div> 
+                          <div class="notification-icon fa fa-truck bg-info"></div> 
+                        </div> 
+                        <div class="notification"> 
+                          <div class="notification-title text-default">
+                            进程
+                          </div> 
+                          <div class="notification-description">
+                             工作 
+                            <strong>&quot;清理&quot;</strong> 完成。 
+                          </div> 
+                          <div class="notification-ago">
+                            12小时前
+                          </div> 
+                          <div class="notification-icon fa fa-clock-o bg-default"></div> 
+                        </div> 
+                        <div class="notification"> 
+                          <div class="notification-title text-success">
+                            体系
+                          </div> 
+                          <div class="notification-description">
+                             服务器 
+                            <strong>内存已满。</strong>. 
+                          </div> 
+                          <div class="notification-ago">
+                            11小时前
+                          </div> 
+                          <div class="notification-icon fa fa-hdd-o bg-success"></div> 
+                        </div> 
+                        <div class="notification"> 
+                          <div class="notification-title text-warning">
+                            系统
+                          </div> 
+                          <div class="notification-description">
+                             服务器 
+                            <strong>内存已满。</strong>. 
+                          </div> 
+                          <div class="notification-ago">
+                            10小时前
+                          </div> 
+                          <div class="notification-icon fa fa-hdd-o bg-warning"></div> 
+                        </div> 
+                      </div> 
+                      <!-- / .notifications-list --> 
+                      <a href="javascript:void(0);" class="notifications-link">更多的通知</a> 
+                    </div> 
+                    <!-- / .dropdown-menu --> </li> 
+                  <li class="nav-icon-btn nav-icon-btn-success dropdown"> <a href="javascript:void(0);notifications" class="dropdown-toggle" data-toggle="dropdown"> <span class="label">12</span> <i class="nav-icon fa fa-envelope"></i> <span class="small-screen-text">所得的消息</span> </a> 
+                    <!-- NOTIFICATIONS --> 
+                    <!-- Javascript --> <script>
+									init.push(function () {
+										$('#main-navbar-notifications').slimScroll({ height: 250});
+									});
+								</script> 
+                    <!-- / Javascript --> 
+                    <div class="dropdown-menu widget-notifications no-padding" style="width: 300px"> 
+                      <div class="notifications-list" id="main-navbar-notifications"> 
+                        <div class="message"> 
+                          <img src="/tinyuiweb/img/portraits/2.jpg" alt="" class="message-avatar" /> 
+                          <a href="javascript:void(0);" class="message-subject"> 有一位新成员加入Tiny框架... </a> 
+                          <div class="message-description">
+                             来自 
+                            <a href="#">xxx</a> &nbsp;&nbsp;&nbsp;&nbsp; 2小时前 
+                          </div> 
+                        </div> 
+                        <!-- / .message --> 
+                        <div class="message"> 
+                          <img src="/tinyuiweb/img/portraits/3.jpg" alt="" class="message-avatar" /> 
+                          <a href="javascript:void(0);" class="message-subject"> 有一位Tiny粉丝评论了博文... </a> 
+                          <div class="message-description">
+                             来自 
+                            <a href="#">xxx</a> &nbsp;&nbsp;&nbsp;&nbsp; 2小时前 
+                          </div> 
+                        </div> 
+                        <!-- / .message --> 
+                        <div class="message"> 
+                          <img src="/tinyuiweb/img/portraits/4.jpg" alt="" class="message-avatar" /> 
+                          <a href="javascript:void(0);" class="message-subject"> myeclipse安装tiny报错，请教各位高手。 </a> 
+                          <div class="message-description">
+                             来自 
+                            <a href="#">xxx</a> &nbsp;&nbsp;&nbsp;&nbsp; 2小时前 
+                          </div> 
+                        </div> 
+                        <!-- / .message --> 
+                        <div class="message"> 
+                          <img src="/tinyuiweb/img/portraits/5.jpg" alt="" class="message-avatar" /> 
+                          <a href="javascript:void(0);" class="message-subject"> page中获取session的值为什么是旧的... </a> 
+                          <div class="message-description">
+                             来自 
+                            <a href="#">xxx</a> &nbsp;&nbsp;&nbsp;&nbsp; 2小时前 
+                          </div> 
+                        </div> 
+                        <!-- / .message --> 
+                      </div> 
+                      <!-- / .notifications-list --> 
+                      <a href="javascript:void(0);" class="notifications-link">更多的信息</a> 
+                    </div> 
+                    <!-- / .dropdown-menu --> </li> 
+                  <li class="fullscreen"> <a href="javascript:void(0);" onclick="launchFullScreen(document.documentElement);" title="全屏"><i class="fa fa-fullscreen"></i></a> </li> 
+                  <li> 
+                    <form action="/sdpm-web/a/quality/bug/bugInfo?no=" method="get" id="msb-box"> 
+                      <div class="input-groups " style="width:269px;padding-top:9px"> 
+                        <div class="input-group-btns"> 
+                          <button type="button" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"> <span id="msb-currentName">Bug</span> <span class="carets"></span> </button> 
+                          <ul class="dropdown-menus msb-item-list" style="margin-top:-1px;width: 212px;"> 
+                            <li class="active"><a href="/sdpm-web/a/quality/bug/bugInfo?no=" data-value="" data-type="form">Bug</a></li> 
+                            <li><a href="/sdpm-web/a/product/storySpec/find/productDemandDetail?no=" data-value="" data-type="form">需求</a></li> 
+                            <li><a href="/sdpm-web/a/project/task/findTask?no=" data-value="" data-type="form">任务</a></li> 
+                            <li><a href="/sdpm-web/a/quality/testCase/case/viewInfo?no=" data-value="" data-type="form">用例</a></li> 
+                            <li><a href="/sdpm-web/a/project/view?projectId=" data-value="" data-type="form">项目</a></li> 
+                            <li><a href="/sdpm-web/a/product/find/overview?productId=" data-value="" data-type="form">产品</a></li> 
+                            <li><a href="/sdpm-web/a/quality/version/versionInfo?no=" data-value="" data-type="form">版本</a></li> 
+                            <li><a href="/sdpm-web/a/product/release/forword/reRelateStory?no=" data-value="" data-type="form">发布</a></li> 
+                            <li><a href="/sdpm-web/a/product/plan/forword/reRelateStory?no=" data-value="" data-type="form">产品计划</a></li> 
+                            <li><a href="/sdpm-web/a/document/doc/view?docid=" data-value="" data-type="form">文档</a></li> 
+                          </ul> 
+                        </div> 
+                        <input type="text" name="key" id="msb-box-input" value="" class="form-controls " placeholder="请输入ID" datatype="n" nullmsg="请输入ID" /> 
+                        <div id="objectSwitcher" class="input-group-btns "> 
+                          <button class="searchBtn"><i class="fa fa-search"></i></button> 
+                        </div> 
+                      </div> 
+                    </form> <script type="text/javascript">
+				    $(function(){
+				        $("#msb-box .msb-item-list a").each(function(){
+				            var $this = $(this);
+				            $this.click(function() {
+				        if($this.attr("data-type")=="form"){
+				            $("#msb-box li.active").removeClass("active");
+				            $this.closest("li").addClass("active");
+				            $("#msb-box").attr("action",$this.attr("href"));
+				            $("#msb-currentName").text($this.text());
+				            $("#msb-box .dropdown-toggle").dropdown('toggle');
+				            return false;
+				            }
+				            });
+				            if($this.text()=="Bug"){
+				                    $this.closest("li").addClass("active");
+				                $("#msb-box").attr("action",$this.attr("href"));
+				            }
+				        });
+				        $("#msb-box").Validform({
+				            beforeSubmit:function(curform){
+				                window.location.href=$(curform).attr("action")+$("#msb-box-input").val();
+				                return false;
+				            }
+				        })
+				    });
+				</script> </li> 
+                  <li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle user-menu" data-toggle="dropdown"> <img src="/tinyuiweb/img/portraits/1.jpg" alt="" /> <span>密缘之友</span> </a> 
+                    <ul class="dropdown-menu"> 
+                      <li><a href="javascript:void(0);"><span class="label label-warning pull-right">新的</span>资料文件</a></li> 
+                      <li><a href="javascript:void(0);"><span class="badge badge-primary pull-right">新的</span>个人中心</a></li> 
+                      <li><a href="javascript:void(0);"><i class="dropdown-icon fa fa-cog"></i>&nbsp;&nbsp;设置</a></li> 
+                      <li class="divider"></li> 
+                      <li><a href="javascript:void(0);"><i class="dropdown-icon fa fa-power-off"></i>&nbsp;&nbsp;退出</a></li> 
+                    </ul> </li> 
+                </ul> 
+              </div> 
+            </div> 
+          </div> 
+          <!-- main-navbar-collapse end --> 
+        </div> 
+        <!-- navbar-inner end --> 
+      </div> 
+      <!-- main-navbar end --> 
+      <div id="main-menu" role="navigation"> 
+        <div id="main-menu-inner"> 
+          <div class="menu-content top" id="menu-content-demo"> 
+            <div> 
+              <div class="text-bg">
+                <span class="text-slim">欢迎您,</span> 
+                <span class="text-semibold">Liyl</span>
+              </div> 
+              <img src="/tinyuiweb/img/portraits/1.jpg" alt="" class="" /> 
+              <div class="btn-group"> 
+                <a href="javascript:void(0);" class="btn btn-xs btn-primary btn-outline dark"><i class="fa fa-envelope"></i></a> 
+                <a href="javascript:void(0);" class="btn btn-xs btn-primary btn-outline dark"><i class="fa fa-user"></i></a> 
+                <a href="javascript:void(0);" class="btn btn-xs btn-primary btn-outline dark"><i class="fa fa-cog"></i></a> 
+                <a href="javascript:void(0);" class="btn btn-xs btn-danger btn-outline dark"><i class="fa fa-power-off"></i></a> 
+              </div> 
+            </div> 
+          </div> 
+          <ul class="navigation"> 
+            <li class="active"> <a href="/tinyuiweb/page/index.html" class="navitem" title="首页" data-treeid="0"><i class="menu-icon fa fa-home"></i><span class="mm-text">首页</span> </a> </li> 
+            <li> <a href="/tinyuiweb/page/overview.html" class="navitem" title="概述" data-treeid="1"><i class="menu-icon fa fa-dashboard"></i><span class="mm-text">概述</span> </a> </li> 
+            <li class="mm-dropdown class java.util.HashMap"> <a href="javascript:void(0);" data-treeid="2"><i class="menu-icon fa fa-th"></i><span class="mm-text">布局</span> </a> 
+              <ul> 
+                <li> <a href="/tinyuiweb/page/gridSystem.html" class="navitem" title="栅格系统" data-treeid="2.1"><span class="mm-text">栅格系统</span> </a> </li> 
+                <li> <a href="/tinyuiweb/page/tabShow.html" class="navitem" title="Tabs展现" data-treeid="2.2"><span class="mm-text">Tabs展现</span> </a> </li> 
+                <li> <a href="/tinyuiweb/page/togglebox.html" class="navitem" title="ToggleBox" data-treeid="2.3"><span class="mm-text">ToggleBox</span> </a> </li> 
+              </ul> </li> 
+            <li class="mm-dropdown class java.util.HashMap"> <a href="javascript:void(0);" data-treeid="3"><i class="menu-icon fa fa-desktop"></i><span class="mm-text">基础</span> </a> 
+              <ul> 
+                <li> <a href="/tinyuiweb/page/typography.html" class="navitem" title="排版" data-treeid="3.1"><span class="mm-text">排版</span> </a> </li> 
+                <li> <a href="/tinyuiweb/page/icon.html" class="navitem" title="图标" data-treeid="3.3"><span class="mm-text">图标</span> </a> </li> 
+                <li> <a href="/tinyuiweb/page/button.html" class="navitem" title="按钮" data-treeid="3.4"><span class="mm-text">按钮</span> </a> </li> 
+                <li> <a href="/tinyuiweb/page/buttonGroups.html" class="navitem" title="按钮组" data-treeid="3.5"><span class="mm-text">按钮组</span> </a> </li> 
+                <li> <a href="/tinyuiweb/page/tables.html" class="navitem" title="表格" data-treeid="3.6"><span class="mm-text">表格</span> </a> </li> 
+              </ul> </li> 
+            <li class="mm-dropdown class java.util.HashMap"> <a href="javascript:void(0);" data-treeid="4"><i class="menu-icon fa icon-wrench"></i><span class="mm-text">元素</span> </a> 
+              <ul> 
+                <li> <a href="/tinyuiweb/page/labelBadge.html" class="navitem" title="便签与标号" data-treeid="4.1"><span class="mm-text">便签与标号</span> </a> </li> 
+                <li> <a href="/tinyuiweb/page/alert.html" class="navitem" title="警告" data-treeid="4.2"><span class="mm-text">警告</span> </a> </li> 
+                <li> <a href="/tinyuiweb/page/progress.html" class="navitem" title="进度条" data-treeid="4.3"><span class="mm-text">进度条</span> </a> </li> 
+                <li> <a href="/tinyuiweb/page/interfaceElements.html" class="navitem" title="界面元素" data-treeid="4.4"><span class="mm-text">界面元素</span> </a> </li> 
+                <li> <a href="/tinyuiweb/page/nav.html" class="navitem" title="导航" data-treeid="4.5"><span class="mm-text">导航</span> </a> </li> 
+              </ul> </li> 
+            <li class="mm-dropdown class java.util.HashMap"> <a href="javascript:void(0);" data-treeid="5"><i class="menu-icon fa fa-tasks"></i><span class="mm-text">表单</span> </a> 
+              <ul> 
+                <li> <a href="/tinyuiweb/page/forms.html" class="navitem" title="表单列表" data-treeid="5.1"><span class="mm-text">表单列表</span> </a> </li> 
+                <li> <a href="/tinyuiweb/page/tinyForm.html" class="navitem" title="表单实例" data-treeid="5.2"><span class="mm-text">表单实例</span> </a> </li> 
+                <li> <a href="/tinyuiweb/page/editor.html" class="navitem" title="编辑器" data-treeid="5.3"><span class="mm-text">编辑器</span> </a> </li> 
+                <li> <a href="/tinyuiweb/page/bootstrapDate.html" class="navitem" title="日期控件" data-treeid="5.4"><span class="mm-text">日期控件</span> </a> </li> 
+                <li> <a href="/tinyuiweb/page/dropDown.html" class="navitem" title="下拉菜单" data-treeid="5.5"><span class="mm-text">下拉菜单</span> </a> </li> 
+                <li> <a href="/tinyuiweb/page/search.html" class="navitem" title="搜索" data-treeid="5.6"><span class="mm-text">搜索</span> </a> </li> 
+                <li> <a href="/tinyuiweb/page/webupload.html" class="navitem" title="多文件上传" data-treeid="5.7"><span class="mm-text">多文件上传</span> </a> </li> 
+                <li> <a href="/tinyuiweb/page/authorlist.html" class="navitem" title="权限移动" data-treeid="5.8"><span class="mm-text">权限移动</span> </a> </li> 
+              </ul> </li> 
+            <li class="mm-dropdown class java.util.HashMap"> <a href="javascript:void(0);" data-treeid="6"><i class="menu-icon fa icon-picture"></i><span class="mm-text">图库</span> </a> 
+              <ul> 
+                <li> <a href="/tinyuiweb/page/picture.html" class="navitem" title="图片" data-treeid="6.1"><span class="mm-text">图片</span> </a> </li> 
+                <li> <a href="/tinyuiweb/page/thumbnails.html" class="navitem" title="缩略图" data-treeid="6.2"><span class="mm-text">缩略图</span> </a> </li> 
+                <li> <a href="/tinyuiweb/page/media.html" class="navitem" title="媒体插入" data-treeid="6.3"><span class="mm-text">媒体插入</span> </a> </li> 
+                <li> <a href="/tinyuiweb/page/ad.html" class="navitem" title="广告" data-treeid="6.4"><span class="mm-text">广告</span> </a> </li> 
+                <li> <a href="/tinyuiweb/page/uedTips.html" class="navitem" title="UED提示" data-treeid="6.5"><span class="mm-text">UED提示</span> </a> </li> 
+              </ul> </li> 
+            <li class="mm-dropdown class java.util.HashMap"> <a href="javascript:void(0);" data-treeid="7"><i class="menu-icon fa icon-random"></i><span class="mm-text">交互</span> </a> 
+              <ul> 
+                <li> <a href="/tinyuiweb/page/animation.html" class="navitem" title="动画" data-treeid="7.1"><span class="mm-text">动画</span> </a> </li> 
+                <li> <a href="/tinyuiweb/page/Unslider.html" class="navitem" title="幻灯片" data-treeid="7.2"><span class="mm-text">幻灯片</span> </a> </li> 
+                <li> <a href="/tinyuiweb/page/tab.html" class="navitem" title="选项卡" data-treeid="7.3"><span class="mm-text">选项卡</span> </a> </li> 
+                <li> <a href="/tinyuiweb/page/modal.html" class="navitem" title="对话框 弹出层" data-treeid="7.4"><span class="mm-text">对话框 弹出层</span> </a> </li> 
+                <li> <a href="/tinyuiweb/page/rolling.html" class="navitem" title="滚动" data-treeid="7.5"><span class="mm-text">滚动</span> </a> </li> 
+                <li> <a href="/tinyuiweb/page/tags.html" class="navitem" title="标签" data-treeid="7.6"><span class="mm-text">标签</span> </a> </li> 
+                <li> <a href="/tinyuiweb/page/fold.html" class="navitem" title="折叠" data-treeid="7.7"><span class="mm-text">折叠</span> </a> </li> 
+                <li> <a href="/tinyuiweb/page/maskBar.html" class="navitem" title="遮罩条" data-treeid="7.8"><span class="mm-text">遮罩条</span> </a> </li> 
+              </ul> </li> 
+            <li class="mm-dropdown class java.util.HashMap"> <a href="javascript:void(0);" data-treeid="8"><i class="menu-icon fa icon-legal"></i><span class="mm-text">部件</span> </a> 
+              <ul> 
+                <li> <a href="/tinyuiweb/page/kefu.html" class="navitem" title="客服" data-treeid="8.1"><span class="mm-text">客服</span> </a> </li> 
+                <li> <a href="/tinyuiweb/page/toTop.html" class="navitem" title="返回顶部" data-treeid="8.2"><span class="mm-text">返回顶部</span> </a> </li> 
+                <li> <a href="/tinyuiweb/page/share.html" class="navitem" title="分享" data-treeid="8.3"><span class="mm-text">分享</span> </a> </li> 
+                <li> <a href="/tinyuiweb/page/example.html" class="navitem" title="案例" data-treeid="8.4"><span class="mm-text">案例</span> </a> </li> 
+                <li> <a href="/tinyuiweb/page/Smart-treeview.html" class="navitem" title="树形视图" data-treeid="8.5"><span class="mm-text">树形视图</span> </a> </li> 
+                <li class="mm-dropdown class java.util.HashMap"> <a href="javascript:void(0);" data-treeid="8.6"><span class="mm-text">图表</span> </a> 
+                  <ul> 
+                    <li> <a href="/tinyuiweb/page/charts.html" class="navitem" title="图表展示" data-treeid="8.6.1"><span class="mm-text">图表展示</span> </a> </li> 
+                    <li> <a href="/tinyuiweb/page/burndownChart.html" class="navitem" title="燃尽图表" data-treeid="8.6.3"><span class="mm-text">燃尽图表</span> </a> </li> 
+                    <li> <a href="/tinyuiweb/page/highCharts.html" class="navitem" title="highCharts图表" data-treeid="8.6.4"><span class="mm-text">highCharts图表</span> </a> </li> 
+                  </ul> </li> 
+                <li> <a href="/tinyuiweb/page/calendar.html" class="navitem" title="日历" data-treeid="8.7"><span class="mm-text">日历</span> </a> </li> 
+                <li> <a href="/tinyuiweb/page/workCalendar.html" class="navitem" title="背景日历" data-treeid="8.8"><span class="mm-text">背景日历</span> </a> </li> 
+              </ul> </li> 
+            <li class="mm-dropdown class java.util.HashMap"> <a href="javascript:void(0);" data-treeid="9"><i class="menu-icon fa icon-th-list"></i><span class="mm-text">实例</span> </a> 
+              <ul> 
+                <li> <a href="/tinyuiweb/page/comment.html" class="navitem" title="评论列表" data-treeid="9.1"><span class="mm-text">评论列表</span> </a> </li> 
+                <li> <a href="/tinyuiweb/page/userComment.html" class="navitem" title="用户评论" data-treeid="9.2"><span class="mm-text">用户评论</span> </a> </li> 
+                <li> <a href="/tinyuiweb/page/searchPage.html" class="navitem" title="搜索页" data-treeid="9.3"><span class="mm-text">搜索页</span> </a> </li> 
+                <li> <a href="/tinyuiweb/page/gantt.html" class="navitem" title="Gantt图" data-treeid="9.4"><span class="mm-text">Gantt图</span> </a> </li> 
+                <li> <a href="/tinyuiweb/page/tourbus.html" class="navitem" title="操作向导" data-treeid="9.5"><span class="mm-text">操作向导</span> </a> </li> 
+                <li class="mm-dropdown class java.util.HashMap"> <a href="javascript:void(0);" data-treeid="9.6"><span class="mm-text">邮件模板</span> </a> 
+                  <ul> 
+                    <li> <a href="/tinyuiweb/page/emailTemplate.html" class="navitem" title="邮件列表" data-treeid="9.6.1"><span class="mm-text">邮件列表</span> </a> </li> 
+                    <li> <a href="/tinyuiweb/page/mailDetail.html" class="navitem" title="邮件详情" data-treeid="9.6.2"><span class="mm-text">邮件详情</span> </a> </li> 
+                    <li> <a href="/tinyuiweb/page/mailCompose.html" class="navitem" title="编写邮件" data-treeid="9.6.3"><span class="mm-text">编写邮件</span> </a> </li> 
+                  </ul> </li> 
+                <li> <a href="/tinyuiweb/page/timeline.html" class="navitem" title="时间轴" data-treeid="9.7"><span class="mm-text">时间轴</span> </a> </li> 
+                <li class="mm-dropdown class java.util.HashMap"> <a href="javascript:void(0);" data-treeid="9.8"><span class="mm-text">论坛</span> </a> 
+                  <ul> 
+                    <li> <a href="/tinyuiweb/page/forum.html" class="navitem" title="论坛布局" data-treeid="9.8.1"><span class="mm-text">论坛布局</span> </a> </li> 
+                    <li> <a href="/tinyuiweb/page/forum-topic.html" class="navitem" title="论坛列表" data-treeid="9.8.2"><span class="mm-text">论坛列表</span> </a> </li> 
+                    <li> <a href="/tinyuiweb/page/forum-post.html" class="navitem" title="论坛详情" data-treeid="9.8.3"><span class="mm-text">论坛详情</span> </a> </li> 
+                  </ul> </li> 
+                <li> <a href="/tinyuiweb/page/viewsControl.html" class="navitem" title="视图控制" data-treeid="9.9"><span class="mm-text">视图控制</span> </a> </li> 
+                <li> <a href="/tinyuiweb/page/iconTab.html" class="navitem" title="图标控制" data-treeid="9.10"><span class="mm-text">图标控制</span> </a> </li> 
+              </ul> </li> 
+            <li class="mm-dropdown class java.util.HashMap"> <a href="javascript:void(0);" data-treeid="10"><i class="menu-icon fa fa-files-o"></i><span class="mm-text">其它</span> </a> 
+              <ul> 
+                <li> <a href="/tinyuiweb/page/error404.html" class="navitem" title="错误404" data-treeid="10.1"><span class="mm-text">错误404</span> </a> </li> 
+                <li> <a href="/tinyuiweb/page/error500.html" class="navitem" title="错误500" data-treeid="10.2"><span class="mm-text">错误500</span> </a> </li> 
+                <li> <a href="/tinyuiweb/page/loginRegistered.html" class="navitem" title="登录注册" data-treeid="10.3"><span class="mm-text">登录注册</span> </a> </li> 
+                <li> <a href="/tinyuiweb/page/loadscrollingpic.html" class="navitem" title="屏幕内图片加载" data-treeid="10.4"><span class="mm-text">屏幕内图片加载</span> </a> </li> 
+              </ul> </li> 
+            <li class="mm-dropdown class java.util.HashMap"> <a href="javascript:void(0);" data-treeid="11"><i class="menu-icon fa fa-sitemap"></i><span class="mm-text">多级导航</span> <span class="label label-warning">6</span> </a> 
+              <ul> 
+                <li> <a href="/tinyuiweb/page/first.html" class="navitem" title="一级菜单" data-treeid="11.1"><span class="mm-text">一级菜单</span> </a> </li> 
+                <li class="mm-dropdown class java.util.HashMap"> <a href="javascript:void(0);" data-treeid="11.2"><span class="mm-text">一级菜单</span> <span class="label label-warning">5</span> </a> 
+                  <ul> 
+                    <li> <a href="/tinyuiweb/page/second.html" class="navitem" title="二级菜单" data-treeid="11.2.1"><span class="mm-text">二级菜单</span> </a> </li> 
+                    <li class="mm-dropdown class java.util.HashMap"> <a href="javascript:void(0);" data-treeid="11.2.2"><span class="mm-text">二级菜单</span> <span class="label label-warning">5</span> </a> 
+                      <ul> 
+                        <li class="mm-dropdown class java.util.HashMap"> <a href="javascript:void(0);" data-treeid="11.2.2.1"><span class="mm-text">三级菜单</span> <span class="label label-warning">5</span> </a> 
+                          <ul> 
+                            <li> <a href="/tinyuiweb/page/fourth.html" class="navitem" title="四级菜单" data-treeid="11.2.2.1.1"><span class="mm-text">四级菜单</span> </a> </li> 
+                          </ul> </li> 
+                        <li> <a href="/tinyuiweb/page/third.html" class="navitem" title="三级菜单" data-treeid="11.2.2.2"><span class="mm-text">三级菜单</span> </a> </li> 
+                      </ul> </li> 
+                    <li> <a href="second2.html" class="navitem" title="二级菜单2" data-treeid="11.2.3"><span class="mm-text">二级菜单2</span> </a> </li> 
+                  </ul> </li> 
+              </ul> </li> 
+          </ul> 
+          <!-- navigation end --> 
+          <div class="menu-content"> 
+            <a href="javascript:void(0);" class="btn btn-primary btn-block btn-outline dark">创建页面</a> 
+          </div> 
+        </div> 
+      </div> 
+      <div id="main-menu-bg"></div> 
+      <div class="content-wrapper-bg"></div> 
+      <div id="content-wrapper"> 
+        <div class="postion-nav"> 
+          <ul class="breadcrumb"> 
+            <li class="text-light-gray">所在位置： </li> 
+            <li><a href="/tinyuiweb">首页</a></li>
+            <li>首页</li> 
+          </ul> 
+        </div> 
+        <!-- 主体 start --> 
+        <div class="row"> 
+          <div id="tinypagecontent" style="min-height:490px"> 
+            <h1 class="page_title"> 按钮 </h1> 
+            <h2> 1 圆角按钮颜色 </h2> 
+            <p> 任何赋予 <code> .btn </code> 类的页面元素都会显示方角按钮样式。通常用在 <code> &lt;a&gt; </code> 和 <code> &lt;button&gt; </code> 页面元素上。追加.radius就会显示css3圆角效果。 </p> 
+            <div class="codeView bs-docs-example "> 
+              <table class="table  table table-border table-bordered table-striped"> 
+                <thead> 
+                  <tr> 
+                    <th>按钮</th> 
+                    <th>class=&quot;&quot;</th> 
+                    <th>描述</th> 
+                  </tr> 
+                </thead> 
+                <tbody> 
+                  <tr> 
+                    <td> <input class="btn btn-default  " type="button" value="默认" /> </td> 
+                    <td> <code> btn btn-default </code> </td> 
+                    <td>带渐变的标准灰色按钮</td> 
+                  </tr> 
+                  <tr> 
+                    <td> <input class="btn radius btn-default  " type="button" value="圆角效果" /> </td> 
+                    <td> <code> btn radius btn-default </code> </td> 
+                    <td>带渐变的标准灰色圆角按钮</td> 
+                  </tr> 
+                  <tr> 
+                    <td> <input class="btn radius btn-primary  " type="button" value="主要" /> </td> 
+                    <td> <code> btn radius btn-primary </code> </td> 
+                    <td>提供额外的视觉感, 可在一系列的按钮中指出主要操作</td> 
+                  </tr> 
+                  <tr> 
+                    <td> <input class="btn radius btn-info  " type="button" value="信息" /> </td> 
+                    <td> <code> btn radius btn-info </code> </td> 
+                    <td>默认样式的替代样式</td> 
+                  </tr> 
+                  <tr> 
+                    <td> <input class="btn radius btn-success  " type="button" value="成功" /> </td> 
+                    <td> <code> btn radius btn-success </code> </td> 
+                    <td>表示成功或积极的动作</td> 
+                  </tr> 
+                  <tr> 
+                    <td> <input class="btn radius btn-warning  " type="button" value="警告" /> </td> 
+                    <td> <code> btn radius btn-warning </code> </td> 
+                    <td>提醒应该谨慎采取这个动作</td> 
+                  </tr> 
+                  <tr> 
+                    <td> <input class="btn radius btn-danger  " type="button" value="警告" /> </td> 
+                    <td> <code> btn radius btn-danger </code> </td> 
+                    <td>表示这个动作危险或存在危险</td> 
+                  </tr> 
+                  <tr> 
+                    <td> <input class="btn radius btn-inverse  " type="button" value="反向" /> </td> 
+                    <td> <code> btn radius btn-inverse </code> </td> 
+                    <td>备用的暗灰色按钮，不依赖于语义和用途&lt;</td> 
+                  </tr> 
+                  <tr> 
+                    <td> <a class="btn grayBtn" href="#"> 返回 </a> </td> 
+                    <td> <code> btn radius grayBtn </code> </td> 
+                    <td>简化按钮样式, 纯色没有渐变</td> 
+                  </tr> 
+                  <tr> 
+                    <td> <input class="btn radius btn-link  " type="button" value="链接" /> </td> 
+                    <td> <code> btn radius btn-link </code> </td> 
+                    <td>简化一个按钮, 使它看起来像一个链接，同时保持按钮的行为</td> 
+                  </tr> 
+                  <tr> 
+                    <td> <input class="btn radius disabled  " type="button" value="禁用" /> </td> 
+                    <td> <code> btn radius disabled </code> </td> 
+                    <td>disabled只是让状态看上去像禁用，但实际并没有真正禁用，需要js代码来禁止链接的行为</td> 
+                  </tr> 
+                </tbody> 
+              </table> 
+              <p class="mt-10"> <input class="btn radius btn-large btn-block btn-primary  " type="button" value="btn-block块级按钮，通栏显示" /> </p> 
+            </div> 
+            <p> 不支持圆角和背景渐变浏览器，如IE系列，会显示扁平纯色直角效果。 </p> 
+            <h2> 2 按钮大小 </h2> 
+            <p> 定义了五种规格尺寸 </p> 
+            <div class="codeView bs-docs-example "> 
+              <table class="table  table table-border table-bordered table-striped"> 
+                <thead> 
+                  <tr> 
+                    <th width="20%">按钮</th> 
+                    <th>class=&quot;&quot;</th> 
+                  </tr> 
+                </thead> 
+                <tbody> 
+                  <tr> 
+                    <td> <input class="btn radius btn-primary  btn-large" type="button" value="特大按钮" /> </td> 
+                    <td> <code> btn-large </code> </td> 
+                  </tr> 
+                  <tr> 
+                    <td> <input class="btn radius btn-primary  btn-big" type="button" value="大按钮" /> </td> 
+                    <td> <code> btn-big </code> </td> 
+                  </tr> 
+                  <tr> 
+                    <td> <input class="btn radius btn-primary  " type="button" value="默认尺寸" /> </td> 
+                    <td></td> 
+                  </tr> 
+                  <tr> 
+                    <td> <input class="btn radius btn-primary  btn-small" type="button" value="小按钮" /> </td> 
+                    <td> <code> btn-small </code> </td> 
+                  </tr> 
+                  <tr> 
+                    <td> <input class="btn radius btn-primary  btn-mini" type="button" value="迷你按钮" /> </td> 
+                    <td> <code> btn-mini </code> </td> 
+                  </tr> 
+                </tbody> 
+              </table> 
+            </div> 
+            <h2> 3 多元化按钮 </h2> 
+            <div class="codeView bs-docs-example "> 
+              <table class="table  table table-border table-bordered table-striped"> 
+                <thead> 
+                  <tr> 
+                    <th width="33%">按钮</th> 
+                    <th>class=&quot;&quot;</th> 
+                  </tr> 
+                </thead> 
+                <tbody> 
+                  <tr> 
+                    <td> <a class="btn btn-primary btn-circle btn-xl "> <i class="glyphicon glyphicon-list"> </i> </a> <a class="btn btn-default btn-circle btn-xl "> <i class="glyphicon glyphicon-ok"> </i> </a> </td> 
+                    <td>超大圆形按钮，请添加样式 <code> .btn-circle .btn-xl </code> </td> 
+                  </tr> 
+                  <tr> 
+                    <td> <a class="btn btn-primary btn-circle btn-lg "> <i class="glyphicon glyphicon-list"> </i> </a> <a class="btn btn-default btn-circle btn-lg "> <i class="glyphicon glyphicon-ok"> </i> </a> </td> 
+                    <td>大圆形按钮，请添加样式 <code> .btn-circle .btn-lg </code> </td> 
+                  </tr> 
+                  <tr> 
+                    <td> <a class="btn btn-primary btn-circle "> <i class="glyphicon glyphicon-list"> </i> </a> <a class="btn btn-default btn-circle "> <i class="glyphicon glyphicon-ok"> </i> </a> </td> 
+                    <td>默认大小圆形按钮，请添加样式 <code> .btn-circle </code> </td> 
+                  </tr> 
+                  <tr> 
+                    <td> <a class="btn btn btn-primary btn-xs"> <i class="fa fa-gear"> </i> </a> <a class="btn btn btn-default btn-sm"> <i class="fa fa-gear fa-lg"> </i> </a> <a class="btn btn btn-primary "> <i class="fa fa-gear fa-lg"> </i> </a> <a class="btn btn btn-primary "> <i class="fa fa-gear fa-lg"> </i> <i class="fa fa-caret-down"> </i> </a> <a class="btn btn btn-primary btn-lg"> <i class="fa fa-gear fa-lg"> </i> </a> </td> 
+                    <td>各种尺寸 <code> 较小.btn-xs 小.btn-sm 默认.btn-primary 大.btn-lg </code> </td> 
+                  </tr> 
+                  <tr> 
+                    <td> <a class="btn btn btn-default txt-color-red"> <i class="fa fa-gear fa-lg"> </i> </a> <a class="btn btn btn-default txt-color-greenLight"> <i class="fa fa-gear fa-lg"> </i> </a> <a class="btn  btn bg-color-blueLight txt-color-magenta"> <i class="fa fa fa-gear fa-lg"> </i> </a> <a class="btn  btn bg-color-blueDark txt-color-teal"> <i class="fa fa-gear fa-3x"> </i> </a> <a class="btn  btn bg-color-red txt-color-white"> <i class="fa fa-gear fa-4x fa-spin"> </i> </a> </td> 
+                    <td>各种背景颜色的按钮 <code> .btn .bg-color-blueLight .txt-color-magenta </code> 也可以自行设置文字图标颜色 示例: <code> .txt-color-red </code> </td> 
+                  </tr> 
+                  <tr> 
+                    <td> <a class="btn btn btn-primary "> <i class="fa fa-shopping-cart"> </i> 按钮 </a> <a class="btn  btn btn-success"> <i class="fa fa-gear"> </i> 按钮 <i> </i> </a> <a class="btn  btn btn-danger"> 按钮 <i> </i> </a> 
+                      <div class="btn-group "> 
+                        <a class="btn btn btn-default "> <i class="fa fa-gear"> </i> 按钮 </a> 
+                        <a data-toggle="dropdown" class="dropdown-toggle btn btn-default"> <span class="caret"> </span> </a> 
+                        <ul class="dropdown-menu "> 
+                          <li> <a href="javascript:void(0);"> Action </a> </li> 
+                          <li> <a href="javascript:void(0);"> Another action </a> </li> 
+                          <li> <a href="javascript:void(0);"> Something else here </a> </li> 
+                          <li> </li> 
+                          <li> <a href="javascript:void(0);"> Separated link </a> </li> 
+                        </ul> 
+                      </div> </td> 
+                    <td>图标按钮 <code> 图标可以在i上加.fa-shopping-cart等 </code> </td> 
+                  </tr> 
+                  <tr> 
+                    <td> 
+                      <div class="btn-group "> 
+                        <a class="btn btn btn-primary "> 按钮 </a> 
+                        <a data-toggle="dropdown" class="dropdown-toggle btn btn-primary"> <span class="caret"> </span> </a> 
+                        <ul class="dropdown-menu "> 
+                          <li> <a href="javascript:void(0);"> Action </a> </li> 
+                          <li> <a href="javascript:void(0);"> Another action </a> </li> 
+                          <li> <a href="javascript:void(0);"> Something else here </a> </li> 
+                          <li> </li> 
+                          <li> <a href="javascript:void(0);"> Separated link </a> </li> 
+                        </ul> 
+                      </div> 
+                      <div class="btn-group "> 
+                        <button class="btn btn-default dropdown-toggle " data-toggle="dropdown"> 动作 <span class="caret"> </span> </button> 
+                        <ul class="dropdown-menu "> 
+                          <li> <a href="javascript:void(0);"> Action </a> </li> 
+                          <li> <a href="javascript:void(0);"> Another action </a> </li> 
+                          <li> <a href="javascript:void(0);"> Something else here </a> </li> 
+                          <li> </li> 
+                          <li> <a href="javascript:void(0);"> Separated link </a> </li> 
+                        </ul> 
+                      </div> </td> 
+                    <td>背景颜色和下拉图标添加 <code> .btn-primary .dropdown-toggle </code> </td> 
+                  </tr> 
+                </tbody> 
+              </table> 
+            </div> 
+            <h2> 4 各种颜色的按钮 </h2> 
+            <div class="codeView bs-docs-example "> 
+              <p class="alert alert-info "> 可以给按钮增加Css格式，各种存在的样式都可以加到按钮上来形成独特风格的按钮 <strong> 示例::  <code> .btn .bg-color-blueLight .txt-color-white </code> </strong></p>
+              <strong> 
+                <ul class="demo-btns"> 
+                  <li> <a class="btn txt-color-white bg-color-blueLight" href="javascript:void(0);"> .bg-color-blueLight </a> </li> 
+                  <li> <a class="btn txt-color-white bg-color-blue" href="javascript:void(0);"> .bg-color-blue </a> </li> 
+                  <li> <a class="btn txt-color-white bg-color-teal" href="javascript:void(0);"> .bg-color-teal </a> </li> 
+                  <li> <a class="btn txt-color-white bg-color-blueDark" href="javascript:void(0);"> .bg-color-blueDark </a> </li> 
+                  <li> <a class="btn txt-color-white bg-color-green" href="javascript:void(0);"> .bg-color-green </a> </li> 
+                  <li> <a class="btn txt-color-white bg-color-greenDark" href="javascript:void(0);"> .bg-color-greenDark </a> </li> 
+                  <li> <a class="btn txt-color-white bg-color-greenLight" href="javascript:void(0);"> .bg-color-greenLight </a> </li> 
+                  <li> <a class="btn txt-color-white bg-color-purple" href="javascript:void(0);"> .bg-color-purple </a> </li> 
+                  <li> <a class="btn txt-color-white bg-color-magenta" href="javascript:void(0);"> .bg-color-magenta </a> </li> 
+                  <li> <a class="btn txt-color-white bg-color-pink" href="javascript:void(0);"> .bg-color-pink </a> </li> 
+                  <li> <a class="btn txt-color-white bg-color-pinkDark" href="javascript:void(0);"> .bg-color-pinkDark </a> </li> 
+                  <li> <a class="btn txt-color-white bg-color-yellow" href="javascript:void(0);"> .bg-color-yellow </a> </li> 
+                  <li> <a class="btn txt-color-white bg-color-orange" href="javascript:void(0);"> .bg-color-orange </a> </li> 
+                  <li> <a class="btn txt-color-white bg-color-red" href="javascript:void(0);"> .bg-color-red </a> </li> 
+                  <li> <a class="btn txt-color-white bg-color-redLight" href="javascript:void(0);"> .bg-color-redLight </a> </li> 
+                  <li> <a class="btn txt-color-dark btn-default" href="javascript:void(0);"> .btn-default </a> </li> 
+                </ul> </strong>
+            </div>
+            <strong> <h3> 组件包 </h3> <pre class="prettyprint linenums"><span class="Huialert-danger">以上组件依赖org.tinygroup.button包即可</span></pre> </strong>
+          </div>
+          <strong> </strong>
+        </div>
+        <strong> 
+          <div id="tinyfooter"> 
+            <div class="tinyfooterrap"> 
+              <span class="right"> <a class="record-num" target="_blank" href="http://www.beianbeian.com/search/tinygroup.org">浙ICP备14043110号-1</a> </span> TinyGroup官方网站 &copy; 2013-2016 
+            </div> 
+          </div> </strong>
+      </div>
+      <strong> </strong>
+    </div>
+    <strong> <script type="text/javascript">
+        init.push(function () {
+            var menucount=$(".navigation:first>li").size();
+            $("#topmenurap .navigation>li").css("width",100/menucount+"%");
+
+			                var menuList=[];
+                $(".navigation:first a.navitem").each(function(){
+                    var href=$(this).attr("href");
+                    var treeid=$(this).attr("data-treeid");
+                    menuList.push({id:treeid,url:href});
+                });
+                $.ajax({
+                    url:"/tinyuiweb/action/savemenulist.pagelet",
+                    type:"post",
+                    data:{data:JSON.stringify(menuList)},
+                    success:function(data){
+                        if(window.location.pathname!=contextPath+"/page/")
+                            window.location.reload();
+                    }
+                })
+			        })
+    </script>   </strong>
+  </body>
+</html>
