@@ -1,0 +1,20 @@
+/*设置每一个瀑布流块*/
+#main .pin{
+	width:220px;
+	height: auto;
+	padding: 15px 0px 0px 15px; /*上 右 下 左*/
+	float: left;
+}
+/*设置每一个瀑布流块中的图像样式*/
+#main .pin .box{
+	width: 200px;
+	height: auto;
+	padding: 10px;
+	background: #FFF;
+	border: 1px solid #ccc;
+	box-shadow: 0px 0px 6px #ccc; /*中间投影*/
+	border-radius: 5px; /*圆角*/
+}
+#main .pin .box img{
+	width: 200px;
+}
