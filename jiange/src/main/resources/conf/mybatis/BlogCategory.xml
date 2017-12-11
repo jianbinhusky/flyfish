@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hujianbin.basis.dao.BlogCategoryDao">
+	<cache />
+	<resultMap type="BlogCategory" id="t_blog_categoryMap">
+      	<result property="id" column="id" />
+		<result property="userId" column="user_id" />
+		<result property="categoryName" column="category_name" />
+  	</resultMap>
+  	<sql id="BlogCategory_WHERE">
+	<where>
+		<if test="id!=null">
+			 and id=#{id,jdbcType=NUMERIC}
+		</if>
+		<if test="userId!=null">
+			 and user_id=#{userId,jdbcType=NUMERIC}
+		</if>
+		<if test="categoryName!=null">
+			 and category_name=#{categoryName,jdbcType=VARCHAR}
+		</if>
+	</where>
+  </sql>
+  <sql id="BlogCategorySearchBean_WHERE">
+	<where>
+		<if test="id!=null">
+			 and id=#{id,jdbcType=NUMERIC}
+		</if>
+		<if test="inId!=null">
+			 and id in
+			<foreach collection="inId" index="index" item="inId" open="(" separator="," close=")">
+				#{inId}
+			</foreach>
+		</if>
+		<if test="notInId!=null">
+			 and id not in
+			<foreach collection="notInId" index="index" item="notInId" open="(" separator="," close=")">
+				#{notInId}
+			</foreach>
+		</if>
+		<if test="userId!=null">
+			 and user_id=#{userId,jdbcType=NUMERIC}
+		</if>
+		<if test="isNotNullUserId!=null and isNotNullUserId==true">
+			 and user_id is not null
+		</if>
+		<if test="isNotNullUserId!=null and isNotNullUserId==false">
+			 and user_id is null
+		</if>
+		<if test="inUserId!=null">
+			 and user_id in
+			<foreach collection="inUserId" index="index" item="inUserId" open="(" separator="," close=")">
+				#{inUserId}
+			</foreach>
+		</if>
+		<if test="notInUserId!=null">
+			 and user_id not in
+			<foreach collection="notInUserId" index="index" item="notInUserId" open="(" separator="," close=")">
+				#{notInUserId}
+			</foreach>
+		</if>
+		<if test="noEqualsUserId!=null">
+			 and user_id<![CDATA[<>]]>#{noEqualsUserId,jdbcType=NUMERIC}
+		</if>
+		<if test="equalsUserId!=null">
+			 and user_id=#{equalsUserId,jdbcType=NUMERIC}
+		</if>
+		<if test="greaterUserId!=null">
+			 and user_id<![CDATA[>]]>#{greaterUserId,jdbcType=NUMERIC}
+		</if>
+		<if test="greaterEqualsUserId!=null">
+			 and user_id<![CDATA[>=]]>#{greaterEqualsUserId,jdbcType=NUMERIC}
+		</if>
+		<if test="lessUserId!=null">
+			 and user_id<![CDATA[<]]>#{lessUserId,jdbcType=NUMERIC}
+		</if>
+		<if test="lessEqualsUserId!=null">
+			 and user_id<![CDATA[<=]]>#{lessEqualsUserId,jdbcType=NUMERIC}
+		</if>
+		<if test="categoryName!=null and categoryName!=''">
+			 and category_name=#{categoryName,jdbcType=VARCHAR}
+		</if>
+		<if test="isNotNullCategoryName!=null and isNotNullCategoryName==true">
+			 and category_name is not null
+		</if>
+		<if test="isNotNullCategoryName!=null and isNotNullCategoryName==false">
+			 and category_name is null
+		</if>
+		<if test="inCategoryName!=null">
+			 and category_name in
+			<foreach collection="inCategoryName" index="index" item="inCategoryName" open="(" separator="," close=")">
+				#{inCategoryName}
+			</foreach>
+		</if>
+		<if test="notInCategoryName!=null">
+			 and category_name not in
+			<foreach collection="notInCategoryName" index="index" item="notInCategoryName" open="(" separator="," close=")">
+				#{notInCategoryName}
+			</foreach>
+		</if>
+		<if test="noEqualsCategoryName!=null">
+			 and category_name<![CDATA[<>]]>#{noEqualsCategoryName,jdbcType=VARCHAR}
+		</if>
+		<if test="equalsCategoryName!=null">
+			 and category_name=#{equalsCategoryName,jdbcType=VARCHAR}
+		</if>
+		<if test="greaterCategoryName!=null">
+			 and category_name<![CDATA[>]]>#{greaterCategoryName,jdbcType=VARCHAR}
+		</if>
+		<if test="greaterEqualsCategoryName!=null">
+			 and category_name<![CDATA[>=]]>#{greaterEqualsCategoryName,jdbcType=VARCHAR}
+		</if>
+		<if test="lessCategoryName!=null">
+			 and category_name<![CDATA[<]]>#{lessCategoryName,jdbcType=VARCHAR}
+		</if>
+		<if test="lessEqualsCategoryName!=null">
+			 and category_name<![CDATA[<=]]>#{lessEqualsCategoryName,jdbcType=VARCHAR}
+		</if>
+		<if test="likeCategoryName!=null and likeCategoryName!=''">
+			 and category_name like "%"#{likeCategoryName,jdbcType=VARCHAR}"%"
+		</if>
+		<if test="leftLikeCategoryName!=null and leftLikeCategoryName!=''">
+			 and category_name like "%"#{leftLikeCategoryName,jdbcType=VARCHAR}
+		</if>
+		<if test="rightLikeCategoryName!=null and rightLikeCategoryName!=''">
+			 and category_name like #{rightLikeCategoryName,jdbcType=VARCHAR}"%"
+		</if>
+	</where>
+  </sql>
+  <sql id="BlogCategoryCondition_WHERE">
+	<where>
+		<if test="id!=null">
+			 and id=#{id,jdbcType=NUMERIC}
+		</if>
+		<if test="inId!=null">
+			 and id in
+			<foreach collection="inId" index="index" item="inId" open="(" separator="," close=")">
+				#{inId}
+			</foreach>
+		</if>
+		<if test="notInId!=null">
+			 and id not in
+			<foreach collection="notInId" index="index" item="notInId" open="(" separator="," close=")">
+				#{notInId}
+			</foreach>
+		</if>
+		<if test="isNotNullUserId!=null and isNotNullUserId==true">
+			 and user_id is not null
+		</if>
+		<if test="isNotNullUserId!=null and isNotNullUserId==false">
+			 and user_id is null
+		</if>
+		<if test="inUserId!=null">
+			 and user_id in
+			<foreach collection="inUserId" index="index" item="inUserId" open="(" separator="," close=")">
+				#{inUserId}
+			</foreach>
+		</if>
+		<if test="notInUserId!=null">
+			 and user_id not in
+			<foreach collection="notInUserId" index="index" item="notInUserId" open="(" separator="," close=")">
+				#{notInUserId}
+			</foreach>
+		</if>
+		<if test="noEqualsUserId!=null">
+			 and user_id<![CDATA[<>]]>#{noEqualsUserId,jdbcType=NUMERIC}
+		</if>
+		<if test="equalsUserId!=null">
+			 and user_id=#{equalsUserId,jdbcType=NUMERIC}
+		</if>
+		<if test="greaterUserId!=null">
+			 and user_id<![CDATA[>]]>#{greaterUserId,jdbcType=NUMERIC}
+		</if>
+		<if test="greaterEqualsUserId!=null">
+			 and user_id<![CDATA[>=]]>#{greaterEqualsUserId,jdbcType=NUMERIC}
+		</if>
+		<if test="lessUserId!=null">
+			 and user_id<![CDATA[<]]>#{lessUserId,jdbcType=NUMERIC}
+		</if>
+		<if test="lessEqualsUserId!=null">
+			 and user_id<![CDATA[<=]]>#{lessEqualsUserId,jdbcType=NUMERIC}
+		</if>
+		<if test="isNotNullCategoryName!=null and isNotNullCategoryName==true">
+			 and category_name is not null
+		</if>
+		<if test="isNotNullCategoryName!=null and isNotNullCategoryName==false">
+			 and category_name is null
+		</if>
+		<if test="inCategoryName!=null">
+			 and category_name in
+			<foreach collection="inCategoryName" index="index" item="inCategoryName" open="(" separator="," close=")">
+				#{inCategoryName}
+			</foreach>
+		</if>
+		<if test="notInCategoryName!=null">
+			 and category_name not in
+			<foreach collection="notInCategoryName" index="index" item="notInCategoryName" open="(" separator="," close=")">
+				#{notInCategoryName}
+			</foreach>
+		</if>
+		<if test="noEqualsCategoryName!=null">
+			 and category_name<![CDATA[<>]]>#{noEqualsCategoryName,jdbcType=VARCHAR}
+		</if>
+		<if test="equalsCategoryName!=null">
+			 and category_name=#{equalsCategoryName,jdbcType=VARCHAR}
+		</if>
+		<if test="greaterCategoryName!=null">
+			 and category_name<![CDATA[>]]>#{greaterCategoryName,jdbcType=VARCHAR}
+		</if>
+		<if test="greaterEqualsCategoryName!=null">
+			 and category_name<![CDATA[>=]]>#{greaterEqualsCategoryName,jdbcType=VARCHAR}
+		</if>
+		<if test="lessCategoryName!=null">
+			 and category_name<![CDATA[<]]>#{lessCategoryName,jdbcType=VARCHAR}
+		</if>
+		<if test="lessEqualsCategoryName!=null">
+			 and category_name<![CDATA[<=]]>#{lessEqualsCategoryName,jdbcType=VARCHAR}
+		</if>
+		<if test="likeCategoryName!=null and likeCategoryName!=''">
+			 and category_name like "%"#{likeCategoryName,jdbcType=VARCHAR}"%"
+		</if>
+		<if test="leftLikeCategoryName!=null and leftLikeCategoryName!=''">
+			 and category_name like "%"#{leftLikeCategoryName,jdbcType=VARCHAR}
+		</if>
+		<if test="rightLikeCategoryName!=null and rightLikeCategoryName!=''">
+			 and category_name like #{rightLikeCategoryName,jdbcType=VARCHAR}"%"
+		</if>
+	</where>
+  </sql>
+  <sql id="BlogCategory_UPDATE">
+	<set>
+		<if test="id!=null">
+			id=#{id,jdbcType=NUMERIC},
+		</if>
+		<if test="userId!=null">
+			user_id=#{userId,jdbcType=NUMERIC},
+		</if>
+		<if test="categoryName!=null">
+			category_name=#{categoryName,jdbcType=VARCHAR},
+		</if>
+	</set>
+  </sql>
+    <insert id="insertBlogCategory" parameterType="BlogCategory" flushCache="true" useGeneratedKeys="true" keyProperty="id"  keyColumn="id">
+    	<![CDATA[
+			INSERT INTO t_blog_category (user_id,category_name) VALUES (#{userId},#{categoryName})
+		]]>
+		<selectKey keyProperty="id" resultType="int" order="AFTER">
+			SELECT LAST_INSERT_ID();
+			</selectKey>
+    </insert>
+    <update id="update_BlogCategory" parameterType="BlogCategory" flushCache="true">
+    	<![CDATA[UPDATE t_blog_category SET id=#{id,jdbcType=NUMERIC},user_id=#{userId,jdbcType=NUMERIC},category_name=#{categoryName,jdbcType=VARCHAR} WHERE id=#{id,jdbcType=NUMERIC}]]>
+  	</update>
+    <update id="updateBlogCategoryByExample" parameterType="BlogCategory" flushCache="true">
+    	<![CDATA[
+    		UPDATE t_blog_category
+    	]]>
+    	<include refid="BlogCategory_UPDATE" />
+    	<![CDATA[WHERE id=#{id,jdbcType=NUMERIC}]]>
+  	</update>
+  	<update id="updateBlogCategoryByWhere" parameterType="java.lang.String" flushCache="true">
+    	<![CDATA[
+    		UPDATE t_blog_category ${value}
+    	]]>
+  	</update>
+  	<update id="updateBlogCategoryByCondition" parameterType="com.hujianbin.basis.search.BlogCategorySearchBean" flushCache="true">
+    	<![CDATA[UPDATE t_blog_category]]>
+    	<include refid="BlogCategory_UPDATE" />
+    	<include refid="BlogCategoryCondition_WHERE" />
+  	</update>
+  	<delete id="deleteBlogCategoryByWhere" parameterType="java.lang.String" flushCache="true">
+    	<![CDATA[DELETE FROM t_blog_category ${value}]]>
+  	</delete>
+  	<delete id="deleteBlogCategoryByExample" parameterType="BlogCategory" flushCache="true">
+    	<![CDATA[DELETE FROM t_blog_category]]>
+    	<include refid="BlogCategory_WHERE" />
+  	</delete>
+  	<delete id="deleteBlogCategoryByCondition" parameterType="com.hujianbin.basis.search.BlogCategorySearchBean" flushCache="true">
+    	<![CDATA[delete from t_blog_category]]>
+    	<include refid="BlogCategorySearchBean_WHERE" />
+  	</delete>
+  	<select id="getBlogCategoryByWhere" parameterType="java.lang.String" resultType="BlogCategory" resultMap="t_blog_categoryMap">
+    	<![CDATA[SELECT * FROM t_blog_category ${value}]]>
+  	</select>
+  	<select id="getBlogCategoryByExample" parameterType="BlogCategory" resultType="BlogCategory" resultMap="t_blog_categoryMap">  
+        <![CDATA[
+			SELECT * FROM t_blog_category
+		]]>
+        <include refid="BlogCategory_WHERE" />
+    </select>
+    <select id="getBlogCategoryByCondition" parameterType="com.hujianbin.basis.search.BlogCategorySearchBean" resultType="BlogCategory" resultMap="t_blog_categoryMap">
+    	<![CDATA[SELECT * FROM t_blog_category]]>
+    	<include refid="BlogCategorySearchBean_WHERE" />
+    	<![CDATA[${orderSql}]]>
+  	</select>
+  	<select id="getBlogCategoryListByWhere" parameterType="java.lang.String" resultType="BlogCategory" resultMap="t_blog_categoryMap">
+    	<![CDATA[SELECT * FROM t_blog_category ${sql}]]>
+  	</select>
+  	<select id="getBlogCategoryListByCondition" parameterType="com.hujianbin.basis.search.BlogCategorySearchBean" resultType="BlogCategory" resultMap="t_blog_categoryMap">
+    	<![CDATA[SELECT * FROM t_blog_category]]>
+    	<include refid="BlogCategorySearchBean_WHERE" />
+    	<![CDATA[${orderSql}]]>
+  	</select>
+  	<select id="getBlogCategoryCountByWhere" parameterType="java.lang.String" resultType="int">
+    	<![CDATA[SELECT COUNT(*) FROM t_blog_category ${value}]]>
+  	</select>
+  	<select id="getBlogCategoryCountByExample" parameterType="BlogCategory" resultType="int">
+    	<![CDATA[SELECT COUNT(*) FROM t_blog_category]]>
+    	<include refid="BlogCategory_WHERE" />
+  	</select>
+  	<select id="getBlogCategoryCountByCondition" parameterType="com.hujianbin.basis.search.BlogCategorySearchBean" resultType="int">
+    	<![CDATA[SELECT COUNT(*) FROM t_blog_category]]>
+    	<include refid="BlogCategorySearchBean_WHERE" />
+  	</select>
+  	<select id="getBlogCategoryColumnByCondition" parameterType="com.hujianbin.basis.search.BlogCategorySearchBean" resultType="java.util.HashMap">
+    	<![CDATA[SELECT ${columnSql} FROM t_blog_category]]>
+    	<include refid="BlogCategorySearchBean_WHERE" />
+    	<![CDATA[${sql}]]>
+ 	</select>
+</mapper>

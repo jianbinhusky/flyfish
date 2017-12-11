@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hujianbin.basis.dao.BlogUserDao">
+	<cache />
+	<resultMap type="BlogUser" id="t_blog_userMap">
+      	<result property="id" column="id" />
+		<result property="userName" column="user_name" />
+  	</resultMap>
+  	<sql id="BlogUser_WHERE">
+	<where>
+		<if test="id!=null">
+			 and id=#{id,jdbcType=NUMERIC}
+		</if>
+		<if test="userName!=null">
+			 and user_name=#{userName,jdbcType=VARCHAR}
+		</if>
+	</where>
+  </sql>
+  <sql id="BlogUserSearchBean_WHERE">
+	<where>
+		<if test="id!=null">
+			 and id=#{id,jdbcType=NUMERIC}
+		</if>
+		<if test="inId!=null">
+			 and id in
+			<foreach collection="inId" index="index" item="inId" open="(" separator="," close=")">
+				#{inId}
+			</foreach>
+		</if>
+		<if test="notInId!=null">
+			 and id not in
+			<foreach collection="notInId" index="index" item="notInId" open="(" separator="," close=")">
+				#{notInId}
+			</foreach>
+		</if>
+		<if test="userName!=null and userName!=''">
+			 and user_name=#{userName,jdbcType=VARCHAR}
+		</if>
+		<if test="isNotNullUserName!=null and isNotNullUserName==true">
+			 and user_name is not null
+		</if>
+		<if test="isNotNullUserName!=null and isNotNullUserName==false">
+			 and user_name is null
+		</if>
+		<if test="inUserName!=null">
+			 and user_name in
+			<foreach collection="inUserName" index="index" item="inUserName" open="(" separator="," close=")">
+				#{inUserName}
+			</foreach>
+		</if>
+		<if test="notInUserName!=null">
+			 and user_name not in
+			<foreach collection="notInUserName" index="index" item="notInUserName" open="(" separator="," close=")">
+				#{notInUserName}
+			</foreach>
+		</if>
+		<if test="noEqualsUserName!=null">
+			 and user_name<![CDATA[<>]]>#{noEqualsUserName,jdbcType=VARCHAR}
+		</if>
+		<if test="equalsUserName!=null">
+			 and user_name=#{equalsUserName,jdbcType=VARCHAR}
+		</if>
+		<if test="greaterUserName!=null">
+			 and user_name<![CDATA[>]]>#{greaterUserName,jdbcType=VARCHAR}
+		</if>
+		<if test="greaterEqualsUserName!=null">
+			 and user_name<![CDATA[>=]]>#{greaterEqualsUserName,jdbcType=VARCHAR}
+		</if>
+		<if test="lessUserName!=null">
+			 and user_name<![CDATA[<]]>#{lessUserName,jdbcType=VARCHAR}
+		</if>
+		<if test="lessEqualsUserName!=null">
+			 and user_name<![CDATA[<=]]>#{lessEqualsUserName,jdbcType=VARCHAR}
+		</if>
+		<if test="likeUserName!=null and likeUserName!=''">
+			 and user_name like "%"#{likeUserName,jdbcType=VARCHAR}"%"
+		</if>
+		<if test="leftLikeUserName!=null and leftLikeUserName!=''">
+			 and user_name like "%"#{leftLikeUserName,jdbcType=VARCHAR}
+		</if>
+		<if test="rightLikeUserName!=null and rightLikeUserName!=''">
+			 and user_name like #{rightLikeUserName,jdbcType=VARCHAR}"%"
+		</if>
+	</where>
+  </sql>
+  <sql id="BlogUserCondition_WHERE">
+	<where>
+		<if test="id!=null">
+			 and id=#{id,jdbcType=NUMERIC}
+		</if>
+		<if test="inId!=null">
+			 and id in
+			<foreach collection="inId" index="index" item="inId" open="(" separator="," close=")">
+				#{inId}
+			</foreach>
+		</if>
+		<if test="notInId!=null">
+			 and id not in
+			<foreach collection="notInId" index="index" item="notInId" open="(" separator="," close=")">
+				#{notInId}
+			</foreach>
+		</if>
+		<if test="isNotNullUserName!=null and isNotNullUserName==true">
+			 and user_name is not null
+		</if>
+		<if test="isNotNullUserName!=null and isNotNullUserName==false">
+			 and user_name is null
+		</if>
+		<if test="inUserName!=null">
+			 and user_name in
+			<foreach collection="inUserName" index="index" item="inUserName" open="(" separator="," close=")">
+				#{inUserName}
+			</foreach>
+		</if>
+		<if test="notInUserName!=null">
+			 and user_name not in
+			<foreach collection="notInUserName" index="index" item="notInUserName" open="(" separator="," close=")">
+				#{notInUserName}
+			</foreach>
+		</if>
+		<if test="noEqualsUserName!=null">
+			 and user_name<![CDATA[<>]]>#{noEqualsUserName,jdbcType=VARCHAR}
+		</if>
+		<if test="equalsUserName!=null">
+			 and user_name=#{equalsUserName,jdbcType=VARCHAR}
+		</if>
+		<if test="greaterUserName!=null">
+			 and user_name<![CDATA[>]]>#{greaterUserName,jdbcType=VARCHAR}
+		</if>
+		<if test="greaterEqualsUserName!=null">
+			 and user_name<![CDATA[>=]]>#{greaterEqualsUserName,jdbcType=VARCHAR}
+		</if>
+		<if test="lessUserName!=null">
+			 and user_name<![CDATA[<]]>#{lessUserName,jdbcType=VARCHAR}
+		</if>
+		<if test="lessEqualsUserName!=null">
+			 and user_name<![CDATA[<=]]>#{lessEqualsUserName,jdbcType=VARCHAR}
+		</if>
+		<if test="likeUserName!=null and likeUserName!=''">
+			 and user_name like "%"#{likeUserName,jdbcType=VARCHAR}"%"
+		</if>
+		<if test="leftLikeUserName!=null and leftLikeUserName!=''">
+			 and user_name like "%"#{leftLikeUserName,jdbcType=VARCHAR}
+		</if>
+		<if test="rightLikeUserName!=null and rightLikeUserName!=''">
+			 and user_name like #{rightLikeUserName,jdbcType=VARCHAR}"%"
+		</if>
+	</where>
+  </sql>
+  <sql id="BlogUser_UPDATE">
+	<set>
+		<if test="id!=null">
+			id=#{id,jdbcType=NUMERIC},
+		</if>
+		<if test="userName!=null">
+			user_name=#{userName,jdbcType=VARCHAR},
+		</if>
+	</set>
+  </sql>
+    <insert id="insertBlogUser" parameterType="BlogUser" flushCache="true" useGeneratedKeys="true" keyProperty="id"  keyColumn="id">
+    	<![CDATA[
+			INSERT INTO t_blog_user (user_name) VALUES (#{userName})
+		]]>
+		<selectKey keyProperty="id" resultType="int" order="AFTER">
+			SELECT LAST_INSERT_ID();
+			</selectKey>
+    </insert>
+    <update id="update_BlogUser" parameterType="BlogUser" flushCache="true">
+    	<![CDATA[UPDATE t_blog_user SET id=#{id,jdbcType=NUMERIC},user_name=#{userName,jdbcType=VARCHAR} WHERE id=#{id,jdbcType=NUMERIC}]]>
+  	</update>
+    <update id="updateBlogUserByExample" parameterType="BlogUser" flushCache="true">
+    	<![CDATA[
+    		UPDATE t_blog_user
+    	]]>
+    	<include refid="BlogUser_UPDATE" />
+    	<![CDATA[WHERE id=#{id,jdbcType=NUMERIC}]]>
+  	</update>
+  	<update id="updateBlogUserByWhere" parameterType="java.lang.String" flushCache="true">
+    	<![CDATA[
+    		UPDATE t_blog_user ${value}
+    	]]>
+  	</update>
+  	<update id="updateBlogUserByCondition" parameterType="com.hujianbin.basis.search.BlogUserSearchBean" flushCache="true">
+    	<![CDATA[UPDATE t_blog_user]]>
+    	<include refid="BlogUser_UPDATE" />
+    	<include refid="BlogUserCondition_WHERE" />
+  	</update>
+  	<delete id="deleteBlogUserByWhere" parameterType="java.lang.String" flushCache="true">
+    	<![CDATA[DELETE FROM t_blog_user ${value}]]>
+  	</delete>
+  	<delete id="deleteBlogUserByExample" parameterType="BlogUser" flushCache="true">
+    	<![CDATA[DELETE FROM t_blog_user]]>
+    	<include refid="BlogUser_WHERE" />
+  	</delete>
+  	<delete id="deleteBlogUserByCondition" parameterType="com.hujianbin.basis.search.BlogUserSearchBean" flushCache="true">
+    	<![CDATA[delete from t_blog_user]]>
+    	<include refid="BlogUserSearchBean_WHERE" />
+  	</delete>
+  	<select id="getBlogUserByWhere" parameterType="java.lang.String" resultType="BlogUser" resultMap="t_blog_userMap">
+    	<![CDATA[SELECT * FROM t_blog_user ${value}]]>
+  	</select>
+  	<select id="getBlogUserByExample" parameterType="BlogUser" resultType="BlogUser" resultMap="t_blog_userMap">  
+        <![CDATA[
+			SELECT * FROM t_blog_user
+		]]>
+        <include refid="BlogUser_WHERE" />
+    </select>
+    <select id="getBlogUserByCondition" parameterType="com.hujianbin.basis.search.BlogUserSearchBean" resultType="BlogUser" resultMap="t_blog_userMap">
+    	<![CDATA[SELECT * FROM t_blog_user]]>
+    	<include refid="BlogUserSearchBean_WHERE" />
+    	<![CDATA[${orderSql}]]>
+  	</select>
+  	<select id="getBlogUserListByWhere" parameterType="java.lang.String" resultType="BlogUser" resultMap="t_blog_userMap">
+    	<![CDATA[SELECT * FROM t_blog_user ${sql}]]>
+  	</select>
+  	<select id="getBlogUserListByCondition" parameterType="com.hujianbin.basis.search.BlogUserSearchBean" resultType="BlogUser" resultMap="t_blog_userMap">
+    	<![CDATA[SELECT * FROM t_blog_user]]>
+    	<include refid="BlogUserSearchBean_WHERE" />
+    	<![CDATA[${orderSql}]]>
+  	</select>
+  	<select id="getBlogUserCountByWhere" parameterType="java.lang.String" resultType="int">
+    	<![CDATA[SELECT COUNT(*) FROM t_blog_user ${value}]]>
+  	</select>
+  	<select id="getBlogUserCountByExample" parameterType="BlogUser" resultType="int">
+    	<![CDATA[SELECT COUNT(*) FROM t_blog_user]]>
+    	<include refid="BlogUser_WHERE" />
+  	</select>
+  	<select id="getBlogUserCountByCondition" parameterType="com.hujianbin.basis.search.BlogUserSearchBean" resultType="int">
+    	<![CDATA[SELECT COUNT(*) FROM t_blog_user]]>
+    	<include refid="BlogUserSearchBean_WHERE" />
+  	</select>
+  	<select id="getBlogUserColumnByCondition" parameterType="com.hujianbin.basis.search.BlogUserSearchBean" resultType="java.util.HashMap">
+    	<![CDATA[SELECT ${columnSql} FROM t_blog_user]]>
+    	<include refid="BlogUserSearchBean_WHERE" />
+    	<![CDATA[${sql}]]>
+ 	</select>
+</mapper>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"  
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"  
+    xmlns:tx="http://www.springframework.org/schema/tx" xmlns:jdbc="http://www.springframework.org/schema/jdbc"  
+    xmlns:context="http://www.springframework.org/schema/context"  
+    xsi:schemaLocation="  
+     http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd  
+     http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd  
+     http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-4.0.xsd  
+     http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd  
+     http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd" default-autowire="byName">
+   	<!-- 
+   		向 Spring 容器注册AutowiredAnnotationBeanPostProcessor、CommonAnnotationBeanPostProcessor、
+		PersistenceAnnotationBeanPostProcessor 以及 RequiredAnnotationBeanPostProcessor 这 4 个BeanPostProcessor。
+		注册这4个 BeanPostProcessor的作用，就是为了系统能够识别相应的注解,eg:@Autowired,@ Resource 、@ PostConstruct.
+	 -->
+	<context:annotation-config/>
+	<!-- 将Controller的注解排除掉,使带annotation的事务不失效 -->
+	<context:component-scan base-package="com.hujianbin"> 
+		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+	</context:component-scan> 
+	<bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"/>
+	<import resource="conf/spring/*.xml"/>
+</beans>
