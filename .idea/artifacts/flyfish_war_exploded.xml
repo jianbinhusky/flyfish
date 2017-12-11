@@ -1,10 +1,10 @@
 <component name="ArtifactManager">
-  <artifact type="exploded-war" name="mySpringMVC:war exploded">
-    <output-path>$PROJECT_DIR$/target/mySpringMVC</output-path>
+  <artifact type="exploded-war" name="flyfish:war exploded">
+    <output-path>$PROJECT_DIR$/target/flyfish</output-path>
     <root id="root">
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
-          <element id="module-output" name="mySpringMVC" />
+          <element id="module-output" name="flyfish" />
         </element>
         <element id="directory" name="lib">
           <element id="library" level="project" name="Maven: junit:junit:4.11" />
@@ -69,9 +69,9 @@
         </element>
       </element>
       <element id="directory" name="META-INF">
-        <element id="file-copy" path="$PROJECT_DIR$/target/mySpringMVC/META-INF/MANIFEST.MF" />
+        <element id="file-copy" path="$PROJECT_DIR$/target/flyfish/META-INF/MANIFEST.MF" />
       </element>
-      <element id="javaee-facet-resources" facet="mySpringMVC/web/Web" />
+      <element id="javaee-facet-resources" facet="flyfish/web/Web" />
     </root>
   </artifact>
 </component>
