@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<!--[if IE 8 ]> <html lang="en-US" class="ie8"> <![endif]-->
+<!--[if IE 9 ]> <html lang="en-US" class="ie9"> <![endif]-->
+<!--[if gt IE 9]> <html lang="en-US"> <![endif]-->
+<!--[if !IE]> <!-->
+<html lang="en-US">
+  <!--<![endif]-->
+  <head> 
+    <meta charset="UTF-8" /> 
+    <title>Gravity forms | Omega</title> 
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" /> 
+    <link rel="pingback" href="xmlrpc.php" /> 
+    <link rel="apple-touch-icon" href="wp-content/themes/omega/assets/images/favicons/apple-touch-icon-57x57-precomposed.png" /> 
+    <link rel="apple-touch-icon" href="wp-content/themes/omega/assets/images/favicons/apple-touch-icon-114x114-precomposed.png" sizes="114x114" /> 
+    <link rel="apple-touch-icon" href="wp-content/themes/omega/assets/images/favicons/apple-touch-icon-72x72-precomposed.png" sizes="72x72" /> 
+    <link rel="shortcut icon" href="wp-content/themes/omega/assets/images/favicons/favicon.ico" /> 
+    <link rel="alternate" type="application/rss+xml" title="Omega &raquo; Feed" href="feed/" /> 
+    <link rel="alternate" type="application/rss+xml" title="Omega &raquo; Comments Feed" href="comments/feed/" /> 
+    <link rel="alternate" type="application/rss+xml" title="Omega &raquo; Gravity forms Comments Feed" href="gravity-forms/feed/" /> 
+    <script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/72x72\/","ext":".png","source":{"concatemoji":"http:\/\/omega.oxygenna.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=bca92592ddabd55550e1ed47a392115b"}};
+			!function(a,b,c){function d(a){var c,d,e,f=b.createElement("canvas"),g=f.getContext&&f.getContext("2d"),h=String.fromCharCode;if(!g||!g.fillText)return!1;switch(g.textBaseline="top",g.font="600 32px Arial",a){case"flag":return g.fillText(h(55356,56806,55356,56826),0,0),f.toDataURL().length>3e3;case"diversity":return g.fillText(h(55356,57221),0,0),c=g.getImageData(16,16,1,1).data,d=c[0]+","+c[1]+","+c[2]+","+c[3],g.fillText(h(55356,57221,55356,57343),0,0),c=g.getImageData(16,16,1,1).data,e=c[0]+","+c[1]+","+c[2]+","+c[3],d!==e;case"simple":return g.fillText(h(55357,56835),0,0),0!==g.getImageData(16,16,1,1).data[0];case"unicode8":return g.fillText(h(55356,57135),0,0),0!==g.getImageData(16,16,1,1).data[0]}return!1}function e(a){var c=b.createElement("script");c.src=a,c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g,h,i;for(i=Array("simple","flag","unicode8","diversity"),c.supports={everything:!0,everythingExceptFlag:!0},h=0;h<i.length;h++)c.supports[i[h]]=d(i[h]),c.supports.everything=c.supports.everything&&c.supports[i[h]],"flag"!==i[h]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[i[h]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script> 
+    <style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style> 
+    <link rel="stylesheet" id="layerslider-css" href="../wp-content/plugins/LayerSlider/static/css/layerslider.css" type="text/css" media="all" /> 
+    <link rel="stylesheet" id="oxy-bbpress-css" href="../wp-content/themes/omega/bbpress/assets/css/bbpress.css" type="text/css" media="all" /> 
+    <link rel="stylesheet" id="OxySwitcher_style-css" href="../wp-content/plugins/omega-switcher-plugin/stylesheets/style.css" type="text/css" media="all" /> 
+    <link rel="stylesheet" id="omega-bootstrap-css" href="../wp-content/themes/omega/assets/css/bootstrap.min.css" type="text/css" media="all" /> 
+    <link rel="stylesheet" id="mediaelement-css" href="../wp-includes/js/mediaelement/mediaelementplayer.min.css" type="text/css" media="all" /> 
+    <link rel="stylesheet" id="wp-mediaelement-css" href="../wp-includes/js/mediaelement/wp-mediaelement.min.css" type="text/css" media="all" /> 
+    <link rel="stylesheet" id="omega-theme-css" href="../wp-content/themes/omega/assets/css/theme.min.css" type="text/css" media="all" /> 
+    <link rel="stylesheet" id="omega-swatch-white-red-css" href="../wp-content/themes/omega/assets/css/white-red.css" type="text/css" media="all" /> 
+    <link rel="stylesheet" id="omega-swatch-white-css" href="../wp-content/themes/omega/assets/css/white.css" type="text/css" media="all" /> 
+    <link rel="stylesheet" id="omega-swatch-blue-css" href="../wp-content/themes/omega/assets/css/blue.css" type="text/css" media="all" /> 
+    <link rel="stylesheet" id="omega-swatch-gray-css" href="../wp-content/themes/omega/assets/css/gray.css" type="text/css" media="all" /> 
+    <link rel="stylesheet" id="omega-swatch-black-css" href="../wp-content/themes/omega/assets/css/black.css" type="text/css" media="all" /> 
+    <link rel="stylesheet" id="omega-swatch-white-black-css" href="../wp-content/themes/omega/assets/css/white-black.css" type="text/css" media="all" /> 
+    <link rel="stylesheet" id="omega-swatch-white-green-css" href="../wp-content/themes/omega/assets/css/white-green.css" type="text/css" media="all" /> 
+    <script type="text/javascript" src="../wp-includes/js/jquery/jquery.js"></script> 
+    <script type="text/javascript" src="../wp-includes/js/jquery/jquery-migrate.min.js"></script> 
+    <script type="text/javascript">
+/* <![CDATA[ */
+var wc_add_to_cart_params = {"ajax_url":"http://wp-admin//admin-ajax.php","wc_ajax_url":"\/gravity-forms\/?wc-ajax=%%endpoint%%","i18n_view_cart":"View Cart","cart_url":"http:\/\/omega.oxygenna.com\/cart\/","is_cart":"","cart_redirect_after_add":"no"};
+/* ]]> */
+</script> 
+    <script type="text/javascript" src="../wp-content/plugins/woocommerce/assets/js/frontend/add-to-cart.min.js"></script> 
+    <script type="text/javascript" src="../wp-content/plugins/woocommerce-quantity-increment/assets/js/wc-quantity-increment.min.js"></script> 
+    <script type="text/javascript" src="../wp-content/plugins/js_composer/assets/js/vendors/woocommerce-add-to-cart.js"></script> 
+    <script type="text/javascript" src="../wp-content/plugins/gravityforms/js/conditional_logic.js"></script> 
+    <script type="text/javascript" src="../wp-content/plugins/gravityforms/js/jquery.json-1.3.js"></script> 
+    <script type="text/javascript" src="../wp-content/plugins/gravityforms/js/jquery.placeholders.2.1.1.min.js"></script> 
+    <script type="text/javascript" src="../wp-content/plugins/gravityforms/js/gravityforms.js"></script> 
+    <script type="text/javascript" src="../wp-content/plugins/wp-charts/js/Chart.min.js"></script> 
+    <link rel="https://api.w.org/" href="wp-json/" /> 
+    <link rel="EditURI" type="application/rsd+xml" title="RSD" href="xmlrpc.php?rsd" /> 
+    <link rel="wlwmanifest" type="application/wlwmanifest+xml" href="wp-includes/wlwmanifest.xml" /> 
+    <link rel="canonical" href="gravity-forms/" /> 
+    <link rel="shortlink" href="?p=863" /> 
+    <link rel="alternate" type="application/json+oembed" href="wp-json/oembed/1.0/embed?url=http%3A%2F%2Fomega.oxygenna.com%2Fgravity-forms%2F" /> 
+    <link rel="alternate" type="text/xml+oembed" href="wp-json/oembed/1.0/embed?url=http%3A%2F%2Fomega.oxygenna.com%2Fgravity-forms%2F&amp;format=xml" /> 
+    <script type="text/javascript">
+(function(url){
+	if(/(?:Chrome\/26\.0\.1410\.63 Safari\/537\.31|WordfenceTestMonBot)/.test(navigator.userAgent)){ return; }
+	var addEvent = function(evt, handler) {
+		if (window.addEventListener) {
+			document.addEventListener(evt, handler, false);
+		} else if (window.attachEvent) {
+			document.attachEvent('on' + evt, handler);
+		}
+	};
+	var removeEvent = function(evt, handler) {
+		if (window.removeEventListener) {
+			document.removeEventListener(evt, handler, false);
+		} else if (window.detachEvent) {
+			document.detachEvent('on' + evt, handler);
+		}
+	};
+	var evts = 'contextmenu dblclick drag dragend dragenter dragleave dragover dragstart drop keydown keypress keyup mousedown mousemove mouseout mouseover mouseup mousewheel scroll'.split(' ');
+	var logHuman = function() {
+		var wfscr = document.createElement('script');
+		wfscr.type = 'text/javascript';
+		wfscr.async = true;
+		wfscr.src = url + '&r=' + Math.random();
+		(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(wfscr);
+		for (var i = 0; i < evts.length; i++) {
+			removeEvent(evts[i], logHuman);
+		}
+	};
+	for (var i = 0; i < evts.length; i++) {
+		addEvent(evts[i], logHuman);
+	}
+})('//omega.oxygenna.com/?wordfence_logHuman=1&hid=E54895A23417995676824F1749C5A863');
+</script> 
+    <style type="text/css" media="screen">
+        #masthead .navbar-brand{padding:0;line-height:90px;height:90px;}#masthead .navbar-brand img{left:0px;vertical-align:middle;max-height:100%;}#masthead .nav > li > a{padding-top:33px;padding-bottom:33px;}#masthead .nav > li > a:before{margin-bottom:- 14.5px;}#masthead .nav > li.active > a:before,#masthead .nav > li > a:hover:before,#masthead .nav > li.current-page-parent > a:before,#masthead .nav > li.current-menu-parent > a:before,#masthead .nav > li.current-page-ancestor > a:before,#masthead .nav > li.current-menu-ancestor > a:before{opacity:1;margin-bottom:- 16.5px;}#masthead .navbar-text{line-height:24px;margin-top:33px;margin-bottom:33px;}#masthead.navbar{min-height:90px;}#masthead.navbar-scrolled{min-height:70px;}#masthead.navbar-scrolled .navbar-brand{line-height:70px;height:70px;}#masthead.navbar-scrolled .navbar-nav > li > a{padding-top:23px;padding-bottom:23px;}#masthead.navbar-scrolled .navbar-text{margin-top:23px;margin-bottom:23px;}.navbar-toggle{margin-top:28px;margin-bottom:28px;}.navbar-scrolled .navbar-toggle{margin-top:18px;margin-bottom:18px;}#masthead .dropdown-menu{min-width:220px;}#masthead .search-close{top:0;height:90px;width:90px;}#masthead .menu-sidebar .form-control{height:90px;}#masthead.navbar-scrolled .menu-sidebar .search-close{top:0;height:70px;width:70px;}#masthead.navbar-scrolled .menu-sidebar .form-control{height:70px;}        .btn span{background:rgba(255, 255, 255, 0.2);}.btn i{color:#fff !important;}.btn-default{background:#6c6c6a !important;color:#fff !important;}.btn-default:hover{background:#404040 !important;}.btn-warning{background:#f18d38 !important;color:#fff !important;}.btn-warning:hover{background:#e57211 !important;}.btn-danger{background:#e74c3c !important;color:#fff !important;}.btn-danger:hover{background:#d62c1a !important;}.btn-success{background:#a3c36f !important;color:#fff !important;}.btn-success:hover{background:#b7d685 !important;}.btn-info{background:#5d89ac !important;color:#fff !important;}.btn-info:hover{background:#486f8e !important;}.pace-overlay{background:#fff;}.pace-dot .pace-progress-inner{background:#82c9ed;}.pace-minimal .pace .pace-progress{background:#82c9ed;}.pace-counter .pace .pace-progress:after{color:#82c9ed;}.panel-default .panel-heading{background:#6c6c6a !important;}.panel-default .panel-heading a,.panel-default .panel-heading a:hover{color:#fff !important;}.panel-default .panel-title{color:#fff !important;}.panel-warning .panel-heading{background:#f18d38 !important;}.panel-warning .panel-heading a,.panel-warning .panel-heading a:hover{color:#fff !important;}.panel-warning .panel-title{color:#fff !important;}.panel-danger .panel-heading{background:#e74c3c !important;}.panel-danger .panel-heading a,.panel-danger .panel-heading a:hover{color:#fff !important;}.panel-danger .panel-title{color:#fff !important;}.panel-success .panel-heading{background:#a3c36f !important;}.panel-success .panel-heading a,.panel-success .panel-heading a:hover{color:#fff !important;}.panel-success .panel-title{color:#fff !important;}.panel-info .panel-heading{background:#5d89ac !important;}.panel-info .panel-heading a,.panel-info .panel-heading a:hover{color:#fff !important;}.panel-info .panel-title{color:#fff !important;}.alert-warning{background:#f18d38;color:#fff !important;}.alert-warning a{color:#fff !important;text-decoration:underline;}.alert-warning .btn,.alert-warning .button{background:#fff !important;color:#f18d38 !important;text-decoration:none;}.alert-danger{background:#e74c3c;color:#fff !important;}.alert-danger a{color:#fff !important;text-decoration:underline;}.alert-danger .btn,.alert-danger .button{background:#fff !important;color:#e74c3c !important;text-decoration:none;}.alert-success{background:#a3c36f;color:#fff !important;}.alert-success a{color:#fff !important;text-decoration:underline;}.alert-success .btn,.alert-success .button{background:#fff !important;color:#a3c36f !important;text-decoration:none;}.alert-info{background:#5d89ac;color:#fff !important;}.alert-info a{color:#fff !important;text-decoration:underline;}.alert-info .btn,.alert-info .button{background:#fff !important;color:#5d89ac !important;text-decoration:none;}.progress-bar-default{box-shadow:none;background:#6c6c6a;}.progress-bar-default span{color:#fff;}.progress-bar-default.progress-striped .progress-bar,.progress-striped .progress-bar-default{background-color:#6c6c6a;background-image:-webkit-gradient(linear, 0 100%, 100% 0, color-stop(0.25, rgba(255, 255, 255, .15)), color-stop(0.25, transparent), color-stop(0.5, transparent), color-stop(0.5, rgba(255, 255, 255, .15)), color-stop(0.75, rgba(255, 255, 255, .15)), color-stop(0.75, transparent), to(transparent));background-image:-webkit-linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);background-image:-moz-linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);background-image:-o-linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);background-image:linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);}.progress-bar-warning{background:#f18d38;box-shadow:none;}.progress-bar-warning span{color:#fff;}.progress-bar-warning.progress-striped .progress-bar,.progress-striped .progress-bar-warning{background-color:#f18d38;background-image:-webkit-gradient(linear, 0 100%, 100% 0, color-stop(0.25, rgba(255, 255, 255, .15)), color-stop(0.25, transparent), color-stop(0.5, transparent), color-stop(0.5, rgba(255, 255, 255, .15)), color-stop(0.75, rgba(255, 255, 255, .15)), color-stop(0.75, transparent), to(transparent));background-image:-webkit-linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);background-image:-moz-linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);background-image:-o-linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);background-image:linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);}.progress-bar-danger{box-shadow:none;background:#e74c3c;}.progress-bar-danger span{color:#fff;}.progress-bar-danger.progress-striped .progress-bar,.progress-striped .progress-bar-danger{background-color:#e74c3c;background-image:-webkit-gradient(linear, 0 100%, 100% 0, color-stop(0.25, rgba(255, 255, 255, .15)), color-stop(0.25, transparent), color-stop(0.5, transparent), color-stop(0.5, rgba(255, 255, 255, .15)), color-stop(0.75, rgba(255, 255, 255, .15)), color-stop(0.75, transparent), to(transparent));background-image:-webkit-linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);background-image:-moz-linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);background-image:-o-linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);background-image:linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);}.progress-bar-success{box-shadow:none;background:#a3c36f;}.progress-bar-success span{color:#fff;}.progress-bar-success.progress-striped .progress-bar,.progress-striped .progress-bar-success{background-color:#a3c36f;background-image:-webkit-gradient(linear, 0 100%, 100% 0, color-stop(0.25, rgba(255, 255, 255, .15)), color-stop(0.25, transparent), color-stop(0.5, transparent), color-stop(0.5, rgba(255, 255, 255, .15)), color-stop(0.75, rgba(255, 255, 255, .15)), color-stop(0.75, transparent), to(transparent));background-image:-webkit-linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);background-image:-moz-linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);background-image:-o-linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);background-image:linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);}.progress-bar-info{box-shadow:none;background:#5d89ac;}.progress-bar-info span{color:#fff;}.progress-bar-info.progress-striped .progress-bar,.progress-striped .progress-bar-info{background-color:#5d89ac;background-image:-webkit-gradient(linear, 0 100%, 100% 0, color-stop(0.25, rgba(255, 255, 255, .15)), color-stop(0.25, transparent), color-stop(0.5, transparent), color-stop(0.5, rgba(255, 255, 255, .15)), color-stop(0.75, rgba(255, 255, 255, .15)), color-stop(0.75, transparent), to(transparent));background-image:-webkit-linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);background-image:-moz-linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);background-image:-o-linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);background-image:linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);}.figure-overlay{background-color:rgba(0, 0, 0, 0.5);color:#fff;}.figure-overlay .figure-caption-title,.figure-overlay .figure-caption-description{color:#fff;}.figure-overlay .figure-icon{border-color:rgba(255, 255, 255, .8);}.figure-overlay small{color:rgba(255, 255, 255, .8) !important;}.figure-overlay svg{stroke:#fff !important;}.figure-overlay .bordered:after{background:#fff !important;}.figure-overlay .btn{background:#fff !important;color:rgba(0, 0, 0, 0.5) !important;}.figure-overlay .btn:hover{background:rgba(255, 255, 255, .8) !important;}.mfp-bg{background:rgba(255, 255, 255, 0.95);}.mfp-image-holder .mfp-close,.mfp-iframe-holder .mfp-close{background-color:rgba(0, 0, 0, .9) !important;color:#fff;}.mfp-counter,.mfp-preloader{color:#000;}button.mfp-arrow{background:rgba(0, 0, 0, .9) !important;}.mfp-arrow:before{color:#fff;}.go-top{background:#000 !important;}.go-top i{color:#fff;}.carousel-control{color:#fff !important;text-shadow:1px 1px 0px rgba(0, 0, 0, 0.2);}.carousel-caption,.carousel-caption h3{color:#fff !important;text-shadow:1px 1px 0px rgba(0, 0, 0, 0.2);}.carousel-indicators li{background:rgba(0, 0, 0, 0.2);border-color:transparent;}.carousel-indicators li.active{background:#fff;border-color:#fff;}.flex-direction-nav a{color:#fff !important;text-shadow:1px 1px 0px rgba(0, 0, 0, 0.2);}.flex-control-nav a{background:rgba(0, 0, 0, 0.2);box-shadow:0px 0px 0px 3px rgba(0, 0, 0, 0.2);}.flex-control-nav a.flex-active{background:#fff;}.flexslider figcaption{background:rgba(0, 0, 0, 0.2);}.flexslider figcaption h3,.flexslider figcaption p{color:#fff;}.ls-fullwidth .ls-nav-prev:after,.ls-fullwidth .ls-nav-next:after{color:#fff !important;text-shadow:1px 1px 0px rgba(0, 0, 0, 0.2);}.gform_wrapper .gfield_required.gfield_error,.gform_wrapper .gfield_error .gfield_label,.gform_wrapper .gfield_contains_required.gfield_error{color:#a82315;}.gform_wrapper .gfield_error input,.gform_wrapper .gfield_error select,.gform_wrapper .gfield_error textarea{border:1px solid rgba(214, 44, 26, .5);background:rgba(231, 76, 60, .5);color:#a82315;}.gform_wrapper .gfield_error input:focus,.gform_wrapper .gfield_error select:focus,.gform_wrapper .gfield_error textarea:focus{box-shadow:0px 3px 0px #e74c3c;}.validation_error{background:#e74c3c;color:#fff;}.validation_error hr{border-top-color:#e74c3c;}.validation_error .alert-link{color:#e6e6e6;}.panel-bbpress .bbp-template-notice{color:#e74c3c;}[role="alert"]{color:#e74c3c;}[role="alert"].wpcf7-mail-sent-ok{color:#a3c36f;}        body {
+background-size: 100% 100%;
+}
+.wp-chart-wrap {
+display: inline-block;
+}
+.swatch-black .navbar-brand img, .swatch-blue  .navbar-brand img, .transparent-header  .navbar-brand img {
+display:none;
+}
+.gform_title {
+font-size: 48px;
+text-align: center;
+font-weight: 200;
+}
+
+                    </style> 
+    <style type="text/css" media="screen">
+@import url("../../fonts.googleapis.com/css-family=Source+Sans+Pro-200,300,400,400italic,600,700,900&subset=latin.css")/*tpa=http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,400italic,600,700,900&subset=latin*/;
+body {
+    font-family: Source Sans Pro
+}h1, h2, h3, h4, h5, h6 {
+    font-family: Source Sans Pro
+}input, textarea, .btn, button {
+    font-family: Source Sans Pro
+}blockquote {
+    font-family: Source Sans Pro
+}blockquote p {
+  font-weight: 300;
+}
+.light {
+  font-weight: 300 !important;
+}
+.hairline {
+  font-weight: 200 !important;
+}
+.hairline  strong {
+    font-weight: 400;
+}
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+}
+.lead {
+  font-weight: 300;
+}
+.lead  strong {
+    font-weight: 600;
+ }
+
+</style> 
+    <style type="text/css">.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style> 
+    <meta name="generator" content="Powered by Visual Composer - drag and drop page builder for WordPress." /> 
+    <!--[if lte IE 9]><link rel="stylesheet" type="text/css" href="../wp-content/plugins/js_composer/assets/css/vc_lte_ie9.css"  media="screen"><![endif]--> 
+    <!--[if IE  8]><link rel="stylesheet" type="text/css" href="../wp-content/plugins/js_composer/assets/css/vc-ie8.css"  media="screen"><![endif]--> 
+    <!--[if lte IE 8]><script src="../wp-content/plugins/wp-charts/js/excanvas.compiled.js" ></script><![endif]--> 
+    <style>
+    			/*wp_charts_js responsive canvas CSS override*/
+    			.wp_charts_canvas {
+    				width:100%!important;
+    				max-width:100%;
+    			}
+
+    			@media screen and (max-width:480px) {
+    				div.wp-chart-wrap {
+    					width:100%!important;
+    					float: none!important;
+						margin-left: auto!important;
+						margin-right: auto!important;
+						text-align: center;
+    				}
+    			}
+    		</style> 
+    <style type="text/css" id="custom-background-css">
+body.custom-background { background-color: #3c3c3c; background-image: url("../wp-content/uploads/2014/04/bg.jpg")/*tpa=wp-content/uploads/2014/04/bg.jpg*//*tpa=wp-content/uploads/2014/04/bg.jpg*/; background-repeat: no-repeat; background-position: top center; background-attachment: scroll; }
+</style> 
+    <noscript> 
+      <style> .wpb_animate_when_almost_visible { opacity: 1; }</style> 
+    </noscript> 
+  </head> 
+  <body class="page page-id-863 page-template-default custom-background woo-cart-popup pace-on pace-counter wpb-js-composer js-comp-ver-4.7.4 vc_responsive"> 
+    <div class="pace-overlay"></div> 
+    <div class="top-bar swatch-gray"> 
+      <div class="container"> 
+        <div class="top top-left"> 
+          <div id="swatch_social-2" class="sidebar-widget text-left small-screen-center widget_swatch_social"> 
+            <ul class="unstyled inline social-icons social-simple social-normal"> 
+              <li><a href="javascript:if(confirm('https://www.facebook.com/chris.pantazis  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����&middot;���ⲿ������Ϊ�����ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='https://www.facebook.com/chris.pantazis'"><i class="fa fa-facebook"></i></a></li> 
+              <li><a href="javascript:if(confirm('http://twitter.com/oxygenna  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����&middot;���ⲿ������Ϊ�����ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='http://twitter.com/oxygenna'"><i class="fa fa-twitter"></i></a></li> 
+              <li><a href="#"><i class="fa fa-linkedin"></i></a></li> 
+              <li><a href="#"><i class="fa fa-google-plus"></i></a></li> 
+            </ul> 
+          </div> 
+        </div> 
+        <div class="top top-right"> 
+          <div id="text-2" class="sidebar-widget text-right small-screen-center widget_text"> 
+            <div class="textwidget">
+               Get in touch: 0030-6974426224 
+            </div> 
+          </div> 
+          <div id="woocommerce_widget_cart-2" class="sidebar-widget text-right small-screen-center woocommerce widget_shopping_cart"> 
+            <h3 class="sidebar-header">Cart</h3> 
+            <div class="widget_shopping_cart_content"></div> 
+          </div> 
+        </div> 
+      </div> 
+    </div> 
+    <div id="masthead" class="navbar navbar-static-top oxy-mega-menu navbar-sticky swatch-white underline text-none" role="banner"> 
+      <div class="container"> 
+        <div class="navbar-header"> 
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".main-navbar"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button> 
+          <a href="../index.html" class="navbar-brand"><img src="../wp-content/themes/omega/assets/images/omega.gif" alt="Omega" />Omega</a> 
+        </div> 
+        <nav class="collapse navbar-collapse main-navbar" role="navigation"> 
+          <div class="menu-sidebar pull-right"> 
+            <div class="sidebar-widget widget_search"> 
+              <div class="top-search"> 
+                <form role="search" method="get" id="searchform" action=""> 
+                  <div class="input-group"> 
+                    <input type="text" value="" name="s" id="s" class="form-control" placeholder="Search" /> 
+                    <span class="input-group-btn"><button class="btn" type="submit" id="searchsubmit" value="Search"><i class="fa fa-search"></i></button></span> 
+                  </div> 
+                </form> 
+                <i class="fa fa-search search-trigger navbar-text"></i> 
+                <svg class="search-close" preserveaspectratio="none" version="1.1" viewbox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"> 
+                  <path d="M25 25 L75 75" stroke-width="2"></path> 
+                  <path d="M25 75 L75 25" stroke-width="2"></path> 
+                </svg> 
+              </div> 
+            </div> 
+          </div> 
+          <div class="menu-main-menu-container"> 
+            <ul id="menu-main-menu" class="nav navbar-nav navbar-right"> 
+              <li id="menu-item-1021" class="menu-item menu-item-type-post_type menu-item-object-oxy_mega_menu menu-item-has-children menu-item-1021 dropdown"><a href="../index.html" class="dropdown-toggle">Home</a> 
+                <ul role="menu" class="dropdown-menu row"> 
+                  <li id="menu-item-1022" class="menu-item menu-item-type-post_type menu-item-object-oxy_mega_columns menu-item-has-children dropdown-submenu menu-item-1022 col-md-4 dropdown"><strong>Business</strong> 
+                    <ul role="menu" class=""> 
+                      <li id="menu-item-1026" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1026"><a href="../home-team-2/index.html">Home – Team</a></li> 
+                      <li id="menu-item-290" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-290"><a href="../home-business/index.html">Home – Business</a></li> 
+                      <li id="menu-item-291" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-291"><a href="../home-corporate/index.html">Home – Corporate</a></li> 
+                      <li id="menu-item-299" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-299"><a href="../home-restaurant/index.html">Home – Restaurant</a></li> 
+                      <li id="menu-item-721" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-721"><a href="../home-shop/index.html">Home – Shop</a></li> 
+                    </ul> </li> 
+                  <li id="menu-item-1023" class="menu-item menu-item-type-post_type menu-item-object-oxy_mega_columns menu-item-has-children dropdown-submenu menu-item-1023 col-md-4 dropdown"><strong>Creative</strong> 
+                    <ul role="menu" class=""> 
+                      <li id="menu-item-1154" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1154"><a href="../home-app/index.html">Home – App page</a></li> 
+                      <li id="menu-item-1025" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1025"><a href="../home-landing-page/index.html">Home – Landing page</a></li> 
+                      <li id="menu-item-292" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-292"><a href="../home-minimal/index.html">Home – Minimal</a></li> 
+                      <li id="menu-item-294" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-294"><a href="../home-dark/index.html">Home – Dark</a></li> 
+                      <li id="menu-item-295" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-295"><a href="../home-photography/index.html">Home – Photography</a></li> 
+                      <li id="menu-item-297" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-297"><a href="../home-portfolio/index.html">Home – Portfolio</a></li> 
+                    </ul> </li> 
+                  <li id="menu-item-1024" class="menu-item menu-item-type-post_type menu-item-object-oxy_mega_columns menu-item-has-children dropdown-submenu menu-item-1024 col-md-4 dropdown"><strong>Extra Frontpages</strong> 
+                    <ul role="menu" class=""> 
+                      <li id="menu-item-1151" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1151"><a href="../home-creative-business/index.html">Home – Bullet Nav<span class="label menu-label label-primary">New!</span></a></li> 
+                      <li id="menu-item-1139" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1139"><a href="../home/index.html">Home – Big Slider</a></li> 
+                      <li id="menu-item-1027" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1027"><a href="../home-fullscreen/index.html">Home – Fullscreen</a></li> 
+                      <li id="menu-item-887" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-887"><a href="../home-classic/index.html">Home – Classic</a></li> 
+                      <li id="menu-item-296" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-296"><a href="../home-one-page-style/index.html">Home – One Page Style</a></li> 
+                      <li id="menu-item-298" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-298"><a href="../home-blog/index.html">Home – Blog</a></li> 
+                      <li id="menu-item-300" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-300"><a href="../home-extended/index.html">Home – Extended</a></li> 
+                    </ul> </li> 
+                </ul> </li> 
+              <li id="menu-item-301" class="menu-item menu-item-type-post_type menu-item-object-oxy_mega_menu current-menu-ancestor menu-item-has-children menu-item-301 dropdown"><a href="#" class="dropdown-toggle">Pages</a> 
+                <ul role="menu" class="dropdown-menu row"> 
+                  <li id="menu-item-302" class="menu-item menu-item-type-post_type menu-item-object-oxy_mega_columns menu-item-has-children dropdown-submenu menu-item-302 col-md-3 dropdown"><strong>About Pages</strong> 
+                    <ul role="menu" class=""> 
+                      <li id="menu-item-303" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-303"><a href="../about-us-v1/index.html">About us – Classic</a></li> 
+                      <li id="menu-item-304" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-304"><a href="../about-us-v2/index.html">About us – Bold</a></li> 
+                      <li id="menu-item-305" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-305"><a href="../about-us-v3/index.html">About us – Creative</a></li> 
+                      <li id="menu-item-306" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-306"><a href="../about-us-v4/index.html">About us – Alt</a></li> 
+                      <li id="menu-item-307" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-307"><a href="../about-me/index.html">About me – Classic</a></li> 
+                      <li id="menu-item-308" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-308"><a href="../about-me-2/index.html">About me – Bold</a></li> 
+                      <li id="menu-item-309" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-309"><a href="../about-me-3/index.html">About me – Alt</a></li> 
+                    </ul> </li> 
+                  <li id="menu-item-310" class="menu-item menu-item-type-post_type menu-item-object-oxy_mega_columns menu-item-has-children dropdown-submenu menu-item-310 col-md-3 dropdown"><strong>Services Pages</strong> 
+                    <ul role="menu" class=""> 
+                      <li id="menu-item-311" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-311"><a href="../services-v1/index.html">Services – Classic</a></li> 
+                      <li id="menu-item-312" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-312"><a href="../services-v2/index.html">Services – Alt</a></li> 
+                      <li id="menu-item-313" class="menu-item menu-item-type-post_type menu-item-object-oxy_service menu-item-313"><a href="../our-services/powerful-panel/index.html">Single Service – Bold style</a></li> 
+                      <li id="menu-item-314" class="menu-item menu-item-type-post_type menu-item-object-oxy_service menu-item-314"><a href="../our-services/responsive/index.html">Single Service – Alt</a></li> 
+                      <li id="menu-item-315" class="menu-item menu-item-type-post_type menu-item-object-oxy_service menu-item-315"><a href="../our-services/ultra-flexible/index.html">Single Service – App style</a></li> 
+                      <li id="menu-item-316" class="menu-item menu-item-type-post_type menu-item-object-oxy_service menu-item-316"><a href="../our-services/solid-support/index.html">Single Service – Video</a></li> 
+                      <li id="menu-item-317" class="menu-item menu-item-type-post_type menu-item-object-oxy_service menu-item-317"><a href="../our-services/commerce-ready/index.html">Single Service – Fancy</a></li> 
+                    </ul> </li> 
+                  <li id="menu-item-318" class="menu-item menu-item-type-post_type menu-item-object-oxy_mega_columns current-menu-ancestor current-menu-parent menu-item-has-children dropdown-submenu menu-item-318 col-md-3 dropdown"><strong>Misc Pages</strong> 
+                    <ul role="menu" class=""> 
+                      <li id="menu-item-319" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-319"><a href="../infografic/index.html">infografic Page</a></li> 
+                      <li id="menu-item-320" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-320"><a href="../app-page-v1/index.html">App Landing Page</a></li> 
+                      <li id="menu-item-321" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-321"><a href="../app-page-v2/index.html">App Landing Page – Alt</a></li> 
+                      <li id="menu-item-322" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-322"><a href="../faq/index.html">FAQ page</a></li> 
+                      <li id="menu-item-323" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-323"><a href="../404-2/index.html">404 page</a></li> 
+                      <li id="menu-item-872" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-863 current_page_item menu-item-872 active active"><a href="index.html">Gravity forms</a></li> 
+                      <li id="menu-item-861" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-861"><a href="../forums/index.html">BBPress Forums</a></li> 
+                    </ul> </li> 
+                  <li id="menu-item-326" class="menu-item menu-item-type-post_type menu-item-object-oxy_mega_columns menu-item-has-children dropdown-submenu menu-item-326 col-md-3 dropdown"><strong>&nbsp;</strong> 
+                    <ul role="menu" class=""> 
+                      <li id="menu-item-327" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-327"><a href="../pricing-page/index.html">Pricing Page</a></li> 
+                      <li id="menu-item-328" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-328"><a href="../maintenance-mode/index.html">Maintenance Mode</a></li> 
+                      <li id="menu-item-325" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-325"><a href="../coming-soon/index.html">Coming Soon Page</a></li> 
+                      <li id="menu-item-329" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-329"><a href="../right-sidebar-page/index.html">Right Sidebar Page</a></li> 
+                      <li id="menu-item-330" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-330"><a href="../left-sidebar-page/index.html">Left Sidebar page</a></li> 
+                      <li id="menu-item-332" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-332"><a href="../transparent-menu/index.html">Transparent Menu</a></li> 
+                      <li id="menu-item-333" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-333"><a href="../background-videos/index.html">Background Videos</a></li> 
+                    </ul> </li> 
+                </ul> </li> 
+              <li id="menu-item-334" class="menu-item menu-item-type-post_type menu-item-object-oxy_mega_menu menu-item-has-children menu-item-334 dropdown"><a href="#" class="dropdown-toggle">Elements</a> 
+                <ul role="menu" class="dropdown-menu row"> 
+                  <li id="menu-item-335" class="menu-item menu-item-type-post_type menu-item-object-oxy_mega_columns menu-item-has-children dropdown-submenu menu-item-335 col-md-3 dropdown"><strong>Typography &amp; Layout</strong> 
+                    <ul role="menu" class=""> 
+                      <li id="menu-item-336" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-336"><a href="../basic-type/index.html">Elements – Basic type</a></li> 
+                      <li id="menu-item-337" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-337"><a href="../elements-headers/index.html">Headers</a></li> 
+                      <li id="menu-item-338" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-338"><a href="../elements-blockquotes/index.html">Blockquotes</a></li> 
+                      <li id="menu-item-339" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-339"><a href="../elements-font-icons/index.html">Font icons</a></li> 
+                      <li id="menu-item-340" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-340"><a href="../elements-columns/index.html">Columns</a></li> 
+                      <li id="menu-item-341" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-341"><a href="../elements-sections/index.html">Sections &amp; Backgrounds</a></li> 
+                    </ul> </li> 
+                  <li id="menu-item-342" class="menu-item menu-item-type-post_type menu-item-object-oxy_mega_columns menu-item-has-children dropdown-submenu menu-item-342 col-md-3 dropdown"><strong>Bootstrap Components</strong> 
+                    <ul role="menu" class=""> 
+                      <li id="menu-item-343" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-343"><a href="../elements-accordion/index.html">Accordion</a></li> 
+                      <li id="menu-item-344" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-344"><a href="../elements-tabs/index.html">Tabs</a></li> 
+                      <li id="menu-item-345" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-345"><a href="../elements-buttons/index.html">Buttons</a></li> 
+                      <li id="menu-item-346" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-346"><a href="../elements-panels-alerts/index.html">Panels</a></li> 
+                      <li id="menu-item-347" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-347"><a href="../elements-tables/index.html">Tables</a></li> 
+                      <li id="menu-item-348" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-348"><a href="../elements-jumbotron/index.html">Jumbotron</a></li> 
+                    </ul> </li> 
+                  <li id="menu-item-349" class="menu-item menu-item-type-post_type menu-item-object-oxy_mega_columns menu-item-has-children dropdown-submenu menu-item-349 col-md-3 dropdown"><strong>Misc</strong> 
+                    <ul role="menu" class=""> 
+                      <li id="menu-item-350" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-350"><a href="../elements-pricing/index.html">Pricing tables</a></li> 
+                      <li id="menu-item-1219" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1219"><a href="../svg-icons-list/index.html">SVG Icons List</a></li> 
+                      <li id="menu-item-351" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-351"><a href="../elements-feature-svg-icons/index.html">Feature SVG icons</a></li> 
+                      <li id="menu-item-352" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-352"><a href="../element-feature-icons/index.html">Feature font icons</a></li> 
+                      <li id="menu-item-353" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-353"><a href="../elements-slideshows/index.html">Slideshows</a></li> 
+                      <li id="menu-item-354" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-354"><a href="../elements-features-lists/index.html">Features lists</a></li> 
+                      <li id="menu-item-355" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-355"><a href="../elements-scroll-buttons/index.html">Scroll buttons</a></li> 
+                    </ul> </li> 
+                  <li id="menu-item-356" class="menu-item menu-item-type-post_type menu-item-object-oxy_mega_columns menu-item-has-children dropdown-submenu menu-item-356 col-md-3 dropdown"><strong>Infographic Elements</strong> 
+                    <ul role="menu" class=""> 
+                      <li id="menu-item-357" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-357"><a href="../elements-charts/index.html">Charts</a></li> 
+                      <li id="menu-item-358" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-358"><a href="../elements-counters/index.html">Counters</a></li> 
+                      <li id="menu-item-359" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-359"><a href="../elements-countdown-timer/index.html">Countdown timer</a></li> 
+                      <li id="menu-item-360" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-360"><a href="../elements-pie-charts/index.html">Pie Charts</a></li> 
+                      <li id="menu-item-361" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-361"><a href="../elements-progress-bars/index.html">Progress Bars</a></li> 
+                      <li id="menu-item-362" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-362"><a href="../elements-maps/index.html">Maps</a></li> 
+                    </ul> </li> 
+                </ul> </li> 
+              <li id="menu-item-363" class="menu-item menu-item-type-post_type menu-item-object-oxy_mega_menu menu-item-has-children menu-item-363 dropdown"><a href="#" class="dropdown-toggle">Portfolio</a> 
+                <ul role="menu" class="dropdown-menu row"> 
+                  <li id="menu-item-364" class="menu-item menu-item-type-post_type menu-item-object-oxy_mega_columns menu-item-has-children dropdown-submenu menu-item-364 col-md-3 dropdown"><strong>3 Columns</strong> 
+                    <ul role="menu" class=""> 
+                      <li id="menu-item-365" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-365"><a href="../portfolio-3-columns/index.html">3 Columns Classic</a></li> 
+                      <li id="menu-item-366" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-366"><a href="../portfolio-captions-3/index.html">3 Columns with Captions</a></li> 
+                      <li id="menu-item-367" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-367"><a href="../portfolio-3-columns-fullwidth/index.html">3 Columns Fullwidth</a></li> 
+                      <li id="menu-item-368" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-368"><a href="../portfolio-3-filters/index.html">3 Columns with filters</a></li> 
+                      <li id="menu-item-369" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-369"><a href="../portfolio-3-no-gutters/index.html">3 Columns without Gutters</a></li> 
+                    </ul> </li> 
+                  <li id="menu-item-370" class="menu-item menu-item-type-post_type menu-item-object-oxy_mega_columns menu-item-has-children dropdown-submenu menu-item-370 col-md-3 dropdown"><strong>4 Columns</strong> 
+                    <ul role="menu" class=""> 
+                      <li id="menu-item-371" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-371"><a href="../portfolio-4/index.html">4 Columns Classic</a></li> 
+                      <li id="menu-item-372" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-372"><a href="../portfolio-captions-4/index.html">4 Columns with Captions</a></li> 
+                      <li id="menu-item-373" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-373"><a href="../portfolio-4-filters/index.html">4 Columns with Filters</a></li> 
+                      <li id="menu-item-374" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-374"><a href="../portfolio-4-fullwidth/index.html">4 Columns Fullwidth</a></li> 
+                      <li id="menu-item-375" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-375"><a href="../portfolio-4-no-gutters/index.html">4 Columns no Gutters</a></li> 
+                    </ul> </li> 
+                  <li id="menu-item-376" class="menu-item menu-item-type-post_type menu-item-object-oxy_mega_columns menu-item-has-children dropdown-submenu menu-item-376 col-md-3 dropdown"><strong>Masonry &amp; 2 Columns</strong> 
+                    <ul role="menu" class=""> 
+                      <li id="menu-item-377" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-377"><a href="../portfolio-masonry-fullscreen/index.html">Masonry</a></li> 
+                      <li id="menu-item-378" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-378"><a href="../portfolio-masonry-alt/index.html">Masonry alt</a></li> 
+                      <li id="menu-item-379" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-379"><a href="../portfolio-2/index.html">2 Columns Classic</a></li> 
+                      <li id="menu-item-380" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-380"><a href="../portfolio-captions-2/index.html">2 Columns with Captions</a></li> 
+                      <li id="menu-item-381" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-381"><a href="../portfolio-2-no-gutters/index.html">2 Columns without Gutters</a></li> 
+                    </ul> </li> 
+                  <li id="menu-item-382" class="menu-item menu-item-type-post_type menu-item-object-oxy_mega_columns menu-item-has-children dropdown-submenu menu-item-382 col-md-3 dropdown"><strong>Single Items</strong> 
+                    <ul role="menu" class=""> 
+                      <li id="menu-item-383" class="menu-item menu-item-type-post_type menu-item-object-oxy_portfolio_image menu-item-383"><a href="../portfolio/coffee-buscuits/index.html">Bold &amp; Beautiful Look</a></li> 
+                      <li id="menu-item-384" class="menu-item menu-item-type-post_type menu-item-object-oxy_portfolio_image menu-item-384"><a href="../portfolio/working-at-home/index.html">Right Sidebar Style</a></li> 
+                      <li id="menu-item-385" class="menu-item menu-item-type-post_type menu-item-object-oxy_portfolio_image menu-item-385"><a href="../portfolio/summer-field/index.html">Video Item</a></li> 
+                      <li id="menu-item-386" class="menu-item menu-item-type-post_type menu-item-object-oxy_portfolio_image menu-item-386"><a href="../portfolio/mojito-time/index.html">Slideshow item</a></li> 
+                      <li id="menu-item-387" class="menu-item menu-item-type-post_type menu-item-object-oxy_portfolio_image menu-item-387"><a href="../portfolio/cactus-love/index.html">Simple and Cool</a></li> 
+                    </ul> </li> 
+                </ul> </li> 
+              <li id="menu-item-89" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-89 dropdown"><a href="#" class="dropdown-toggle">Shop</a> 
+                <ul role="menu" class="dropdown-menu"> 
+                  <li id="menu-item-90" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-90"><a href="../shop/index.html">Shop Full Width</a></li> 
+                  <li id="menu-item-743" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-743"><a href="../shop-left/index.html">Shop Left</a></li> 
+                  <li id="menu-item-742" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-742"><a href="../shop-right/index.html">Shop Right</a></li> 
+                  <li id="menu-item-756" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-756"><a href="../category-list/index.html">Category List</a></li> 
+                  <li id="menu-item-91" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-91"><a href="../cart/index.html">Checkout</a></li> 
+                  <li id="menu-item-92" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-92"><a href="../cart/index.html">Cart</a></li> 
+                  <li id="menu-item-93" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-93"><a href="../my-account/index.html">My Account</a></li> 
+                </ul> </li> 
+              <li id="menu-item-524" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-524 dropdown"><a href="#" class="dropdown-toggle">Blog</a> 
+                <ul role="menu" class="dropdown-menu"> 
+                  <li id="menu-item-532" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-532"><a href="../blog/-blogstyle=right-sidebar.html">Blog – Classic</a></li> 
+                  <li id="menu-item-526" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-526"><a href="../blog/-blogstyle=no-sidebar-normal.html">Blog – Fullwidth</a></li> 
+                  <li id="menu-item-527" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-527"><a href="../blog/-blogstyle=right-sidebar.html">Blog – Right Sidebar</a></li> 
+                  <li id="menu-item-528" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-528"><a href="../blog/-blogstyle=no-sidebar-narrow.html">Blog – Fullwidth Narrow</a></li> 
+                  <li id="menu-item-529" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-529"><a href="../blog/-blogstyle=no-sidebar-wide.html">Blog – Fullwidth Wide</a></li> 
+                  <li id="menu-item-541" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-541"><a href="../blog-masonry/index.html">Blog – Masonry</a></li> 
+                  <li id="menu-item-540" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-540"><a href="../blog-masonry-wide/index.html">Blog – Masonry Wide</a></li> 
+                  <li id="menu-item-542" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-542"><a href="../the-beauty-of-the-natural-world-lies-in-the-details/index.html">Single Post – Standard</a></li> 
+                  <li id="menu-item-545" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-545"><a href="../birds-just-fly-high/index.html">Single Post – Gallery</a></li> 
+                  <li id="menu-item-544" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-544"><a href="../353/index.html">Single Post – Video</a></li> 
+                  <li id="menu-item-543" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-543"><a href="../sounds-better-when-its-vinyl/index.html">Single Post – Audio</a></li> 
+                </ul> </li> 
+              <li id="menu-item-388" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-388 dropdown"><a href="#" class="dropdown-toggle">Contact</a> 
+                <ul role="menu" class="dropdown-menu"> 
+                  <li id="menu-item-389" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-389"><a href="../contact-us-v1/index.html">Contact us – Big map</a></li> 
+                  <li id="menu-item-390" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-390"><a href="../contact-us-v2/index.html">Contact us – Big map alt</a></li> 
+                  <li id="menu-item-391" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-391"><a href="../contact-us-v3/index.html">Contact us – Small Map</a></li> 
+                </ul> </li> 
+            </ul> 
+          </div> 
+        </nav> 
+      </div> 
+    </div> 
+    <div id="content" role="main"> 
+      <section class="section swatch-black  section-text-shadow section-inner-shadow section-normal section-opaque" data-label=""> 
+        <div class="background-media" style="background-image: url('wp-content/uploads/2014/04/image-20-normal.jpg'); background-repeat:no-repeat; background-size:cover; background-attachment:fixed; background-position: 50% 0%;"> 
+        </div> 
+        <div class="background-overlay grid-overlay-30 " style="background-color: rgba(0,0,0,0.3);"></div> 
+        <div class="container"> 
+          <div class="row vertical-top"> 
+            <div class="col-md-12"> 
+              <header class="text-center  element-tall-top element-tall-bottom not-condensed" data-os-animation="none" data-os-animation-delay="0s"> 
+                <h1 class="super hairline no-bordered-header bordered-normal"> Gravity Forms Example </h1> 
+              </header> 
+            </div> 
+          </div> 
+        </div> 
+      </section> 
+      <article id="post-863" class="post-863 page type-page status-publish hentry"> 
+        <section class="section swatch-white  section-text-no-shadow section-inner-no-shadow section-normal section-opaque" data-label=""> 
+          <div class="background-overlay grid-overlay-0 " style="background-color: rgba(0,0,0,0);"></div> 
+          <div class="container"> 
+            <div class="row vertical-top"> 
+              <div class="col-md-2  text-default small-screen-default"></div> 
+              <div class="col-md-8  text-default small-screen-default"> 
+                <div class=" element-tall-top element-tall-bottom" data-os-animation="none" data-os-animation-delay="0s"> 
+                  <div class="gf_browser_ie gf_browser_ie7 gform_wrapper" id="gform_wrapper_1" style="display:none"> 
+                    <form method="post" enctype="multipart/form-data" id="gform_1" action="gravity-forms/"> 
+                      <div class="gform_heading"> 
+                        <h3 class="gform_title">Build A Pizza</h3> 
+                        <span class="gform_description"></span> 
+                      </div> 
+                      <div class="gform_body"> 
+                        <ul id="gform_fields_1" class="gform_fields top_label description_below"> 
+                          <li id="field_1_18" class="gfield  gsection  super text-center"><h2 class="gsection_title">Let's Get Started</h2></li> 
+                          <li id="field_1_22" class="gfield               gfield_contains_required"><label class="gfield_label" for="input_1_22_3">Your Name<span class="gfield_required">*</span></label> 
+                            <div class="ginput_complex ginput_container" id="input_1_22"> 
+                              <span id="input_1_22_3_container" class="ginput_left"><input type="text" name="input_22.3" id="input_1_22_3" value="" tabindex="1" /><label for="input_1_22_3">First</label></span> 
+                              <span id="input_1_22_6_container" class="ginput_right"><input type="text" name="input_22.6" id="input_1_22_6" value="" tabindex="2" /><label for="input_1_22_6">Last</label></span> 
+                              <div class="gf_clear gf_clear_complex"></div> 
+                            </div></li> 
+                          <li id="field_1_23" class="gfield               gfield_contains_required"><label class="gfield_label" for="input_1_23">Your Phone Number<span class="gfield_required">*</span></label> 
+                            <div class="ginput_container"> 
+                              <input name="input_23" id="input_1_23" type="text" value="" class="medium" tabindex="3" /> 
+                            </div></li> 
+                          <li id="field_1_21" class="gfield         gfield_price gfield_price_1_1 gfield_option_1_1"><label class="gfield_label" for="input_1_21">Is This Pick Up or Delivery?</label> 
+                            <div class="ginput_container"> 
+                              <select name="input_21" id="input_1_21" onchange="gf_apply_rules(1,[24]);" class="medium gfield_select" tabindex="4"><option value="Pick Up|0">Pick Up</option><option value="Delivery|3">Delivery</option></select> 
+                            </div></li> 
+                          <li id="field_1_24" class="gfield               gfield_contains_required" style="display:none;"><label class="gfield_label" for="input_1_24_1">Delivery Address<span class="gfield_required">*</span></label> 
+                            <div class="ginput_complex ginput_container" id="input_1_24"> 
+                              <span class="ginput_full" id="input_1_24_1_container"><input type="text" name="input_24.1" id="input_1_24_1" value="" tabindex="5" /><label for="input_1_24_1" id="input_1_24_1_label">Street Address</label></span> 
+                              <span class="ginput_full" id="input_1_24_2_container"><input type="text" name="input_24.2" id="input_1_24_2" value="" tabindex="6" /><label for="input_1_24_2" id="input_1_24_2_label">Address Line 2</label></span> 
+                              <span class="ginput_left" id="input_1_24_3_container"><input type="text" name="input_24.3" id="input_1_24_3" value="" tabindex="7" /><label for="input_1_24_3" id="input_1_24.3_label">City</label></span> 
+                              <span class="ginput_right" id="input_1_24_4_container"><input type="text" name="input_24.4" id="input_1_24_4" value="" tabindex="9" /><label for="input_1_24_4" id="input_1_24_4_label">State / Province / Region</label></span> 
+                              <span class="ginput_left" id="input_1_24_5_container"><input type="text" name="input_24.5" id="input_1_24_5" value="" tabindex="10" /><label for="input_1_24_5" id="input_1_24_5_label">ZIP / Postal Code</label></span> 
+                              <input type="hidden" class="gform_hidden" name="input_24.6" id="input_1_24_6" value="" /> 
+                              <div class="gf_clear gf_clear_complex"></div> 
+                            </div></li> 
+                          <li id="field_1_26" class="gfield  gsection  super text-center"><h2 class="gsection_title">Let's Build Your Pizza</h2></li> 
+                          <li id="field_1_1" class="gfield     gform_hidden      gfield_price gfield_price_1_1 gfield_product_1_1     gfield_hidden_product"><label class="gfield_label" for="input_1_1">Product Name</label><input type="hidden" name="input_1.3" value="1" id="ginput_quantity_1_1" class="gform_hidden" /><input type="hidden" name="input_1.1" value="Product Name" class="gform_hidden" /><input name="input_1.2" id="ginput_base_price_1_1" type="hidden" value="$0.00" class="gform_hidden ginput_amount" /></li> 
+                          <li id="field_1_25" class="gfield         gfield_price gfield_price_1_1 gfield_option_1_1"><label class="gfield_label" for="input_1_25">Select Your Size</label> 
+                            <div class="ginput_container"> 
+                              <select name="input_25" id="input_1_25" class="medium gfield_select" tabindex="11"><option value="Small|5">Small</option><option value="Medium|6.5">Medium</option><option value="Large|7.5" selected="selected">Large</option></select> 
+                            </div></li> 
+                          <li id="field_1_27" class="gfield         gfield_price gfield_price_1_1 gfield_option_1_1"><label class="gfield_label" for="input_1_27">Select Your Crust</label> 
+                            <div class="ginput_container"> 
+                              <select name="input_27" id="input_1_27" class="medium gfield_select" tabindex="12"><option value="Extra Thin Crust|0">Extra Thin Crust</option><option value="Original Hand Tossed Crust|0" selected="selected">Original Hand Tossed Crust</option><option value="Mega Deep Dish Crust|2">Mega Deep Dish Crust</option></select> 
+                            </div></li> 
+                          <li id="field_1_3" class="gfield  gsection  super text-center"><h2 class="gsection_title">Topping Chooser Type One</h2></li> 
+                          <li id="field_1_4" class="gfield    gf_list_2col     gfield_price gfield_price_1_1 gfield_option_1_1      gfield_contains_required"><label class="gfield_label">Choose Your Toppings<span class="gfield_required">*</span></label> 
+                            <div class="ginput_container"> 
+                              <ul class="gfield_checkbox" id="input_1_4"> 
+                                <li class="gchoice_4_1"><input name="input_4.1" type="checkbox" value="Topping 1|0.5" id="choice_4_1" tabindex="13" /><label for="choice_4_1">Topping 1</label></li> 
+                                <li class="gchoice_4_2"><input name="input_4.2" type="checkbox" value="Topping 2|0.5" id="choice_4_2" tabindex="14" /><label for="choice_4_2">Topping 2</label></li> 
+                                <li class="gchoice_4_3"><input name="input_4.3" type="checkbox" value="Topping 3|0.5" id="choice_4_3" tabindex="15" /><label for="choice_4_3">Topping 3</label></li> 
+                                <li class="gchoice_4_4"><input name="input_4.4" type="checkbox" value="Topping 4|0.5" id="choice_4_4" tabindex="16" /><label for="choice_4_4">Topping 4</label></li> 
+                                <li class="gchoice_4_5"><input name="input_4.5" type="checkbox" value="Topping 5|0.5" id="choice_4_5" tabindex="17" /><label for="choice_4_5">Topping 5</label></li> 
+                                <li class="gchoice_4_6"><input name="input_4.6" type="checkbox" value="Topping 6|0.5" id="choice_4_6" tabindex="18" /><label for="choice_4_6">Topping 6</label></li> 
+                                <li class="gchoice_4_7"><input name="input_4.7" type="checkbox" value="Topping 7|0.5" id="choice_4_7" tabindex="19" /><label for="choice_4_7">Topping 7</label></li> 
+                                <li class="gchoice_4_8"><input name="input_4.8" type="checkbox" value="Topping 8|0.5" id="choice_4_8" tabindex="20" /><label for="choice_4_8">Topping 8</label></li> 
+                                <li class="gchoice_4_9"><input name="input_4.9" type="checkbox" value="Premium 1|1.5" id="choice_4_9" tabindex="21" /><label for="choice_4_9">Premium 1</label></li> 
+                                <li class="gchoice_4_11"><input name="input_4.11" type="checkbox" value="Premium 2|1.5" id="choice_4_11" tabindex="22" /><label for="choice_4_11">Premium 2</label></li> 
+                              </ul> 
+                            </div></li> 
+                          <li id="field_1_5" class="gfield  gsection  super text-center"><h2 class="gsection_title">Topping Chooser Type 2</h2></li> 
+                          <li id="field_1_6" class="gfield    gf_left_half     gfield_price gfield_price_1_1 gfield_option_1_1"><label class="gfield_label" for="input_1_6">Topping 1</label> 
+                            <div class="ginput_container"> 
+                              <select name="input_6" id="input_1_6" class="medium gfield_select" tabindex="23"><option value="None|0">None</option><option value="Half|0.5">Half</option><option value="Full|1">Full</option><option value="Double|2">Double</option></select> 
+                            </div></li> 
+                          <li id="field_1_7" class="gfield    gf_right_half     gfield_price gfield_price_1_1 gfield_option_1_1"><label class="gfield_label" for="input_1_7">Topping 2</label> 
+                            <div class="ginput_container"> 
+                              <select name="input_7" id="input_1_7" class="medium gfield_select" tabindex="24"><option value="None|0">None</option><option value="Half|0.5">Half</option><option value="Full|1">Full</option><option value="Double|2">Double</option></select> 
+                            </div></li> 
+                          <li id="field_1_8" class="gfield    gf_left_half     gfield_price gfield_price_1_1 gfield_option_1_1"><label class="gfield_label" for="input_1_8">Topping 3</label> 
+                            <div class="ginput_container"> 
+                              <select name="input_8" id="input_1_8" class="medium gfield_select" tabindex="25"><option value="None|0">None</option><option value="Half|0.5">Half</option><option value="Full|1">Full</option><option value="Double|2">Double</option></select> 
+                            </div></li> 
+                          <li id="field_1_9" class="gfield    gf_right_half     gfield_price gfield_price_1_1 gfield_option_1_1"><label class="gfield_label" for="input_1_9">Topping 4</label> 
+                            <div class="ginput_container"> 
+                              <select name="input_9" id="input_1_9" class="medium gfield_select" tabindex="26"><option value="None|0">None</option><option value="Half|0.5">Half</option><option value="Full|1">Full</option><option value="Double|2">Double</option></select> 
+                            </div></li> 
+                          <li id="field_1_10" class="gfield  gsection  super text-center"><h2 class="gsection_title">Topping Chooser Type 3</h2></li> 
+                          <li id="field_1_11" class="gfield    gf_left_half     gfield_price gfield_price_1_1 gfield_option_1_1"><label class="gfield_label" for="input_1_11">Topping 1</label> 
+                            <div class="ginput_container"> 
+                              <select name="input_11" id="input_1_11" onchange="gf_apply_rules(1,[12]);" class="medium gfield_select" tabindex="27"><option value="None|0">None</option><option value="Half|0.5">Half</option><option value="Full|1">Full</option></select> 
+                            </div></li> 
+                          <li id="field_1_13" class="gfield    gf_right_half     gfield_price gfield_price_1_1 gfield_option_1_1"><label class="gfield_label" for="input_1_13">Topping 2</label> 
+                            <div class="ginput_container"> 
+                              <select name="input_13" id="input_1_13" onchange="gf_apply_rules(1,[14]);" class="medium gfield_select" tabindex="28"><option value="None|0">None</option><option value="Half|0.5">Half</option><option value="Full|1">Full</option></select> 
+                            </div></li> 
+                          <li id="field_1_12" class="gfield    gf_left_half     gfield_price gfield_price_1_1 gfield_option_1_1"><label class="gfield_label">Topping 1 Options</label> 
+                            <div class="ginput_container"> 
+                              <ul class="gfield_checkbox" id="input_1_12"> 
+                                <li class="gchoice_12_1"><input name="input_12.1" type="checkbox" value="Double|1" id="choice_12_1" tabindex="29" /><label for="choice_12_1">Double</label></li> 
+                                <li class="gchoice_12_2"><input name="input_12.2" type="checkbox" value="Extra on the Side|1" id="choice_12_2" tabindex="30" /><label for="choice_12_2">Extra on the Side</label></li> 
+                              </ul> 
+                            </div></li> 
+                          <li id="field_1_14" class="gfield    gf_right_half     gfield_price gfield_price_1_1 gfield_option_1_1"><label class="gfield_label">Topping 2 Options</label> 
+                            <div class="ginput_container"> 
+                              <ul class="gfield_checkbox" id="input_1_14"> 
+                                <li class="gchoice_14_1"><input name="input_14.1" type="checkbox" value="Double|1" id="choice_14_1" tabindex="31" /><label for="choice_14_1">Double</label></li> 
+                                <li class="gchoice_14_2"><input name="input_14.2" type="checkbox" value="Extra on the Side|1" id="choice_14_2" tabindex="32" /><label for="choice_14_2">Extra on the Side</label></li> 
+                              </ul> 
+                            </div></li> 
+                          <li id="field_1_19" class="gfield  gsection  text-center"><h2 class="gsection_title">Special Instructions</h2> 
+                            <div class="gsection_description">
+                               please let us know any other special instructions for your order or to assist with delivery. 
+                            </div></li> 
+                          <li id="field_1_20" class="gfield"><label class="gfield_label" for="input_1_20">Instructions or Additional Comments</label> 
+                            <div class="ginput_container"> 
+                              <textarea name="input_20" id="input_1_20" class="textarea medium" tabindex="33" rows="10" cols="50"></textarea> 
+                            </div></li> 
+                          <li id="field_1_2" class="gfield    hidden-total big hairline"><label class="gfield_label" for="input_1_2">Your Order Total</label> 
+                            <div class="ginput_container"> 
+                              <span class="ginput_total ginput_total_1">$0.00</span> 
+                              <input type="hidden" name="input_2" id="input_1_2" class="gform_hidden" /> 
+                            </div></li> 
+                          <li id="field_1_17" class="gfield      gfield_html  gfield_no_follows_desc"> 
+                            <link href="../../fonts.googleapis.com/css-family=Source+Sans+Pro-400,600,700.css" rel="stylesheet" type="text/css" /> 
+                            <link href="../../fonts.googleapis.com/css-family=Delius+Swash+Caps.css" rel="stylesheet" type="text/css" /> <style type="text/css">
+
+body #content .post .post-content .gform_wrapper h2.gsection_title {
+	font-family: 'Delius Swash Caps', cursive;
+	font-size: 2em;
+	color: #820000;
+}
+
+body #content .post .post-content .gform_wrapper .top_label label.gfield_label {
+	font-family: 'Source Sans Pro', sans-serif;
+	font-weight: 600 !important;
+	font-size: 1.2em;
+}
+
+body #content .post .post-content .gform_wrapper span.ginput_total {
+	width: auto;
+	padding: 6px 10px;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+	background-color: #c4df9b;
+	font-family: 'Source Sans Pro', sans-serif;
+	font-weight: 700 !important;
+	font-size: 4em;
+	text-shadow: 1px 1px 1px #daf2b6;
+	margin: 0 auto !important;
+	display: -moz-inline-stack; 
+	display: inline-block; 
+	zoom: 1; 
+	*display: inline;
+	
+}
+
+body #content .post .post-content .gform_wrapper li#field_5_2 {
+	position: fixed;
+	right: 30px;
+	top: 50px;
+	padding: 0 10px 10px 10px;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+	background-color: #fff;
+	text-shadow: 1px 1px 1px #daf2b6;
+	-webkit-box-shadow: 0px 0px 5px rgba(50, 50, 50, 0.5);
+	-moz-box-shadow: 0px 0px 5px rgba(50, 50, 50, 0.5);
+	box-shadow: 0px 0px 5px rgba(50, 50, 50, 0.5);
+	
+}
+
+body #content .post .post-content .gform_wrapper .top_label li#field_5_2 label.gfield_label {
+	padding: 203px 0px 3px 0px;
+	background-image: url("../../rgsharedweb.s3.amazonaws.com/images/demo/gpizza_chef.png")/*tpa=http://rgsharedweb.s3.amazonaws.com/images/demo/gpizza_chef.png*/;
+	background-repeat: no-repeat;
+	background-position: center top;
+	width: 100%;
+	text-align: center;
+	margin-top: -35px;
+}
+
+body #content .post .post-content .gform_wrapper .button.gform_button {
+   border-top: 1px solid #54bf5b;
+   background: #217324;
+   background: -webkit-gradient(linear, left top, left bottom, from(#3e9c49), to(#217324));
+   background: -webkit-linear-gradient(top, #3e9c49, #217324);
+   background: -moz-linear-gradient(top, #3e9c49, #217324);
+   background: -ms-linear-gradient(top, #3e9c49, #217324);
+   background: -o-linear-gradient(top, #3e9c49, #217324);
+   padding: 12.5px 25px;
+   -webkit-border-radius: 8px;
+   -moz-border-radius: 8px;
+   border-radius: 8px;
+   -webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
+   -moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
+   box-shadow: rgba(0,0,0,1) 0 1px 0;
+   text-shadow: rgba(0,0,0,.4) 0 1px 0;
+   color: #fff !important;
+   font-size: 22px !important;
+   font-family: 'Delius Swash Caps', cursive;
+   text-decoration: none;
+   vertical-align: middle;
+   box-shadow: none !important;
+}
+   
+body #content .post .post-content .gform_wrapper .buttongform_button:hover {
+   border-top-color: #76c43f;
+   background: #76c43f;
+   color: #217324  !important;
+}
+   
+body #content .post .post-content .gform_wrapper .buttongform_button:active {
+   border-top-color: #2b872e;
+   background: #2b872e;
+}
+
+body #content .post .post-content .gform_wrapper form .validation_error {
+	font-size: 1.6em;
+	font-family: 'Delius Swash Caps', cursive;
+	line-height: 1.6;
+	padding: 10px 0;
+	border-bottom: 2px solid #790000;
+	text-align: center;
+}
+
+</style></li> 
+                          <li id="field_1_28" class="gfield    gform_validation_container"><label class="gfield_label" for="input_1_28">Name</label> 
+                            <div class="ginput_container"> 
+                              <input name="input_28" id="input_1_28" type="text" value="" /> 
+                            </div> 
+                            <div class="gfield_description">
+                               This field is for validation purposes and should be left unchanged. 
+                            </div></li> 
+                        </ul> 
+                      </div> 
+                      <div class="gform_footer top_label"> 
+                        <input type="submit" id="gform_submit_button_1" class="button gform_button" value="Submit Your Order" tabindex="34" onclick="if(window[&quot;gf_submitting_1&quot;]){return false;}  window[&quot;gf_submitting_1&quot;]=true; " /> 
+                        <input type="hidden" class="gform_hidden" name="is_submit_1" value="1" /> 
+                        <input type="hidden" class="gform_hidden" name="gform_submit" value="1" /> 
+                        <input type="hidden" class="gform_hidden" name="gform_unique_id" value="" /> 
+                        <input type="hidden" class="gform_hidden" name="state_1" value="WyJhOjI1OntpOjIxO2E6Mjp7aTowO3M6MzI6XCI2YWRkZjY1ZTljNjBmZTk0MTc3ZTA5ODQ5MDAyM2QzNlwiO2k6MTtzOjMyOlwiNGJmMTY5YTNmZGFkNGYxOGYyMDVmYWU1Mjk3ZmFiZmNcIjt9czozOlwiMS4xXCI7czozMjpcIjkwYWU4MTNmZDMwNGY5ZWIxMzc4MmZmYWZmYjNiZjMwXCI7czozOlwiMS4yXCI7czozMjpcIjUzYmU4Y2ZmMmRhZWQ4NDlhODRiMzY5NzUxODVhNGVhXCI7aToyNTthOjM6e2k6MDtzOjMyOlwiODE4NDhlMDYxZDcxMmM1ODgyODhlNDExYjMxODk1NWRcIjtpOjE7czozMjpcIjQyNDAyNzk3MGFlOGQxM2ZiN2MwZDY2MzYxZGIzMDUzXCI7aToyO3M6MzI6XCI4NzIxYWVjYjExZTY4ZTRmZTNkNGIyYTc1ODliMTQ0MlwiO31pOjI3O2E6Mzp7aTowO3M6MzI6XCJkNmRjZmQ2ZmQzNWU3YWM4NWE5YmVhNjFjZTMwZjBiNVwiO2k6MTtzOjMyOlwiODM3OTBjN2Q4Zjk1NjQ5Y2VjZDJiODI3MTk4NzBlMDJcIjtpOjI7czozMjpcIjJhMmM1ZWMwNGVmNzMwYjY4NmNmNWY5MzkyNjljODdhXCI7fXM6MzpcIjQuMVwiO3M6MzI6XCJhYzYyNzAxZGQxZTZkMmYxYzMxNzJjOTU0OTFjZmY5OVwiO3M6MzpcIjQuMlwiO3M6MzI6XCIwNDlmMjVmNWFhNzE3ZTQ5Y2RiMzhiMTA0MGFiYjZkYlwiO3M6MzpcIjQuM1wiO3M6MzI6XCIyMGNmODA4NzhkNzlmYTQ5ZmZiZWM2MGE5Yzg3MjM3Y1wiO3M6MzpcIjQuNFwiO3M6MzI6XCIzM2Y5MzQ4ZGEyZDBjNTQwZmUxZjgwOWMyNGIwYjQ2YlwiO3M6MzpcIjQuNVwiO3M6MzI6XCJjNDdkZDU1Mjg3Y2QxMWYwOGE5MTY1MmI4MGQ5NmRmMFwiO3M6MzpcIjQuNlwiO3M6MzI6XCIyM2U0MDk0N2Q2NWZkMmYxODY2ZDMyNGEwODg1ZTFiOVwiO3M6MzpcIjQuN1wiO3M6MzI6XCJkMzBiMmIxMzgzM2I5ZTMzM2FmMTVjZmJjMzRkZmZhZVwiO3M6MzpcIjQuOFwiO3M6MzI6XCJmZmZlMDNjYWJjYmNkMjgyN2MxYWFlYTBjODNlMjUwMFwiO3M6MzpcIjQuOVwiO3M6MzI6XCIxMTJlYWVkZWEyZDE4MDg5NTQwODMyNTZlZGRlNmU2OFwiO3M6NDpcIjQuMTFcIjtzOjMyOlwiMmZmNGIwMTNjMjg5YzQ5NDFmNDkxYWU2YjdhYjQyYzZcIjtpOjY7YTo0OntpOjA7czozMjpcImQ5MjZiYzRlNTg2ZmExMjI3YWI3MGExMmY3MjhhNTMxXCI7aToxO3M6MzI6XCI0OGJjNmMzYzUyOTE2NDMwMDQwY2YzNWJkNGM0MzI4ZVwiO2k6MjtzOjMyOlwiMGFlZTUxNjJhZmJiMDNjM2RlOGU4MTRjZDgzZTM4MDJcIjtpOjM7czozMjpcImE0NjBlYzhiMWJmYjI1N2QwMGRjZjYwYTJkNTNlNDE0XCI7fWk6NzthOjQ6e2k6MDtzOjMyOlwiZDkyNmJjNGU1ODZmYTEyMjdhYjcwYTEyZjcyOGE1MzFcIjtpOjE7czozMjpcIjQ4YmM2YzNjNTI5MTY0MzAwNDBjZjM1YmQ0YzQzMjhlXCI7aToyO3M6MzI6XCIwYWVlNTE2MmFmYmIwM2MzZGU4ZTgxNGNkODNlMzgwMlwiO2k6MztzOjMyOlwiYTQ2MGVjOGIxYmZiMjU3ZDAwZGNmNjBhMmQ1M2U0MTRcIjt9aTo4O2E6NDp7aTowO3M6MzI6XCJkOTI2YmM0ZTU4NmZhMTIyN2FiNzBhMTJmNzI4YTUzMVwiO2k6MTtzOjMyOlwiNDhiYzZjM2M1MjkxNjQzMDA0MGNmMzViZDRjNDMyOGVcIjtpOjI7czozMjpcIjBhZWU1MTYyYWZiYjAzYzNkZThlODE0Y2Q4M2UzODAyXCI7aTozO3M6MzI6XCJhNDYwZWM4YjFiZmIyNTdkMDBkY2Y2MGEyZDUzZTQxNFwiO31pOjk7YTo0OntpOjA7czozMjpcImQ5MjZiYzRlNTg2ZmExMjI3YWI3MGExMmY3MjhhNTMxXCI7aToxO3M6MzI6XCI0OGJjNmMzYzUyOTE2NDMwMDQwY2YzNWJkNGM0MzI4ZVwiO2k6MjtzOjMyOlwiMGFlZTUxNjJhZmJiMDNjM2RlOGU4MTRjZDgzZTM4MDJcIjtpOjM7czozMjpcImE0NjBlYzhiMWJmYjI1N2QwMGRjZjYwYTJkNTNlNDE0XCI7fWk6MTE7YTozOntpOjA7czozMjpcImQ5MjZiYzRlNTg2ZmExMjI3YWI3MGExMmY3MjhhNTMxXCI7aToxO3M6MzI6XCI0OGJjNmMzYzUyOTE2NDMwMDQwY2YzNWJkNGM0MzI4ZVwiO2k6MjtzOjMyOlwiMGFlZTUxNjJhZmJiMDNjM2RlOGU4MTRjZDgzZTM4MDJcIjt9aToxMzthOjM6e2k6MDtzOjMyOlwiZDkyNmJjNGU1ODZmYTEyMjdhYjcwYTEyZjcyOGE1MzFcIjtpOjE7czozMjpcIjQ4YmM2YzNjNTI5MTY0MzAwNDBjZjM1YmQ0YzQzMjhlXCI7aToyO3M6MzI6XCIwYWVlNTE2MmFmYmIwM2MzZGU4ZTgxNGNkODNlMzgwMlwiO31zOjQ6XCIxMi4xXCI7czozMjpcIjI5ZjFhMWY3NTUyMGFmODE3MjM3MDU0NjQxNjBhMDk5XCI7czo0OlwiMTIuMlwiO3M6MzI6XCI2MjUyMWFjYWM1NTk2M2VmNjVhMTkyZWZlODAxZDlhZlwiO3M6NDpcIjE0LjFcIjtzOjMyOlwiMjlmMWExZjc1NTIwYWY4MTcyMzcwNTQ2NDE2MGEwOTlcIjtzOjQ6XCIxNC4yXCI7czozMjpcIjYyNTIxYWNhYzU1OTYzZWY2NWExOTJlZmU4MDFkOWFmXCI7fSIsImFkMGQxN2M2ZjljZmYzMTMyMGYwM2NkNTUxNTcxYTRkIl0=" /> 
+                        <input type="hidden" class="gform_hidden" name="gform_target_page_number_1" id="gform_target_page_number_1" value="0" /> 
+                        <input type="hidden" class="gform_hidden" name="gform_source_page_number_1" id="gform_source_page_number_1" value="1" /> 
+                        <input type="hidden" name="gform_field_values" value="" /> 
+                      </div> 
+                    </form> 
+                  </div> 
+                  <script type="text/javascript"> if(typeof gf_global == 'undefined') var gf_global = {"gf_currency_config":{"name":"U.S. Dollar","symbol_left":"$","symbol_right":"","symbol_padding":"","thousand_separator":",","decimal_separator":".","decimals":2},"base_url":"http:\/\/omega.oxygenna.com\/wp-content\/plugins\/gravityforms","number_formats":[],"spinnerUrl":"http:\/\/omega.oxygenna.com\/wp-content\/plugins\/gravityforms\/images\/spinner.gif"};jQuery(document).bind('gform_post_render', function(event, formId, currentPage){if(formId == 1) {if(window['jQuery']){if(!window['gf_form_conditional_logic'])window['gf_form_conditional_logic'] = new Array();window['gf_form_conditional_logic'][1] = {'logic' : {24: {"field":{"actionType":"show","logicType":"all","rules":[{"fieldId":"21","operator":"is","value":"Delivery"}]},"nextButton":null,"section":""},12: {"field":{"actionType":"show","logicType":"all","rules":[{"fieldId":"11","operator":"isnot","value":"None"}]},"nextButton":null,"section":""},14: {"field":{"actionType":"show","logicType":"all","rules":[{"fieldId":"13","operator":"isnot","value":"None"}]},"nextButton":null,"section":""} }, 'dependents' : {24: ["24"],12: ["12"],14: ["14"] }, 'animation' : 1 , 'defaults' : {"25":"Large|7.5","27":"Original Hand Tossed Crust|0"} }; if(!window['gf_number_format'])window['gf_number_format'] = 'decimal_dot';jQuery(document).ready(function(){gf_apply_rules(1, ["24","12","14"], true);jQuery('#gform_wrapper_1').show();jQuery(document).trigger('gform_post_conditional_logic', [1, null, true]);} );} if(window["gformInitPriceFields"]) jQuery(document).ready(function(){gformInitPriceFields();} );} } );jQuery(document).bind('gform_post_conditional_logic', function(event, formId, fields, isInit){} );</script> 
+                  <script type="text/javascript"> jQuery(document).ready(function(){jQuery(document).trigger('gform_post_render', [1, 1]) } ); </script> 
+                  <p></p> 
+                </div> 
+              </div> 
+              <div class="col-md-2  text-default small-screen-default"></div> 
+            </div> 
+          </div> 
+        </section> 
+        <span class="hide"><span class="author vcard"><span class="fn">Christos Pantazis</span></span><span class="entry-title">Gravity forms</span><time class="entry-date updated" datetime="2014-05-27T08:02:02+00:00">05.27.2014</time></span> 
+      </article> 
+      <footer id="footer" role="contentinfo"> 
+        <section class="section swatch-black"> 
+          <div class="container"> 
+            <div class="row element-normal-top element-normal-bottom"> 
+              <div class="col-md-3"> 
+                <div id="recent-posts-4" class="sidebar-widget  widget_recent_entries"> 
+                  <h3 class="sidebar-header">Recent Posts</h3> 
+                  <ul> 
+                    <li class="clearfix"> 
+                      <div class="post-icon"> 
+                        <a href="../the-beauty-of-the-natural-world-lies-in-the-details/index.html" title="The beauty of the world."> <img width="150" height="150" src="../wp-content/uploads/2014/04/image-08-normal-150x150.jpg" class="attachment-thumbnail size-thumbnail wp-post-image" alt="image-08-normal" sizes="(max-width: 150px) 100vw, 150px" /> </a> 
+                      </div> <a href="../the-beauty-of-the-natural-world-lies-in-the-details/index.html" title="The beauty of the world.">The beauty of the world.</a> <small class="post-date"> March 14, 2014 </small> </li> 
+                    <li class="clearfix"> 
+                      <div class="post-icon"> 
+                        <a href="../colors-are-the-smiles-of-nature/index.html" title="Colors are the smiles of nature."> <img width="150" height="150" src="../wp-content/uploads/2014/04/image-02-normal-150x150.jpg" class="attachment-thumbnail size-thumbnail wp-post-image" alt="image-02-normal" sizes="(max-width: 150px) 100vw, 150px" /> </a> 
+                      </div> <a href="../colors-are-the-smiles-of-nature/index.html" title="Colors are the smiles of nature.">Colors are the smiles of nature.</a> <small class="post-date"> March 1, 2014 </small> </li> 
+                    <li class="clearfix"> 
+                      <div class="post-icon"> 
+                        <a href="../coffee-is-a-language-in-itself/index.html" title="Coffee is a language in itself."> <img width="150" height="150" src="../wp-content/uploads/2014/04/image-03-normal-150x150.jpg" class="attachment-thumbnail size-thumbnail wp-post-image" alt="image-03-normal" sizes="(max-width: 150px) 100vw, 150px" /> </a> 
+                      </div> <a href="../coffee-is-a-language-in-itself/index.html" title="Coffee is a language in itself.">Coffee is a language in itself.</a> <small class="post-date"> February 14, 2014 </small> </li> 
+                  </ul> 
+                </div> 
+              </div> 
+              <div class="col-md-3"> 
+                <div id="categories-4" class="sidebar-widget  widget_categories"> 
+                  <h3 class="sidebar-header">Categories</h3> 
+                  <ul> 
+                    <li class="cat-item cat-item-65"><a href="../category/about-design/index.html">About Design</a> </li> 
+                    <li class="cat-item cat-item-62"><a href="../category/coffee-2/index.html">Coffee &amp; more</a> </li> 
+                    <li class="cat-item cat-item-47"><a href="../category/nature/index.html">Nature journal</a> </li> 
+                    <li class="cat-item cat-item-54"><a href="../category/people/index.html">People and more</a> </li> 
+                    <li class="cat-item cat-item-1"><a href="../category/uncategorized/index.html">Uncategorized</a> </li> 
+                    <li class="cat-item cat-item-59"><a href="../category/wooden-things/index.html">Wooden things</a> </li> 
+                  </ul> 
+                </div> 
+              </div> 
+              <div class="col-md-3"> 
+                <div id="archives-4" class="sidebar-widget  widget_archive"> 
+                  <h3 class="sidebar-header">Archives</h3> 
+                  <ul> 
+                    <li><a href="../2014/03/index.html">March 2014</a></li> 
+                    <li><a href="../2014/02/index.html">February 2014</a></li> 
+                    <li><a href="../2014/01/index.html">January 2014</a></li> 
+                    <li><a href="../2013/12/index.html">December 2013</a></li> 
+                    <li><a href="../2013/11/index.html">November 2013</a></li> 
+                  </ul> 
+                </div> 
+              </div> 
+              <div class="col-md-3"> 
+                <div id="tag_cloud-3" class="sidebar-widget  widget_tag_cloud"> 
+                  <h3 class="sidebar-header">Tags</h3> 
+                  <div class="tagcloud"> 
+                    <ul> 
+                      <li><a href="../tag/about-clothes/index.html" class="tag-link-67 tag-link-position-1" title="1 topic" style="font-size: 8pt;">about clothes</a></li> 
+                      <li><a href="../tag/audio/index.html" class="tag-link-68 tag-link-position-2" title="1 topic" style="font-size: 8pt;">audio</a></li> 
+                      <li><a href="../tag/birds/index.html" class="tag-link-74 tag-link-position-3" title="2 topics" style="font-size: 11.876923076923pt;">birds</a></li> 
+                      <li><a href="../tag/cactus/index.html" class="tag-link-72 tag-link-position-4" title="1 topic" style="font-size: 8pt;">cactus</a></li> 
+                      <li><a href="../tag/calm/index.html" class="tag-link-48 tag-link-position-5" title="7 topics" style="font-size: 20.923076923077pt;">calm</a></li> 
+                      <li><a href="../tag/coffee/index.html" class="tag-link-63 tag-link-position-6" title="4 topics" style="font-size: 16.615384615385pt;">coffee</a></li> 
+                      <li><a href="../tag/design-2/index.html" class="tag-link-60 tag-link-position-7" title="2 topics" style="font-size: 11.876923076923pt;">design</a></li> 
+                      <li><a href="../tag/field/index.html" class="tag-link-75 tag-link-position-8" title="2 topics" style="font-size: 11.876923076923pt;">field</a></li> 
+                      <li><a href="../tag/flowers/index.html" class="tag-link-73 tag-link-position-9" title="1 topic" style="font-size: 8pt;">flowers</a></li> 
+                      <li><a href="../tag/game/index.html" class="tag-link-79 tag-link-position-10" title="1 topic" style="font-size: 8pt;">game</a></li> 
+                      <li><a href="../tag/music/index.html" class="tag-link-69 tag-link-position-11" title="1 topic" style="font-size: 8pt;">music</a></li> 
+                      <li><a href="javascript:if(confirm('tag/nature-2/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ������, �����������, ����Ŀ����ֹͣ��  \n\n�����ڷ������ϴ���?'))window.location='tag/nature-2/'" class="tag-link-49 tag-link-position-12" title="8 topics" style="font-size: 22pt;">nature</a></li> 
+                      <li><a href="javascript:if(confirm('tag/sky/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ������, �����������, ����Ŀ����ֹͣ��  \n\n�����ڷ������ϴ���?'))window.location='tag/sky/'" class="tag-link-50 tag-link-position-13" title="4 topics" style="font-size: 16.615384615385pt;">sky</a></li> 
+                      <li><a href="javascript:if(confirm('tag/sounds/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ������, �����������, ����Ŀ����ֹͣ��  \n\n�����ڷ������ϴ���?'))window.location='tag/sounds/'" class="tag-link-70 tag-link-position-14" title="1 topic" style="font-size: 8pt;">sounds</a></li> 
+                      <li><a href="javascript:if(confirm('tag/things-2/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ������, �����������, ����Ŀ����ֹͣ��  \n\n�����ڷ������ϴ���?'))window.location='tag/things-2/'" class="tag-link-64 tag-link-position-15" title="5 topics" style="font-size: 18.338461538462pt;">things</a></li> 
+                      <li><a href="javascript:if(confirm('tag/wood/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ������, �����������, ����Ŀ����ֹͣ��  \n\n�����ڷ������ϴ���?'))window.location='tag/wood/'" class="tag-link-76 tag-link-position-16" title="1 topic" style="font-size: 8pt;">wood</a></li> 
+                    </ul> 
+                  </div> 
+                </div> 
+              </div> 
+            </div> 
+          </div> 
+        </section> 
+      </footer> 
+    </div> 
+    <!-- Fixing the Back to top button --> 
+    <script>
+              (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+              (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+              m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+              })(window,document,'script','../../www.google-analytics.com/analytics.js'/*tpa=http://www.google-analytics.com/analytics.js*/,'ga');
+              ga('create', 'UA-209441-72', 'auto');
+              ga('send', 'pageview');
+            </script> 
+    <div id="style-switcher"> 
+      <div class="switcher-inner text-center"> 
+        <button class="btn btn-switcher"> <i class="fa fa-cog"></i> </button> 
+        <h4> <span> Sample Colors </span> </h4> 
+        <ul class="theme-colors"> 
+          <li> <a class="colour-switch swatch-white" data-swatch="swatch-white">Blue</a> </li> 
+          <li> <a class="colour-switch swatch-red" data-swatch="swatch-white-red">Red</a> </li> 
+          <li> <a class="colour-switch swatch-green" data-swatch="swatch-white-green">Green</a> </li> 
+          <li> <a class="colour-switch swatch-black" data-swatch="swatch-white-black">Black</a> </li> 
+        </ul> 
+        <p> you can create unlimited colour variations using the <strong>Swatch color editor</strong> </p> 
+        <h4 class="margin-top"> <span> Layout </span> </h4> 
+        <ul class="theme-layout"> 
+          <li> <a class="layout-switch normal-layout" data-layout="layout-normal">Normal</a> </li> 
+          <li> <a class="layout-switch boxed-layout" data-layout="layout-boxed">Boxed</a> </li> 
+          <li> </li> 
+        </ul> 
+      </div> 
+    </div> 
+    <script type="text/javascript" src="../wp-includes/js/comment-reply.min.js"></script> 
+    <script type="text/javascript" src="../wp-content/plugins/bbpress/templates/default/js/editor.js"></script> 
+    <script type="text/javascript" src="../wp-content/plugins/contact-form-7/includes/js/jquery.form.min.js"></script> 
+    <script type="text/javascript">
+/* <![CDATA[ */
+var _wpcf7 = {"loaderUrl":"http:\/\/omega.oxygenna.com\/wp-content\/plugins\/contact-form-7\/images\/ajax-loader.gif","recaptchaEmpty":"Please verify that you are not a robot.","sending":"Sending ...","cached":"1"};
+/* ]]> */
+</script> 
+    <script type="text/javascript" src="../wp-content/plugins/contact-form-7/includes/js/scripts.js"></script> 
+    <script type="text/javascript" src="../wp-content/plugins/omega-switcher-plugin/javascripts/switcher.js"></script> 
+    <script type="text/javascript" src="../wp-content/plugins/woocommerce/assets/js/jquery-blockui/jquery.blockUI.min.js"></script> 
+    <script type="text/javascript">
+/* <![CDATA[ */
+var woocommerce_params = {"ajax_url":"http://wp-admin//admin-ajax.php","wc_ajax_url":"\/gravity-forms\/?wc-ajax=%%endpoint%%"};
+/* ]]> */
+</script> 
+    <script type="text/javascript" src="../wp-content/plugins/woocommerce/assets/js/frontend/woocommerce.min.js"></script> 
+    <script type="text/javascript" src="../wp-content/plugins/woocommerce/assets/js/jquery-cookie/jquery.cookie.min.js"></script> 
+    <script type="text/javascript">
+/* <![CDATA[ */
+var wc_cart_fragments_params = {"ajax_url":"http://wp-admin//admin-ajax.php","wc_ajax_url":"\/gravity-forms\/?wc-ajax=%%endpoint%%","fragment_name":"wc_fragments"};
+/* ]]> */
+</script> 
+    <script type="text/javascript" src="../wp-content/plugins/woocommerce/assets/js/frontend/cart-fragments.min.js"></script> 
+    <script type="text/javascript">
+/* <![CDATA[ */
+var mejsL10n = {"language":"en-US","strings":{"Close":"Close","Fullscreen":"Fullscreen","Download File":"Download File","Download Video":"Download Video","Play\/Pause":"Play\/Pause","Mute Toggle":"Mute Toggle","None":"None","Turn off Fullscreen":"Turn off Fullscreen","Go Fullscreen":"Go Fullscreen","Unmute":"Unmute","Mute":"Mute","Captions\/Subtitles":"Captions\/Subtitles"}};
+var _wpmejsSettings = {"pluginPath":"\/wp-includes\/js\/mediaelement\/"};
+/* ]]> */
+</script> 
+    <script type="text/javascript" src="../wp-includes/js/mediaelement/mediaelement-and-player.min.js"></script> 
+    <script type="text/javascript" src="../wp-includes/js/mediaelement/wp-mediaelement.min.js"></script> 
+    <script type="text/javascript">
+/* <![CDATA[ */
+var oxyThemeData = {"navbarScrolledPoint":"90","navbarScrolledSwatches":{"up":"swatch-white","down":"swatch-white"},"navbarHeight":"90","navbarScrolled":"70","scrollFinishedMessage":"No more items to load.","siteLoader":"on","hoverMenu":{"hoverActive":true,"hoverDelay":"200","hoverFadeDelay":"200"}};
+/* ]]> */
+</script> 
+    <script type="text/javascript" src="../wp-content/themes/omega/assets/js/theme.min.js"></script> 
+    <script type="text/javascript" src="../wp-content/plugins/wp-charts/js/functions.js"></script> 
+    <script type="text/javascript" src="../wp-includes/js/wp-embed.min.js"></script>   
+  </body>
+</html>
