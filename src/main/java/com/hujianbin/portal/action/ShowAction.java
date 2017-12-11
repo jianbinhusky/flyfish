@@ -6,6 +6,7 @@ import com.hujianbin.basis.service.BeautyGirlService;
 import com.hujianbin.common.spring.BaseAction;
 import com.hujianbin.common.util.PageModel;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,6 +25,9 @@ public class ShowAction extends BaseAction {
 
 	@Autowired
 	private BeautyGirlService beautyGirlService;
+
+	@Value("#{config['img.server.url']}")
+	private String imgServerUrl;
 
 	/**
 	 * Get
@@ -51,24 +55,19 @@ public class ShowAction extends BaseAction {
 		long minTimestamp = beautyGirlList.get(beautyGirlList.size() - 1)
 				.getTimeStamp();
 
+
+		result.put("imgServerUrl", imgServerUrl);
 		result.put("minTimestamp", minTimestamp);
 		result.put("beautyGirlList", beautyGirlList);
 
 		// Request Info
-		String serverName = request.getServerName();
-		String contextPath = request.getContextPath();
-		String localAddr = request.getLocalAddr();
-		String method = request.getMethod();
-		String pathInfo = request.getPathInfo();
-		String servletPath = request.getServletPath();
-		String scheme = request.getScheme();
-		System.out.println("scheme = " + scheme);
-		System.out.println("servletPath = " + servletPath);
-		System.out.println("pathInfo = " + pathInfo);
-		System.out.println("serverName = " + serverName);
-		System.out.println("contextPath = " + contextPath);
-		System.out.println("localAddr = " + localAddr);
-		System.out.println("method = " + method);
+//		String serverName = request.getServerName();
+//		String contextPath = request.getContextPath();
+//		String localAddr = request.getLocalAddr();
+//		String method = request.getMethod();
+//		String pathInfo = request.getPathInfo();
+//		String servletPath = request.getServletPath();
+//		String scheme = request.getScheme();
 				
 		return "portal/showGirls";
 	}
@@ -96,6 +95,7 @@ public class ShowAction extends BaseAction {
 				.queryBeautyGirlByCondition(condition);
 		beautyGirlList = (List<BeautyGirl>) pageModel.getData();
 
+		result.put("imgServerUrl", imgServerUrl);
 		result.put("beautyGirlList", beautyGirlList);
 
 	}
@@ -116,6 +116,7 @@ public class ShowAction extends BaseAction {
 		long minTimestamp = beautyGirlList.get(beautyGirlList.size() - 1)
 				.getTimeStamp();
 
+		result.put("imgServerUrl", imgServerUrl);
 		result.put("minTimestamp", minTimestamp);
 		result.put("beautyGirlList", beautyGirlList);
 				
@@ -137,6 +138,7 @@ public class ShowAction extends BaseAction {
 
 		long minTimestamp = beautyGirlList.get(beautyGirlList.size() - 1)
 				.getTimeStamp();
+		result.put("imgServerUrl", imgServerUrl);
 		result.put("minTimestamp", minTimestamp);
 		result.put("beautyGirlList", beautyGirlList);
 

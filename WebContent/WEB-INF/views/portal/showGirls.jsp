@@ -12,8 +12,8 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>WaterFlow|BeautyGirl</title>
-		<link rel="shortcut icon" href="<c:url value="/static/images/ico.png" />"/>
-		<link rel="bookmark" href="<c:url value="/static/images/ico.png " />"/> 
+		<link rel="shortcut icon" href="<c:url value="${imgServerUrl}/images/ico.png" />"/>
+		<link rel="bookmark" href="<c:url value="${imgServerUrl}/images/ico.png " />"/> 
 	    <link type="text/css" href="<c:url value="/static/css/style.css" /> " rel="stylesheet" />
 	    <link type="text/css" href="<c:url value="/static/css/jquery.fancybox-thumbs.css" /> " rel="stylesheet" media="screen" /> 
 	    <link type="text/css" href="<c:url value="/static/css/jquery.fancybox-buttons.css" /> " rel="stylesheet" media="screen" />
@@ -25,8 +25,8 @@
 		        <!--每一个小块-->
 		        <div class="pin">
 		            <div class="box">
-		            	<a class="fancybox-button" rel="fancybox-button" href="<c:url value="/static/images/${beautyGirl.imageUrl}" />">
-		                	<img src="<c:url value="/static/images/${beautyGirl.imageUrl} " />">
+		            	<a class="fancybox-button" rel="fancybox-button" href="<c:url value="${imgServerUrl}/images/${beautyGirl.imageUrl}" />">
+		                	<img src="<c:url value="${imgServerUrl}/images/${beautyGirl.imageUrl} " />">
 		                </a>
 		            </div>
 		        </div>	    	
@@ -109,8 +109,8 @@
 								var imageUrl = data.beautyGirlList[i].imageUrl;
 								item = item +  '<div class="pin">' +
 												'<div class="box">' +
-													'<a class="fancybox-button" rel="fancybox-button" href="<c:url value="/static/images/'+imageUrl+'" />">'+
-														'<img src="<c:url value="/static/images/'+imageUrl+' " />">' +
+													'<a class="fancybox-button" rel="fancybox-button" href="<c:url value="${imgServerUrl}/images/'+imageUrl+'" />">'+
+														'<img src="<c:url value="${imgServerUrl}/images/'+imageUrl+' " />">' +
 													'</a>' +
 												'</div>' +
 											'</div>';
