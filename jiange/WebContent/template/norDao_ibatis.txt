@@ -1,0 +1,161 @@
+package %PackageName%.dao;
+
+import java.util.List;
+import java.util.Map;
+import org.springframework.dao.DataAccessException;
+import %PackageName%.search.%TableName%SearchBean;
+import %PackageName%.bean.%TableName%;
+/**
+ * <p>Title: </p>
+ *
+ * <p>Description:%TableName%</p>
+ *
+ * <p>Copyright: Copyright (c) 2015</p>
+ *
+ * <p>Author: hujianbin</p>
+ *
+ * @author AutoCreate
+ * @version 1.0
+ */
+
+public interface %TableName%Dao {
+
+	/**
+	 * 新增%TableName%
+	 * @param %sTableName%
+	 * @throws DataAccessException
+	 */
+	public void insert%TableName%(%TableName% %sTableName%) throws DataAccessException;
+
+	/**
+	 * 更新%TableName%
+	 * @param %sTableName%
+	 * @throws DataAccessException
+	 */
+  	public void update%TableName%(%TableName% %sTableName%) throws DataAccessException;
+
+  	/**
+	 * 根据条件获取%TableName%对象
+	 * @param where
+	 * @return %TableName%
+	 * @throws DataAccessException
+	 */
+  	public %TableName% get%TableName%ByWhere(String where) throws DataAccessException;
+  
+  	/**
+	 * 分页获取%TableName%列表
+	 * @param condition
+	 * @return List<%TableName%>
+	 * @throws DataAccessException
+	 */
+  	public List<%TableName%> get%TableName%ListByWhere(%TableName%SearchBean condition) throws DataAccessException;
+  	
+  	/**
+	 * 分页获取%TableName%列表
+	 * @param condition
+	 * @return List<%TableName%>
+	 * @throws DataAccessException
+	 */
+  	public List<%TableName%> get%TableName%ListByCondition(%TableName%SearchBean condition) throws DataAccessException;
+  
+  	/**
+	 * 根据条件获取%TableName%列表
+	 * @param sql
+	 * @return List<%TableName%>
+	 * @throws DataAccessException
+	 */
+  	public List<%TableName%> get%TableName%ListBySql(String sql) throws DataAccessException;
+  
+  	/**
+	 * 根据sql获取%TableName%记录数
+	 * @param where
+	 * @return int
+	 * @throws DataAccessException
+	 */
+  	public int get%TableName%CountByWhere(String where) throws DataAccessException;
+  	
+  	/**
+	 * 根据实例获取%TableName%记录数
+	 * @param %sTableName%
+	 * @return int
+	 * @throws DataAccessException
+	 */
+  	public int get%TableName%CountByExample(%TableName% %sTableName%) throws DataAccessException;
+  	
+  	/**
+	 * 根据条件获取%TableName%记录数
+	 * @param condition
+	 * @return int
+	 * @throws DataAccessException
+	 */
+  	public int get%TableName%CountByCondition(%TableName%SearchBean condition) throws DataAccessException;
+  
+  	/**
+	 * 根据条件更新%TableName%对象
+	 * @param where
+	 * @throws DataAccessException
+	 */
+  	public void update%TableName%ByWhere(String where) throws DataAccessException;
+  
+  	/**
+	 * 根据条件删除%TableName%记录
+	 * @param where
+	 * @throws DataAccessException
+	 */
+  	public void delete%TableName%ByWhere(String where) throws DataAccessException;
+  	
+  	/**
+	 * 批量插入%TableName%记录
+	 * @param where
+	 * @throws DataAccessException
+	 */
+  	public void batchInsert%TableName%(List<%TableName%> list) throws DataAccessException;
+  	
+  	/**
+	 * 根据实例获取%TableName%对象
+	 * @param %sTableName%
+	 * @return %TableName%
+	 * @throws DataAccessException
+	 */
+  	public %TableName% get%TableName%ByExample(%TableName% %sTableName%) throws DataAccessException;
+  	
+  	/**
+	 * 根据实例获取%TableName%对象
+	 * @param %sTableName%
+	 * @return %TableName%
+	 * @throws DataAccessException
+	 */
+  	public List<%TableName%> get%TableName%ListByExample(%TableName% %sTableName%) throws DataAccessException;
+  	
+  	/**
+	 * 根据实例删除%TableName%对象
+	 * @param %sTableName%
+	 * @return %TableName%
+	 * @throws DataAccessException
+	 */
+  	public void delete%TableName%ByExample(%TableName% %sTableName%) throws DataAccessException;
+  	
+  	/**
+	 * 根据条件删除%TableName%对象
+	 * @param %sTableName%
+	 * @return %TableName%
+	 * @throws DataAccessException
+	 */
+  	public void delete%TableName%ByCondition(%TableName%SearchBean condition) throws DataAccessException;
+  	
+  	/**
+	 * 根据实例批量删除%TableName%对象
+	 * @param %sTableName%
+	 * @return %TableName%
+	 * @throws DataAccessException
+	 */
+  	public void batchDelete%TableName%ByExample(List<%TableName%> list) throws DataAccessException;
+  	
+  	public List<%TableName%> get%TableName%ByCondition(%TableName%SearchBean condition) throws DataAccessException;
+  	
+  	public void update%TableName%(%TableName%SearchBean condition) throws DataAccessException;
+  	
+  	public Map<String,Object> get%TableName%ColumnByCondition(%TableName%SearchBean condition) throws DataAccessException;
+  	
+  	public void update%TableName%ByExample(%TableName% %sTableName%) throws DataAccessException;
+}
