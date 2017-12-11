@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+    	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    	<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<link rel="stylesheet" href="css/bootstrap-theme.min.css" />
+		<link rel="stylesheet" href="css/custom/default.css" />
+		<title>ibatis 代码生成工具</title>
+	</head>
+	<body>
+		<nav class="navbar navbar-inverse"> <!-- nav start -->
+			<div class="container">
+				<div class="navbar-header">
+				<div class="btn-group">
+				  <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				    系统 <span class="caret"></span>
+				  </button>
+				  <ul class="dropdown-menu">
+				    <li><a href="#">新建连接</a></li>
+				    <li><a href="#">打开目录</a></li>
+				    <li><a href="#">历史记录</a></li>
+				    <li role="separator" class="divider"></li>
+				    <li><a href="#">清空历史</a></li>
+				  </ul>
+				</div>
+				<div class="btn-group">
+				  <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				    设置 <span class="caret"></span>
+				  </button>
+				  <ul class="dropdown-menu">
+				    <li><a href="#">系统设置</a></li>
+				  </ul>
+				</div>
+				<div class="btn-group">
+				  <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				    帮助 <span class="caret"></span>
+				  </button>
+				</div>
+				</div>
+			</div>
+		</nav><!-- nav end -->
+		
+		<div class="container-fluid">
+			<div class="col-md-4">
+				<button type="button" class="btn btn-warning btn-lg center-block">
+					<span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> 获取表
+				</button>
+				<div class="panel panel-info vertical-distance-1 fix-height-1">
+				  	<div class="panel-heading">
+				    	<h3 class="panel-title">数据库表</h3>
+				  	</div>
+					<select multiple class="form-control fix-height-2">
+					  <option>1</option>
+					  <option>2</option>
+					  <option>3</option>
+					  <option>4</option>
+					  <option>5</option>
+					</select>
+				</div>
+				<div class="input-group">
+					<span class="input-group-addon alert-danger" id="basic-addon1">包 名</span>
+					<input type="text" class="form-control" placeholder="packageName" aria-describedby="basic-addon1">
+				</div>					
+				<div class="input-group vertical-distance-1">
+					<span class="input-group-addon alert-danger" id="basic-addon1">路 径</span>
+					<input type="text" readonly="readonly" class="form-control" placeholder="路径" aria-describedby="basic-addon1">
+					<span class="input-group-addon">...</span>
+				</div>
+				<button type="button" class="btn btn-success btn-lg center-block vertical-distance-1">
+					<span class="glyphicon glyphicon-floppy-save" aria-hidden="true"></span> 生成代码
+				</button>				
+			</div>
+			<div class="col-md-8">
+				<ul class="nav nav-tabs nav-justified">
+					<li role="presentation" class="active"><a href="#">说明</a></li>
+					<li role="presentation"><a href="#">Action</a></li>
+					<li role="presentation"><a href="#">Service</a></li>
+					<li role="presentation"><a href="#">ServiceImpl</a></li>
+					<li role="presentation"><a href="#">Dao</a></li>
+					<li role="presentation"><a href="#">DaoImpl</a></li>
+					<li role="presentation"><a href="#">Bean</a></li>
+					<li role="presentation"><a href="#">SearchBean</a></li>
+					<li role="presentation"><a href="#">SqlMap</a></li>
+					<li role="presentation"><a href="#">Structs2</a></li>
+				</ul>
+			</div>
+		</div>
+		<script type="text/javascript" src="js/jquery.min.js" ></script>
+		<script type="text/javascript" src="js/bootstrap.min.js" ></script>
+	</body>
+</html>

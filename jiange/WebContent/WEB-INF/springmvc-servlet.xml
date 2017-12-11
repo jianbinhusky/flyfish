@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans  xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" default-autowire="byName"
+	xmlns="http://www.springframework.org/schema/beans"
+	xsi:schemaLocation="
+      http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd       
+      http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+      http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd       
+	  http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
+	<aop:aspectj-autoproxy proxy-target-class="true"/>
+	<!-- 排除@Service类型注释，防止出现事务不生效 -->
+	<context:component-scan base-package="com.hujianbin">
+		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Service"/>
+	</context:component-scan>
+	<!--
+		RESTful服务中很重要的一个特性即是：同一资源，多种表述；
+		使用ContentNegotiatingViewResolver就可以做到，
+		这个视图解析器允许你用同样的内容数据来呈现不同的view 
+	 -->
+	<bean
+		class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
+		<!-- 设置为true以忽略对Accept Header的支持 -->
+		<property name="ignoreAcceptHeader" value="true" />
+		<!-- 在没有扩展名时即: "/blog/1" 时的默认展现形式 -->
+		<property name="defaultContentType" value="text/html" />
+		<!-- 扩展名至mimeType的映射,即 /blog.json => application/json -->  
+		<property name="mediaTypes">
+			<map>
+				<entry key="json" value="application/json" />
+				<entry key="html" value="text/html"/>
+			</map>
+		</property>
+		<!-- 用于开启 /blog/123?format=json 的支持 --> 
+		<property name="favorParameter" value="false" />
+		<property name="viewResolvers">
+			<list>
+				<bean class="org.springframework.web.servlet.view.BeanNameViewResolver" />
+			</list>
+		</property>
+		<property name="defaultViews">
+			<list>
+				<!-- for application/json -->
+				<bean class="org.springframework.web.servlet.view.json.MappingJacksonJsonView">
+				    <property name="encoding">
+            			<value type="org.codehaus.jackson.JsonEncoding">UTF8</value>
+       	 			</property>
+       	 			<property name="objectMapper" ref="customObjectMapper"/>
+				</bean>
+			</list>
+		</property>
+	</bean>
+	<!-- 只能支持解析可由Servlet API的RequestDispatcher转发的视图资源图，如：内部jsp或者servlet。  -->
+	<bean id="jspViewResolver"
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="viewClass">
+			<value>org.springframework.web.servlet.view.JstlView</value>
+		</property>
+		<property name="prefix" value="/WEB-INF/views/" />
+		<property name="suffix" value=".jsp" />
+	</bean>
+	<bean id="customObjectMapper" class="com.hujianbin.common.spring.CustomObjectMapper"/>
+	<bean id="exceptionResolver" class="com.hujianbin.common.spring.CustomSimpleMappingExceptionResolver">
+		<property name="exceptionMappings">    
+             <props>    
+                 <prop key="java.lang.Exception">errors/500</prop>    
+                 <prop key="java.lang.Throwable">errors/500</prop>    
+             </props>    
+         </property>    
+         <property name="statusCodes">    
+             <props>
+                 <prop key="errors/500">500</prop>
+                 <prop key="errors/404">404</prop>
+             </props>    
+         </property>    
+         <property name="warnLogCategory" value="ERROR"></property>    
+         <property name="defaultStatusCode" value="500"></property>
+	</bean>
+	<!-- spring file upload etc. -->
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">  
+    	<property name="maxUploadSize" value="2048000000"/><!-- 2G -->
+	</bean>
+	<!-- 
+		注册RequestMappingHandlerMapping和RequestMappingHandlerAdapter等bean，
+		用于 处理@RequestMapping 注解，并将其注册到请求映射表中
+	-->
+	<mvc:annotation-driven />
+	<mvc:interceptors>
+	    <mvc:interceptor>  
+           <mvc:mapping path="/**" />
+           <mvc:exclude-mapping path="/manage/**"/>
+           <mvc:exclude-mapping path="/druid/**"/>
+           <bean class="com.hujianbin.portal.interceptor.PortalInterceptor"/>  
+        </mvc:interceptor>
+        <!--<mvc:interceptor>-->
+        	<!--<mvc:mapping path="/manage/**"/>-->
+        	<!--<mvc:exclude-mapping path="/manage/goLogin.*"/>-->
+        	<!--<mvc:exclude-mapping path="/manage/login.*"/>-->
+        	<!--<mvc:exclude-mapping path="/manage/logout.*"/>-->
+        	<!--<bean class="com.hujianbin.manage.interceptor.ManageInterceptor"/>-->
+        <!--</mvc:interceptor>-->
+    </mvc:interceptors>
+</beans>
