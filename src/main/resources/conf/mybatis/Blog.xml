@@ -1,0 +1,1129 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hujianbin.basis.dao.BlogDao">
+	<cache />
+	<resultMap type="Blog" id="t_blogMap">
+      	<result property="id" column="id" />
+		<result property="userId" column="user_id" />
+		<result property="categoryId" column="category_id" />
+		<result property="title" column="title" />
+		<result property="summary" column="summary" />
+		<result property="tag" column="tag" />
+		<result property="img" column="img" />
+		<result property="content" column="content" />
+		<result property="createTime" column="create_time" />
+		<result property="modifiedTime" column="modified_time" />
+		<result property="isPublish" column="is_publish" />
+		<result property="status" column="status" />
+  	</resultMap>
+  	<sql id="Blog_WHERE">
+	<where>
+		<if test="id!=null">
+			 and id=#{id,jdbcType=NUMERIC}
+		</if>
+		<if test="userId!=null">
+			 and user_id=#{userId,jdbcType=NUMERIC}
+		</if>
+		<if test="categoryId!=null">
+			 and category_id=#{categoryId,jdbcType=NUMERIC}
+		</if>
+		<if test="title!=null">
+			 and title=#{title,jdbcType=VARCHAR}
+		</if>
+		<if test="summary!=null">
+			 and summary=#{summary,jdbcType=VARCHAR}
+		</if>
+		<if test="tag!=null">
+			 and tag=#{tag,jdbcType=VARCHAR}
+		</if>
+		<if test="img!=null">
+			 and img=#{img,jdbcType=VARCHAR}
+		</if>
+		<if test="content!=null">
+			 and content=#{content,jdbcType=CLOB}
+		</if>
+		<if test="createTime!=null">
+			 and create_time=#{createTime,jdbcType=TIMESTAMP}
+		</if>
+		<if test="modifiedTime!=null">
+			 and modified_time=#{modifiedTime,jdbcType=TIMESTAMP}
+		</if>
+		<if test="isPublish!=null">
+			 and is_publish=#{isPublish,jdbcType=NUMERIC}
+		</if>
+		<if test="status!=null">
+			 and status=#{status,jdbcType=NUMERIC}
+		</if>
+	</where>
+  </sql>
+  <sql id="BlogSearchBean_WHERE">
+	<where>
+		<if test="id!=null">
+			 and id=#{id,jdbcType=NUMERIC}
+		</if>
+		<if test="inId!=null">
+			 and id in
+			<foreach collection="inId" index="index" item="inId" open="(" separator="," close=")">
+				#{inId}
+			</foreach>
+		</if>
+		<if test="notInId!=null">
+			 and id not in
+			<foreach collection="notInId" index="index" item="notInId" open="(" separator="," close=")">
+				#{notInId}
+			</foreach>
+		</if>
+		<if test="userId!=null">
+			 and user_id=#{userId,jdbcType=NUMERIC}
+		</if>
+		<if test="isNotNullUserId!=null and isNotNullUserId==true">
+			 and user_id is not null
+		</if>
+		<if test="isNotNullUserId!=null and isNotNullUserId==false">
+			 and user_id is null
+		</if>
+		<if test="inUserId!=null">
+			 and user_id in
+			<foreach collection="inUserId" index="index" item="inUserId" open="(" separator="," close=")">
+				#{inUserId}
+			</foreach>
+		</if>
+		<if test="notInUserId!=null">
+			 and user_id not in
+			<foreach collection="notInUserId" index="index" item="notInUserId" open="(" separator="," close=")">
+				#{notInUserId}
+			</foreach>
+		</if>
+		<if test="noEqualsUserId!=null">
+			 and user_id<![CDATA[<>]]>#{noEqualsUserId,jdbcType=NUMERIC}
+		</if>
+		<if test="equalsUserId!=null">
+			 and user_id=#{equalsUserId,jdbcType=NUMERIC}
+		</if>
+		<if test="greaterUserId!=null">
+			 and user_id<![CDATA[>]]>#{greaterUserId,jdbcType=NUMERIC}
+		</if>
+		<if test="greaterEqualsUserId!=null">
+			 and user_id<![CDATA[>=]]>#{greaterEqualsUserId,jdbcType=NUMERIC}
+		</if>
+		<if test="lessUserId!=null">
+			 and user_id<![CDATA[<]]>#{lessUserId,jdbcType=NUMERIC}
+		</if>
+		<if test="lessEqualsUserId!=null">
+			 and user_id<![CDATA[<=]]>#{lessEqualsUserId,jdbcType=NUMERIC}
+		</if>
+		<if test="categoryId!=null">
+			 and category_id=#{categoryId,jdbcType=NUMERIC}
+		</if>
+		<if test="isNotNullCategoryId!=null and isNotNullCategoryId==true">
+			 and category_id is not null
+		</if>
+		<if test="isNotNullCategoryId!=null and isNotNullCategoryId==false">
+			 and category_id is null
+		</if>
+		<if test="inCategoryId!=null">
+			 and category_id in
+			<foreach collection="inCategoryId" index="index" item="inCategoryId" open="(" separator="," close=")">
+				#{inCategoryId}
+			</foreach>
+		</if>
+		<if test="notInCategoryId!=null">
+			 and category_id not in
+			<foreach collection="notInCategoryId" index="index" item="notInCategoryId" open="(" separator="," close=")">
+				#{notInCategoryId}
+			</foreach>
+		</if>
+		<if test="noEqualsCategoryId!=null">
+			 and category_id<![CDATA[<>]]>#{noEqualsCategoryId,jdbcType=NUMERIC}
+		</if>
+		<if test="equalsCategoryId!=null">
+			 and category_id=#{equalsCategoryId,jdbcType=NUMERIC}
+		</if>
+		<if test="greaterCategoryId!=null">
+			 and category_id<![CDATA[>]]>#{greaterCategoryId,jdbcType=NUMERIC}
+		</if>
+		<if test="greaterEqualsCategoryId!=null">
+			 and category_id<![CDATA[>=]]>#{greaterEqualsCategoryId,jdbcType=NUMERIC}
+		</if>
+		<if test="lessCategoryId!=null">
+			 and category_id<![CDATA[<]]>#{lessCategoryId,jdbcType=NUMERIC}
+		</if>
+		<if test="lessEqualsCategoryId!=null">
+			 and category_id<![CDATA[<=]]>#{lessEqualsCategoryId,jdbcType=NUMERIC}
+		</if>
+		<if test="title!=null and title!=''">
+			 and title=#{title,jdbcType=VARCHAR}
+		</if>
+		<if test="isNotNullTitle!=null and isNotNullTitle==true">
+			 and title is not null
+		</if>
+		<if test="isNotNullTitle!=null and isNotNullTitle==false">
+			 and title is null
+		</if>
+		<if test="inTitle!=null">
+			 and title in
+			<foreach collection="inTitle" index="index" item="inTitle" open="(" separator="," close=")">
+				#{inTitle}
+			</foreach>
+		</if>
+		<if test="notInTitle!=null">
+			 and title not in
+			<foreach collection="notInTitle" index="index" item="notInTitle" open="(" separator="," close=")">
+				#{notInTitle}
+			</foreach>
+		</if>
+		<if test="noEqualsTitle!=null">
+			 and title<![CDATA[<>]]>#{noEqualsTitle,jdbcType=VARCHAR}
+		</if>
+		<if test="equalsTitle!=null">
+			 and title=#{equalsTitle,jdbcType=VARCHAR}
+		</if>
+		<if test="greaterTitle!=null">
+			 and title<![CDATA[>]]>#{greaterTitle,jdbcType=VARCHAR}
+		</if>
+		<if test="greaterEqualsTitle!=null">
+			 and title<![CDATA[>=]]>#{greaterEqualsTitle,jdbcType=VARCHAR}
+		</if>
+		<if test="lessTitle!=null">
+			 and title<![CDATA[<]]>#{lessTitle,jdbcType=VARCHAR}
+		</if>
+		<if test="lessEqualsTitle!=null">
+			 and title<![CDATA[<=]]>#{lessEqualsTitle,jdbcType=VARCHAR}
+		</if>
+		<if test="likeTitle!=null and likeTitle!=''">
+			 and title like "%"#{likeTitle,jdbcType=VARCHAR}"%"
+		</if>
+		<if test="leftLikeTitle!=null and leftLikeTitle!=''">
+			 and title like "%"#{leftLikeTitle,jdbcType=VARCHAR}
+		</if>
+		<if test="rightLikeTitle!=null and rightLikeTitle!=''">
+			 and title like #{rightLikeTitle,jdbcType=VARCHAR}"%"
+		</if>
+		<if test="summary!=null and summary!=''">
+			 and summary=#{summary,jdbcType=VARCHAR}
+		</if>
+		<if test="isNotNullSummary!=null and isNotNullSummary==true">
+			 and summary is not null
+		</if>
+		<if test="isNotNullSummary!=null and isNotNullSummary==false">
+			 and summary is null
+		</if>
+		<if test="inSummary!=null">
+			 and summary in
+			<foreach collection="inSummary" index="index" item="inSummary" open="(" separator="," close=")">
+				#{inSummary}
+			</foreach>
+		</if>
+		<if test="notInSummary!=null">
+			 and summary not in
+			<foreach collection="notInSummary" index="index" item="notInSummary" open="(" separator="," close=")">
+				#{notInSummary}
+			</foreach>
+		</if>
+		<if test="noEqualsSummary!=null">
+			 and summary<![CDATA[<>]]>#{noEqualsSummary,jdbcType=VARCHAR}
+		</if>
+		<if test="equalsSummary!=null">
+			 and summary=#{equalsSummary,jdbcType=VARCHAR}
+		</if>
+		<if test="greaterSummary!=null">
+			 and summary<![CDATA[>]]>#{greaterSummary,jdbcType=VARCHAR}
+		</if>
+		<if test="greaterEqualsSummary!=null">
+			 and summary<![CDATA[>=]]>#{greaterEqualsSummary,jdbcType=VARCHAR}
+		</if>
+		<if test="lessSummary!=null">
+			 and summary<![CDATA[<]]>#{lessSummary,jdbcType=VARCHAR}
+		</if>
+		<if test="lessEqualsSummary!=null">
+			 and summary<![CDATA[<=]]>#{lessEqualsSummary,jdbcType=VARCHAR}
+		</if>
+		<if test="likeSummary!=null and likeSummary!=''">
+			 and summary like "%"#{likeSummary,jdbcType=VARCHAR}"%"
+		</if>
+		<if test="leftLikeSummary!=null and leftLikeSummary!=''">
+			 and summary like "%"#{leftLikeSummary,jdbcType=VARCHAR}
+		</if>
+		<if test="rightLikeSummary!=null and rightLikeSummary!=''">
+			 and summary like #{rightLikeSummary,jdbcType=VARCHAR}"%"
+		</if>
+		<if test="tag!=null and tag!=''">
+			 and tag=#{tag,jdbcType=VARCHAR}
+		</if>
+		<if test="isNotNullTag!=null and isNotNullTag==true">
+			 and tag is not null
+		</if>
+		<if test="isNotNullTag!=null and isNotNullTag==false">
+			 and tag is null
+		</if>
+		<if test="inTag!=null">
+			 and tag in
+			<foreach collection="inTag" index="index" item="inTag" open="(" separator="," close=")">
+				#{inTag}
+			</foreach>
+		</if>
+		<if test="notInTag!=null">
+			 and tag not in
+			<foreach collection="notInTag" index="index" item="notInTag" open="(" separator="," close=")">
+				#{notInTag}
+			</foreach>
+		</if>
+		<if test="noEqualsTag!=null">
+			 and tag<![CDATA[<>]]>#{noEqualsTag,jdbcType=VARCHAR}
+		</if>
+		<if test="equalsTag!=null">
+			 and tag=#{equalsTag,jdbcType=VARCHAR}
+		</if>
+		<if test="greaterTag!=null">
+			 and tag<![CDATA[>]]>#{greaterTag,jdbcType=VARCHAR}
+		</if>
+		<if test="greaterEqualsTag!=null">
+			 and tag<![CDATA[>=]]>#{greaterEqualsTag,jdbcType=VARCHAR}
+		</if>
+		<if test="lessTag!=null">
+			 and tag<![CDATA[<]]>#{lessTag,jdbcType=VARCHAR}
+		</if>
+		<if test="lessEqualsTag!=null">
+			 and tag<![CDATA[<=]]>#{lessEqualsTag,jdbcType=VARCHAR}
+		</if>
+		<if test="likeTag!=null and likeTag!=''">
+			 and tag like "%"#{likeTag,jdbcType=VARCHAR}"%"
+		</if>
+		<if test="leftLikeTag!=null and leftLikeTag!=''">
+			 and tag like "%"#{leftLikeTag,jdbcType=VARCHAR}
+		</if>
+		<if test="rightLikeTag!=null and rightLikeTag!=''">
+			 and tag like #{rightLikeTag,jdbcType=VARCHAR}"%"
+		</if>
+		<if test="img!=null and img!=''">
+			 and img=#{img,jdbcType=VARCHAR}
+		</if>
+		<if test="isNotNullImg!=null and isNotNullImg==true">
+			 and img is not null
+		</if>
+		<if test="isNotNullImg!=null and isNotNullImg==false">
+			 and img is null
+		</if>
+		<if test="inImg!=null">
+			 and img in
+			<foreach collection="inImg" index="index" item="inImg" open="(" separator="," close=")">
+				#{inImg}
+			</foreach>
+		</if>
+		<if test="notInImg!=null">
+			 and img not in
+			<foreach collection="notInImg" index="index" item="notInImg" open="(" separator="," close=")">
+				#{notInImg}
+			</foreach>
+		</if>
+		<if test="noEqualsImg!=null">
+			 and img<![CDATA[<>]]>#{noEqualsImg,jdbcType=VARCHAR}
+		</if>
+		<if test="equalsImg!=null">
+			 and img=#{equalsImg,jdbcType=VARCHAR}
+		</if>
+		<if test="greaterImg!=null">
+			 and img<![CDATA[>]]>#{greaterImg,jdbcType=VARCHAR}
+		</if>
+		<if test="greaterEqualsImg!=null">
+			 and img<![CDATA[>=]]>#{greaterEqualsImg,jdbcType=VARCHAR}
+		</if>
+		<if test="lessImg!=null">
+			 and img<![CDATA[<]]>#{lessImg,jdbcType=VARCHAR}
+		</if>
+		<if test="lessEqualsImg!=null">
+			 and img<![CDATA[<=]]>#{lessEqualsImg,jdbcType=VARCHAR}
+		</if>
+		<if test="likeImg!=null and likeImg!=''">
+			 and img like "%"#{likeImg,jdbcType=VARCHAR}"%"
+		</if>
+		<if test="leftLikeImg!=null and leftLikeImg!=''">
+			 and img like "%"#{leftLikeImg,jdbcType=VARCHAR}
+		</if>
+		<if test="rightLikeImg!=null and rightLikeImg!=''">
+			 and img like #{rightLikeImg,jdbcType=VARCHAR}"%"
+		</if>
+		<if test="content!=null and content!=''">
+			 and content=#{content,jdbcType=CLOB}
+		</if>
+		<if test="isNotNullContent!=null and isNotNullContent==true">
+			 and content is not null
+		</if>
+		<if test="isNotNullContent!=null and isNotNullContent==false">
+			 and content is null
+		</if>
+		<if test="inContent!=null">
+			 and content in
+			<foreach collection="inContent" index="index" item="inContent" open="(" separator="," close=")">
+				#{inContent}
+			</foreach>
+		</if>
+		<if test="notInContent!=null">
+			 and content not in
+			<foreach collection="notInContent" index="index" item="notInContent" open="(" separator="," close=")">
+				#{notInContent}
+			</foreach>
+		</if>
+		<if test="noEqualsContent!=null">
+			 and content<![CDATA[<>]]>#{noEqualsContent,jdbcType=CLOB}
+		</if>
+		<if test="equalsContent!=null">
+			 and content=#{equalsContent,jdbcType=CLOB}
+		</if>
+		<if test="greaterContent!=null">
+			 and content<![CDATA[>]]>#{greaterContent,jdbcType=CLOB}
+		</if>
+		<if test="greaterEqualsContent!=null">
+			 and content<![CDATA[>=]]>#{greaterEqualsContent,jdbcType=CLOB}
+		</if>
+		<if test="lessContent!=null">
+			 and content<![CDATA[<]]>#{lessContent,jdbcType=CLOB}
+		</if>
+		<if test="lessEqualsContent!=null">
+			 and content<![CDATA[<=]]>#{lessEqualsContent,jdbcType=CLOB}
+		</if>
+		<if test="likeContent!=null and likeContent!=''">
+			 and content like "%"#{likeContent,jdbcType=CLOB}"%"
+		</if>
+		<if test="leftLikeContent!=null and leftLikeContent!=''">
+			 and content like "%"#{leftLikeContent,jdbcType=CLOB}
+		</if>
+		<if test="rightLikeContent!=null and rightLikeContent!=''">
+			 and content like #{rightLikeContent,jdbcType=CLOB}"%"
+		</if>
+		<if test="createTime!=null">
+			 and create_time=#{createTime,jdbcType=TIMESTAMP}
+		</if>
+		<if test="isNotNullCreateTime!=null and isNotNullCreateTime==true">
+			 and create_time is not null
+		</if>
+		<if test="isNotNullCreateTime!=null and isNotNullCreateTime==false">
+			 and create_time is null
+		</if>
+		<if test="inCreateTime!=null">
+			 and create_time in
+			<foreach collection="inCreateTime" index="index" item="inCreateTime" open="(" separator="," close=")">
+				#{inCreateTime}
+			</foreach>
+		</if>
+		<if test="notInCreateTime!=null">
+			 and create_time not in
+			<foreach collection="notInCreateTime" index="index" item="notInCreateTime" open="(" separator="," close=")">
+				#{notInCreateTime}
+			</foreach>
+		</if>
+		<if test="noEqualsCreateTime!=null">
+			 and create_time<![CDATA[<>]]>#{noEqualsCreateTime,jdbcType=TIMESTAMP}
+		</if>
+		<if test="equalsCreateTime!=null">
+			 and create_time=#{equalsCreateTime,jdbcType=TIMESTAMP}
+		</if>
+		<if test="greaterCreateTime!=null">
+			 and create_time<![CDATA[>]]>#{greaterCreateTime,jdbcType=TIMESTAMP}
+		</if>
+		<if test="greaterEqualsCreateTime!=null">
+			 and create_time<![CDATA[>=]]>#{greaterEqualsCreateTime,jdbcType=TIMESTAMP}
+		</if>
+		<if test="lessCreateTime!=null">
+			 and create_time<![CDATA[<]]>#{lessCreateTime,jdbcType=TIMESTAMP}
+		</if>
+		<if test="lessEqualsCreateTime!=null">
+			 and create_time<![CDATA[<=]]>#{lessEqualsCreateTime,jdbcType=TIMESTAMP}
+		</if>
+		<if test="modifiedTime!=null">
+			 and modified_time=#{modifiedTime,jdbcType=TIMESTAMP}
+		</if>
+		<if test="isNotNullModifiedTime!=null and isNotNullModifiedTime==true">
+			 and modified_time is not null
+		</if>
+		<if test="isNotNullModifiedTime!=null and isNotNullModifiedTime==false">
+			 and modified_time is null
+		</if>
+		<if test="inModifiedTime!=null">
+			 and modified_time in
+			<foreach collection="inModifiedTime" index="index" item="inModifiedTime" open="(" separator="," close=")">
+				#{inModifiedTime}
+			</foreach>
+		</if>
+		<if test="notInModifiedTime!=null">
+			 and modified_time not in
+			<foreach collection="notInModifiedTime" index="index" item="notInModifiedTime" open="(" separator="," close=")">
+				#{notInModifiedTime}
+			</foreach>
+		</if>
+		<if test="noEqualsModifiedTime!=null">
+			 and modified_time<![CDATA[<>]]>#{noEqualsModifiedTime,jdbcType=TIMESTAMP}
+		</if>
+		<if test="equalsModifiedTime!=null">
+			 and modified_time=#{equalsModifiedTime,jdbcType=TIMESTAMP}
+		</if>
+		<if test="greaterModifiedTime!=null">
+			 and modified_time<![CDATA[>]]>#{greaterModifiedTime,jdbcType=TIMESTAMP}
+		</if>
+		<if test="greaterEqualsModifiedTime!=null">
+			 and modified_time<![CDATA[>=]]>#{greaterEqualsModifiedTime,jdbcType=TIMESTAMP}
+		</if>
+		<if test="lessModifiedTime!=null">
+			 and modified_time<![CDATA[<]]>#{lessModifiedTime,jdbcType=TIMESTAMP}
+		</if>
+		<if test="lessEqualsModifiedTime!=null">
+			 and modified_time<![CDATA[<=]]>#{lessEqualsModifiedTime,jdbcType=TIMESTAMP}
+		</if>
+		<if test="isPublish!=null">
+			 and is_publish=#{isPublish,jdbcType=NUMERIC}
+		</if>
+		<if test="isNotNullIsPublish!=null and isNotNullIsPublish==true">
+			 and is_publish is not null
+		</if>
+		<if test="isNotNullIsPublish!=null and isNotNullIsPublish==false">
+			 and is_publish is null
+		</if>
+		<if test="inIsPublish!=null">
+			 and is_publish in
+			<foreach collection="inIsPublish" index="index" item="inIsPublish" open="(" separator="," close=")">
+				#{inIsPublish}
+			</foreach>
+		</if>
+		<if test="notInIsPublish!=null">
+			 and is_publish not in
+			<foreach collection="notInIsPublish" index="index" item="notInIsPublish" open="(" separator="," close=")">
+				#{notInIsPublish}
+			</foreach>
+		</if>
+		<if test="noEqualsIsPublish!=null">
+			 and is_publish<![CDATA[<>]]>#{noEqualsIsPublish,jdbcType=NUMERIC}
+		</if>
+		<if test="equalsIsPublish!=null">
+			 and is_publish=#{equalsIsPublish,jdbcType=NUMERIC}
+		</if>
+		<if test="greaterIsPublish!=null">
+			 and is_publish<![CDATA[>]]>#{greaterIsPublish,jdbcType=NUMERIC}
+		</if>
+		<if test="greaterEqualsIsPublish!=null">
+			 and is_publish<![CDATA[>=]]>#{greaterEqualsIsPublish,jdbcType=NUMERIC}
+		</if>
+		<if test="lessIsPublish!=null">
+			 and is_publish<![CDATA[<]]>#{lessIsPublish,jdbcType=NUMERIC}
+		</if>
+		<if test="lessEqualsIsPublish!=null">
+			 and is_publish<![CDATA[<=]]>#{lessEqualsIsPublish,jdbcType=NUMERIC}
+		</if>
+		<if test="status!=null">
+			 and status=#{status,jdbcType=NUMERIC}
+		</if>
+		<if test="isNotNullStatus!=null and isNotNullStatus==true">
+			 and status is not null
+		</if>
+		<if test="isNotNullStatus!=null and isNotNullStatus==false">
+			 and status is null
+		</if>
+		<if test="inStatus!=null">
+			 and status in
+			<foreach collection="inStatus" index="index" item="inStatus" open="(" separator="," close=")">
+				#{inStatus}
+			</foreach>
+		</if>
+		<if test="notInStatus!=null">
+			 and status not in
+			<foreach collection="notInStatus" index="index" item="notInStatus" open="(" separator="," close=")">
+				#{notInStatus}
+			</foreach>
+		</if>
+		<if test="noEqualsStatus!=null">
+			 and status<![CDATA[<>]]>#{noEqualsStatus,jdbcType=NUMERIC}
+		</if>
+		<if test="equalsStatus!=null">
+			 and status=#{equalsStatus,jdbcType=NUMERIC}
+		</if>
+		<if test="greaterStatus!=null">
+			 and status<![CDATA[>]]>#{greaterStatus,jdbcType=NUMERIC}
+		</if>
+		<if test="greaterEqualsStatus!=null">
+			 and status<![CDATA[>=]]>#{greaterEqualsStatus,jdbcType=NUMERIC}
+		</if>
+		<if test="lessStatus!=null">
+			 and status<![CDATA[<]]>#{lessStatus,jdbcType=NUMERIC}
+		</if>
+		<if test="lessEqualsStatus!=null">
+			 and status<![CDATA[<=]]>#{lessEqualsStatus,jdbcType=NUMERIC}
+		</if>
+	</where>
+  </sql>
+  <sql id="BlogCondition_WHERE">
+	<where>
+		<if test="id!=null">
+			 and id=#{id,jdbcType=NUMERIC}
+		</if>
+		<if test="inId!=null">
+			 and id in
+			<foreach collection="inId" index="index" item="inId" open="(" separator="," close=")">
+				#{inId}
+			</foreach>
+		</if>
+		<if test="notInId!=null">
+			 and id not in
+			<foreach collection="notInId" index="index" item="notInId" open="(" separator="," close=")">
+				#{notInId}
+			</foreach>
+		</if>
+		<if test="isNotNullUserId!=null and isNotNullUserId==true">
+			 and user_id is not null
+		</if>
+		<if test="isNotNullUserId!=null and isNotNullUserId==false">
+			 and user_id is null
+		</if>
+		<if test="inUserId!=null">
+			 and user_id in
+			<foreach collection="inUserId" index="index" item="inUserId" open="(" separator="," close=")">
+				#{inUserId}
+			</foreach>
+		</if>
+		<if test="notInUserId!=null">
+			 and user_id not in
+			<foreach collection="notInUserId" index="index" item="notInUserId" open="(" separator="," close=")">
+				#{notInUserId}
+			</foreach>
+		</if>
+		<if test="noEqualsUserId!=null">
+			 and user_id<![CDATA[<>]]>#{noEqualsUserId,jdbcType=NUMERIC}
+		</if>
+		<if test="equalsUserId!=null">
+			 and user_id=#{equalsUserId,jdbcType=NUMERIC}
+		</if>
+		<if test="greaterUserId!=null">
+			 and user_id<![CDATA[>]]>#{greaterUserId,jdbcType=NUMERIC}
+		</if>
+		<if test="greaterEqualsUserId!=null">
+			 and user_id<![CDATA[>=]]>#{greaterEqualsUserId,jdbcType=NUMERIC}
+		</if>
+		<if test="lessUserId!=null">
+			 and user_id<![CDATA[<]]>#{lessUserId,jdbcType=NUMERIC}
+		</if>
+		<if test="lessEqualsUserId!=null">
+			 and user_id<![CDATA[<=]]>#{lessEqualsUserId,jdbcType=NUMERIC}
+		</if>
+		<if test="isNotNullCategoryId!=null and isNotNullCategoryId==true">
+			 and category_id is not null
+		</if>
+		<if test="isNotNullCategoryId!=null and isNotNullCategoryId==false">
+			 and category_id is null
+		</if>
+		<if test="inCategoryId!=null">
+			 and category_id in
+			<foreach collection="inCategoryId" index="index" item="inCategoryId" open="(" separator="," close=")">
+				#{inCategoryId}
+			</foreach>
+		</if>
+		<if test="notInCategoryId!=null">
+			 and category_id not in
+			<foreach collection="notInCategoryId" index="index" item="notInCategoryId" open="(" separator="," close=")">
+				#{notInCategoryId}
+			</foreach>
+		</if>
+		<if test="noEqualsCategoryId!=null">
+			 and category_id<![CDATA[<>]]>#{noEqualsCategoryId,jdbcType=NUMERIC}
+		</if>
+		<if test="equalsCategoryId!=null">
+			 and category_id=#{equalsCategoryId,jdbcType=NUMERIC}
+		</if>
+		<if test="greaterCategoryId!=null">
+			 and category_id<![CDATA[>]]>#{greaterCategoryId,jdbcType=NUMERIC}
+		</if>
+		<if test="greaterEqualsCategoryId!=null">
+			 and category_id<![CDATA[>=]]>#{greaterEqualsCategoryId,jdbcType=NUMERIC}
+		</if>
+		<if test="lessCategoryId!=null">
+			 and category_id<![CDATA[<]]>#{lessCategoryId,jdbcType=NUMERIC}
+		</if>
+		<if test="lessEqualsCategoryId!=null">
+			 and category_id<![CDATA[<=]]>#{lessEqualsCategoryId,jdbcType=NUMERIC}
+		</if>
+		<if test="isNotNullTitle!=null and isNotNullTitle==true">
+			 and title is not null
+		</if>
+		<if test="isNotNullTitle!=null and isNotNullTitle==false">
+			 and title is null
+		</if>
+		<if test="inTitle!=null">
+			 and title in
+			<foreach collection="inTitle" index="index" item="inTitle" open="(" separator="," close=")">
+				#{inTitle}
+			</foreach>
+		</if>
+		<if test="notInTitle!=null">
+			 and title not in
+			<foreach collection="notInTitle" index="index" item="notInTitle" open="(" separator="," close=")">
+				#{notInTitle}
+			</foreach>
+		</if>
+		<if test="noEqualsTitle!=null">
+			 and title<![CDATA[<>]]>#{noEqualsTitle,jdbcType=VARCHAR}
+		</if>
+		<if test="equalsTitle!=null">
+			 and title=#{equalsTitle,jdbcType=VARCHAR}
+		</if>
+		<if test="greaterTitle!=null">
+			 and title<![CDATA[>]]>#{greaterTitle,jdbcType=VARCHAR}
+		</if>
+		<if test="greaterEqualsTitle!=null">
+			 and title<![CDATA[>=]]>#{greaterEqualsTitle,jdbcType=VARCHAR}
+		</if>
+		<if test="lessTitle!=null">
+			 and title<![CDATA[<]]>#{lessTitle,jdbcType=VARCHAR}
+		</if>
+		<if test="lessEqualsTitle!=null">
+			 and title<![CDATA[<=]]>#{lessEqualsTitle,jdbcType=VARCHAR}
+		</if>
+		<if test="likeTitle!=null and likeTitle!=''">
+			 and title like "%"#{likeTitle,jdbcType=VARCHAR}"%"
+		</if>
+		<if test="leftLikeTitle!=null and leftLikeTitle!=''">
+			 and title like "%"#{leftLikeTitle,jdbcType=VARCHAR}
+		</if>
+		<if test="rightLikeTitle!=null and rightLikeTitle!=''">
+			 and title like #{rightLikeTitle,jdbcType=VARCHAR}"%"
+		</if>
+		<if test="isNotNullSummary!=null and isNotNullSummary==true">
+			 and summary is not null
+		</if>
+		<if test="isNotNullSummary!=null and isNotNullSummary==false">
+			 and summary is null
+		</if>
+		<if test="inSummary!=null">
+			 and summary in
+			<foreach collection="inSummary" index="index" item="inSummary" open="(" separator="," close=")">
+				#{inSummary}
+			</foreach>
+		</if>
+		<if test="notInSummary!=null">
+			 and summary not in
+			<foreach collection="notInSummary" index="index" item="notInSummary" open="(" separator="," close=")">
+				#{notInSummary}
+			</foreach>
+		</if>
+		<if test="noEqualsSummary!=null">
+			 and summary<![CDATA[<>]]>#{noEqualsSummary,jdbcType=VARCHAR}
+		</if>
+		<if test="equalsSummary!=null">
+			 and summary=#{equalsSummary,jdbcType=VARCHAR}
+		</if>
+		<if test="greaterSummary!=null">
+			 and summary<![CDATA[>]]>#{greaterSummary,jdbcType=VARCHAR}
+		</if>
+		<if test="greaterEqualsSummary!=null">
+			 and summary<![CDATA[>=]]>#{greaterEqualsSummary,jdbcType=VARCHAR}
+		</if>
+		<if test="lessSummary!=null">
+			 and summary<![CDATA[<]]>#{lessSummary,jdbcType=VARCHAR}
+		</if>
+		<if test="lessEqualsSummary!=null">
+			 and summary<![CDATA[<=]]>#{lessEqualsSummary,jdbcType=VARCHAR}
+		</if>
+		<if test="likeSummary!=null and likeSummary!=''">
+			 and summary like "%"#{likeSummary,jdbcType=VARCHAR}"%"
+		</if>
+		<if test="leftLikeSummary!=null and leftLikeSummary!=''">
+			 and summary like "%"#{leftLikeSummary,jdbcType=VARCHAR}
+		</if>
+		<if test="rightLikeSummary!=null and rightLikeSummary!=''">
+			 and summary like #{rightLikeSummary,jdbcType=VARCHAR}"%"
+		</if>
+		<if test="isNotNullTag!=null and isNotNullTag==true">
+			 and tag is not null
+		</if>
+		<if test="isNotNullTag!=null and isNotNullTag==false">
+			 and tag is null
+		</if>
+		<if test="inTag!=null">
+			 and tag in
+			<foreach collection="inTag" index="index" item="inTag" open="(" separator="," close=")">
+				#{inTag}
+			</foreach>
+		</if>
+		<if test="notInTag!=null">
+			 and tag not in
+			<foreach collection="notInTag" index="index" item="notInTag" open="(" separator="," close=")">
+				#{notInTag}
+			</foreach>
+		</if>
+		<if test="noEqualsTag!=null">
+			 and tag<![CDATA[<>]]>#{noEqualsTag,jdbcType=VARCHAR}
+		</if>
+		<if test="equalsTag!=null">
+			 and tag=#{equalsTag,jdbcType=VARCHAR}
+		</if>
+		<if test="greaterTag!=null">
+			 and tag<![CDATA[>]]>#{greaterTag,jdbcType=VARCHAR}
+		</if>
+		<if test="greaterEqualsTag!=null">
+			 and tag<![CDATA[>=]]>#{greaterEqualsTag,jdbcType=VARCHAR}
+		</if>
+		<if test="lessTag!=null">
+			 and tag<![CDATA[<]]>#{lessTag,jdbcType=VARCHAR}
+		</if>
+		<if test="lessEqualsTag!=null">
+			 and tag<![CDATA[<=]]>#{lessEqualsTag,jdbcType=VARCHAR}
+		</if>
+		<if test="likeTag!=null and likeTag!=''">
+			 and tag like "%"#{likeTag,jdbcType=VARCHAR}"%"
+		</if>
+		<if test="leftLikeTag!=null and leftLikeTag!=''">
+			 and tag like "%"#{leftLikeTag,jdbcType=VARCHAR}
+		</if>
+		<if test="rightLikeTag!=null and rightLikeTag!=''">
+			 and tag like #{rightLikeTag,jdbcType=VARCHAR}"%"
+		</if>
+		<if test="isNotNullImg!=null and isNotNullImg==true">
+			 and img is not null
+		</if>
+		<if test="isNotNullImg!=null and isNotNullImg==false">
+			 and img is null
+		</if>
+		<if test="inImg!=null">
+			 and img in
+			<foreach collection="inImg" index="index" item="inImg" open="(" separator="," close=")">
+				#{inImg}
+			</foreach>
+		</if>
+		<if test="notInImg!=null">
+			 and img not in
+			<foreach collection="notInImg" index="index" item="notInImg" open="(" separator="," close=")">
+				#{notInImg}
+			</foreach>
+		</if>
+		<if test="noEqualsImg!=null">
+			 and img<![CDATA[<>]]>#{noEqualsImg,jdbcType=VARCHAR}
+		</if>
+		<if test="equalsImg!=null">
+			 and img=#{equalsImg,jdbcType=VARCHAR}
+		</if>
+		<if test="greaterImg!=null">
+			 and img<![CDATA[>]]>#{greaterImg,jdbcType=VARCHAR}
+		</if>
+		<if test="greaterEqualsImg!=null">
+			 and img<![CDATA[>=]]>#{greaterEqualsImg,jdbcType=VARCHAR}
+		</if>
+		<if test="lessImg!=null">
+			 and img<![CDATA[<]]>#{lessImg,jdbcType=VARCHAR}
+		</if>
+		<if test="lessEqualsImg!=null">
+			 and img<![CDATA[<=]]>#{lessEqualsImg,jdbcType=VARCHAR}
+		</if>
+		<if test="likeImg!=null and likeImg!=''">
+			 and img like "%"#{likeImg,jdbcType=VARCHAR}"%"
+		</if>
+		<if test="leftLikeImg!=null and leftLikeImg!=''">
+			 and img like "%"#{leftLikeImg,jdbcType=VARCHAR}
+		</if>
+		<if test="rightLikeImg!=null and rightLikeImg!=''">
+			 and img like #{rightLikeImg,jdbcType=VARCHAR}"%"
+		</if>
+		<if test="isNotNullContent!=null and isNotNullContent==true">
+			 and content is not null
+		</if>
+		<if test="isNotNullContent!=null and isNotNullContent==false">
+			 and content is null
+		</if>
+		<if test="inContent!=null">
+			 and content in
+			<foreach collection="inContent" index="index" item="inContent" open="(" separator="," close=")">
+				#{inContent}
+			</foreach>
+		</if>
+		<if test="notInContent!=null">
+			 and content not in
+			<foreach collection="notInContent" index="index" item="notInContent" open="(" separator="," close=")">
+				#{notInContent}
+			</foreach>
+		</if>
+		<if test="noEqualsContent!=null">
+			 and content<![CDATA[<>]]>#{noEqualsContent,jdbcType=CLOB}
+		</if>
+		<if test="equalsContent!=null">
+			 and content=#{equalsContent,jdbcType=CLOB}
+		</if>
+		<if test="greaterContent!=null">
+			 and content<![CDATA[>]]>#{greaterContent,jdbcType=CLOB}
+		</if>
+		<if test="greaterEqualsContent!=null">
+			 and content<![CDATA[>=]]>#{greaterEqualsContent,jdbcType=CLOB}
+		</if>
+		<if test="lessContent!=null">
+			 and content<![CDATA[<]]>#{lessContent,jdbcType=CLOB}
+		</if>
+		<if test="lessEqualsContent!=null">
+			 and content<![CDATA[<=]]>#{lessEqualsContent,jdbcType=CLOB}
+		</if>
+		<if test="likeContent!=null and likeContent!=''">
+			 and content like "%"#{likeContent,jdbcType=CLOB}"%"
+		</if>
+		<if test="leftLikeContent!=null and leftLikeContent!=''">
+			 and content like "%"#{leftLikeContent,jdbcType=CLOB}
+		</if>
+		<if test="rightLikeContent!=null and rightLikeContent!=''">
+			 and content like #{rightLikeContent,jdbcType=CLOB}"%"
+		</if>
+		<if test="isNotNullCreateTime!=null and isNotNullCreateTime==true">
+			 and create_time is not null
+		</if>
+		<if test="isNotNullCreateTime!=null and isNotNullCreateTime==false">
+			 and create_time is null
+		</if>
+		<if test="inCreateTime!=null">
+			 and create_time in
+			<foreach collection="inCreateTime" index="index" item="inCreateTime" open="(" separator="," close=")">
+				#{inCreateTime}
+			</foreach>
+		</if>
+		<if test="notInCreateTime!=null">
+			 and create_time not in
+			<foreach collection="notInCreateTime" index="index" item="notInCreateTime" open="(" separator="," close=")">
+				#{notInCreateTime}
+			</foreach>
+		</if>
+		<if test="noEqualsCreateTime!=null">
+			 and create_time<![CDATA[<>]]>#{noEqualsCreateTime,jdbcType=TIMESTAMP}
+		</if>
+		<if test="equalsCreateTime!=null">
+			 and create_time=#{equalsCreateTime,jdbcType=TIMESTAMP}
+		</if>
+		<if test="greaterCreateTime!=null">
+			 and create_time<![CDATA[>]]>#{greaterCreateTime,jdbcType=TIMESTAMP}
+		</if>
+		<if test="greaterEqualsCreateTime!=null">
+			 and create_time<![CDATA[>=]]>#{greaterEqualsCreateTime,jdbcType=TIMESTAMP}
+		</if>
+		<if test="lessCreateTime!=null">
+			 and create_time<![CDATA[<]]>#{lessCreateTime,jdbcType=TIMESTAMP}
+		</if>
+		<if test="lessEqualsCreateTime!=null">
+			 and create_time<![CDATA[<=]]>#{lessEqualsCreateTime,jdbcType=TIMESTAMP}
+		</if>
+		<if test="isNotNullModifiedTime!=null and isNotNullModifiedTime==true">
+			 and modified_time is not null
+		</if>
+		<if test="isNotNullModifiedTime!=null and isNotNullModifiedTime==false">
+			 and modified_time is null
+		</if>
+		<if test="inModifiedTime!=null">
+			 and modified_time in
+			<foreach collection="inModifiedTime" index="index" item="inModifiedTime" open="(" separator="," close=")">
+				#{inModifiedTime}
+			</foreach>
+		</if>
+		<if test="notInModifiedTime!=null">
+			 and modified_time not in
+			<foreach collection="notInModifiedTime" index="index" item="notInModifiedTime" open="(" separator="," close=")">
+				#{notInModifiedTime}
+			</foreach>
+		</if>
+		<if test="noEqualsModifiedTime!=null">
+			 and modified_time<![CDATA[<>]]>#{noEqualsModifiedTime,jdbcType=TIMESTAMP}
+		</if>
+		<if test="equalsModifiedTime!=null">
+			 and modified_time=#{equalsModifiedTime,jdbcType=TIMESTAMP}
+		</if>
+		<if test="greaterModifiedTime!=null">
+			 and modified_time<![CDATA[>]]>#{greaterModifiedTime,jdbcType=TIMESTAMP}
+		</if>
+		<if test="greaterEqualsModifiedTime!=null">
+			 and modified_time<![CDATA[>=]]>#{greaterEqualsModifiedTime,jdbcType=TIMESTAMP}
+		</if>
+		<if test="lessModifiedTime!=null">
+			 and modified_time<![CDATA[<]]>#{lessModifiedTime,jdbcType=TIMESTAMP}
+		</if>
+		<if test="lessEqualsModifiedTime!=null">
+			 and modified_time<![CDATA[<=]]>#{lessEqualsModifiedTime,jdbcType=TIMESTAMP}
+		</if>
+		<if test="isNotNullIsPublish!=null and isNotNullIsPublish==true">
+			 and is_publish is not null
+		</if>
+		<if test="isNotNullIsPublish!=null and isNotNullIsPublish==false">
+			 and is_publish is null
+		</if>
+		<if test="inIsPublish!=null">
+			 and is_publish in
+			<foreach collection="inIsPublish" index="index" item="inIsPublish" open="(" separator="," close=")">
+				#{inIsPublish}
+			</foreach>
+		</if>
+		<if test="notInIsPublish!=null">
+			 and is_publish not in
+			<foreach collection="notInIsPublish" index="index" item="notInIsPublish" open="(" separator="," close=")">
+				#{notInIsPublish}
+			</foreach>
+		</if>
+		<if test="noEqualsIsPublish!=null">
+			 and is_publish<![CDATA[<>]]>#{noEqualsIsPublish,jdbcType=NUMERIC}
+		</if>
+		<if test="equalsIsPublish!=null">
+			 and is_publish=#{equalsIsPublish,jdbcType=NUMERIC}
+		</if>
+		<if test="greaterIsPublish!=null">
+			 and is_publish<![CDATA[>]]>#{greaterIsPublish,jdbcType=NUMERIC}
+		</if>
+		<if test="greaterEqualsIsPublish!=null">
+			 and is_publish<![CDATA[>=]]>#{greaterEqualsIsPublish,jdbcType=NUMERIC}
+		</if>
+		<if test="lessIsPublish!=null">
+			 and is_publish<![CDATA[<]]>#{lessIsPublish,jdbcType=NUMERIC}
+		</if>
+		<if test="lessEqualsIsPublish!=null">
+			 and is_publish<![CDATA[<=]]>#{lessEqualsIsPublish,jdbcType=NUMERIC}
+		</if>
+		<if test="isNotNullStatus!=null and isNotNullStatus==true">
+			 and status is not null
+		</if>
+		<if test="isNotNullStatus!=null and isNotNullStatus==false">
+			 and status is null
+		</if>
+		<if test="inStatus!=null">
+			 and status in
+			<foreach collection="inStatus" index="index" item="inStatus" open="(" separator="," close=")">
+				#{inStatus}
+			</foreach>
+		</if>
+		<if test="notInStatus!=null">
+			 and status not in
+			<foreach collection="notInStatus" index="index" item="notInStatus" open="(" separator="," close=")">
+				#{notInStatus}
+			</foreach>
+		</if>
+		<if test="noEqualsStatus!=null">
+			 and status<![CDATA[<>]]>#{noEqualsStatus,jdbcType=NUMERIC}
+		</if>
+		<if test="equalsStatus!=null">
+			 and status=#{equalsStatus,jdbcType=NUMERIC}
+		</if>
+		<if test="greaterStatus!=null">
+			 and status<![CDATA[>]]>#{greaterStatus,jdbcType=NUMERIC}
+		</if>
+		<if test="greaterEqualsStatus!=null">
+			 and status<![CDATA[>=]]>#{greaterEqualsStatus,jdbcType=NUMERIC}
+		</if>
+		<if test="lessStatus!=null">
+			 and status<![CDATA[<]]>#{lessStatus,jdbcType=NUMERIC}
+		</if>
+		<if test="lessEqualsStatus!=null">
+			 and status<![CDATA[<=]]>#{lessEqualsStatus,jdbcType=NUMERIC}
+		</if>
+	</where>
+  </sql>
+  <sql id="Blog_UPDATE">
+	<set>
+		<if test="id!=null">
+			id=#{id,jdbcType=NUMERIC},
+		</if>
+		<if test="userId!=null">
+			user_id=#{userId,jdbcType=NUMERIC},
+		</if>
+		<if test="categoryId!=null">
+			category_id=#{categoryId,jdbcType=NUMERIC},
+		</if>
+		<if test="title!=null">
+			title=#{title,jdbcType=VARCHAR},
+		</if>
+		<if test="summary!=null">
+			summary=#{summary,jdbcType=VARCHAR},
+		</if>
+		<if test="tag!=null">
+			tag=#{tag,jdbcType=VARCHAR},
+		</if>
+		<if test="img!=null">
+			img=#{img,jdbcType=VARCHAR},
+		</if>
+		<if test="content!=null">
+			content=#{content,jdbcType=CLOB},
+		</if>
+		<if test="createTime!=null">
+			create_time=#{createTime,jdbcType=TIMESTAMP},
+		</if>
+		<if test="modifiedTime!=null">
+			modified_time=#{modifiedTime,jdbcType=TIMESTAMP},
+		</if>
+		<if test="isPublish!=null">
+			is_publish=#{isPublish,jdbcType=NUMERIC},
+		</if>
+		<if test="status!=null">
+			status=#{status,jdbcType=NUMERIC},
+		</if>
+	</set>
+  </sql>
+    <insert id="insertBlog" parameterType="Blog" flushCache="true" useGeneratedKeys="true" keyProperty="id"  keyColumn="id">
+    	<![CDATA[
+			INSERT INTO t_blog (user_id,category_id,title,summary,tag,img,content,create_time,modified_time,is_publish,status) VALUES (#{userId},#{categoryId},#{title},#{summary},#{tag},#{img},#{content},#{createTime},#{modifiedTime},#{isPublish},#{status})
+		]]>
+		<selectKey keyProperty="id" resultType="long" order="AFTER">
+			SELECT LAST_INSERT_ID();
+			</selectKey>
+    </insert>
+    <update id="update_Blog" parameterType="Blog" flushCache="true">
+    	<![CDATA[UPDATE t_blog SET id=#{id,jdbcType=NUMERIC},user_id=#{userId,jdbcType=NUMERIC},category_id=#{categoryId,jdbcType=NUMERIC},title=#{title,jdbcType=VARCHAR},summary=#{summary,jdbcType=VARCHAR},tag=#{tag,jdbcType=VARCHAR},img=#{img,jdbcType=VARCHAR},content=#{content,jdbcType=CLOB},create_time=#{createTime,jdbcType=TIMESTAMP},modified_time=#{modifiedTime,jdbcType=TIMESTAMP},is_publish=#{isPublish,jdbcType=NUMERIC},status=#{status,jdbcType=NUMERIC} WHERE id=#{id,jdbcType=NUMERIC}]]>
+  	</update>
+    <update id="updateBlogByExample" parameterType="Blog" flushCache="true">
+    	<![CDATA[
+    		UPDATE t_blog
+    	]]>
+    	<include refid="Blog_UPDATE" />
+    	<![CDATA[WHERE id=#{id,jdbcType=NUMERIC}]]>
+  	</update>
+  	<update id="updateBlogByWhere" parameterType="java.lang.String" flushCache="true">
+    	<![CDATA[
+    		UPDATE t_blog ${value}
+    	]]>
+  	</update>
+  	<update id="updateBlogByCondition" parameterType="com.hujianbin.basis.search.BlogSearchBean" flushCache="true">
+    	<![CDATA[UPDATE t_blog]]>
+    	<include refid="Blog_UPDATE" />
+    	<include refid="BlogCondition_WHERE" />
+  	</update>
+  	<delete id="deleteBlogByWhere" parameterType="java.lang.String" flushCache="true">
+    	<![CDATA[DELETE FROM t_blog ${value}]]>
+  	</delete>
+  	<delete id="deleteBlogByExample" parameterType="Blog" flushCache="true">
+    	<![CDATA[DELETE FROM t_blog]]>
+    	<include refid="Blog_WHERE" />
+  	</delete>
+  	<delete id="deleteBlogByCondition" parameterType="com.hujianbin.basis.search.BlogSearchBean" flushCache="true">
+    	<![CDATA[delete from t_blog]]>
+    	<include refid="BlogSearchBean_WHERE" />
+  	</delete>
+  	<select id="getBlogByWhere" parameterType="java.lang.String" resultType="Blog" resultMap="t_blogMap">
+    	<![CDATA[SELECT * FROM t_blog ${value}]]>
+  	</select>
+  	<select id="getBlogByExample" parameterType="Blog" resultType="Blog" resultMap="t_blogMap">  
+        <![CDATA[
+			SELECT * FROM t_blog
+		]]>
+        <include refid="Blog_WHERE" />
+    </select>
+    <select id="getBlogByCondition" parameterType="com.hujianbin.basis.search.BlogSearchBean" resultType="Blog" resultMap="t_blogMap">
+    	<![CDATA[SELECT * FROM t_blog]]>
+    	<include refid="BlogSearchBean_WHERE" />
+    	<![CDATA[${orderSql}]]>
+  	</select>
+  	<select id="getBlogListByWhere" parameterType="java.lang.String" resultType="Blog" resultMap="t_blogMap">
+    	<![CDATA[SELECT * FROM t_blog ${sql}]]>
+  	</select>
+  	<select id="getBlogListByCondition" parameterType="com.hujianbin.basis.search.BlogSearchBean" resultType="Blog" resultMap="t_blogMap">
+    	<![CDATA[SELECT * FROM t_blog]]>
+    	<include refid="BlogSearchBean_WHERE" />
+    	<![CDATA[${orderSql}]]>
+  	</select>
+  	<select id="getBlogCountByWhere" parameterType="java.lang.String" resultType="int">
+    	<![CDATA[SELECT COUNT(*) FROM t_blog ${value}]]>
+  	</select>
+  	<select id="getBlogCountByExample" parameterType="Blog" resultType="int">
+    	<![CDATA[SELECT COUNT(*) FROM t_blog]]>
+    	<include refid="Blog_WHERE" />
+  	</select>
+  	<select id="getBlogCountByCondition" parameterType="com.hujianbin.basis.search.BlogSearchBean" resultType="int">
+    	<![CDATA[SELECT COUNT(*) FROM t_blog]]>
+    	<include refid="BlogSearchBean_WHERE" />
+  	</select>
+  	<select id="getBlogColumnByCondition" parameterType="com.hujianbin.basis.search.BlogSearchBean" resultType="java.util.HashMap">
+    	<![CDATA[SELECT ${columnSql} FROM t_blog]]>
+    	<include refid="BlogSearchBean_WHERE" />
+    	<![CDATA[${sql}]]>
+ 	</select>
+</mapper>

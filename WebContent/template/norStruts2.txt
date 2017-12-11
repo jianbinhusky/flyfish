@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN" "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="%TableName%" extends="my-struts-default">
+		<!-- 添加  -->
+		<action name="goAdd%TableName%" class="%pTableName%Action" method="goAdd%TableName%">
+			<result name="success">/WEB-INF/views/%lTableName%/add%TableName%.jsp</result>
+		</action>
+		<action name="add%TableName%" class="%pTableName%Action" method="add%TableName%">
+			<interceptor-ref name="token" />
+    		<interceptor-ref name="defaultStack" />
+			<result name="success">/WEB-INF/views/%lTableName%/add%TableName%.jsp</result>
+		</action>
+		<!-- 修改  -->
+		<action name="goModify%TableName%" class="%pTableName%Action" method="goModify%TableName%">
+			<result name="success">/WEB-INF/views/%lTableName%/modify%TableName%.jsp</result>
+		</action>
+		<action name="modify%TableName%" class="%pTableName%Action" method="modify%TableName%">
+			<interceptor-ref name="token" />
+    		<interceptor-ref name="defaultStack" />
+			<result name="success">/WEB-INF/views/%lTableName%/modify%TableName%.jsp</result>
+		</action>
+		<!-- 删除 -->
+		<action name="remove%TableName%" class="%pTableName%Action" method="remove%TableName%">
+			<result name="success">list%TableName%.action</result>
+		</action>
+		<action name="ajaxGet%TableName%" class="%pTableName%Action" method="ajaxGet%TableName%"/>
+		<action name="ajaxRemove%TableName%" class="%pTableName%Action" method="ajaxRemove%TableName%"/>
+		<!-- 列表 -->
+		<action name="list%TableName%" class="%pTableName%Action" method="list%TableName%">
+			<result name="success">/WEB-INF/views/%lTableName%/list%TableName%.jsp</result>
+		</action>
+	</package>
+</struts>

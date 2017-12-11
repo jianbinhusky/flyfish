@@ -1,0 +1,1909 @@
+<!DOCTYPE html>
+<!--[if IE 7 ]>		 <html class="no-js ie ie7 lte7 lte8 lte9" lang="zh-cmn-Hans-CN"> <![endif]-->
+<!--[if IE 8 ]>		 <html class="no-js ie ie8 lte8 lte9" lang="zh-cmn-Hans-CN"> <![endif]-->
+<!--[if IE 9 ]>		 <html class="no-js ie ie9 lte9" lang="zh-cmn-Hans-CN"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html class="no-js" lang="zh-cmn-Hans-CN">
+  <!--<![endif]-->
+  <head> 
+    <meta charset="utf-8" /> 
+    <meta name="renderer" content="webkit|ie-comp|ie-stand" /> 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" /> 
+    <meta http-equiv="Cache-Control" content="no-siteapp" /> 
+    <title>
+			TinyUiEnterprise展示
+        </title> 
+    <meta name="keywords" content="TinyUi 是基于bootscrap的前端UI组件框架。" /> 
+    <meta name="description" content="java,j2ee,j2ee.top, tinygroup,tinygroup.org,eclipse,插件,idea,TinyFramework,悠然,悠悠然然,Tiny,Framework,CEP,通用事件处理,ui引擎,ui engine,模块化,业务单元,文档生成,xml parser,html parser,xml,html,parser,spider,网络爬虫,flow,流程,业务流,页面流,Java,SOA,框架,组件,分层,水平扩展,分区,分表,db router,db cluster,framework,框架,分布式计算,VFS,Web" /> 
+    <script>
+            var contextPath = "/tinyuiweb";             var UPLOAD_ACTION_URL = '/tinyuiweb/action/savepic.pagelet';         </script> 
+    <link rel="shortcut icon" href="/tinyuiweb/img/tiny32.png" /> 
+    <script src="/tinyuiweb/org/tinygroup/jquery/js/jquery-1.11.2.min.js"></script> 
+    <script src="/tinyuiweb/org/tinygroup/jquery/js/jquery.brower.js"></script> 
+    <script src="/tinyuiweb/org/tinygroup/jquery/js/moment.js"></script> 
+    <link href="/tinyuiweb/org/tinygroup/bootstrap/css/bootstrap.min.css" rel="stylesheet" /> 
+    <script src="/tinyuiweb/org/tinygroup/bootstrap/js/bootstrap.min.js"></script> 
+    <link href="/tinyuiweb/org/tinygroup/frameCommon/assets/stylesheets/tiny-admin.min.css" rel="stylesheet" /> 
+    <link href="/tinyuiweb/org/tinygroup/frameCommon/assets/stylesheets/widgets.min.css" rel="stylesheet" /> 
+    <script src="/tinyuiweb/org/tinygroup/frameCommon/assets/javascripts/tiny-admin.min.js"></script> 
+    <script>
+	var tinyTplList=[];	</script> 
+    <link href="/tinyuiweb/org/tinygroup/frameTplDeepblue/assets/stylesheets/themes.min.css" rel="stylesheet" /> 
+    <script>
+	tinyTplList.push({sort:2,name: 'adminflare',  title: '深蓝', img: contextPath+'/img/themes/deep-blue.png' });	</script> 
+    <link href="/tinyuiweb/org/tinygroup/publicComponent/css/tiny-ui.css" rel="stylesheet" /> 
+    <link href="/tinyuiweb/org/tinygroup/publicComponent/iconfont/iconfont.css" rel="stylesheet" /> 
+    <link href="/tinyuiweb/org/tinygroup/publicComponent/css/font-awesome.min.css" rel="stylesheet" /> 
+    <script src="/tinyuiweb/org/tinygroup/publicComponent/js/stickUp.min.js"></script> 
+    <script src="/tinyuiweb/org/tinygroup/publicComponent/js/tiny-ui.js"></script> 
+    <script src="/tinyuiweb/org/tinygroup/publicComponent/js/common.js"></script> 
+    <script src="/tinyuiweb/org/tinygroup/publicComponent/js/Tinyui.admin.js"></script> 
+    <script src="/tinyuiweb/org/tinygroup/publicComponent/js/Tinyui.admin.doc.js"></script> 
+    <script src="/tinyuiweb/org/tinygroup/publicComponent/js/jquery.cookie.js"></script> 
+    <!--[if lt IE 9]>
+																																																							<link href="/tinyuiweb/org/tinygroup/publicComponent/css/ie8apply.css" rel="stylesheet" />
+																																																														<script src="/tinyuiweb/org/tinygroup/publicComponent/js/html5shiv.min.js"></script>
+																												<script src="/tinyuiweb"></script>
+																	                            <![endif]--> 
+    <link href="/tinyuiweb/org/tinygroup/interfaceElements/css/jquery.range.css" rel="stylesheet" /> 
+    <script src="/tinyuiweb/org/tinygroup/interfaceElements/js/jquery.spinner.js"></script> 
+    <script src="/tinyuiweb/org/tinygroup/interfaceElements/js/jquery.range.js"></script> 
+    <script src="/tinyuiweb/org/tinygroup/interfaceElements/js/jquery.twbsPagination.js"></script> 
+    <script src="/tinyuiweb/org/tinygroup/interfaceElements/js/dataPaging.js"></script> 
+    <link href="/tinyuiweb/org/tinygroup/timeline/css/history.css" rel="stylesheet" /> 
+    <script src="/tinyuiweb/org/tinygroup/timeline/js/main.js"></script> 
+    <script src="/tinyuiweb/org/tinygroup/timeline/js/jquery.timelinr.js"></script> 
+    <script src="/tinyuiweb/org/tinygroup/lineChart/js/chartMain.js"></script> 
+    <script src="/tinyuiweb/org/tinygroup/lineChart/js/chart.line.min.js"></script> 
+    <link href="/tinyuiweb/org/tinygroup/buttonGroup/css/buttonGroup.css" rel="stylesheet" /> 
+    <link href="/tinyuiweb/org/tinygroup/thumbnails/css/thumbnails.css" rel="stylesheet" /> 
+    <script src="/tinyuiweb/org/tinygroup/thumbnails/js/thumbnails.js"></script> 
+    <link href="/tinyuiweb/org/tinygroup/labelBadge/css/labelBadge.css" rel="stylesheet" /> 
+    <link href="/tinyuiweb/org/tinygroup/superBox/css/superBox.css" rel="stylesheet" /> 
+    <script src="/tinyuiweb/org/tinygroup/superBox/js/superbox.js"></script> 
+    <link href="/tinyuiweb/org/tinygroup/tabShow/css/tabcut.css" rel="stylesheet" /> 
+    <script src="/tinyuiweb/org/tinygroup/tabShow/js/artTabs.js"></script> 
+    <link href="/tinyuiweb/org/tinygroup/button/css/button.css" rel="stylesheet" /> 
+    <link href="/tinyuiweb/org/tinygroup/example/css/example.css" rel="stylesheet" /> 
+    <link href="/tinyuiweb/org/tinygroup/bootstrapDate/css/daterangepicker-bs3.css" rel="stylesheet" /> 
+    <script src="/tinyuiweb/org/tinygroup/bootstrapDate/js/daterangepicker.js"></script> 
+    <script src="/tinyuiweb/org/tinygroup/bootstrapDate/js/WdatePicker.js"></script> 
+    <link href="/tinyuiweb/org/tinygroup/modal/css/modal.css" rel="stylesheet" /> 
+    <script src="/tinyuiweb/org/tinygroup/modal/js/jquery-drag.js"></script> 
+    <script src="/tinyuiweb/org/tinygroup/modal/js/bootstrap-modalmanager.js"></script> 
+    <script src="/tinyuiweb/org/tinygroup/modal/js/bootstrap-modal.js"></script> 
+    <link href="/tinyuiweb/org/tinygroup/fullCalendar/css/fullcalendar.css" rel="stylesheet" /> 
+    <script src="/tinyuiweb/org/tinygroup/fullCalendar/js/fullcalendar.min.js"></script> 
+    <script src="/tinyuiweb/org/tinygroup/jqueryForm/js/jquery.form.js"></script> 
+    <link href="/tinyuiweb/org/tinygroup/tourbus/css/jquery-tourbus.css" rel="stylesheet" /> 
+    <script src="/tinyuiweb/org/tinygroup/tourbus/js/jquery.scrollTo.min.js"></script> 
+    <script src="/tinyuiweb/org/tinygroup/tourbus/js/jquery-tourbus.js"></script> 
+    <link href="/tinyuiweb/org/tinygroup/mmGrid/src/mmGrid.css" rel="stylesheet" /> 
+    <link href="/tinyuiweb/org/tinygroup/mmGrid/src/theme/bootstrap/mmGrid-bootstrap.css" rel="stylesheet" /> 
+    <link href="/tinyuiweb/org/tinygroup/mmGrid/src/mmPaginator.css" rel="stylesheet" /> 
+    <link href="/tinyuiweb/org/tinygroup/mmGrid/src/theme/bootstrap/mmPaginator-bootstrap.css" rel="stylesheet" /> 
+    <script src="/tinyuiweb/org/tinygroup/mmGrid/examples/js/plugins.js"></script> 
+    <script src="/tinyuiweb/org/tinygroup/mmGrid/examples/js/vendor/json2.js"></script> 
+    <script src="/tinyuiweb/org/tinygroup/mmGrid/src/mmGrid.js"></script> 
+    <script src="/tinyuiweb/org/tinygroup/mmGrid/src/mmPaginator.js"></script> 
+    <link href="/tinyuiweb/org/tinygroup/jqueryUi/css/ui-production.min.css" rel="stylesheet" /> 
+    <script src="/tinyuiweb/org/tinygroup/jqueryUi/js/jquery-ui-1.10.3.min.js"></script> 
+    <script src="/tinyuiweb/org/tinygroup/widget/js/app.config.js"></script> 
+    <script src="/tinyuiweb/org/tinygroup/widget/js/jarvis.widget.min.js"></script> 
+    <script src="/tinyuiweb/org/tinygroup/widget/js/app.min.js"></script> 
+    <script src="/tinyuiweb/org/tinygroup/morris/js/raphael.min.js"></script> 
+    <script src="/tinyuiweb/org/tinygroup/morris/js/morris.min.js"></script> 
+    <link href="/tinyuiweb/org/tinygroup/frameTplFashion/assets/stylesheets/themes.min.css" rel="stylesheet" /> 
+    <script>
+	tinyTplList.push({sort:10, name: 'white',  title: '时尚', img: contextPath+'/img/themes/fashion.png' });	</script> 
+    <link href="/tinyuiweb/org/tinygroup/progress/css/progress.css" rel="stylesheet" /> 
+    <script src="/tinyuiweb/org/tinygroup/progress/js/progress.js"></script> 
+    <link href="/tinyuiweb/org/tinygroup/search/css/search.css" rel="stylesheet" /> 
+    <script src="/tinyuiweb/org/tinygroup/search/js/search.js"></script> 
+    <link href="/tinyuiweb/org/tinygroup/highCharts/css/highCharts.css" rel="stylesheet" /> 
+    <script src="/tinyuiweb/org/tinygroup/highCharts/js/highcharts.js"></script> 
+    <script src="/tinyuiweb/org/tinygroup/highCharts/js/exporting.js"></script> 
+    <script src="/tinyuiweb/org/tinygroup/highCharts/js/data.js"></script> 
+    <script src="/tinyuiweb/org/tinygroup/highCharts/js/highcharts-3d.js"></script> 
+    <script src="/tinyuiweb/org/tinygroup/pieCharts/js/jsapi.js"></script> 
+    <script src="/tinyuiweb/org/tinygroup/pieCharts/js/corechart.js"></script> 
+    <script src="/tinyuiweb/org/tinygroup/pieCharts/js/jquery.gvChart-1.0.1.min.js"></script> 
+    <script>
+	$(document).ready(function(){
+                gvChartInit();
+            });	</script> 
+    <link href="/tinyuiweb/org/tinygroup/searchPage/css/searchPage.css" rel="stylesheet" /> 
+    <link href="/tinyuiweb/org/tinygroup/frameTplOrange/assets/stylesheets/themes.min.css" rel="stylesheet" /> 
+    <script>
+	tinyTplList.push({sort:5,name: 'dust',  title: '橙色', img: contextPath+'/img/themes/orange.png'});	</script> 
+    <link href="/tinyuiweb/org/tinygroup/picture/css/picture.css" rel="stylesheet" /> 
+    <link href="/tinyuiweb/org/tinygroup/frameTplPurple/assets/stylesheets/themes.min.css" rel="stylesheet" /> 
+    <script>
+	tinyTplList.push({ sort:8,name: 'purple-hills', title: '紫色', img: contextPath+'/img/themes/purple-hills.png' });	</script> 
+    <link href="/tinyuiweb/org/tinygroup/uedTips/css/uedTip.css" rel="stylesheet" /> 
+    <script src="/tinyuiweb/org/tinygroup/uedTips/js/uedTip.js"></script> 
+    <link href="/tinyuiweb/org/tinygroup/dropDown/css/dropDown.css" rel="stylesheet" /> 
+    <script src="/tinyuiweb/org/tinygroup/dropDown/js/dropDown.js"></script> 
+    <link href="/tinyuiweb/org/tinygroup/webupload/lib/webuploader.css" rel="stylesheet" /> 
+    <script src="/tinyuiweb/org/tinygroup/webupload/lib/webuploader.min.js"></script> 
+    <link href="/tinyuiweb/org/tinygroup/loginRegistered/images/ue_grid.css" rel="stylesheet" /> 
+    <link href="/tinyuiweb/org/tinygroup/loginRegistered/images/style.css" rel="stylesheet" /> 
+    <link href="/tinyuiweb/org/tinygroup/loginRegistered/css/style.css" rel="stylesheet" /> 
+    <script src="/tinyuiweb/org/tinygroup/loginRegistered/script/jquery.easing.min.js"></script> 
+    <script src="/tinyuiweb/org/tinygroup/loginRegistered/script/custom.js"></script> 
+    <link href="/tinyuiweb/org/tinygroup/zoomPic/css/zoomPic.css" rel="stylesheet" /> 
+    <script src="/tinyuiweb/org/tinygroup/zoomPic/js/zoominfo.js"></script> 
+    <link href="/tinyuiweb/org/tinygroup/unslider/css/slide.css" rel="stylesheet" /> 
+    <script src="/tinyuiweb/org/tinygroup/unslider/js/jquery.touchSlider.js"></script> 
+    <link href="/tinyuiweb/org/tinygroup/ad/css/ad.css" rel="stylesheet" /> 
+    <script src="/tinyuiweb/org/tinygroup/ad/js/ad.js"></script> 
+    <link href="/tinyuiweb/org/tinygroup/tab/css/tab.css" rel="stylesheet" /> 
+    <script src="/tinyuiweb/org/tinygroup/tab/js/tab.js"></script> 
+    <link href="/tinyuiweb/org/tinygroup/code/css/code.css" rel="stylesheet" /> 
+    <script src="/tinyuiweb/org/tinygroup/code/js/prettify.js"></script> 
+    <link href="/tinyuiweb/org/tinygroup/easy/css/jquery.easy-pie-chart.css" rel="stylesheet" /> 
+    <script src="/tinyuiweb/org/tinygroup/easy/js/excanvas.js"></script> 
+    <script src="/tinyuiweb/org/tinygroup/easy/js/jquery.easy-pie-chart.js"></script> 
+    <link href="/tinyuiweb/org/tinygroup/flot/css/flot.css" rel="stylesheet" /> 
+    <script src="/tinyuiweb/org/tinygroup/flot/js/jquery.flot.cust.min.js"></script> 
+    <script src="/tinyuiweb/org/tinygroup/flot/js/jquery.flot.resize.min.js"></script> 
+    <script src="/tinyuiweb/org/tinygroup/flot/js/jquery.flot.fillbetween.min.js"></script> 
+    <script src="/tinyuiweb/org/tinygroup/flot/js/jquery.flot.orderBar.min.js"></script> 
+    <script src="/tinyuiweb/org/tinygroup/flot/js/jquery.flot.pie.min.js"></script> 
+    <script src="/tinyuiweb/org/tinygroup/flot/js/jquery.flot.time.min.js"></script> 
+    <script src="/tinyuiweb/org/tinygroup/flot/js/jquery.flot.tooltip.min.js"></script> 
+    <link href="/tinyuiweb/org/tinygroup/fold/fold/css/fold.css" rel="stylesheet" /> 
+    <script src="/tinyuiweb/org/tinygroup/fold/fold/js/fold.js"></script> 
+    <link href="/tinyuiweb/org/tinygroup/layer/skin/layer.css" rel="stylesheet" /> 
+    <script src="/tinyuiweb/org/tinygroup/layer/layer.min.js"></script> 
+    <script src="/tinyuiweb/org/tinygroup/layer/extend/layer.ext.js"></script> 
+    <link href="/tinyuiweb/org/tinygroup/form/css/form.css" rel="stylesheet" /> 
+    <script src="/tinyuiweb/org/tinygroup/form/js/Validform_v5.3.2.js"></script> 
+    <script src="/tinyuiweb/org/tinygroup/form/js/jquery.icheck.min.js"></script> 
+    <script src="/tinyuiweb/org/tinygroup/form/js/ajaxfileupload.js"></script> 
+    <script src="/tinyuiweb/org/tinygroup/form/js/jquery.queryFor.js"></script> 
+    <link href="/tinyuiweb/org/tinygroup/icon/css/icon.css" rel="stylesheet" /> 
+    <link href="/tinyuiweb/org/tinygroup/tags/css/tags.css" rel="stylesheet" /> 
+    <script src="/tinyuiweb/org/tinygroup/tags/js/tags.js"></script> 
+    <link href="/tinyuiweb/org/tinygroup/alert/css/alert.css" rel="stylesheet" /> 
+    <script src="/tinyuiweb/org/tinygroup/alert/js/alert.js"></script> 
+    <link href="/tinyuiweb/org/tinygroup/UEditor/css.css" rel="stylesheet" /> 
+    <script src="/tinyuiweb/org/tinygroup/UEditor/umeditor.config.js"></script> 
+    <script src="/tinyuiweb/org/tinygroup/UEditor/umeditor.js"></script> 
+    <script src="/tinyuiweb/org/tinygroup/UEditor/lang/zh-cn/zh-cn.js"></script> 
+    <script src="/tinyuiweb/org/tinygroup/UEditor/dialogs/link/link.js"></script> 
+    <script src="/tinyuiweb/org/tinygroup/UEditor/dialogs/image/image.js"></script> 
+    <script src="/tinyuiweb/org/tinygroup/UEditor/dialogs/video/video.js"></script> 
+    <script src="/tinyuiweb/org/tinygroup/UEditor/dialogs/map/map.js"></script> 
+    <script src="/tinyuiweb/org/tinygroup/UEditor/dialogs/formula/formula.js"></script> 
+    <script src="/tinyuiweb/org/tinygroup/UEditor/dialogs/emotion/emotion.js"></script> 
+    <link href="/tinyuiweb/org/tinygroup/forum/css/forum.css" rel="stylesheet" /> 
+    <link href="/tinyuiweb/org/tinygroup/gantt/css/jsgantt.css" rel="stylesheet" /> 
+    <script src="/tinyuiweb/org/tinygroup/gantt/js/jsgantt.js"></script> 
+    <link href="/tinyuiweb/org/tinygroup/media/css/media.css" rel="stylesheet" /> 
+    <link href="/tinyuiweb/org/tinygroup/table/css/table.css" rel="stylesheet" /> 
+    <script src="/tinyuiweb/org/tinygroup/table/js/jquery.form.js"></script> 
+    <script src="/tinyuiweb/org/tinygroup/table/js/jquery.twbsPagination.js"></script> 
+    <link href="/tinyuiweb/org/tinygroup/toTop/css/toTop.css" rel="stylesheet" /> 
+    <script src="/tinyuiweb/org/tinygroup/toTop/js/toTop.js"></script> 
+    <link href="/tinyuiweb/org/tinygroup/zTree/css/zTreeStyle/zTreeStyle.css" rel="stylesheet" /> 
+    <link href="/tinyuiweb/org/tinygroup/zTree/css/awesomeStyle/awesome.css" rel="stylesheet" /> 
+    <script src="/tinyuiweb/org/tinygroup/zTree/js/jquery.ztree.core-3.5.js"></script> 
+    <script src="/tinyuiweb/org/tinygroup/zTree/js/jquery.ztree.exhide-3.5.js"></script> 
+    <script src="/tinyuiweb/org/tinygroup/zTree/js/jquery.ztree.excheck-3.5.js"></script> 
+    <script src="/tinyuiweb/org/tinygroup/zTree/js/jquery.ztree.exedit-3.5.js"></script> 
+    <script src="/tinyuiweb/org/tinygroup/zTree/js/ztree.selected.js"></script> 
+    <link href="/tinyuiweb/org/tinygroup/gridSystems/css/gridSystems.css" rel="stylesheet" /> 
+    <link href="/tinyuiweb/org/tinygroup/Smart-treeview/css/Smart-treeview.css" rel="stylesheet" /> 
+    <link href="/tinyuiweb/org/tinygroup/Smart-treeview/css/treeview.css" rel="stylesheet" /> 
+    <script src="/tinyuiweb/org/tinygroup/Smart-treeview/js/treeview.js"></script> 
+    <link href="/tinyuiweb/org/tinygroup/fooTable/css/footable.core.css" rel="stylesheet" /> 
+    <link href="/tinyuiweb/org/tinygroup/fooTable/css/fooTable.css" rel="stylesheet" /> 
+    <script src="/tinyuiweb/org/tinygroup/fooTable/js/footable.all.min.js"></script> 
+    <link href="/tinyuiweb/org/tinygroup/userComment/css/zyComment.css" rel="stylesheet" /> 
+    <script src="/tinyuiweb/org/tinygroup/userComment/js/zyComment.js"></script> 
+    <link href="/tinyuiweb/org/tinygroup/frameTplDark/assets/stylesheets/themes.min.css" rel="stylesheet" /> 
+    <script>
+	tinyTplList.push({sort:1, name: 'clean',  title: '深色', img: contextPath+'/img/themes/dark.png' });	</script> 
+    <link href="/tinyuiweb/org/tinygroup/frameTplGray/assets/stylesheets/themes.min.css" rel="stylesheet" /> 
+    <script>
+	tinyTplList.push({sort:4, name: 'default', title: '灰色', img: contextPath+'/img/themes/default.png' });	</script> 
+    <link href="/tinyuiweb/org/tinygroup/viewsControl/css/styles.min.css" rel="stylesheet" /> 
+    <script src="/tinyuiweb/org/tinygroup/viewsControl/js/jplist.min.js"></script> 
+    <link href="/tinyuiweb/org/tinygroup/maskBar/css/maskBar.css" rel="stylesheet" /> 
+    <link href="/tinyuiweb/org/tinygroup/comment/css/comment.css" rel="stylesheet" /> 
+    <script src="/tinyuiweb/org/tinygroup/comment/js/myComment.js"></script> 
+    <link href="/tinyuiweb/org/tinygroup/compose/css/compose.css" rel="stylesheet" /> 
+    <link href="/tinyuiweb/org/tinygroup/emailTemplate/css/email.css" rel="stylesheet" /> 
+    <link href="/tinyuiweb/org/tinygroup/frameTplLightblue/assets/stylesheets/themes.min.css" rel="stylesheet" /> 
+    <script>
+	tinyTplList.push({sort:7,name: 'frost',  title: '浅蓝', img: contextPath+'/img/themes/light-blue.png' });	</script> 
+    <link href="/tinyuiweb/org/tinygroup/animation/css/animation.css" rel="stylesheet" /> 
+    <link href="/tinyuiweb/org/tinygroup/Smart-navigation/css/Smart-navigation.css" rel="stylesheet" /> 
+    <link href="/tinyuiweb/org/tinygroup/voteCharts/css/voteCharts.css" rel="stylesheet" /> 
+    <script src="/tinyuiweb/org/tinygroup/voteCharts/js/voteCharts.js"></script> 
+    <link href="/tinyuiweb/org/tinygroup/dataTables/css/jquery.dataTables.min.css" rel="stylesheet" /> 
+    <script src="/tinyuiweb/org/tinygroup/dataTables/js/jquery.dataTables.min.js"></script> 
+    <script src="/tinyuiweb/newLogin/js/cloud.js"></script> 
+    <link href="/tinyuiweb/org/tinygroup/rolling/css/rolling.css" rel="stylesheet" /> 
+    <script src="/tinyuiweb/org/tinygroup/rolling/js/jcarousellite.min.js"></script> 
+    <script src="/tinyuiweb/org/tinygroup/rolling/js/jquery.textSlider.js"></script> 
+    <script src="/tinyuiweb/org/tinygroup/rolling/js/dropDown.js"></script> 
+    <link href="/tinyuiweb/org/tinygroup/frameTplBlack/assets/stylesheets/themes.min.css" rel="stylesheet" /> 
+    <script>
+	tinyTplList.push({sort:9, name: 'silver',  title: '黑色', img: contextPath+'/img/themes/black.png' });	</script> 
+    <link href="/tinyuiweb/org/tinygroup/frameTplGreen/assets/stylesheets/themes.min.css" rel="stylesheet" /> 
+    <script>
+	tinyTplList.push({sort:3,name: 'asphalt', title: '绿色', img: contextPath+'/img/themes/asphalt.png'});	</script> 
+    <link href="/tinyuiweb/org/tinygroup/frameTplGreenyellow/assets/stylesheets/themes.min.css" rel="stylesheet" /> 
+    <script>
+	tinyTplList.push({sort:6,name: 'fresh',  title: '绿黄', img: contextPath+'/img/themes/green.png' });	</script> 
+    <link href="/tinyuiweb/org/tinygroup/trumbowyg/css/trumbowyg.min.css" rel="stylesheet" /> 
+    <script src="/tinyuiweb/org/tinygroup/trumbowyg/js/trumbowyg.min.js"></script> 
+    <script src="/tinyuiweb/org/tinygroup/trumbowyg/js/trumbowyg.base64.min.js"></script> 
+    <script src="/tinyuiweb/org/tinygroup/trumbowyg/js/trumbowyg.colors.min.js"></script> 
+    <script src="/tinyuiweb/org/tinygroup/trumbowyg/js/trumbowyg.upload.js"></script> 
+    <script src="/tinyuiweb/org/tinygroup/trumbowyg/js/trumbowyg.editlink.min.js"></script> 
+    <script src="/tinyuiweb/org/tinygroup/trumbowyg/js/zh_cn.js"></script> 
+    <link href="/tinyuiweb/org/tinygroup/syntaxhighlighter/styles/shCore.css" rel="stylesheet" /> 
+    <script src="/tinyuiweb/org/tinygroup/syntaxhighlighter/scripts/shCore.js"></script> 
+    <script src="/tinyuiweb/org/tinygroup/syntaxhighlighter/scripts/shBrushCss.js"></script> 
+    <script src="/tinyuiweb/org/tinygroup/syntaxhighlighter/scripts/shBrushJava.js"></script> 
+    <script src="/tinyuiweb/org/tinygroup/syntaxhighlighter/scripts/shBrushJScript.js"></script> 
+    <script src="/tinyuiweb/org/tinygroup/syntaxhighlighter/scripts/shBrushXml.js"></script> 
+    <script src="/tinyuiweb/org/tinygroup/syntaxhighlighter/scripts/shBrushTiny.js"></script> 
+    <script>
+	$(document).ready(function(){
+                SyntaxHighlighter.highlight();
+            });	</script> 
+    <link href="/tinyuiweb/org/tinygroup/iconTab/css/iconTab.css" rel="stylesheet" /> 
+    <link href="/tinyuiweb/org/tinygroup/burndownChart/css/burndownChart.css" rel="stylesheet" /> 
+    <script src="/tinyuiweb/org/tinygroup/burndownChart/js/burndownChart.js"></script> 
+    <link href="/tinyuiweb/org/tinygroup/navigation/css/navigation.css" rel="stylesheet" /> 
+    <script src="/tinyuiweb/org/tinygroup/navigation/js/pagenav.cn.js"></script> 
+    <style>
+            @media (min-width:768px) {
+                #main-navbar .navbar-form,#main-navbar .navbar-nav {
+					width:600px;
+                    margin-right: calc(100%-100vw);
+                }
+
+            }
+			</style> 
+  </head> 
+  <body class=" main-menu-animated"> 
+    <script>var init = [];</script> 
+    <script src="/tinyuiweb/js/setting.js"></script>
+    <div id="main-wrapper"> 
+      <div id="main-navbar" class="navbar navbar-inverse" role="navigation"> 
+        <!-- Main menu toggle --> 
+        <button type="button" id="main-menu-toggle"><i class="navbar-icon fa fa-bars icon"></i><span class="hide-menu-text"></span></button> 
+        <div class="navbar-inner"> 
+          <!-- navbar-header start--> 
+          <div class="navbar-header"> 
+            <!-- Logo --> 
+            <a href="index.html" class="navbar-brand"> 
+              <div>
+                <img title="Tinyframework" src="/tinyuiweb/img/main-navbar-logo.png" />
+              </div> 
+              <!--TinyAdmin--> </a> 
+            <!-- navbar-toggle start --> 
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-navbar-collapse"><i class="navbar-icon fa fa-bars"></i></button> 
+            <!-- navbar-toggle end --> 
+          </div> 
+          <div id="main-navbar-collapse" class="collapse navbar-collapse main-navbar-collapse"> 
+            <div> 
+              <ul class="nav navbar-nav"> 
+                <li class="tttt"> <a href="/tinyuiweb/ajax.html">切换到AJAX</a> </li> 
+                <li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">下拉菜单</a> 
+                  <ul class="dropdown-menu"> 
+                    <li> <a href="#">第一项</a> </li> 
+                    <li> <a href="#">第二项</a> </li> 
+                    <li class="divider"></li> 
+                    <li> <a href="#">第三项</a> </li> 
+                  </ul> </li> 
+              </ul> 
+              <div class="right clearfix"> 
+                <ul class="nav navbar-nav pull-right right-navbar-nav"> 
+                  <li class="nav-icon-btn nav-icon-btn-danger dropdown"> <a href="javascript:void(0);notifications" class="dropdown-toggle" data-toggle="dropdown"> <span class="label">5</span> <i class="nav-icon fa fa-bullhorn"></i> <span class="small-screen-text">通知</span> </a> 
+                    <!-- NOTIFICATIONS --> 
+                    <!-- Javascript --> <script>
+									init.push(function () {
+										$('#main-navbar-notifications').slimScroll({ height: 250});
+									});
+								</script> 
+                    <!-- / Javascript --> 
+                    <div class="dropdown-menu widget-notifications no-padding" style="width: 300px"> 
+                      <div class="notifications-list" id="main-navbar-notifications"> 
+                        <div class="notification"> 
+                          <div class="notification-title text-danger">
+                            系统
+                          </div> 
+                          <div class="notification-description"> 
+                            <strong>500错误</strong>: 语法错误在索引&times;&times;行 
+                            <strong>461</strong>. 
+                          </div> 
+                          <div class="notification-ago">
+                            12小时前
+                          </div> 
+                          <div class="notification-icon fa fa-hdd-o bg-danger"></div> 
+                        </div> 
+                        <div class="notification"> 
+                          <div class="notification-title text-info">
+                            仓库
+                          </div> 
+                          <div class="notification-description">
+                             你有 
+                            <strong>9</strong> 新订单。 
+                          </div> 
+                          <div class="notification-ago">
+                            12小时前
+                          </div> 
+                          <div class="notification-icon fa fa-truck bg-info"></div> 
+                        </div> 
+                        <div class="notification"> 
+                          <div class="notification-title text-default">
+                            进程
+                          </div> 
+                          <div class="notification-description">
+                             工作 
+                            <strong>&quot;清理&quot;</strong> 完成。 
+                          </div> 
+                          <div class="notification-ago">
+                            12小时前
+                          </div> 
+                          <div class="notification-icon fa fa-clock-o bg-default"></div> 
+                        </div> 
+                        <div class="notification"> 
+                          <div class="notification-title text-success">
+                            体系
+                          </div> 
+                          <div class="notification-description">
+                             服务器 
+                            <strong>内存已满。</strong>. 
+                          </div> 
+                          <div class="notification-ago">
+                            11小时前
+                          </div> 
+                          <div class="notification-icon fa fa-hdd-o bg-success"></div> 
+                        </div> 
+                        <div class="notification"> 
+                          <div class="notification-title text-warning">
+                            系统
+                          </div> 
+                          <div class="notification-description">
+                             服务器 
+                            <strong>内存已满。</strong>. 
+                          </div> 
+                          <div class="notification-ago">
+                            10小时前
+                          </div> 
+                          <div class="notification-icon fa fa-hdd-o bg-warning"></div> 
+                        </div> 
+                      </div> 
+                      <!-- / .notifications-list --> 
+                      <a href="javascript:void(0);" class="notifications-link">更多的通知</a> 
+                    </div> 
+                    <!-- / .dropdown-menu --> </li> 
+                  <li class="nav-icon-btn nav-icon-btn-success dropdown"> <a href="javascript:void(0);notifications" class="dropdown-toggle" data-toggle="dropdown"> <span class="label">12</span> <i class="nav-icon fa fa-envelope"></i> <span class="small-screen-text">所得的消息</span> </a> 
+                    <!-- NOTIFICATIONS --> 
+                    <!-- Javascript --> <script>
+									init.push(function () {
+										$('#main-navbar-notifications').slimScroll({ height: 250});
+									});
+								</script> 
+                    <!-- / Javascript --> 
+                    <div class="dropdown-menu widget-notifications no-padding" style="width: 300px"> 
+                      <div class="notifications-list" id="main-navbar-notifications"> 
+                        <div class="message"> 
+                          <img src="/tinyuiweb/img/portraits/2.jpg" alt="" class="message-avatar" /> 
+                          <a href="javascript:void(0);" class="message-subject"> 有一位新成员加入Tiny框架... </a> 
+                          <div class="message-description">
+                             来自 
+                            <a href="#">xxx</a> &nbsp;&nbsp;&nbsp;&nbsp; 2小时前 
+                          </div> 
+                        </div> 
+                        <!-- / .message --> 
+                        <div class="message"> 
+                          <img src="/tinyuiweb/img/portraits/3.jpg" alt="" class="message-avatar" /> 
+                          <a href="javascript:void(0);" class="message-subject"> 有一位Tiny粉丝评论了博文... </a> 
+                          <div class="message-description">
+                             来自 
+                            <a href="#">xxx</a> &nbsp;&nbsp;&nbsp;&nbsp; 2小时前 
+                          </div> 
+                        </div> 
+                        <!-- / .message --> 
+                        <div class="message"> 
+                          <img src="/tinyuiweb/img/portraits/4.jpg" alt="" class="message-avatar" /> 
+                          <a href="javascript:void(0);" class="message-subject"> myeclipse安装tiny报错，请教各位高手。 </a> 
+                          <div class="message-description">
+                             来自 
+                            <a href="#">xxx</a> &nbsp;&nbsp;&nbsp;&nbsp; 2小时前 
+                          </div> 
+                        </div> 
+                        <!-- / .message --> 
+                        <div class="message"> 
+                          <img src="/tinyuiweb/img/portraits/5.jpg" alt="" class="message-avatar" /> 
+                          <a href="javascript:void(0);" class="message-subject"> page中获取session的值为什么是旧的... </a> 
+                          <div class="message-description">
+                             来自 
+                            <a href="#">xxx</a> &nbsp;&nbsp;&nbsp;&nbsp; 2小时前 
+                          </div> 
+                        </div> 
+                        <!-- / .message --> 
+                      </div> 
+                      <!-- / .notifications-list --> 
+                      <a href="javascript:void(0);" class="notifications-link">更多的信息</a> 
+                    </div> 
+                    <!-- / .dropdown-menu --> </li> 
+                  <li class="fullscreen"> <a href="javascript:void(0);" onclick="launchFullScreen(document.documentElement);" title="全屏"><i class="fa fa-fullscreen"></i></a> </li> 
+                  <li> 
+                    <form action="/sdpm-web/a/quality/bug/bugInfo?no=" method="get" id="msb-box"> 
+                      <div class="input-groups " style="width:269px;padding-top:9px"> 
+                        <div class="input-group-btns"> 
+                          <button type="button" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"> <span id="msb-currentName">Bug</span> <span class="carets"></span> </button> 
+                          <ul class="dropdown-menus msb-item-list" style="margin-top:-1px;width: 212px;"> 
+                            <li class="active"><a href="/sdpm-web/a/quality/bug/bugInfo?no=" data-value="" data-type="form">Bug</a></li> 
+                            <li><a href="/sdpm-web/a/product/storySpec/find/productDemandDetail?no=" data-value="" data-type="form">需求</a></li> 
+                            <li><a href="/sdpm-web/a/project/task/findTask?no=" data-value="" data-type="form">任务</a></li> 
+                            <li><a href="/sdpm-web/a/quality/testCase/case/viewInfo?no=" data-value="" data-type="form">用例</a></li> 
+                            <li><a href="/sdpm-web/a/project/view?projectId=" data-value="" data-type="form">项目</a></li> 
+                            <li><a href="/sdpm-web/a/product/find/overview?productId=" data-value="" data-type="form">产品</a></li> 
+                            <li><a href="/sdpm-web/a/quality/version/versionInfo?no=" data-value="" data-type="form">版本</a></li> 
+                            <li><a href="/sdpm-web/a/product/release/forword/reRelateStory?no=" data-value="" data-type="form">发布</a></li> 
+                            <li><a href="/sdpm-web/a/product/plan/forword/reRelateStory?no=" data-value="" data-type="form">产品计划</a></li> 
+                            <li><a href="/sdpm-web/a/document/doc/view?docid=" data-value="" data-type="form">文档</a></li> 
+                          </ul> 
+                        </div> 
+                        <input type="text" name="key" id="msb-box-input" value="" class="form-controls " placeholder="请输入ID" datatype="n" nullmsg="请输入ID" /> 
+                        <div id="objectSwitcher" class="input-group-btns "> 
+                          <button class="searchBtn"><i class="fa fa-search"></i></button> 
+                        </div> 
+                      </div> 
+                    </form> <script type="text/javascript">
+				    $(function(){
+				        $("#msb-box .msb-item-list a").each(function(){
+				            var $this = $(this);
+				            $this.click(function() {
+				        if($this.attr("data-type")=="form"){
+				            $("#msb-box li.active").removeClass("active");
+				            $this.closest("li").addClass("active");
+				            $("#msb-box").attr("action",$this.attr("href"));
+				            $("#msb-currentName").text($this.text());
+				            $("#msb-box .dropdown-toggle").dropdown('toggle');
+				            return false;
+				            }
+				            });
+				            if($this.text()=="Bug"){
+				                    $this.closest("li").addClass("active");
+				                $("#msb-box").attr("action",$this.attr("href"));
+				            }
+				        });
+				        $("#msb-box").Validform({
+				            beforeSubmit:function(curform){
+				                window.location.href=$(curform).attr("action")+$("#msb-box-input").val();
+				                return false;
+				            }
+				        })
+				    });
+				</script> </li> 
+                  <li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle user-menu" data-toggle="dropdown"> <img src="/tinyuiweb/img/portraits/1.jpg" alt="" /> <span>密缘之友</span> </a> 
+                    <ul class="dropdown-menu"> 
+                      <li><a href="javascript:void(0);"><span class="label label-warning pull-right">新的</span>资料文件</a></li> 
+                      <li><a href="javascript:void(0);"><span class="badge badge-primary pull-right">新的</span>个人中心</a></li> 
+                      <li><a href="javascript:void(0);"><i class="dropdown-icon fa fa-cog"></i>&nbsp;&nbsp;设置</a></li> 
+                      <li class="divider"></li> 
+                      <li><a href="javascript:void(0);"><i class="dropdown-icon fa fa-power-off"></i>&nbsp;&nbsp;退出</a></li> 
+                    </ul> </li> 
+                </ul> 
+              </div> 
+            </div> 
+          </div> 
+          <!-- main-navbar-collapse end --> 
+        </div> 
+        <!-- navbar-inner end --> 
+      </div> 
+      <!-- main-navbar end --> 
+      <div id="main-menu" role="navigation"> 
+        <div id="main-menu-inner"> 
+          <div class="menu-content top" id="menu-content-demo"> 
+            <div> 
+              <div class="text-bg">
+                <span class="text-slim">欢迎您,</span> 
+                <span class="text-semibold">Liyl</span>
+              </div> 
+              <img src="/tinyuiweb/img/portraits/1.jpg" alt="" class="" /> 
+              <div class="btn-group"> 
+                <a href="javascript:void(0);" class="btn btn-xs btn-primary btn-outline dark"><i class="fa fa-envelope"></i></a> 
+                <a href="javascript:void(0);" class="btn btn-xs btn-primary btn-outline dark"><i class="fa fa-user"></i></a> 
+                <a href="javascript:void(0);" class="btn btn-xs btn-primary btn-outline dark"><i class="fa fa-cog"></i></a> 
+                <a href="javascript:void(0);" class="btn btn-xs btn-danger btn-outline dark"><i class="fa fa-power-off"></i></a> 
+              </div> 
+            </div> 
+          </div> 
+          <ul class="navigation"> 
+            <li class="active"> <a href="/tinyuiweb/page/index.html" class="navitem" title="首页" data-treeid="0"><i class="menu-icon fa fa-home"></i><span class="mm-text">首页</span> </a> </li> 
+            <li> <a href="/tinyuiweb/page/overview.html" class="navitem" title="概述" data-treeid="1"><i class="menu-icon fa fa-dashboard"></i><span class="mm-text">概述</span> </a> </li> 
+            <li class="mm-dropdown class java.util.HashMap"> <a href="javascript:void(0);" data-treeid="2"><i class="menu-icon fa fa-th"></i><span class="mm-text">布局</span> </a> 
+              <ul> 
+                <li> <a href="/tinyuiweb/page/gridSystem.html" class="navitem" title="栅格系统" data-treeid="2.1"><span class="mm-text">栅格系统</span> </a> </li> 
+                <li> <a href="/tinyuiweb/page/tabShow.html" class="navitem" title="Tabs展现" data-treeid="2.2"><span class="mm-text">Tabs展现</span> </a> </li> 
+                <li> <a href="/tinyuiweb/page/togglebox.html" class="navitem" title="ToggleBox" data-treeid="2.3"><span class="mm-text">ToggleBox</span> </a> </li> 
+              </ul> </li> 
+            <li class="mm-dropdown class java.util.HashMap"> <a href="javascript:void(0);" data-treeid="3"><i class="menu-icon fa fa-desktop"></i><span class="mm-text">基础</span> </a> 
+              <ul> 
+                <li> <a href="/tinyuiweb/page/typography.html" class="navitem" title="排版" data-treeid="3.1"><span class="mm-text">排版</span> </a> </li> 
+                <li> <a href="/tinyuiweb/page/icon.html" class="navitem" title="图标" data-treeid="3.3"><span class="mm-text">图标</span> </a> </li> 
+                <li> <a href="/tinyuiweb/page/button.html" class="navitem" title="按钮" data-treeid="3.4"><span class="mm-text">按钮</span> </a> </li> 
+                <li> <a href="/tinyuiweb/page/buttonGroups.html" class="navitem" title="按钮组" data-treeid="3.5"><span class="mm-text">按钮组</span> </a> </li> 
+                <li> <a href="/tinyuiweb/page/tables.html" class="navitem" title="表格" data-treeid="3.6"><span class="mm-text">表格</span> </a> </li> 
+              </ul> </li> 
+            <li class="mm-dropdown class java.util.HashMap"> <a href="javascript:void(0);" data-treeid="4"><i class="menu-icon fa icon-wrench"></i><span class="mm-text">元素</span> </a> 
+              <ul> 
+                <li> <a href="/tinyuiweb/page/labelBadge.html" class="navitem" title="便签与标号" data-treeid="4.1"><span class="mm-text">便签与标号</span> </a> </li> 
+                <li> <a href="/tinyuiweb/page/alert.html" class="navitem" title="警告" data-treeid="4.2"><span class="mm-text">警告</span> </a> </li> 
+                <li> <a href="/tinyuiweb/page/progress.html" class="navitem" title="进度条" data-treeid="4.3"><span class="mm-text">进度条</span> </a> </li> 
+                <li> <a href="/tinyuiweb/page/interfaceElements.html" class="navitem" title="界面元素" data-treeid="4.4"><span class="mm-text">界面元素</span> </a> </li> 
+                <li> <a href="/tinyuiweb/page/nav.html" class="navitem" title="导航" data-treeid="4.5"><span class="mm-text">导航</span> </a> </li> 
+              </ul> </li> 
+            <li class="mm-dropdown class java.util.HashMap"> <a href="javascript:void(0);" data-treeid="5"><i class="menu-icon fa fa-tasks"></i><span class="mm-text">表单</span> </a> 
+              <ul> 
+                <li> <a href="/tinyuiweb/page/forms.html" class="navitem" title="表单列表" data-treeid="5.1"><span class="mm-text">表单列表</span> </a> </li> 
+                <li> <a href="/tinyuiweb/page/tinyForm.html" class="navitem" title="表单实例" data-treeid="5.2"><span class="mm-text">表单实例</span> </a> </li> 
+                <li> <a href="/tinyuiweb/page/editor.html" class="navitem" title="编辑器" data-treeid="5.3"><span class="mm-text">编辑器</span> </a> </li> 
+                <li> <a href="/tinyuiweb/page/bootstrapDate.html" class="navitem" title="日期控件" data-treeid="5.4"><span class="mm-text">日期控件</span> </a> </li> 
+                <li> <a href="/tinyuiweb/page/dropDown.html" class="navitem" title="下拉菜单" data-treeid="5.5"><span class="mm-text">下拉菜单</span> </a> </li> 
+                <li> <a href="/tinyuiweb/page/search.html" class="navitem" title="搜索" data-treeid="5.6"><span class="mm-text">搜索</span> </a> </li> 
+                <li> <a href="/tinyuiweb/page/webupload.html" class="navitem" title="多文件上传" data-treeid="5.7"><span class="mm-text">多文件上传</span> </a> </li> 
+                <li> <a href="/tinyuiweb/page/authorlist.html" class="navitem" title="权限移动" data-treeid="5.8"><span class="mm-text">权限移动</span> </a> </li> 
+              </ul> </li> 
+            <li class="mm-dropdown class java.util.HashMap"> <a href="javascript:void(0);" data-treeid="6"><i class="menu-icon fa icon-picture"></i><span class="mm-text">图库</span> </a> 
+              <ul> 
+                <li> <a href="/tinyuiweb/page/picture.html" class="navitem" title="图片" data-treeid="6.1"><span class="mm-text">图片</span> </a> </li> 
+                <li> <a href="/tinyuiweb/page/thumbnails.html" class="navitem" title="缩略图" data-treeid="6.2"><span class="mm-text">缩略图</span> </a> </li> 
+                <li> <a href="/tinyuiweb/page/media.html" class="navitem" title="媒体插入" data-treeid="6.3"><span class="mm-text">媒体插入</span> </a> </li> 
+                <li> <a href="/tinyuiweb/page/ad.html" class="navitem" title="广告" data-treeid="6.4"><span class="mm-text">广告</span> </a> </li> 
+                <li> <a href="/tinyuiweb/page/uedTips.html" class="navitem" title="UED提示" data-treeid="6.5"><span class="mm-text">UED提示</span> </a> </li> 
+              </ul> </li> 
+            <li class="mm-dropdown class java.util.HashMap"> <a href="javascript:void(0);" data-treeid="7"><i class="menu-icon fa icon-random"></i><span class="mm-text">交互</span> </a> 
+              <ul> 
+                <li> <a href="/tinyuiweb/page/animation.html" class="navitem" title="动画" data-treeid="7.1"><span class="mm-text">动画</span> </a> </li> 
+                <li> <a href="/tinyuiweb/page/Unslider.html" class="navitem" title="幻灯片" data-treeid="7.2"><span class="mm-text">幻灯片</span> </a> </li> 
+                <li> <a href="/tinyuiweb/page/tab.html" class="navitem" title="选项卡" data-treeid="7.3"><span class="mm-text">选项卡</span> </a> </li> 
+                <li> <a href="/tinyuiweb/page/modal.html" class="navitem" title="对话框 弹出层" data-treeid="7.4"><span class="mm-text">对话框 弹出层</span> </a> </li> 
+                <li> <a href="/tinyuiweb/page/rolling.html" class="navitem" title="滚动" data-treeid="7.5"><span class="mm-text">滚动</span> </a> </li> 
+                <li> <a href="/tinyuiweb/page/tags.html" class="navitem" title="标签" data-treeid="7.6"><span class="mm-text">标签</span> </a> </li> 
+                <li> <a href="/tinyuiweb/page/fold.html" class="navitem" title="折叠" data-treeid="7.7"><span class="mm-text">折叠</span> </a> </li> 
+                <li> <a href="/tinyuiweb/page/maskBar.html" class="navitem" title="遮罩条" data-treeid="7.8"><span class="mm-text">遮罩条</span> </a> </li> 
+              </ul> </li> 
+            <li class="mm-dropdown class java.util.HashMap"> <a href="javascript:void(0);" data-treeid="8"><i class="menu-icon fa icon-legal"></i><span class="mm-text">部件</span> </a> 
+              <ul> 
+                <li> <a href="/tinyuiweb/page/kefu.html" class="navitem" title="客服" data-treeid="8.1"><span class="mm-text">客服</span> </a> </li> 
+                <li> <a href="/tinyuiweb/page/toTop.html" class="navitem" title="返回顶部" data-treeid="8.2"><span class="mm-text">返回顶部</span> </a> </li> 
+                <li> <a href="/tinyuiweb/page/share.html" class="navitem" title="分享" data-treeid="8.3"><span class="mm-text">分享</span> </a> </li> 
+                <li> <a href="/tinyuiweb/page/example.html" class="navitem" title="案例" data-treeid="8.4"><span class="mm-text">案例</span> </a> </li> 
+                <li> <a href="/tinyuiweb/page/Smart-treeview.html" class="navitem" title="树形视图" data-treeid="8.5"><span class="mm-text">树形视图</span> </a> </li> 
+                <li class="mm-dropdown class java.util.HashMap"> <a href="javascript:void(0);" data-treeid="8.6"><span class="mm-text">图表</span> </a> 
+                  <ul> 
+                    <li> <a href="/tinyuiweb/page/charts.html" class="navitem" title="图表展示" data-treeid="8.6.1"><span class="mm-text">图表展示</span> </a> </li> 
+                    <li> <a href="/tinyuiweb/page/burndownChart.html" class="navitem" title="燃尽图表" data-treeid="8.6.3"><span class="mm-text">燃尽图表</span> </a> </li> 
+                    <li> <a href="/tinyuiweb/page/highCharts.html" class="navitem" title="highCharts图表" data-treeid="8.6.4"><span class="mm-text">highCharts图表</span> </a> </li> 
+                  </ul> </li> 
+                <li> <a href="/tinyuiweb/page/calendar.html" class="navitem" title="日历" data-treeid="8.7"><span class="mm-text">日历</span> </a> </li> 
+                <li> <a href="/tinyuiweb/page/workCalendar.html" class="navitem" title="背景日历" data-treeid="8.8"><span class="mm-text">背景日历</span> </a> </li> 
+              </ul> </li> 
+            <li class="mm-dropdown class java.util.HashMap"> <a href="javascript:void(0);" data-treeid="9"><i class="menu-icon fa icon-th-list"></i><span class="mm-text">实例</span> </a> 
+              <ul> 
+                <li> <a href="/tinyuiweb/page/comment.html" class="navitem" title="评论列表" data-treeid="9.1"><span class="mm-text">评论列表</span> </a> </li> 
+                <li> <a href="/tinyuiweb/page/userComment.html" class="navitem" title="用户评论" data-treeid="9.2"><span class="mm-text">用户评论</span> </a> </li> 
+                <li> <a href="/tinyuiweb/page/searchPage.html" class="navitem" title="搜索页" data-treeid="9.3"><span class="mm-text">搜索页</span> </a> </li> 
+                <li> <a href="/tinyuiweb/page/gantt.html" class="navitem" title="Gantt图" data-treeid="9.4"><span class="mm-text">Gantt图</span> </a> </li> 
+                <li> <a href="/tinyuiweb/page/tourbus.html" class="navitem" title="操作向导" data-treeid="9.5"><span class="mm-text">操作向导</span> </a> </li> 
+                <li class="mm-dropdown class java.util.HashMap"> <a href="javascript:void(0);" data-treeid="9.6"><span class="mm-text">邮件模板</span> </a> 
+                  <ul> 
+                    <li> <a href="/tinyuiweb/page/emailTemplate.html" class="navitem" title="邮件列表" data-treeid="9.6.1"><span class="mm-text">邮件列表</span> </a> </li> 
+                    <li> <a href="/tinyuiweb/page/mailDetail.html" class="navitem" title="邮件详情" data-treeid="9.6.2"><span class="mm-text">邮件详情</span> </a> </li> 
+                    <li> <a href="/tinyuiweb/page/mailCompose.html" class="navitem" title="编写邮件" data-treeid="9.6.3"><span class="mm-text">编写邮件</span> </a> </li> 
+                  </ul> </li> 
+                <li> <a href="/tinyuiweb/page/timeline.html" class="navitem" title="时间轴" data-treeid="9.7"><span class="mm-text">时间轴</span> </a> </li> 
+                <li class="mm-dropdown class java.util.HashMap"> <a href="javascript:void(0);" data-treeid="9.8"><span class="mm-text">论坛</span> </a> 
+                  <ul> 
+                    <li> <a href="/tinyuiweb/page/forum.html" class="navitem" title="论坛布局" data-treeid="9.8.1"><span class="mm-text">论坛布局</span> </a> </li> 
+                    <li> <a href="/tinyuiweb/page/forum-topic.html" class="navitem" title="论坛列表" data-treeid="9.8.2"><span class="mm-text">论坛列表</span> </a> </li> 
+                    <li> <a href="/tinyuiweb/page/forum-post.html" class="navitem" title="论坛详情" data-treeid="9.8.3"><span class="mm-text">论坛详情</span> </a> </li> 
+                  </ul> </li> 
+                <li> <a href="/tinyuiweb/page/viewsControl.html" class="navitem" title="视图控制" data-treeid="9.9"><span class="mm-text">视图控制</span> </a> </li> 
+                <li> <a href="/tinyuiweb/page/iconTab.html" class="navitem" title="图标控制" data-treeid="9.10"><span class="mm-text">图标控制</span> </a> </li> 
+              </ul> </li> 
+            <li class="mm-dropdown class java.util.HashMap"> <a href="javascript:void(0);" data-treeid="10"><i class="menu-icon fa fa-files-o"></i><span class="mm-text">其它</span> </a> 
+              <ul> 
+                <li> <a href="/tinyuiweb/page/error404.html" class="navitem" title="错误404" data-treeid="10.1"><span class="mm-text">错误404</span> </a> </li> 
+                <li> <a href="/tinyuiweb/page/error500.html" class="navitem" title="错误500" data-treeid="10.2"><span class="mm-text">错误500</span> </a> </li> 
+                <li> <a href="/tinyuiweb/page/loginRegistered.html" class="navitem" title="登录注册" data-treeid="10.3"><span class="mm-text">登录注册</span> </a> </li> 
+                <li> <a href="/tinyuiweb/page/loadscrollingpic.html" class="navitem" title="屏幕内图片加载" data-treeid="10.4"><span class="mm-text">屏幕内图片加载</span> </a> </li> 
+              </ul> </li> 
+            <li class="mm-dropdown class java.util.HashMap"> <a href="javascript:void(0);" data-treeid="11"><i class="menu-icon fa fa-sitemap"></i><span class="mm-text">多级导航</span> <span class="label label-warning">6</span> </a> 
+              <ul> 
+                <li> <a href="/tinyuiweb/page/first.html" class="navitem" title="一级菜单" data-treeid="11.1"><span class="mm-text">一级菜单</span> </a> </li> 
+                <li class="mm-dropdown class java.util.HashMap"> <a href="javascript:void(0);" data-treeid="11.2"><span class="mm-text">一级菜单</span> <span class="label label-warning">5</span> </a> 
+                  <ul> 
+                    <li> <a href="/tinyuiweb/page/second.html" class="navitem" title="二级菜单" data-treeid="11.2.1"><span class="mm-text">二级菜单</span> </a> </li> 
+                    <li class="mm-dropdown class java.util.HashMap"> <a href="javascript:void(0);" data-treeid="11.2.2"><span class="mm-text">二级菜单</span> <span class="label label-warning">5</span> </a> 
+                      <ul> 
+                        <li class="mm-dropdown class java.util.HashMap"> <a href="javascript:void(0);" data-treeid="11.2.2.1"><span class="mm-text">三级菜单</span> <span class="label label-warning">5</span> </a> 
+                          <ul> 
+                            <li> <a href="/tinyuiweb/page/fourth.html" class="navitem" title="四级菜单" data-treeid="11.2.2.1.1"><span class="mm-text">四级菜单</span> </a> </li> 
+                          </ul> </li> 
+                        <li> <a href="/tinyuiweb/page/third.html" class="navitem" title="三级菜单" data-treeid="11.2.2.2"><span class="mm-text">三级菜单</span> </a> </li> 
+                      </ul> </li> 
+                    <li> <a href="second2.html" class="navitem" title="二级菜单2" data-treeid="11.2.3"><span class="mm-text">二级菜单2</span> </a> </li> 
+                  </ul> </li> 
+              </ul> </li> 
+          </ul> 
+          <!-- navigation end --> 
+          <div class="menu-content"> 
+            <a href="javascript:void(0);" class="btn btn-primary btn-block btn-outline dark">创建页面</a> 
+          </div> 
+        </div> 
+      </div> 
+      <div id="main-menu-bg"></div> 
+      <div class="content-wrapper-bg"></div> 
+      <div id="content-wrapper"> 
+        <div class="postion-nav"> 
+          <ul class="breadcrumb"> 
+            <li class="text-light-gray">所在位置： </li> 
+            <li><a href="/tinyuiweb">首页</a></li>
+            <li>首页</li> 
+          </ul> 
+        </div> 
+        <!-- 主体 start --> 
+        <div class="row"> 
+          <div id="tinypagecontent" style="min-height:490px"> 
+            <h2> 表单实例 </h2> 
+            <div class="codeView bs-docs-example "> 
+              <form name="thisform" action="/tinyuiweb/data/Validform_post.html" id="from1515492589" method="post" class="form">
+                <div class="row cl "> 
+                  <label class="form-label col-2" id=""> 是否VIP： </label> 
+                  <div class="formControls col-8 "> 
+                    <input type="hidden" name="isvip" id="sid902546715" value="是" /> 
+                    <input type="checkbox" class="settings-switcher" name="isvipbtn" value="1" data-class="switcher-sm" checked="checked" id="btnsid902546715" /> 
+                    <script type="text/javascript">
+<!--
+$(function(){
+	$("#btnsid902546715").on("change",function(){
+		if(this.checked){
+			$("#sid902546715").val("是")
+		}else{
+			$("#sid902546715").val("不是")
+		}
+	});
+	$("#btnsid902546715").switcher({
+		theme: 'square',
+		on_state_content: '<span class="fa fa-check"></span>',
+		off_state_content: '<span class="fa fa-times"></span>'
+	});
+});
+//-->
+</script> 
+                  </div> 
+                </div> 
+                <div class="row cl "> 
+                  <label class="form-label col-2" id=""> 邮箱： </label> 
+                  <div class="formControls col-8 "> 
+                    <input type="text" name="email" value="" class="input-text" id="email" placeholder="@" datatype="e" nullmsg="请输入邮箱！" /> 
+                  </div> 
+                  <div class="col-2"> 
+                  </div> 
+                </div> 
+                <div class="row cl "> 
+                  <label class="form-label col-2" id=""> 用户名： </label> 
+                  <div class="formControls col-8 "> 
+                    <input type="text" name="username" value="" class="input-text" id="username" placeholder="4~16个字符，字母/中文/数字/下划线" datatype="*4-16" nullmsg="用户名不能为空！" ajaxurl="/tinyuiweb/data/usercheck.pagelet" /> 
+                  </div> 
+                  <div class="col-2"> 
+                  </div> 
+                </div> 
+                <div class="row cl "> 
+                  <label class="form-label col-2" id=""> 密码： </label> 
+                  <div class="formControls col-8 "> 
+                    <input type="password" name="password" value="" class="input-text" id="password" placeholder="密码" datatype="*6-18" autocomplete="off" nullmsg="请输入密码！" /> 
+                  </div> 
+                  <div class="col-2"> 
+                  </div> 
+                </div> 
+                <div class="row cl "> 
+                  <label class="form-label col-2" id=""> 密码验证： </label> 
+                  <div class="formControls col-8 "> 
+                    <input type="password" name="password2" value="" class="input-text" id="password2" errormsg="您两次输入的密码不一致！" placeholder="密码" recheck="password" datatype="*6-18" autocomplete="off" nullmsg="请再输入一次密码！" /> 
+                  </div> 
+                  <div class="col-2"> 
+                  </div> 
+                </div> 
+                <div class="row cl "> 
+                  <label class="form-label col-2" id=""> 日期选择 </label> 
+                  <div class="formControls col-8 "> 
+                    <div class="date-Multiple-Select"> 
+                      <div class="dms-showrap"> 
+                        <select name="testtest" id="dms1417669489-sel" class="form-control select2" multiple="multiple"></select>
+                      </div> 
+                      <span class="dms-selrap"> <i class="glyphicon glyphicon-calendar fa fa-calendar"></i> <span id="dms1417669489" class="dms-dateinput"></span></span>  
+                    </div> 
+                    <script type="text/javascript">
+	$(function(){
+		var $select=$("#dms1417669489-sel");
+		$select.select2();
+		$("#dms1417669489").on("click",function(){
+			var that=this;
+			WdatePicker({
+				startDate:'%y-%M-01',dateFmt:"yyyy-MM-dd",
+				onpicked:function(){
+					setDate($(that).html())
+				}
+			})
+		});
+		function setDate(pickdate){
+			$select.append('<option value="'+pickdate+'" >'+pickdate+'</option>');
+			var selv=new Array();
+			selv=$select.select2("val");
+			selv.push(pickdate);
+			$select.val(selv).trigger("change");
+		}
+							setDate("2015-09-10");
+					setDate("2015-09-09");
+					setDate("2015-09-01");
+				});
+</script> 
+                  </div> 
+                  <div class="col-2"> 
+                  </div> 
+                </div> 
+                <div class="row cl "> 
+                  <label class="form-label col-2" id=""> select下拉： </label> 
+                  <div class="formControls col-8 "> 
+                    <select name="lang" class="input-text select2" value="zh" data-ajaxurl="/tinyuiweb/data/select2ajax.pagelet" datatype="*" rel="22" nullmsg="" minimumresultsforsearch="Infinity"> <option value=""></option> <option value="zh" selected="">中国</option> <option value="en">英国</option> <option value="ta">泰国</option> </select> 
+                  </div> 
+                  <div class="col-2"> 
+                  </div> 
+                </div> 
+                <div class="row cl "> 
+                  <label class="form-label col-2" id=""> 选择城市： </label> 
+                  <div class="formControls col-8 "> 
+                    <script>
+    var zNodessid1595517280 =[];
+</script> 
+                    <input id="sid1594069503" name="" type="text" value="" class="input-text" /> 
+                    <input id="sid1594069503-input" name="cityid" type="hidden" value="41" class="input-text" /> 
+                    <div class="hide" id="sid1594069503-rap"> 
+                      <div id="sid1594069503-content" class="tree-sel-content t-menu-content hide"> 
+                        <ul id="ztreesid1594069503" class="fa-ztree"> 
+                        </ul> 
+                        <div class="hide" id="sid1594069503-msg">
+                          暂无信息
+                        </div> 
+                        <div class="fix-part" style="padding:0 5px"> 
+                          <script type="text/javascript">
+    zNodessid1595517280.push({id:1, pId:0, name:"北京"});
+</script> 
+                          <script type="text/javascript">
+    zNodessid1595517280.push({id:2, pId:0, name:"天津"});
+</script> 
+                          <script type="text/javascript">
+    zNodessid1595517280.push({id:3, pId:0, name:"上海"});
+</script> 
+                          <script type="text/javascript">
+    zNodessid1595517280.push({id:6, pId:0, name:"重庆"});
+</script> 
+                          <script type="text/javascript">
+    zNodessid1595517280.push({id:4, pId:0, name:"河北省"});
+</script> 
+                          <script type="text/javascript">
+    zNodessid1595517280.push({id:41, pId:4, name:"石家庄"});
+</script> 
+                          <script type="text/javascript">
+    zNodessid1595517280.push({id:42, pId:4, name:"保定"});
+</script> 
+                          <script type="text/javascript">
+    zNodessid1595517280.push({id:43, pId:4, name:"邯郸"});
+</script> 
+                          <script type="text/javascript">
+    zNodessid1595517280.push({id:44, pId:4, name:"承德"});
+</script> 
+                        </div> 
+                      </div> 
+                    </div> 
+                    <script type="text/javascript">
+    $(function(){
+        var setting = {
+            view: {
+                dblClickExpand: false
+            },
+            data: {
+                simpleData: {
+                    enable: true
+                }
+            },
+            callback: {
+                beforeClick: beforeClick,
+                onClick: onClick
+            }
+        };
+        var zTree;
+        var zNodes =zNodessid1595517280;
+        var $treeContent=$("#ztreesid1594069503");
+        var $treeRap=$("#sid1594069503-content");
+        var $input=$("#sid1594069503");
+        var $inputV=$("#sid1594069503-input");
+                            initzTree();
+                function initzTree(){
+            zTree=$.fn.zTree.init($treeContent, setting, zNodes);
+            initInputVale();
+        }
+        function initInputVale(){
+            var $val=$inputV.val();
+            if(!$val) return false;
+            for(var i=0;i<zNodes.length;i++){
+                if($val==zNodes[i].id){
+                        $input.val(zNodes[i].name);
+                        $inputV.val($val);
+                        $input.trigger("setValue",zNodes[i]);
+                    break;
+                }
+            }
+        }
+        function beforeClick(treeId, treeNode) {
+            if(treeNode &&treeNode.clickAble===false){
+                zTree.expandNode(treeNode);
+                return false;
+            }
+        }
+        function onClick(e, treeId, treeNode) {
+                $input.val(treeNode.name);
+                $inputV.val(treeNode.id);
+                $input.trigger("setValue",treeNode);
+                $inputV.trigger("blur");
+                $input.trigger("blur");
+            hideMenu();
+        }
+        function hideMenu() {
+                $treeRap.fadeOut("fast");
+            $("#sid1594069503-rap").append($treeRap);
+        }
+            $input.on("click",function(){
+            $("body").append($treeRap);
+        var thisOffset = $(this).offset();
+            $treeRap.css({width:$(this).css("width"),left:thisOffset.left + "px", top:thisOffset.top + $(this).outerHeight() + "px"}).slideDown("fast");
+        }).on("add",function(e,newNode){
+        zTree.addNodes(null, newNode);
+        });
+        $("body").on("click",function(e){
+            if($(e.target).attr("id")!=$input.attr("id")&&$(e.target).parents("#"+$treeRap.attr("id")).size()==0){
+                hideMenu();
+            }
+        }).on("click",".fix-part",function(e){
+            hideMenu();
+        });
+        function bfxs(zTree, nodes, tt) {
+            tt=tt.toLowerCase();
+            var keyName=nodes[zTree.setting.data.key.name].toLowerCase()
+            if (nodes.children == null) {//无子节点
+                if (!tt||keyName.indexOf(tt) >= 0) {//无子节点，但是包含tt
+                    fjdxs(zTree, nodes);
+                }
+            }else {//有子节点
+                if (!tt||keyName.indexOf(tt) >= 0){//有而且包含
+                    fjdxs(zTree, nodes);
+                    xsall(zTree, nodes);
+                }else {//有但不包含
+                    $.each(nodes.children, function (aa, bb) {
+                        bfxs(zTree, bb, tt);
+                    })
+                }
+            }
+        }
+        ///显示所有父节点
+        function fjdxs(zTree, nodes) {
+            if (nodes.getParentNode() == null) {
+                zTree.showNode(nodes);
+            }
+            else {
+                zTree.showNode(nodes);
+                fjdxs(zTree, nodes.getParentNode());
+            }
+        }
+        ///全显
+        function xsall(ztree, nodes) {
+            ztree.showNode(nodes);
+            if (nodes.children != null) {
+                $.each(nodes.children, function (x, y) {
+                    xsall(ztree, y);
+                })
+            }
+        }
+        ///么有子节点的直接隐藏
+        function ycall(ztree, nodes) {
+            ztree.hideNode(nodes);
+            if (nodes.children != null) {
+                $.each(nodes.children, function (x, y) {
+                    ycall(ztree, y);
+                })
+            }
+        }
+        $("#sid1594069503").on("propertychange input",function(){
+            var key = $(this).val();
+
+            var nodes = zTree.getNodes();
+            zTree.showNodes(nodes);
+            if(!key){
+                $("#sid1594069503-msg").hide();
+                //return;
+            }
+            var zts = zTree.getNodesByParamFuzzy("name", key);
+            if (zts.length==0){
+                $("#sid1594069503-msg").show();
+            }else{
+                $("#sid1594069503-msg").hide();
+            }
+
+            $.each(nodes, function (x, y) {
+                ycall(zTree, y);
+            });
+            //xsall(zTree, nodes);
+            $.each(nodes, function (index, node) {
+                bfxs(zTree, node, key);
+            });
+            zTree.expandAll(true);
+        }).on("close",function(){
+            hideMenu();
+        });
+    });
+</script> 
+                  </div> 
+                  <div class="col-2"> 
+                  </div> 
+                </div> 
+                <div class="row cl "> 
+                  <label class="form-label col-2" id=""> 选择城市2： </label> 
+                  <div class="formControls col-8 "> 
+                    <script>
+    var zNodessid1284244509 =[];
+</script> 
+                    <input id="sid661061979" name="" type="text" value="" data-url="/tinyuiweb/data/ztreeData.pagelet" class="input-text" /> 
+                    <input id="sid661061979-input" name="cityid" type="hidden" value="1" data-url="/tinyuiweb/data/ztreeData.pagelet" class="input-text" /> 
+                    <div class="hide" id="sid661061979-rap"> 
+                      <div id="sid661061979-content" class="tree-sel-content t-menu-content hide"> 
+                        <ul id="ztreesid661061979" class="fa-ztree"> 
+                        </ul> 
+                        <div class="hide" id="sid661061979-msg">
+                          暂无信息
+                        </div> 
+                        <div class="fix-part" style="padding:0 5px"></div> 
+                      </div> 
+                    </div> 
+                    <script type="text/javascript">
+    $(function(){
+        var setting = {
+            view: {
+                dblClickExpand: false
+            },
+            data: {
+                simpleData: {
+                    enable: true
+                }
+            },
+            callback: {
+                beforeClick: beforeClick,
+                onClick: onClick
+            }
+        };
+        var zTree;
+        var zNodes =zNodessid1284244509;
+        var $treeContent=$("#ztreesid661061979");
+        var $treeRap=$("#sid661061979-content");
+        var $input=$("#sid661061979");
+        var $inputV=$("#sid661061979-input");
+                            $.ajax({
+                type: "GET",
+                cache:false,
+                url: " /tinyuiweb/data/ztreeData.pagelet",
+                dataType: "json",
+                success: function(data) {
+                    zNodes=data;
+                    initzTree();
+                }
+            });
+                function initzTree(){
+            zTree=$.fn.zTree.init($treeContent, setting, zNodes);
+            initInputVale();
+        }
+        function initInputVale(){
+            var $val=$inputV.val();
+            if(!$val) return false;
+            for(var i=0;i<zNodes.length;i++){
+                if($val==zNodes[i].id){
+                        $input.val(zNodes[i].name);
+                        $inputV.val($val);
+                        $input.trigger("setValue",zNodes[i]);
+                    break;
+                }
+            }
+        }
+        function beforeClick(treeId, treeNode) {
+            if(treeNode &&treeNode.clickAble===false){
+                zTree.expandNode(treeNode);
+                return false;
+            }
+        }
+        function onClick(e, treeId, treeNode) {
+                $input.val(treeNode.name);
+                $inputV.val(treeNode.id);
+                $input.trigger("setValue",treeNode);
+                $inputV.trigger("blur");
+                $input.trigger("blur");
+            hideMenu();
+        }
+        function hideMenu() {
+                $treeRap.fadeOut("fast");
+            $("#sid661061979-rap").append($treeRap);
+        }
+            $input.on("click",function(){
+            $("body").append($treeRap);
+        var thisOffset = $(this).offset();
+            $treeRap.css({width:$(this).css("width"),left:thisOffset.left + "px", top:thisOffset.top + $(this).outerHeight() + "px"}).slideDown("fast");
+        }).on("add",function(e,newNode){
+        zTree.addNodes(null, newNode);
+        });
+        $("body").on("click",function(e){
+            if($(e.target).attr("id")!=$input.attr("id")&&$(e.target).parents("#"+$treeRap.attr("id")).size()==0){
+                hideMenu();
+            }
+        }).on("click",".fix-part",function(e){
+            hideMenu();
+        });
+        function bfxs(zTree, nodes, tt) {
+            tt=tt.toLowerCase();
+            var keyName=nodes[zTree.setting.data.key.name].toLowerCase()
+            if (nodes.children == null) {//无子节点
+                if (!tt||keyName.indexOf(tt) >= 0) {//无子节点，但是包含tt
+                    fjdxs(zTree, nodes);
+                }
+            }else {//有子节点
+                if (!tt||keyName.indexOf(tt) >= 0){//有而且包含
+                    fjdxs(zTree, nodes);
+                    xsall(zTree, nodes);
+                }else {//有但不包含
+                    $.each(nodes.children, function (aa, bb) {
+                        bfxs(zTree, bb, tt);
+                    })
+                }
+            }
+        }
+        ///显示所有父节点
+        function fjdxs(zTree, nodes) {
+            if (nodes.getParentNode() == null) {
+                zTree.showNode(nodes);
+            }
+            else {
+                zTree.showNode(nodes);
+                fjdxs(zTree, nodes.getParentNode());
+            }
+        }
+        ///全显
+        function xsall(ztree, nodes) {
+            ztree.showNode(nodes);
+            if (nodes.children != null) {
+                $.each(nodes.children, function (x, y) {
+                    xsall(ztree, y);
+                })
+            }
+        }
+        ///么有子节点的直接隐藏
+        function ycall(ztree, nodes) {
+            ztree.hideNode(nodes);
+            if (nodes.children != null) {
+                $.each(nodes.children, function (x, y) {
+                    ycall(ztree, y);
+                })
+            }
+        }
+        $("#sid661061979").on("propertychange input",function(){
+            var key = $(this).val();
+
+            var nodes = zTree.getNodes();
+            zTree.showNodes(nodes);
+            if(!key){
+                $("#sid661061979-msg").hide();
+                //return;
+            }
+            var zts = zTree.getNodesByParamFuzzy("name", key);
+            if (zts.length==0){
+                $("#sid661061979-msg").show();
+            }else{
+                $("#sid661061979-msg").hide();
+            }
+
+            $.each(nodes, function (x, y) {
+                ycall(zTree, y);
+            });
+            //xsall(zTree, nodes);
+            $.each(nodes, function (index, node) {
+                bfxs(zTree, node, key);
+            });
+            zTree.expandAll(true);
+        }).on("close",function(){
+            hideMenu();
+        });
+    });
+</script> 
+                  </div> 
+                  <div class="col-2"> 
+                  </div> 
+                </div> 
+                <div class="row cl "> 
+                  <label class="form-label col-2" id=""> 选择城市： </label> 
+                  <div class="formControls col-8 "> 
+                    <select name="" class="form-control " value="" datatype="*" nullmsg="请选择所在城市！"> <option value="" selected="">请选择城市</option> <option value="1">北京</option> <option value="2">上海</option> <option value="3">广州</option> </select> 
+                  </div> 
+                  <div class="col-2"> 
+                  </div> 
+                </div> 
+                <div class="row cl "> 
+                  <label class="form-label col-2" id=""> Ajax数据返回： </label> 
+                  <div class="formControls col-8 "> 
+                    <input type="hidden" id="s2id492762049" name="sel2" value="2" fixdataval="1" dataid="sid" placeholder="查询数据" datatext="stext" datatype="*" fixdata="pid" fix2="ajian" /> 
+                    <script type="text/javascript">
+    $(function(){
+        var _inputVal=$("#s2id492762049");
+        var multiple=_inputVal.attr("multiple");
+        multiple=multiple?true:false;
+        _inputVal.select2({
+            multiple:multiple,
+            ajax: {
+                url: "/tinyuiweb/data/select2ajax.pagelet",
+                dataType: 'json',
+                quietMillis: 250,
+                data: function (term, page) {
+                    var data={fixData:_inputVal.attr("fixData"),fix2:_inputVal.attr("fix2"),key: term};
+                    return data;
+                },
+                results: function (reData, page) {
+                    var data=[];
+                    for(var i= 0,l=reData.length;i<l;i++){
+                        data.push({id:reData[i].sid,text:reData[i].stext})
+                    }
+                    return { results: data};
+                },
+                cache: true
+            },
+            initSelection: function (element, callback) {   // 初始化时设置默认值
+                var v=element.val();
+                $.ajax({
+                    url:"/tinyuiweb/data/select2ajax.pagelet",
+                    type:"get",
+                    data:{select2Init:"true",initKey:v},
+                    dataType:"json",
+                    success:function(reData){
+                        var data=[];
+                        for(var i= 0,l=reData.length;i<l;i++){
+                            data.push({id:reData[i].sid,text:reData[i].stext})
+                            //callback(data);
+                        }
+                        if(!data) return false;
+                        if(multiple){
+                            callback(data);
+                        }else{
+                            callback(data[0]);
+                        }
+                    }
+                })
+            },
+            formatResult: function(data){return "<div>"+data.text+"</div>";},
+            formatSelection: function(data){
+                return data.text;
+            },
+            formatInputTooShort: function(){return "请输入关键字"},
+        });
+		            $("#s2id492762049").prev("div").find("abbr.select2-search-choice-close").show();
+		        _inputVal.on("select2-blur",function(){
+			$(this).trigger("blur");
+		}).on("change",function(){
+            if($(this).val()){
+                $(this).prev("div").find("abbr.select2-search-choice-close").show();
+                //$("#s2id492762049-input-hide").remove();
+            }else{
+                $(this).prev("div").find("abbr.select2-search-choice-close").hide();
+                //$(this).after($("<input>").attr({"id":"s2id492762049-input-hide","type":"hidden","name":$(this).attr("name")}).val(""));
+            }
+		}).on("disable",function(){
+			var disabled=$(this).attr("disabled");
+			if(disabled){
+                disabled=true;
+                $(this).removeAttr("disabled");
+			}else{
+                disabled=false;
+                $(this).attr("disabled","true");
+			}
+            $(this).select2("enable", disabled);
+		});
+    })
+</script> 
+                    <div class="fixtools hide" id="s2id492762049-fix">
+                      <div class="fixselect2foot"> 
+                        <a class="r" data-target="#myModal2" data-toggle="modal" data-width="600" modal-title="增加" href="/tinyuiweb/page/form/4.6.pagelet"> 增加 </a> 
+                        <a href="/tinyuiweb/page/">全部</a>
+                      </div>
+                    </div> 
+                    <script type="text/javascript">
+    $(function(){
+        var isinit=false;
+        $("#s2id492762049").on("select2-open", function (e) {
+            var $sel=$(this);
+            if(!isinit){
+                $("#select2-drop").append($("#s2id492762049-fix").html());
+                $("#select2-drop").on("click","a[data-toggle!=modal]",function(){
+                    window.location.href=$(this).attr("href");
+                }).on("click",'[data-toggle="modal"]',function(e){
+                    $("#select2-drop").hide();
+                    var $this =	$(this),
+                            href = $this.attr('href'),
+                            height =$this.attr('data-height'),
+                            width =$this.attr('data-width'),
+                            modalTitle =$this.attr('modal-title'),
+                            modalUrl =$this.attr('modal-url'),
+                            modalData =$this.attr('modal-Data'),
+                        $target = $($this.attr('data-target') || (href && href.replace(/.*(?=^\s]+$)/, ''))),
+                    option = $target.data('modal') ? 'toggle' : $.extend({
+                        remote: !/#/.test(href) && href,
+                        height: height ? height : 0,
+                        maxHeight: $(window).height() * 0.8 - 100,
+                        modalTitle: modalTitle ? modalTitle : null,
+                        modalUrl: modalUrl ? modalUrl : null,
+                    },$target.data() , $this.data());
+                        $target.drag({
+                        handle: ".modal-header"
+                        });
+                    e.preventDefault();
+                        $target.modal(option).one('hide',function() {
+                        $this.focus();
+                    });
+                });
+                isinit=true;
+            }
+        });
+    });
+</script> 
+                  </div> 
+                  <div class="col-2"> 
+                  </div> 
+                </div> 
+                <div class="row cl "> 
+                  <label class="form-label col-2" id=""> 国籍： </label> 
+                  <div class="formControls col-8 "> 
+                    <select name="lang2" class="input-text select2" datatype="*" nullmsg="请选择省份！" id="sid93042130"> <option value="CT">Connecticut</option> <option value="DE">Delaware</option> <option value="FL">Florida</option> <option value="GA">Georgia</option> <option value="IN">Indiana</option> <option value="ME">Maine</option> <option value="MD">Maryland</option> </select> 
+                    <script type="text/javascript">
+    $(function(){
+        $("#sid93042130").each(function(e){
+            var that=this;
+            $(this).select2({
+                //allowClear: true,
+                minimumResultsForSearch:($(that).attr("minimumResultsForSearch")?Infinity:"")
+            });
+        });
+        $("#sid93042130").on("change",function(){
+            if($(this).val()){
+                $(this).prev("div").find("abbr.select2-search-choice-close").show()
+            }else{
+                $(this).prev("div").find("abbr.select2-search-choice-close").hide()
+            }
+            $(this).trigger('blur');
+            var sfirst=$("#sid93042130").children("option:first");
+
+            if(sfirst&&typeof(sfirst.attr("value"))!='undefined'&&sfirst.attr("value")!=='') {
+                if ($(this).val()) {
+                    $("#sid93042130-input-hide").remove();
+                } else {
+                    $(this).after($("<input>").attr({"id": "sid93042130-input-hide", "type": "hidden", "name": $(this).attr("name")}).val(""));
+                }
+            }
+
+        });
+		            $("#sid93042130").prev("div").find("abbr.select2-search-choice-close").show();
+            var valuestr="IN";
+            var values=valuestr.split(",");
+            if(values.length>1){
+                $("#sid93042130").val(values).trigger("change");
+            }else{
+                $("#sid93042130").val(valuestr).trigger("change");
+            }
+		    });
+</script> 
+                    <div class="fixtools hide" id="sid93042130-fix">
+                      <div class="fixselect2foot"> 
+                        <a class="r" data-target="#myModal2" data-toggle="modal" data-width="600" modal-title="增加" href="/tinyuiweb/page/form/4.6.pagelet"> 增加 </a> 
+                        <a href="/tinyuiweb/page/">全部</a>
+                      </div>
+                    </div> 
+                    <script type="text/javascript">
+    $(function(){
+        var isinit=false;
+        $("#sid93042130").on("select2-open", function (e) {
+            var $sel=$(this);
+            if(!isinit){
+                $("#select2-drop").append($("#sid93042130-fix").html());
+                $("#select2-drop").on("click","a[data-toggle!=modal]",function(){
+                    window.location.href=$(this).attr("href");
+                }).on("click",'[data-toggle="modal"]',function(e){
+                    $("#select2-drop").hide();
+                    var $this =	$(this),
+                            href = $this.attr('href'),
+                            height =$this.attr('data-height'),
+                            width =$this.attr('data-width'),
+                            modalTitle =$this.attr('modal-title'),
+                            modalUrl =$this.attr('modal-url'),
+                            modalData =$this.attr('modal-Data'),
+                        $target = $($this.attr('data-target') || (href && href.replace(/.*(?=^\s]+$)/, ''))),
+                    option = $target.data('modal') ? 'toggle' : $.extend({
+                        remote: !/#/.test(href) && href,
+                        height: height ? height : 0,
+                        maxHeight: $(window).height() * 0.8 - 100,
+                        modalTitle: modalTitle ? modalTitle : null,
+                        modalUrl: modalUrl ? modalUrl : null,
+                    },$target.data() , $this.data());
+                        $target.drag({
+                        handle: ".modal-header"
+                        });
+                    e.preventDefault();
+                        $target.modal(option).one('hide',function() {
+                        $this.focus();
+                    });
+                });
+                isinit=true;
+            }
+        });
+    });
+</script> 
+                  </div> 
+                  <div class="col-2"> 
+                  </div> 
+                </div> 
+                <div class="row cl "> 
+                  <label class="form-label col-2" id=""> 单选框： </label> 
+                  <div class="formControls skin-minimal col-5 "> 
+                    <div class="radio-box">
+                      <input type="radio" name="sex" class="iradio iradio-blue" id="rad1389369321" value="man" datatype="*" nullmsg="请选择性别！" />
+                      <label for="rad1389369321" class="cursor-hand">男</label>
+                    </div> 
+                    <div class="radio-box">
+                      <input type="radio" name="sex" class="iradio iradio-blue" id="rad178744555" value="women" checked="" datatype="*" nullmsg="请选择性别！" />
+                      <label for="rad178744555" class="cursor-hand">女</label>
+                    </div> 
+                    <div class="radio-box">
+                      <input type="radio" name="sex" class="iradio iradio-blue" id="rad1440791343" value="secret" datatype="*" nullmsg="请选择性别！" />
+                      <label for="rad1440791343" class="cursor-hand">保密</label>
+                    </div> 
+                  </div> 
+                  <div class="col-2"> 
+                  </div> 
+                </div> 
+                <div class="row cl "> 
+                  <label class="form-label col-2" id=""> 爱好： </label> 
+                  <div class="formControls col-5 "> 
+                    <div class="radio-box">
+                      <input type="checkbox" name="checkbox2" class="icheckbox icheckbox-blue " id="check11671239" value="a" datatype="*" nullmsg="爱好不能为空！" />
+                      <label for="check11671239" class="cursor-hand">上网</label>
+                    </div> 
+                    <div class="radio-box">
+                      <input type="checkbox" name="checkbox2" class="icheckbox icheckbox-blue " id="check1685342247" value="b" datatype="*" nullmsg="爱好不能为空！" />
+                      <label for="check1685342247" class="cursor-hand">喝茶</label>
+                    </div> 
+                    <div class="radio-box">
+                      <input type="checkbox" name="checkbox2" class="icheckbox icheckbox-blue " id="check1788514718" value="c" datatype="*" nullmsg="爱好不能为空！" />
+                      <label for="check1788514718" class="cursor-hand">打球</label>
+                    </div> 
+                    <div class="radio-box">
+                      <input type="checkbox" name="checkbox2" class="icheckbox icheckbox-blue " id="check1603593390" value="d" datatype="*" nullmsg="爱好不能为空！" />
+                      <label for="check1603593390" class="cursor-hand">走路</label>
+                    </div> 
+                    <div class="radio-box">
+                      <input type="checkbox" name="checkbox2" class="icheckbox icheckbox-blue " id="check566627296" value="e" datatype="*" nullmsg="爱好不能为空！" />
+                      <label for="check566627296" class="cursor-hand">爬山</label>
+                    </div> 
+                    <div class="radio-box">
+                      <input type="checkbox" name="checkbox2" class="icheckbox icheckbox-blue " id="check548263035" value="f" datatype="*" nullmsg="爱好不能为空！" />
+                      <label for="check548263035" class="cursor-hand">唱歌</label>
+                    </div> 
+                    <script type="text/javascript">
+$(function(){
+	var checkval=[];
+						checkval.push("a");
+					checkval.push("c");
+					checkval.push("e");
+				$("input[name=checkbox2]").each(function(e){
+		if(checkval.indexOf(this.value)>-1){
+			this.checked=true;
+		}else{
+			this.checked=false;
+		}
+	});
+})
+</script> 
+                  </div> 
+                  <div class="col-2"> 
+                  </div> 
+                </div> 
+                <div class="row cl "> 
+                  <label class="form-label col-2" id=""> 纯上传： </label> 
+                  <div class="formControls col-8 "> 
+                    <span class="form-inline"> <span class="btn-upload"> <input id="fid1146237895_input" name="upfile1_name" value="" type="text" class="form-control" /> <a class="btn btn-primary" role="button"><i class="glyphicon glyphicon-cloud-upload"></i> 浏览文件</a> <input type="file" id="fid1146237895" name="upfile1" class="input-file" /> </span></span> 
+                    <script type="text/javascript">
+$(function(){
+	$("#fid1146237895").on("change",function(){
+		$(this).prev("input").val($(this).val())
+		//$("#fid1146237895_input").val($(this).val());
+	});})
+</script> 
+                  </div> 
+                  <div class="col-2"> 
+                  </div> 
+                </div> 
+                <div class="row cl "> 
+                  <label class="form-label col-2" id=""> 图片上传： </label> 
+                  <div class="formControls col-8 "> 
+                    <input type="hidden" class="form-control" value="" name="inputImage" id="upload53701039" placeholder="可点击图标进行上传" />
+                    <span class="btn btn-primary upload-btn" id="upload53701039-wrap"><i class="iconfont">󰀠</i> 浏览文件 <input type="file" class="input-file" name="upfile" id="upload53701039-file" /></span> 
+                    <div id="showimgupload53701039"></div> 
+                    <script type="text/javascript">
+	$(function(){
+		$("#upload53701039-wrap").on("change","#upload53701039-file",function(){
+			$.ajaxFileUpload({
+				url: '/tinyuiweb/action/savepic.pagelet',
+				secureuri: false,
+				fileElementId: "upload53701039-file",
+				dataType: 'json',
+				success: function (data, status) {
+					if(data.state=="SUCCESS"){
+						$("#upload53701039").val(data.url);
+						$("#showimgupload53701039").html("<img src='/tinyuiweb"+data.url+"' width='100'>");
+					}else{
+						var str=!data.info;
+						if(!str){str="参数有误";}
+						layer.msg(str);
+					}
+				}
+			});
+		});
+	});
+	 </script> 
+                  </div> 
+                  <div class="col-2"> 
+                  </div> 
+                </div> 
+                <div class="row cl "> 
+                  <label class="form-label col-2" id=""> 附件： 
+                    <div class="list-operate-more-less" style="margin-right:10px">
+                      <span id="oid757508637-add" data-target="#list-item" data-minsize="2" class=""><i class="glyphicon glyphicon-plus"></i></span> 
+                      <span id="oid757508637-less" data-target="#list-item" data-minsize="2" class=""><i class="glyphicon glyphicon-minus"></i></span> 
+                      <script type="text/javascript">
+    $(function(){
+        var minsize=$("#oid757508637-add").attr("data-minSize");
+		  var maxsize=$("#oid757508637-add").attr("data-maxSize");
+        if(!minsize) minsize=1;
+        function updateInputName(_this){
+            var targetDom=$($(_this).attr("data-target"));
+            targetDom.children().each(function(index){
+                $(this).find("input,select").each(function(){
+                    var name=$(this).attr("name");
+                    name=name.replace(/\[[0-9]*\]/,"["+index+"]");
+                    $(this).attr("name",name);
+                })
+            })
+
+        }
+        $("#oid757508637-add").on("click",function(){
+            var targetDom=$($(this).attr("data-target"));
+            if(!targetDom) return false;
+				if(maxsize&&targetDom.children().size()>=maxsize){
+					layer.msg("已经有"+maxsize+"个，不能再加了");
+					return false;
+				}
+            var $item=targetDom.children(":first").clone();
+				$item.find("input:text,select").val("");
+            targetDom.append($item);
+            updateInputName(this);
+        });
+        $("#oid757508637-less").on("click",function(){
+            var targetDom=$($(this).attr("data-target"));
+            if(!targetDom) return false;
+            if(targetDom.children().size()>minsize){
+                targetDom.children().last().remove();
+                updateInputName(this);
+            }else{
+                layer.msg("少于"+minsize+"个,不能再删了")
+            }
+
+        })
+    })
+</script> 
+                    </div> </label> 
+                  <div class="formControls col-8 "> 
+                    <div id="list-item"> 
+                      <div class="mb10"> 
+                        <input type="text" class="form-control " value="" name="inputName" id="upload74524726" placeholder="可直接输入地址，也可点击下图标进行上传" />
+                        <span class="btn btn-primary upload-btn" id="upload74524726-wrap"><i class="iconfont">󰀠</i> 浏览文件 <input type="file" class="input-file" name="upfile" id="upload74524726-file" /></span> 
+                        <div id="showimgupload74524726"></div> 
+                        <script type="text/javascript">
+	$(function(){
+		$("#upload74524726-wrap").on("change","#upload74524726-file",function(){
+			$.ajaxFileUpload({
+				url: '/tinyuiweb/action/savepic.pagelet',
+				secureuri: false,
+				fileElementId: "upload74524726-file",
+				dataType: 'json',
+				success: function (data, status) {
+					if(data.state=="SUCCESS"){
+						$("#upload74524726").val(data.url);
+						$("#showimgupload74524726").html("<img src='/tinyuiweb"+data.url+"' width='100'>");
+					}else{
+						var str=!data.info;
+						if(!str){str="参数有误";}
+						layer.msg(str);
+					}
+				}
+			});
+		});
+	});
+	 </script> 
+                      </div> 
+                      <div class="mb10"> 
+                        <input type="text" class="form-control " value="" name="inputName" id="upload2112352881" placeholder="可直接输入地址，也可点击下图标进行上传" />
+                        <span class="btn btn-primary upload-btn" id="upload2112352881-wrap"><i class="iconfont">󰀠</i> 浏览文件 <input type="file" class="input-file" name="upfile" id="upload2112352881-file" /></span> 
+                        <div id="showimgupload2112352881"></div> 
+                        <script type="text/javascript">
+	$(function(){
+		$("#upload2112352881-wrap").on("change","#upload2112352881-file",function(){
+			$.ajaxFileUpload({
+				url: '/tinyuiweb/action/savepic.pagelet',
+				secureuri: false,
+				fileElementId: "upload2112352881-file",
+				dataType: 'json',
+				success: function (data, status) {
+					if(data.state=="SUCCESS"){
+						$("#upload2112352881").val(data.url);
+						$("#showimgupload2112352881").html("<img src='/tinyuiweb"+data.url+"' width='100'>");
+					}else{
+						var str=!data.info;
+						if(!str){str="参数有误";}
+						layer.msg(str);
+					}
+				}
+			});
+		});
+	});
+	 </script> 
+                      </div> 
+                      <div class="mb10"> 
+                        <input type="text" class="form-control " value="" name="inputName" id="upload1931557830" placeholder="可直接输入地址，也可点击下图标进行上传" />
+                        <span class="btn btn-primary upload-btn" id="upload1931557830-wrap"><i class="iconfont">󰀠</i> 浏览文件 <input type="file" class="input-file" name="upfile" id="upload1931557830-file" /></span> 
+                        <div id="showimgupload1931557830"></div> 
+                        <script type="text/javascript">
+	$(function(){
+		$("#upload1931557830-wrap").on("change","#upload1931557830-file",function(){
+			$.ajaxFileUpload({
+				url: '/tinyuiweb/action/savepic.pagelet',
+				secureuri: false,
+				fileElementId: "upload1931557830-file",
+				dataType: 'json',
+				success: function (data, status) {
+					if(data.state=="SUCCESS"){
+						$("#upload1931557830").val(data.url);
+						$("#showimgupload1931557830").html("<img src='/tinyuiweb"+data.url+"' width='100'>");
+					}else{
+						var str=!data.info;
+						if(!str){str="参数有误";}
+						layer.msg(str);
+					}
+				}
+			});
+		});
+	});
+	 </script> 
+                      </div> 
+                    </div> 
+                  </div> 
+                  <div class="col-2"> 
+                  </div> 
+                </div> 
+                <div class="row cl "> 
+                  <label class="form-label col-2" id=""> 出生日期： </label> 
+                  <div class="formControls col-8 "> 
+                    <div class="input-prepend input-group"> 
+                      <span class="add-on input-group-addon"> <i class="glyphicon glyphicon-calendar fa fa-calendar"> </i> </span> 
+                      <input type="text" name="birthday" class="form-control " id="dateput1027161355" value="" style="width:200px" nopick="false" placeholder="yMdHmswW分别代表年月日时分秒星期周,你可以任意组合这些元素来自定义你个性化的日期格式." datatype="*" nullmsg="日期不能为空" /> 
+                    </div> 
+                    <script type="text/javascript">
+		$(function(){
+						var dateFormat='YYYY-MM-DD HH:mm:ss';
+			dateFormat=dateFormat?dateFormat:'yyyy-MM-dd';// HH:mm:ss
+			dateFormat=dateFormat.replace(/Y/g, "y").replace("ii", "mm").replace(/D/g, "d");
+			//console.log(dateFormat);
+			$("#dateput1027161355").on("click",function(){
+				WdatePicker({
+					startDate:'%y-%M-01 00:00:00',dateFmt:dateFormat,
+					onpicked:function(){$("input[name='birthday']").trigger('blur change')}
+				})
+			});
+					});
+	</script> 
+                  </div> 
+                  <div class="col-2"> 
+                  </div> 
+                </div> 
+                <div class="row cl "> 
+                  <label class="form-label col-2" id=""> 日期区间： </label> 
+                  <div class="formControls col-8 "> 
+                    <div class="input-group form-inline" id="sid1056669377-rap"> 
+                      <span class="input-group-addon"><i class="fa fa-calendar"></i></span> 
+                      <input type="text" name="btime" id="sid1056669377" class="form-control" value="" style="width:100px" />
+                      <span style="padding:6px;float:left"> 至</span> 
+                      <input type="text" name="etime" id="sid1056669377-2" class="form-control" value="" style="width:100px" /> 
+                    </div> 
+                    <script type="text/javascript">
+    $(function(){
+        var dateFormat='';
+        dateFormat=dateFormat?dateFormat:'YYYY-MM-DD';
+        showTime=false;
+        var s=dateFormat.toLowerCase();
+        if(s.indexOf("h")>-1){
+            showTime=true;
+        }
+        var datestr=""?"":moment().format(dateFormat);
+        var datestr2=""?"":moment().format(dateFormat);
+        $("#sid1056669377-rap").daterangepicker({
+            timePicker:showTime,timePickerIncrement:1,timePicker12Hour:false,timePickerSeconds:true,startDate:datestr,endDate:datestr2,format:dateFormat
+        }).on("apply.daterangepicker",function(e,_this){
+            $("#sid1056669377").val(_this.startDate.format(dateFormat)).trigger("blur").siblings("input:first").val(_this.endDate.format(dateFormat)).trigger("blur");
+        });
+    });
+</script> 
+                  </div> 
+                  <div class="col-2"> 
+                  </div> 
+                </div> 
+                <div class="row cl "> 
+                  <label class="form-label col-2" id=""> 所在区域： </label> 
+                  <div class="formControls col-5 form-inline selectList "> 
+                    <select name="province" class="province" value="" datatype="*" nullmsg="请选择省份！"> <option value="">请选择省份</option> </select> 
+                    <select name="city" class="city" value="" datatype="*" nullmsg="请选择城市！"> <option value="">请选择城市</option> </select> 
+                    <select name="district" class="district" value="" datatype="*" nullmsg="请选择地区！"> <option value="">请选择地区</option> </select> 
+                  </div> 
+                  <div class="col-2"> 
+                  </div> 
+                </div> 
+                <div class="row cl "> 
+                  <label class="form-label col-2" id=""> 网址： </label> 
+                  <div class="formControls col-8 "> 
+                    <input type="text" name="username" value="" class="input-text" id="username" placeholder="http://" datatype="url" nullmsg="网址不能为空！" /> 
+                  </div> 
+                  <div class="col-2"> 
+                  </div> 
+                </div> 
+                <div class="row cl "> 
+                  <label class="form-label col-2" id=""> 描述： </label> 
+                  <div class="formControls col-8 "> 
+                    <textarea class="form-control " name="remark" placeholder="说点什么...最少输入10个字符" datatype="*10-500" nullmsg="备注不能为空！">内容走起</textarea> 
+                  </div> 
+                  <div class="col-2"> 
+                  </div> 
+                </div> 
+                <div class="row cl "> 
+                  <label class="form-label col-2" id=""> 内容： </label> 
+                  <div class="formControls col-8 "> 
+                    <script type="text/plain" id="contentxx2">最后一个MAP参数为Ueditor的初始化参数 会自动带入 </script> 
+                    <script type="text/javascript">
+		window.UMEDITOR_CONFIG.textarea='content22';
+		UM.delEditor('contentxx2');
+		UM.getEditor('contentxx2',{
+		  		  initialFrameHeight:"600",		});
+   </script> 
+                  </div> 
+                  <div class="col-2"> 
+                  </div> 
+                </div> 
+                <div class="row cl "> 
+                  <div class=" col-10 col-offset-2 form-inline"> 
+                    <input type="submit" name="submitbtn" value=" 提交 " class="btn btn-primary" /> 
+                    <a class="btn grayBtn" href="javascript:history.go(-1);"> 返回 </a> 
+                    <input value="change" type="button" id="changeBtn" class="btn grayBtn" /> 
+                  </div> 
+                </div> 
+              </form> 
+              <script type="text/javascript">
+    $(function(){
+        $('#from1515492589 .icheckbox,#from1515492589 .iradio').iCheck({
+            checkboxClass: 'icheckbox-blue',
+            radioClass: 'iradio-blue',
+            increaseArea: '20%'
+        });
+        $("#from1515492589 .settings-switcher").switcher({
+            theme: 'square',
+            on_state_content: '<span class="fa fa-check"></span>',
+            off_state_content: '<span class="fa fa-times"></span>'
+        });
+        $("#from1515492589 select.select2").each(function(e){
+            var that=this;
+            $(this).select2({
+                minimumResultsForSearch:($(that).attr("minimumResultsForSearch")?Infinity:"")
+            });
+            if($(this).attr("value")){
+				$(this).prev("div").find("abbr.select2-search-choice-close").show();
+			}else{
+                $(this).select2("val",null);
+			}
+            $(this).on("change",function(){
+                if($(this).val()){
+                    $(this).prev("div").find("abbr.select2-search-choice-close").show()
+                }else{
+                    $(this).prev("div").find("abbr.select2-search-choice-close").hide()
+                }
+                $(this).trigger('blur')
+            })
+
+        });
+    });
+</script> 
+              <div id="myModal2" class="modal hide fade " tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"> 
+                <div class="modal-header"> 
+                  <span class="glyphicon glyphicon-fullscreen"></span> 
+                  <span class="close" data-dismiss="modal" aria-hidden="true"><i class="glyphicon glyphicon-remove "></i></span> 
+                  <h3>对话框标题</h3> 
+                </div> 
+                <div class="modal-body  ">
+                  <div class="clear">
+                    <p>对话框内容…</p>
+                  </div>
+                  <div class="clear"></div>
+                </div> 
+                <div class="modal-footer "> 
+                  <button class="btn radius btn-primary " data-submit="modal"> 确定 </button> 
+                  <button class="btn radius " data-dismiss="modal" aria-hidden="true"> 关闭 </button> 
+                </div> 
+              </div> 
+              <script type="text/javascript">
+	<!--
+		$(function(){
+			$("#myModal2").on("close",function(e){
+                $(this).modal('hide');
+			})
+		});
+	//-->
+	</script> 
+              <script type="text/javascript">
+ $(function(){
+	$(".selectList").each(function(){
+		  var url = "/tinyuiweb/data/getDist.html";
+		  var areaJson;
+		  var temp_html;
+		  var oProvince = $(this).find(".province");
+		  var oCity = $(this).find(".city");
+		  var oDistrict = $(this).find(".district");
+		  //初始化省
+		  var province = function(){
+			 $.each(areaJson,function(i,province){
+				temp_html+="<option value='"+province.p+"'>"+province.p+"</option>";
+			 });
+			 oProvince.html(temp_html);
+			 city();
+		  };
+		  //赋值市
+		  var city = function(){
+			 temp_html = "";
+			 var n = oProvince.get(0).selectedIndex;
+			 $.each(areaJson[n].c,function(i,city){
+				temp_html+="<option value='"+city.ct+"'>"+city.ct+"</option>";
+			 });
+			 oCity.html(temp_html);
+			 district();
+		  };
+		  //赋值县
+		  var district = function(){
+			 temp_html = "";
+			 var m = oProvince.get(0).selectedIndex;
+			 var n = oCity.get(0).selectedIndex;
+			 if(typeof(areaJson[m].c[n].d) == "undefined"){
+				oDistrict.css("display","none");
+			 }else{
+				oDistrict.css("display","inline");
+				$.each(areaJson[m].c[n].d,function(i,district){
+				 temp_html+="<option value='"+district.dt+"'>"+district.dt+"</option>";
+				});
+				oDistrict.html(temp_html);
+			 };
+		  };
+		  //选择省改变市
+		  oProvince.change(function(){
+			 city();
+		  });
+		  //选择市改变县
+		  oCity.change(function(){
+			 district();
+		  });
+		  //获取json数据
+		  $.getJSON(url,function(data){
+			 areaJson = data;
+			 province();
+		  });
+	});
+ });
+$(function(){
+  $("form[name=thisform").Validform({
+	tiptype:2,
+	beforeCheck:function(curform){
+		//在表单提交执行验证之前执行的函数，curform参数是当前表单对象。
+		//这里明确return false的话将不会继续执行验证操作;
+	},
+	beforeSubmit:function(curform){
+		$(curform).ajaxSubmit({
+			dataType:"json",
+			success:function(data){
+				if(data.status=="y"){
+					layer.msg(data.info,2, 1);
+					$(curform).closest(".modal").trigger("close");
+				}else{
+					layer.msg(data.info);
+				}
+				try{
+					$(curform).closest(".modal").trigger("close");//当弹出框时触发弹出框关闭
+					//$(curform).closest(".modal").find(".modal-header .close").trigger("click");//弹出框关闭
+					$("table.tinytable").trigger("initnav"); ////可配合TINYTABLE 做刷新
+				}catch(e){console.log(e)}
+			},
+			error:function(){
+				layer.msg(data.info);
+			}
+		});
+		return false;
+
+		//在验证成功后，表单提交前执行的函数，curform参数是当前表单对象。
+		//这里明确return false的话表单将不会提交;
+	}
+
+ });
+
+});
+</script> 
+            </div> 
+            <h3> 组件包 </h3> 
+            <pre class="prettyprint linenums"><span class="Huialert-danger">以上组件依赖org.tinygroup.form（下拉树org.tinygroup.ztree,编辑器org.tinygroup.ueditor）</span></pre> 
+          </div> 
+        </div> 
+        <div id="tinyfooter"> 
+          <div class="tinyfooterrap"> 
+            <span class="right"> <a class="record-num" target="_blank" href="http://www.beianbeian.com/search/tinygroup.org">浙ICP备14043110号-1</a> </span> TinyGroup官方网站 &copy; 2013-2016 
+          </div> 
+        </div> 
+      </div> 
+    </div> 
+    <script type="text/javascript">
+        init.push(function () {
+            var menucount=$(".navigation:first>li").size();
+            $("#topmenurap .navigation>li").css("width",100/menucount+"%");
+
+			                var menuList=[];
+                $(".navigation:first a.navitem").each(function(){
+                    var href=$(this).attr("href");
+                    var treeid=$(this).attr("data-treeid");
+                    menuList.push({id:treeid,url:href});
+                });
+                $.ajax({
+                    url:"/tinyuiweb/action/savemenulist.pagelet",
+                    type:"post",
+                    data:{data:JSON.stringify(menuList)},
+                    success:function(data){
+                        if(window.location.pathname!=contextPath+"/page/")
+                            window.location.reload();
+                    }
+                })
+			        })
+    </script>   
+  </body>
+</html>

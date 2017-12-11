@@ -1,0 +1,17 @@
+.tp-caption a{
+	text-shadow:none;
+	-webkit-transition:all 0.2s ease-out;
+	-moz-transition:all 0.2s ease-out;
+	-o-transition:all 0.2s ease-out;
+	-ms-transition:all 0.2s ease-out;
+	text-decoration:none
+}
+.tp-caption.omega-blue-button-ghost:hover{
+	cursor:pointer
+}
+.tp-caption.omega-blue-button-ghost a{
+	color:#345F79
+}
+.tp-caption.omega-blue-button-ghost a:hover{
+	color:#345F79
+}

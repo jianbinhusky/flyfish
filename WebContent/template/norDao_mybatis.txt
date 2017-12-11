@@ -1,0 +1,69 @@
+package %PackageName%.dao;
+
+import org.apache.ibatis.executor.BatchResult;
+
+import java.util.List;
+import java.util.Map;
+import %PackageName%.search.%TableName%SearchBean;
+import %PackageName%.bean.%TableName%;
+/**
+ * <p>Title: </p>
+ *
+ * <p>Description:%TableName%</p>
+ *
+ * <p>Copyright: Copyright (c) 2015</p>
+ *
+ * <p>Author: hujianbin</p>
+ *
+ * @author AutoCreate
+ * @version 1.0
+ */
+
+public interface %TableName%Dao {
+
+	public int insert%TableName%(%TableName% %sTableName%);
+
+  	public int update%TableName%(%TableName% %sTableName%);
+
+  	public %TableName% get%TableName%ByWhere(String where);
+  
+  	public List<%TableName%> get%TableName%ListByWhere(String where,int offset,int limit);
+  	
+  	public List<%TableName%> get%TableName%ListByCondition(%TableName%SearchBean condition);
+  
+  	public List<%TableName%> get%TableName%ListBySql(String sql);
+  
+  	public int get%TableName%CountByWhere(String where);
+  	
+  	public int get%TableName%CountByExample(%TableName% %sTableName%);
+  	
+  	public int get%TableName%CountByCondition(%TableName%SearchBean condition);
+  
+  	public int update%TableName%ByWhere(String where);
+  
+  	public int delete%TableName%ByWhere(String where);
+  	
+  	public List<BatchResult> batchInsert%TableName%(List<%TableName%> list);
+  	
+  	public %TableName% get%TableName%ByExample(%TableName% %sTableName%);
+  	
+  	public List<%TableName%> get%TableName%ListByExample(%TableName% %sTableName%);
+  	
+  	public int delete%TableName%ByExample(%TableName% %sTableName%);
+  	
+  	public int delete%TableName%ByCondition(%TableName%SearchBean condition);
+  	
+  	public List<BatchResult> batchDelete%TableName%ByExample(List<%TableName%> list);
+  	
+  	public List<%TableName%> get%TableName%ByCondition(%TableName%SearchBean condition);
+  	
+  	public int update%TableName%(%TableName%SearchBean condition);
+  	
+  	public Map<String,Object> get%TableName%ColumnByCondition(%TableName%SearchBean condition);
+  	
+  	public List<Map<String,Object>> get%TableName%ColumnListByCondition(%TableName%SearchBean condition);
+  	
+  	public int update%TableName%ByExample(%TableName% %sTableName%);
+  	
+  	public List<BatchResult> batchModify%TableName%ByExample(List<%TableName%> list);
+}

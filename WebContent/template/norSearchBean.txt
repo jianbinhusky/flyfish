@@ -1,0 +1,26 @@
+package %PackageName%.search;
+
+import java.util.*;
+
+import %public%.util.SearchBean;
+
+public class %TableName%SearchBean extends SearchBean{
+	
+	%FILEDS%
+	
+  	public %TableName%SearchBean() {
+  	}
+  	
+  	public void buildSql(){
+  		//注意手工拼接sql和动态拼接sql的不同
+  		StringBuffer whereBuf=new StringBuffer("");
+  		StringBuffer orderBuf=new StringBuffer();
+  		//TODO 在此处增加查询条件
+  		setCountSql(whereBuf.toString());
+  		//TODO 在此处增加排序,为更好兼容各种数据库建议增加排序条件
+  		setOrderSql(orderBuf.toString());
+  		setSql(whereBuf.append(" ").append(orderBuf).toString());
+  	}
+  	
+  	%METHODS%
+}

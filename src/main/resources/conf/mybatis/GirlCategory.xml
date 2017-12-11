@@ -1,0 +1,456 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hujianbin.basis.dao.GirlCategoryDao">
+	<cache />
+	<resultMap type="GirlCategory" id="t_girl_categoryMap">
+      	<result property="id" column="id" />
+		<result property="categoryName" column="category_name" />
+		<result property="parentId" column="parent_id" />
+		<result property="orderNum" column="order_num" />
+		<result property="status" column="status" />
+  	</resultMap>
+  	<sql id="GirlCategory_WHERE">
+	<where>
+		<if test="id!=null">
+			 and id=#{id,jdbcType=NUMERIC}
+		</if>
+		<if test="categoryName!=null">
+			 and category_name=#{categoryName,jdbcType=VARCHAR}
+		</if>
+		<if test="parentId!=null">
+			 and parent_id=#{parentId,jdbcType=NUMERIC}
+		</if>
+		<if test="orderNum!=null">
+			 and order_num=#{orderNum,jdbcType=NUMERIC}
+		</if>
+		<if test="status!=null">
+			 and status=#{status,jdbcType=NUMERIC}
+		</if>
+	</where>
+  </sql>
+  <sql id="GirlCategorySearchBean_WHERE">
+	<where>
+		<if test="id!=null">
+			 and id=#{id,jdbcType=NUMERIC}
+		</if>
+		<if test="categoryName!=null">
+			 and category_name=#{categoryName,jdbcType=VARCHAR}
+		</if>
+		<if test="isNotNullCategoryName!=null and isNotNullCategoryName==true">
+			 and category_name is not null
+		</if>
+		<if test="isNotNullCategoryName!=null and isNotNullCategoryName==false">
+			 and category_name is null
+		</if>
+		<if test="inCategoryName!=null">
+			 and category_name in
+			<foreach collection="list" index="index" item="inCategoryName" open="(" separator="," close=")">
+				#{inCategoryName}
+			</foreach>
+		</if>
+		<if test="notInCategoryName!=null">
+			 and category_name not in
+			<foreach collection="list" index="index" item="notInCategoryName" open="(" separator="," close=")">
+				#{notInCategoryName}
+			</foreach>
+		</if>
+		<if test="noEqualsCategoryName!=null">
+			 and category_name<![CDATA[<>]]>#{noEqualsCategoryName,jdbcType=VARCHAR}
+		</if>
+		<if test="equalsCategoryName!=null">
+			 and category_name=#{equalsCategoryName,jdbcType=VARCHAR}
+		</if>
+		<if test="greaterCategoryName!=null">
+			 and category_name<![CDATA[>]]>#{greaterCategoryName,jdbcType=VARCHAR}
+		</if>
+		<if test="greaterEqualsCategoryName!=null">
+			 and category_name<![CDATA[>=]]>#{greaterEqualsCategoryName,jdbcType=VARCHAR}
+		</if>
+		<if test="lessCategoryName!=null">
+			 and category_name<![CDATA[<]]>#{lessCategoryName,jdbcType=VARCHAR}
+		</if>
+		<if test="lessEqualsCategoryName!=null">
+			 and category_name<![CDATA[<=]]>#{lessEqualsCategoryName,jdbcType=VARCHAR}
+		</if>
+		<if test="likeCategoryName!=null">
+			 and category_name like "%"#{likeCategoryName,jdbcType=VARCHAR}"%"
+		</if>
+		<if test="leftLikeCategoryName!=null">
+			 and category_name like "%"#{leftLikeCategoryName,jdbcType=VARCHAR}
+		</if>
+		<if test="rightLikeCategoryName!=null">
+			 and category_name like #{rightLikeCategoryName,jdbcType=VARCHAR}"%"
+		</if>
+		<if test="parentId!=null">
+			 and parent_id=#{parentId,jdbcType=NUMERIC}
+		</if>
+		<if test="isNotNullParentId!=null and isNotNullParentId==true">
+			 and parent_id is not null
+		</if>
+		<if test="isNotNullParentId!=null and isNotNullParentId==false">
+			 and parent_id is null
+		</if>
+		<if test="inParentId!=null">
+			 and parent_id in
+			<foreach collection="list" index="index" item="inParentId" open="(" separator="," close=")">
+				#{inParentId}
+			</foreach>
+		</if>
+		<if test="notInParentId!=null">
+			 and parent_id not in
+			<foreach collection="list" index="index" item="notInParentId" open="(" separator="," close=")">
+				#{notInParentId}
+			</foreach>
+		</if>
+		<if test="noEqualsParentId!=null">
+			 and parent_id<![CDATA[<>]]>#{noEqualsParentId,jdbcType=NUMERIC}
+		</if>
+		<if test="equalsParentId!=null">
+			 and parent_id=#{equalsParentId,jdbcType=NUMERIC}
+		</if>
+		<if test="greaterParentId!=null">
+			 and parent_id<![CDATA[>]]>#{greaterParentId,jdbcType=NUMERIC}
+		</if>
+		<if test="greaterEqualsParentId!=null">
+			 and parent_id<![CDATA[>=]]>#{greaterEqualsParentId,jdbcType=NUMERIC}
+		</if>
+		<if test="lessParentId!=null">
+			 and parent_id<![CDATA[<]]>#{lessParentId,jdbcType=NUMERIC}
+		</if>
+		<if test="lessEqualsParentId!=null">
+			 and parent_id<![CDATA[<=]]>#{lessEqualsParentId,jdbcType=NUMERIC}
+		</if>
+		<if test="orderNum!=null">
+			 and order_num=#{orderNum,jdbcType=NUMERIC}
+		</if>
+		<if test="isNotNullOrderNum!=null and isNotNullOrderNum==true">
+			 and order_num is not null
+		</if>
+		<if test="isNotNullOrderNum!=null and isNotNullOrderNum==false">
+			 and order_num is null
+		</if>
+		<if test="inOrderNum!=null">
+			 and order_num in
+			<foreach collection="list" index="index" item="inOrderNum" open="(" separator="," close=")">
+				#{inOrderNum}
+			</foreach>
+		</if>
+		<if test="notInOrderNum!=null">
+			 and order_num not in
+			<foreach collection="list" index="index" item="notInOrderNum" open="(" separator="," close=")">
+				#{notInOrderNum}
+			</foreach>
+		</if>
+		<if test="noEqualsOrderNum!=null">
+			 and order_num<![CDATA[<>]]>#{noEqualsOrderNum,jdbcType=NUMERIC}
+		</if>
+		<if test="equalsOrderNum!=null">
+			 and order_num=#{equalsOrderNum,jdbcType=NUMERIC}
+		</if>
+		<if test="greaterOrderNum!=null">
+			 and order_num<![CDATA[>]]>#{greaterOrderNum,jdbcType=NUMERIC}
+		</if>
+		<if test="greaterEqualsOrderNum!=null">
+			 and order_num<![CDATA[>=]]>#{greaterEqualsOrderNum,jdbcType=NUMERIC}
+		</if>
+		<if test="lessOrderNum!=null">
+			 and order_num<![CDATA[<]]>#{lessOrderNum,jdbcType=NUMERIC}
+		</if>
+		<if test="lessEqualsOrderNum!=null">
+			 and order_num<![CDATA[<=]]>#{lessEqualsOrderNum,jdbcType=NUMERIC}
+		</if>
+		<if test="status!=null">
+			 and status=#{status,jdbcType=NUMERIC}
+		</if>
+		<if test="isNotNullStatus!=null and isNotNullStatus==true">
+			 and status is not null
+		</if>
+		<if test="isNotNullStatus!=null and isNotNullStatus==false">
+			 and status is null
+		</if>
+		<if test="inStatus!=null">
+			 and status in
+			<foreach collection="list" index="index" item="inStatus" open="(" separator="," close=")">
+				#{inStatus}
+			</foreach>
+		</if>
+		<if test="notInStatus!=null">
+			 and status not in
+			<foreach collection="list" index="index" item="notInStatus" open="(" separator="," close=")">
+				#{notInStatus}
+			</foreach>
+		</if>
+		<if test="noEqualsStatus!=null">
+			 and status<![CDATA[<>]]>#{noEqualsStatus,jdbcType=NUMERIC}
+		</if>
+		<if test="equalsStatus!=null">
+			 and status=#{equalsStatus,jdbcType=NUMERIC}
+		</if>
+		<if test="greaterStatus!=null">
+			 and status<![CDATA[>]]>#{greaterStatus,jdbcType=NUMERIC}
+		</if>
+		<if test="greaterEqualsStatus!=null">
+			 and status<![CDATA[>=]]>#{greaterEqualsStatus,jdbcType=NUMERIC}
+		</if>
+		<if test="lessStatus!=null">
+			 and status<![CDATA[<]]>#{lessStatus,jdbcType=NUMERIC}
+		</if>
+		<if test="lessEqualsStatus!=null">
+			 and status<![CDATA[<=]]>#{lessEqualsStatus,jdbcType=NUMERIC}
+		</if>
+	</where>
+  </sql>
+  <sql id="GirlCategoryCondition_WHERE">
+	<where>
+		<if test="id!=null">
+			 and id=#{id,jdbcType=NUMERIC}
+		</if>
+		<if test="isNotNullCategoryName!=null and isNotNullCategoryName==true">
+			 and category_name is not null
+		</if>
+		<if test="isNotNullCategoryName!=null and isNotNullCategoryName==false">
+			 and category_name is null
+		</if>
+		<if test="inCategoryName!=null">
+			 and category_name in
+			<foreach collection="list" index="index" item="inCategoryName" open="(" separator="," close=")">
+				#{inCategoryName}
+			</foreach>
+		</if>
+		<if test="notInCategoryName!=null">
+			 and category_name not in
+			<foreach collection="list" index="index" item="notInCategoryName" open="(" separator="," close=")">
+				#{notInCategoryName}
+			</foreach>
+		</if>
+		<if test="noEqualsCategoryName!=null">
+			 and category_name<![CDATA[<>]]>#{noEqualsCategoryName,jdbcType=VARCHAR}
+		</if>
+		<if test="equalsCategoryName!=null">
+			 and category_name=#{equalsCategoryName,jdbcType=VARCHAR}
+		</if>
+		<if test="greaterCategoryName!=null">
+			 and category_name<![CDATA[>]]>#{greaterCategoryName,jdbcType=VARCHAR}
+		</if>
+		<if test="greaterEqualsCategoryName!=null">
+			 and category_name<![CDATA[>=]]>#{greaterEqualsCategoryName,jdbcType=VARCHAR}
+		</if>
+		<if test="lessCategoryName!=null">
+			 and category_name<![CDATA[<]]>#{lessCategoryName,jdbcType=VARCHAR}
+		</if>
+		<if test="lessEqualsCategoryName!=null">
+			 and category_name<![CDATA[<=]]>#{lessEqualsCategoryName,jdbcType=VARCHAR}
+		</if>
+		<if test="likeCategoryName!=null">
+			 and category_name like "%"#{likeCategoryName,jdbcType=VARCHAR}"%"
+		</if>
+		<if test="leftLikeCategoryName!=null">
+			 and category_name like "%"#{leftLikeCategoryName,jdbcType=VARCHAR}
+		</if>
+		<if test="rightLikeCategoryName!=null">
+			 and category_name like #{rightLikeCategoryName,jdbcType=VARCHAR}"%"
+		</if>
+		<if test="isNotNullParentId!=null and isNotNullParentId==true">
+			 and parent_id is not null
+		</if>
+		<if test="isNotNullParentId!=null and isNotNullParentId==false">
+			 and parent_id is null
+		</if>
+		<if test="inParentId!=null">
+			 and parent_id in
+			<foreach collection="list" index="index" item="inParentId" open="(" separator="," close=")">
+				#{inParentId}
+			</foreach>
+		</if>
+		<if test="notInParentId!=null">
+			 and parent_id not in
+			<foreach collection="list" index="index" item="notInParentId" open="(" separator="," close=")">
+				#{notInParentId}
+			</foreach>
+		</if>
+		<if test="noEqualsParentId!=null">
+			 and parent_id<![CDATA[<>]]>#{noEqualsParentId,jdbcType=NUMERIC}
+		</if>
+		<if test="equalsParentId!=null">
+			 and parent_id=#{equalsParentId,jdbcType=NUMERIC}
+		</if>
+		<if test="greaterParentId!=null">
+			 and parent_id<![CDATA[>]]>#{greaterParentId,jdbcType=NUMERIC}
+		</if>
+		<if test="greaterEqualsParentId!=null">
+			 and parent_id<![CDATA[>=]]>#{greaterEqualsParentId,jdbcType=NUMERIC}
+		</if>
+		<if test="lessParentId!=null">
+			 and parent_id<![CDATA[<]]>#{lessParentId,jdbcType=NUMERIC}
+		</if>
+		<if test="lessEqualsParentId!=null">
+			 and parent_id<![CDATA[<=]]>#{lessEqualsParentId,jdbcType=NUMERIC}
+		</if>
+		<if test="isNotNullOrderNum!=null and isNotNullOrderNum==true">
+			 and order_num is not null
+		</if>
+		<if test="isNotNullOrderNum!=null and isNotNullOrderNum==false">
+			 and order_num is null
+		</if>
+		<if test="inOrderNum!=null">
+			 and order_num in
+			<foreach collection="list" index="index" item="inOrderNum" open="(" separator="," close=")">
+				#{inOrderNum}
+			</foreach>
+		</if>
+		<if test="notInOrderNum!=null">
+			 and order_num not in
+			<foreach collection="list" index="index" item="notInOrderNum" open="(" separator="," close=")">
+				#{notInOrderNum}
+			</foreach>
+		</if>
+		<if test="noEqualsOrderNum!=null">
+			 and order_num<![CDATA[<>]]>#{noEqualsOrderNum,jdbcType=NUMERIC}
+		</if>
+		<if test="equalsOrderNum!=null">
+			 and order_num=#{equalsOrderNum,jdbcType=NUMERIC}
+		</if>
+		<if test="greaterOrderNum!=null">
+			 and order_num<![CDATA[>]]>#{greaterOrderNum,jdbcType=NUMERIC}
+		</if>
+		<if test="greaterEqualsOrderNum!=null">
+			 and order_num<![CDATA[>=]]>#{greaterEqualsOrderNum,jdbcType=NUMERIC}
+		</if>
+		<if test="lessOrderNum!=null">
+			 and order_num<![CDATA[<]]>#{lessOrderNum,jdbcType=NUMERIC}
+		</if>
+		<if test="lessEqualsOrderNum!=null">
+			 and order_num<![CDATA[<=]]>#{lessEqualsOrderNum,jdbcType=NUMERIC}
+		</if>
+		<if test="isNotNullStatus!=null and isNotNullStatus==true">
+			 and status is not null
+		</if>
+		<if test="isNotNullStatus!=null and isNotNullStatus==false">
+			 and status is null
+		</if>
+		<if test="inStatus!=null">
+			 and status in
+			<foreach collection="list" index="index" item="inStatus" open="(" separator="," close=")">
+				#{inStatus}
+			</foreach>
+		</if>
+		<if test="notInStatus!=null">
+			 and status not in
+			<foreach collection="list" index="index" item="notInStatus" open="(" separator="," close=")">
+				#{notInStatus}
+			</foreach>
+		</if>
+		<if test="noEqualsStatus!=null">
+			 and status<![CDATA[<>]]>#{noEqualsStatus,jdbcType=NUMERIC}
+		</if>
+		<if test="equalsStatus!=null">
+			 and status=#{equalsStatus,jdbcType=NUMERIC}
+		</if>
+		<if test="greaterStatus!=null">
+			 and status<![CDATA[>]]>#{greaterStatus,jdbcType=NUMERIC}
+		</if>
+		<if test="greaterEqualsStatus!=null">
+			 and status<![CDATA[>=]]>#{greaterEqualsStatus,jdbcType=NUMERIC}
+		</if>
+		<if test="lessStatus!=null">
+			 and status<![CDATA[<]]>#{lessStatus,jdbcType=NUMERIC}
+		</if>
+		<if test="lessEqualsStatus!=null">
+			 and status<![CDATA[<=]]>#{lessEqualsStatus,jdbcType=NUMERIC}
+		</if>
+	</where>
+  </sql>
+  <sql id="GirlCategory_UPDATE">
+	<set>
+		<if test="id!=null">
+			id=#{id,jdbcType=NUMERIC},
+		</if>
+		<if test="categoryName!=null">
+			category_name=#{categoryName,jdbcType=VARCHAR},
+		</if>
+		<if test="parentId!=null">
+			parent_id=#{parentId,jdbcType=NUMERIC},
+		</if>
+		<if test="orderNum!=null">
+			order_num=#{orderNum,jdbcType=NUMERIC},
+		</if>
+		<if test="status!=null">
+			status=#{status,jdbcType=NUMERIC},
+		</if>
+	</set>
+  </sql>
+    <insert id="insertGirlCategory" parameterType="GirlCategory" flushCache="true">
+    	<![CDATA[
+			INSERT INTO t_girl_category (id,category_name,parent_id,order_num,status) VALUES (#{id},#{categoryName},#{parentId},#{orderNum},#{status})
+		]]>
+    </insert>
+    <update id="update_GirlCategory" parameterType="GirlCategory" flushCache="true">
+    	<![CDATA[UPDATE t_girl_category SET id=#{id,jdbcType=NUMERIC},,category_name=#{categoryName,jdbcType=VARCHAR},,parent_id=#{parentId,jdbcType=NUMERIC},,order_num=#{orderNum,jdbcType=NUMERIC},,status=#{status,jdbcType=NUMERIC}, WHERE id=#{id,jdbcType=NUMERIC}]]>
+  	</update>
+    <update id="updateGirlCategoryByExample" parameterType="GirlCategory" flushCache="true">
+    	<![CDATA[
+    		UPDATE t_girl_category
+    	]]>
+    	<include refid="GirlCategory_UPDATE" />
+    	<![CDATA[WHERE id=#{id,jdbcType=NUMERIC}]]>
+  	</update>
+  	<update id="updateGirlCategoryByWhere" parameterType="java.lang.String" flushCache="true">
+    	<![CDATA[
+    		UPDATE t_girl_category ${value}
+    	]]>
+  	</update>
+  	<update id="updateGirlCategoryByCondition" parameterType="com.hujianbin.basis.search.GirlCategorySearchBean" flushCache="true">
+    	<![CDATA[UPDATE t_girl_category]]>
+    	<include refid="GirlCategory_UPDATE" />
+    	<include refid="GirlCategoryCondition_WHERE" />
+  	</update>
+  	<delete id="deleteGirlCategoryByWhere" parameterType="java.lang.String" flushCache="true">
+    	<![CDATA[DELETE FROM t_girl_category ${value}]]>
+  	</delete>
+  	<delete id="deleteGirlCategoryByExample" parameterType="GirlCategory" flushCache="true">
+    	<![CDATA[DELETE FROM t_girl_category]]>
+    	<include refid="GirlCategory_WHERE" />
+  	</delete>
+  	<delete id="deleteGirlCategoryByCondition" parameterType="com.hujianbin.basis.search.GirlCategorySearchBean" flushCache="true">
+    	<![CDATA[delete from t_girl_category]]>
+    	<include refid="GirlCategorySearchBean_WHERE" />
+  	</delete>
+  	<select id="getGirlCategoryByWhere" parameterType="java.lang.String" resultType="GirlCategory" resultMap="t_girl_categoryMap">
+    	<![CDATA[SELECT * FROM t_girl_category ${value}]]>
+  	</select>
+  	<select id="getGirlCategoryByExample" parameterType="GirlCategory" resultType="GirlCategory" resultMap="t_girl_categoryMap">  
+        <![CDATA[
+			SELECT * FROM t_girl_category
+		]]>
+        <include refid="GirlCategory_WHERE" />
+    </select>
+    <select id="getGirlCategoryByCondition" parameterType="com.hujianbin.basis.search.GirlCategorySearchBean" resultType="GirlCategory" resultMap="t_girl_categoryMap">
+    	<![CDATA[SELECT * FROM t_girl_category]]>
+    	<include refid="GirlCategorySearchBean_WHERE" />
+    	<![CDATA[${orderSql}]]>
+  	</select>
+  	<select id="getGirlCategoryListByWhere" parameterType="java.lang.String" resultType="GirlCategory" resultMap="t_girl_categoryMap">
+    	<![CDATA[SELECT * FROM t_girl_category ${sql}]]>
+  	</select>
+  	<select id="getGirlCategoryListByCondition" parameterType="com.hujianbin.basis.search.GirlCategorySearchBean" resultType="GirlCategory" resultMap="t_girl_categoryMap">
+    	<![CDATA[SELECT * FROM t_girl_category]]>
+    	<include refid="GirlCategorySearchBean_WHERE" />
+    	<![CDATA[${orderSql}]]>
+  	</select>
+  	<select id="getGirlCategoryCountByWhere" parameterType="java.lang.String" resultType="int">
+    	<![CDATA[SELECT COUNT(*) FROM t_girl_category ${value}]]>
+  	</select>
+  	<select id="getGirlCategoryCountByExample" parameterType="GirlCategory" resultType="int">
+    	<![CDATA[SELECT COUNT(*) FROM t_girl_category]]>
+    	<include refid="GirlCategory_WHERE" />
+  	</select>
+  	<select id="getGirlCategoryCountByCondition" parameterType="com.hujianbin.basis.search.GirlCategorySearchBean" resultType="int">
+    	<![CDATA[SELECT COUNT(*) FROM t_girl_category]]>
+    	<include refid="GirlCategorySearchBean_WHERE" />
+  	</select>
+  	<select id="getGirlCategoryColumnByCondition" parameterType="com.hujianbin.basis.search.GirlCategorySearchBean" resultType="java.util.HashMap">
+    	<![CDATA[SELECT ${columnSql} FROM t_girl_category]]>
+    	<include refid="GirlCategorySearchBean_WHERE" />
+    	<![CDATA[${sql}]]>
+ 	</select>
+</mapper>

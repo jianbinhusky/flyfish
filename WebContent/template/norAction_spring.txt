@@ -1,0 +1,113 @@
+package %PackageName%.action;
+
+import lombok.extern.slf4j.Slf4j;
+import lombok.Setter;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import %PackageName%.bean.%TableName%;
+import %PackageName%.search.%TableName%SearchBean;
+import %PackageName%.service.%TableName%Service;
+import %public%.spring.BaseAction;
+import %public%.util.PageModel;
+
+@Controller
+@Slf4j
+@RequestMapping(value="/%lTableName%")
+public class %TableName%Action extends BaseAction{
+
+	@Autowired
+	@Setter
+	private %TableName%Service %pTableName%Service;
+	
+	@RequestMapping(value="/goAdd%TableName%")
+	public String goAdd%TableName%(ModelMap result){
+		//TODO 进入添加页面
+		return "%lTableName%/add%TableName%";
+	}
+	
+	@RequestMapping(value="/add%TableName%",method=RequestMethod.POST)
+	public String add%TableName%(%TableName% %pTableName%,ModelMap result){
+		log.info("添加 %TableName%");
+		//需要手工设置相关的属性
+		%pTableName%Service.add%TableName%(%pTableName%);
+		result.clear();
+		result.put("success",true);
+		result.put("msg","添加成功");
+		return "%lTableName%/add%TableName%";
+	}
+	
+	@RequestMapping(value="/goModify%TableName%")
+	public String goModify%TableName%(%TableName% %pTableName%,ModelMap result){
+		%pTableName%=%pTableName%Service.get%TableName%ByExample(%pTableName%);
+		result.clear();
+		result.put("obj",%pTableName%);
+		return "%lTableName%/modify%TableName%";
+	}
+	
+	@RequestMapping(value="/modify%TableName%",method=RequestMethod.POST)
+	public String modify%TableName%(%TableName% %pTableName%,ModelMap result){
+		log.info("修改 %TableName%");
+		%TableName% pojo=%pTableName%Service.get%TableName%ByExample(%pTableName%);
+		result.clear();
+		if(pojo!=null){
+			//TODO 更新相关属性以及保留相关属性
+			%pTableName%Service.modify%TableName%ByExample(%pTableName%);
+			result.put("success",true);
+			result.put("msg","修改成功");
+			result.put("obj",%pTableName%);
+		}else{
+			result.put("success",false);
+			result.put("msg","未找到对应数据");
+		}
+		return "%lTableName%/modify%TableName%";
+	}
+	
+	@RequestMapping(value="/list%TableName%")
+	public String list%TableName%(%TableName%SearchBean condition,@RequestParam(value="pageno",required=false,defaultValue="1") int pageNo,@RequestParam(value="pagesize",required=false,defaultValue="10") int pageSize,ModelMap result){
+		log.info("查询 %TableName%");
+		condition.setCount(pageSize);
+		condition.setStart((pageNo-1)*pageSize);
+		condition.buildSql();
+		PageModel pageModel=%pTableName%Service.query%TableName%ByCondition(condition);
+		result.put("pm", pageModel);
+		return "%lTableName%/list%TableName%";
+	}
+	
+	@RequestMapping(value="/list%TableName%/{pagesize}/{pageno}")
+	public String list%TableName%(@PathVariable(value="pageno") int pageNo,@PathVariable(value="pagesize") int pageSize,%TableName%SearchBean condition,ModelMap result){
+		log.info("查询(rest) %TableName%");
+		condition.setCount(pageSize);
+		condition.setStart((pageNo-1)*pageSize);
+		condition.buildSql();
+		PageModel pageModel=%pTableName%Service.query%TableName%ByCondition(condition);
+		result.put("pm", pageModel);
+		return "%lTableName%/list%TableName%";
+	}
+	
+	@RequestMapping(value="/show%TableName%")
+	public String show%TableName%(%TableName% %pTableName%,ModelMap result){
+		log.info("查看 %TableName%");
+		%pTableName%=%pTableName%Service.get%TableName%ByExample(%pTableName%);
+		return "%lTableName%/show%TableName%";
+	}
+	
+	@RequestMapping(value="/remove%TableName%")
+	public String remove%TableName%(%TableName% %pTableName%){
+		log.info("删除 %TableName%");
+		%TableName% example=new %TableName%();
+		//example.setId(%pTableName%.getId());
+		if(example!=null){
+			%pTableName%Service.remove%TableName%ByExample(example);
+		}
+		//返回list%TableName%
+		return "redirect:/%lTableName%/list%TableName%%urlext%";
+	}
+	
+}

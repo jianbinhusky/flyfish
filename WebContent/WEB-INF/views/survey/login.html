@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>
+			用户注册_问卷网
+		</title>
+		<meta name="keywords" content="问卷，问卷网，问卷网注册，问卷网登录">
+		<meta name="description" content="">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta http-equiv="pragma" content="no-cache">
+		<link href="static/css/reset.css" rel="stylesheet">
+		<link href="static/css/reg.css" rel="stylesheet">
+		<script src="static/js/jquery.js"></script>
+		<script src="static/js/jquery.cookie.js"></script>
+		<script src="static/js/tools.js"></script>
+		<script src="static/js/base_utils.js"></script>
+		<style id="mailListAppendCss" type="text/css">
+			.justForJs{opacity:0.95;background-color:#fff;border:1px solid #ccc;}.list_box
+			{color:#333;cursor: pointer;padding:5px;}.mail_focus{background-color:
+			#E6E6E6;}
+		</style>
+	</head>
+	<body>
+		<div class="reg_main" style="position: static;">
+			<a class="me_logo" href="#">
+				<img src="static/images/logo.png">
+			</a>
+			<div class="me_con_wrap">
+				<div class="form_wrap">
+					<div class="form_list">
+						<a href="javascript:;" class="close_tc">
+						</a>
+						<div class="login_center_cq">
+							<center>
+								<a href="#">
+									<img src="static/images/logo_tc.png">
+								</a>
+							</center>
+							<div class="error">
+							</div>
+							<div class="login_name">
+								<i>
+								</i>
+								<input type="text" class="txt" id="loginwin_emailorusername" placeholder="邮箱/手机号/用户名">
+							</div>
+							<div class="login_password">
+								<i>
+								</i>
+								<input type="password" class="txt" id="loginwin_password" placeholder="密码">
+							</div>
+							<div class="login_forget">
+								<label>
+									<input type="checkbox" value="1" name="saveme" checked="checked" class="a_radio">
+									&nbsp;记住我
+								</label>
+								<a href="#">
+									忘记密码？
+								</a>
+							</div>
+							<a class="loginbut" href="list.html">
+								登 录
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script>
+			function checkLogin(){
+			   var name = $('#loginwin_emailorusername').val();
+			   var password = $('#loginwin_password').val();
+			   if( name=="" && password==""){ 
+				    $('.login_center_cq .error').text('请填写用户名和密码');
+			   }else if(name==""){
+				    $('.login_center_cq .error').text('请填写用户名');
+			   }else if(password==""){
+				    $('.login_center_cq .error').text('请填写密码');
+			   }else{
+				    $('.login_center_cq .error').text('');
+				    check_loginwin_ls('header');
+			   }  
+			   return false ;
+			}
+			$(function(){
+				$('.login_center_cq .txt').keyup(function(event){
+					if (event.keyCode == 13) {  
+						checkLogin();  
+			       }  
+				});
+				$('.login_center_cq .loginbut').click(function(){
+					checkLogin();
+				});
+			});
+		</script>
+		<link rel="stylesheet" type="text/css" href="static/js/plug-in/load/load.css">
+		<script type="text/javascript" src="static/js/plug-in/load/load.js"></script>
+		<script type="text/javascript" src="static/js/plug-in/jsbox/jsbox.js"></script>
+		<script type="text/javascript" src="static/js/public.js"></script>
+		<!--邮箱辅助输入-->
+		<script type="text/javascript" src="static/js/MailAutoComplete.js"></script>
+		<script type="text/javascript" src="static/js/placeholder.js"></script>
+		<script>
+			var iNow = 0;
+			$(function() {
+				var $tabBtnWrap = $('.tab_btn_wrap');
+				var $tabBtn = $tabBtnWrap.find('li');
+				var $formWrap = $('.form_wrap');
+				var $formList = $formWrap.find('.form_list');
+				var $submit = $('.submit');
+				var $agreeChecked = $('.agree').find('span');
+				var $btnGetMobileCode = $('.btn_get_mobile_code');
+				var $usermail = $('.usermail');
+				var agreeTrue = true;
+				$(window).bind("resize",
+				function() {
+					resizeCenter();
+				});
+				$(window).resize();
+				function resizeCenter() {
+					var $regMain = $('.reg_main');
+					var $meCopyright = $('.me_copyright');
+					var iRegMainNum = {
+						w: $('.me_con_wrap').width() + 50,
+						h: $regMain.outerHeight(true)
+					};
+					var iWinNum = {
+						w: $(window).width(),
+						h: $(window).height()
+					};
+					if (iRegMainNum.h < iWinNum.h - 100) {
+						$regMain.css({
+							'position': 'fixed',
+							'top': (iWinNum.h - iRegMainNum.h - 60) / 2 - 50,
+							'left': (iWinNum.w - iRegMainNum.w) / 2
+						});
+						$meCopyright.css({
+							'width': '100%',
+							'position': 'fixed',
+							'bottom': '0',
+							left: '0'
+						});
+					} else {
+						$regMain.css({
+							'position': 'static'
+						});
+						$meCopyright.css({
+							'position': 'static'
+						});
+					};
+				};
+				new MailAutoComplete({
+					obj: $usermail
+				});
+				//切换注册类型
+				$tabBtn.click(function() {
+					$(this).addClass('active').siblings('li').removeClass('active');
+					var index = $(this).index();
+					iNow = index;
+					$formList.eq(index).show().siblings().hide();
+				});
+				//同意协议
+				$agreeChecked.click(function() {
+					if ($(this).attr('class') == 'checked') {
+						$(this).removeClass('checked');
+						agreeTrue = false;
+					} else {
+						$(this).addClass('checked');
+						agreeTrue = true;
+					};
+				});
+				//更换验证码图片
+				$('#vcode_img').click(function() {
+					var urlstr = $("#vcode_img").attr("src");
+					var imgsrc = urlstr.substr(urlstr.indexOf('/?action=account_vcode'), 28) + '&' + Math.random();
+					$("#vcode_img").attr("src", imgsrc);
+				});
+				//提交事件
+				$('#account_info_form1 input').focus(function() {
+					var $parent = $(this).parent();
+					$parent.find('.error').remove();
+				});
+				$('#account_info_form1 input').blur(function() {
+					var $parent = $(this).parent();
+					$parent.find('.error').remove();
+					//验证手机号
+					if ($(this).is('#mobile')) {
+						if ($(this).val() == '') {
+							$parent.append('<div class="error">手机号不能为空</div>');
+						} else if (!/^(1[0-9])\d{9}$/.test($(this).val())) {
+							$parent.append('<div class="error">手机号格式有误</div>');
+						} else {
+							checkInfoCallback({
+								"check_type": "mobile",
+								"mobile": $(this).val(),
+								"_xsrf": getCookie("_xsrf")
+							},
+							$parent);
+						};
+					};
+					//验证用户名
+					if ($(this).is('.username')) {
+						if ($(this).val() == '') {
+							$parent.append('<div class="error">用户名不能为空</div>');
+						} else if (getLength($(this).val()) > 30) {
+							$parent.append('<div class="error">用户名太长</div>');
+						} else if (/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/.test($(this).val())) {
+							$parent.append('<div class="error">只能用中文、字母、数字、下划线或减号</div>');
+						} else {
+							checkInfoCallback({
+								"check_type": "username",
+								"username": $(this).val(),
+								"_xsrf": getCookie("_xsrf")
+							},
+							$parent);
+							//
+							// $.ajax({
+							// url: "/register/check_info/",
+							// type: 'POST',
+							// data: {
+							// "check_type" : "username",
+							// "username" : $(this).val(),
+							// "_xsrf": getCookie("_xsrf")
+							// },
+							// success: function(data){
+							// var data = JSON.parse(data);
+							// if(data.err_msg != ''){
+							// $parent.append('<div class="error">' + data.err_msg + '</div>');
+							// };
+							// }
+							// });
+						};
+					};
+					//验证密码
+					if ($(this).is('.password')) {
+						if ($(this).val() == '') {
+							$parent.append('<div class="error">密码不能为空</div>');
+						} else if ($(this).val().length < 6) {
+							$parent.append('<div class="error">密码不能少于6位</div>');
+						};
+					};
+					//验证码
+					if ($(this).is('.mobile_code')) {
+						if ($(this).val() == '') {
+							$parent.append('<div class="error">验证码不能为空</div>');
+						};
+					};
+				});
+				$btnGetMobileCode.live('click',
+				function() {
+					var $mobile = $('#account_info_form1 #mobile');
+					if ($mobile.val() == '') {
+						$mobile.parent().append('<div class="error">手机号不能为空</div>');
+						return false;
+					} else if (!/^(1[0-9])\d{9}$/.test($mobile.val())) {
+						$mobile.parent().append('<div class="error">手机号格式有误</div>');
+						return false;
+					};
+					if (bState) {
+						$("#get_mobile_validatecode_form input[name='mobile']").val($mobile.val());
+						ajaxSubmit($("#get_mobile_validatecode_form"));
+					};
+				});
+				$('#account_info_form2 input').focus(function() {
+					var $parent = $(this).parent();
+					$parent.find('.error').remove();
+				});
+				$('#account_info_form2 input').blur(function() {
+					var $parent = $(this).parent();
+					$parent.find('.error').remove();
+					$parent.find('.tip').remove();
+					//验证邮箱
+					if ($(this).is('.usermail')) {
+						if ($(this).val() == '') {
+							$parent.append('<div class="error">请填写邮箱地址</div>');
+						} else if (!/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/.test($(this).val())) {
+							$parent.append('<div class="error">邮箱格式不正确，请重新填写</div>');
+						} else if (/^[\w._]+@(126|163|yeah)\.com(\r\n|\r|\n)?$/.test($(this).val())) {
+							$parent.append('<div class="tip">126,163,yeah等网易邮箱可能无法收到邮件</div>');
+						} else {
+							checkInfoCallback({
+								"check_type": "email",
+								"email": $(this).val(),
+								"_xsrf": getCookie("_xsrf")
+							},
+							$parent);
+						};
+					};
+					//验证用户名
+					if ($(this).is('.username')) {
+						if ($(this).val() == '') {
+							$parent.append('<div class="error">用户名不能为空</div>');
+						} else if (getLength($(this).val()) > 30) {
+							$parent.append('<div class="error">用户名太长</div>');
+						} else if (/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/.test($(this).val())) {
+							$parent.append('<div class="error">只能用中文、字母、数字、下划线或减号</div>');
+						} else {
+							checkInfoCallback({
+								"check_type": "username",
+								"username": $(this).val(),
+								"_xsrf": getCookie("_xsrf")
+							},
+							$parent);
+						};
+					};
+					//验证密码
+					if ($(this).is('.password')) {
+						if ($(this).val() == '') {
+							$parent.append('<div class="error">密码不能为空</div>');
+						} else if ($(this).val().length < 6) {
+							$parent.append('<div class="error">密码不能少于6位</div>');
+						};
+					};
+					//验证码
+					if ($(this).is('.vcode')) {
+						if ($(this).val() == '') {
+							$parent.append('<div class="error">验证码不能为空</div>');
+						};
+					};
+				});
+				$submit.click(function() {
+					//是否确认用户协议
+					if (!agreeTrue) {
+						loadMack({
+							off: 'on',
+							Limg: 0,
+							text: '请确认用户协议！',
+							set: 1000
+						});
+						return false;
+					};
+					if (iNow == 0) {
+						$('#account_info_form1 input').trigger('blur');
+						if ($('#account_info_form1 .error').length > 0) {
+							return false;
+						};
+						ajaxSubmit($("#account_info_form1"));
+					} else if (iNow == 1) {
+						$('#account_info_form2 input').trigger('blur');
+						if ($('#account_info_form2 .error').length > 0) {
+							return false;
+						};
+						ajaxSubmit($("#account_info_form2"));
+					};
+				});
+			});
+			function save_account_caback(info) {
+				if (info.err_msg != '') {
+					if (info.err_msg == '验证码不正确') {
+						if (iNow == 0) {
+							$('#account_info_form1 .mobile_code').parent().append('<div class="error">验证码不正确</div>');
+						} else if (iNow == 1) {
+							$('#account_info_form2 .vcode').parent().append('<div class="error">验证码不正确</div>');
+						}
+					} else {
+						loadMack({
+							off: 'on',
+							Limg: 0,
+							text: info.err_msg,
+							set: 1000
+						});
+					};
+					return false;
+				} else if (info.err_msg == '') {
+					// $("#go_to_register_success_form").submit();
+					window.location.replace("/register/regist_success/?reg_type=" + iNow);
+				}
+			}
+			function checkInfoCallback(data, obj) {
+				$.ajax({
+					url: "/register/check_info/",
+					type: 'POST',
+					data: data,
+					success: function(data) {
+						var data = JSON.parse(data);
+						if (data.err_msg != '') {
+							obj.append('<div class="error">' + data.err_msg + '</div>');
+						};
+					}
+				});
+			};
+			function get_mobile_validatecode_callback(info) {
+				if (info.error_msg != '') {
+					loadMack({
+						off: 'on',
+						Limg: 0,
+						text: info.error_msg,
+						set: 1000
+					});
+					return false;
+				} else {
+					loadMack({
+						off: 'on',
+						Limg: 0,
+						text: '验证码已发送，请查收',
+						set: 2000
+					});
+					getMobileCode($('.btn_get_mobile_code'));
+				};
+			};
+			function getLength(str) {
+				if (str == null) return 0;
+				if (typeof str != "string") {
+					str += "";
+				}
+				return str.replace(/[^\x00-\xff]/g, "01").length;
+			}
+			var bState = true;
+			function getMobileCode(obj) {
+				var iCountDownNum = 59;
+				var timer = null;
+				if (bState) {
+					bState = false;
+					timer = setInterval(function() {
+						if (iCountDownNum <= 0) {
+							clearInterval(timer);
+							iCountDownNum = 59;
+							obj.html('获取验证码');
+							bState = true;
+						} else {
+							iCountDownNum--;
+							obj.html('重新发送' + iCountDownNum);
+						};
+					},
+					1000);
+				}
+			};
+		</script>
+		<div class="bg_ceng" style="display: none;">
+		</div>
+		<script type="text/javascript">
+			$(function() {
+				var _href = window.location.href;
+				$('.head_index .a').each(function() {
+					if (_href.indexOf($(this).attr('href')) > -1) {
+						$(this).addClass('active').siblings('.a').removeClass('active');
+					}
+				});
+				if (_href.indexOf('share') > -1 || _href.indexOf('classify') > -1 || _href.indexOf('lib') > -1) {
+					$('.head_nav .mb_a').addClass('active').siblings('.a').removeClass('active');
+				}
+				$('.login_dj_cq').click(function() {
+					$('.login_center_cq .error').text('');
+					$('.bg_ceng').fadeIn(100,
+					function() {
+						$('.tc_login_cq').show();
+						var wid = $('.tc_login_cq').width();
+						var hei = $('.tc_login_cq').height();
+						$('.tc_login_cq').css({
+							'margin-left': -wid / 2,
+							'margin-top': -hei / 2
+						}).animate({
+							'opacity': '1'
+						},
+						300);
+					});
+				});
+				$('.tc_login_cq .close_tc').click(function() {
+					$('.tc_login_cq').animate({
+						'opacity': '0'
+					},
+					300,
+					function() {
+						$('.tc_login_cq').hide();
+						$('.bg_ceng').fadeOut(100);
+					});
+				});
+			});
+		</script>
+	</body>
+
+</html>

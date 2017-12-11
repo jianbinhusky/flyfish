@@ -1,0 +1,79 @@
+package %PackageName%.service;
+
+import java.util.List;
+import java.util.Map;
+import %PackageName%.bean.%TableName%;
+import %PackageName%.search.%TableName%SearchBean;
+import %public%.util.PageModel;
+
+public interface %TableName%Service {
+
+	/**
+	 * 新增%TableName%记录
+	 * @param %TableName%
+	 */
+	public void add%TableName%(%TableName% %pTableName%);
+	
+	/**
+	 * 批量新增%TableName%记录
+	 * @param List
+	 */
+	public void batchAdd%TableName%(List<%TableName%> list);
+	
+	/**
+	 * 按照实例查找%TableName%记录,主要为根据主键查找
+	 * @param %pTableName%
+	 * @return %TableName%
+	 */
+	public %TableName% get%TableName%ByExample(%TableName% %pTableName%);
+	
+	/**
+	 * 修改%TableName%记录
+	 * @param %TableName%
+	 */
+	public void modify%TableName%ByExample(%TableName% %pTableName%);
+	
+	/**
+	 * 根据%TableName%实例删除记录
+	 * @param %TableName%
+	 */
+	public void remove%TableName%ByExample(%TableName% %pTableName%);
+	
+	/**
+	 * 根据条件删除记录
+	 * @param %TableName%SearchBean
+	 */
+	public void remove%TableName%ByCondition(%TableName%SearchBean condition);
+	
+	public void batchRemove%TableName%ByExample(List<%TableName%> list);
+	
+	public void batchModify%TableName%ByExample(List<%TableName%> list);
+	
+	public PageModel query%TableName%ByCondition(%TableName%SearchBean condition);
+	
+	public PageModel query%TableName%BySql(String sql,int offset,int limit);
+	
+	public List<%TableName%> query%TableName%ListByWhere(String where);
+	
+	public List<%TableName%> query%TableName%ListByExample(%TableName% %pTableName%);
+	
+	public List<%TableName%> get%TableName%ByCondition(%TableName%SearchBean condition);
+	
+	public List<%TableName%> query%TableName%ListByCondition(%TableName%SearchBean condition);
+	
+	public void modify%TableName%BySql(String sql);
+	
+	public void modify%TableName%ByCondition(%TableName%SearchBean condition);
+	
+	public void remove%TableName%BySql(String sql);
+	
+	public int get%TableName%CountBySql(String sql);
+	
+	public int get%TableName%CountByExample(%TableName% %pTableName%);
+	
+	public int get%TableName%CountByCondition(%TableName%SearchBean condition);
+	
+	public Map<String,Object> get%TableName%ColumnByCondition(%TableName%SearchBean condition);
+	
+	public void update%TableName%ByExample(%TableName% %pTableName%);
+}
