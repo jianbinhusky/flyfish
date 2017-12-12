@@ -393,6 +393,7 @@
 			<version>3.0.0</version>
 			<configuration>
 				<warSourceDirectory>WebContent</warSourceDirectory>
+				<warSourceExcludes>WebContent\html\*\**</warSourceExcludes>
 				<webXml>WebContent\WEB-INF\web.xml</webXml>
 			</configuration>
 		</plugin>
