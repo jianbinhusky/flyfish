@@ -25,5 +25,11 @@ hs_err_pid*
 target/*
 
 # workspace files
+.idea
+.idea/
+.idea/*.xml
 .idea/*
-.idea/workspace.xml
+/.idea
+/.idea/misc.xml
+/.idea/modules.xml
+/.idea/workspace.xml
