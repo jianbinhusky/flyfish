@@ -385,7 +385,7 @@
   <build>
 	  <finalName>flyfish</finalName>
 	  <defaultGoal>package</defaultGoal>
-	  <directory>flyfish/target</directory>
+	  <directory>${basedir}/target</directory>
   	<plugins>
 		<plugin>
 			<groupId>org.apache.maven.plugins</groupId>
