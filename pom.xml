@@ -332,55 +332,6 @@
 		  <scope>system</scope>
 		  <systemPath>${basedir}/WebContent/WEB-INF/lib/org.eclipse.swt.win32.win32.x86_64_3.100.1.v4236b.jar</systemPath>
 	  </dependency>
-	  <dependency>
-		  <groupId>certpath</groupId>
-		  <artifactId>certpath</artifactId>
-		  <version>1.0</version>
-		  <scope>system</scope>
-		  <systemPath>${basedir}/WebContent/WEB-INF/lib/certpath-api-compat.jar</systemPath>
-	  </dependency>
-	  <dependency>
-		  <groupId>cryptix</groupId>
-		  <artifactId>cryptix</artifactId>
-		  <version>1.0</version>
-		  <scope>system</scope>
-		  <systemPath>${basedir}/WebContent/WEB-INF/lib/cryptix-jce-api.jar</systemPath>
-	  </dependency>
-	  <dependency>
-		  <groupId>cryptix-jce-api</groupId>
-		  <artifactId>cryptix-jce-api</artifactId>
-		  <version>1.0</version>
-		  <scope>system</scope>
-		  <systemPath>${basedir}/WebContent/WEB-INF/lib/cryptix-jce-api.jar</systemPath>
-	  </dependency>
-	  <dependency>
-		  <groupId>cryptix-jce-provider</groupId>
-		  <artifactId>cryptix-jce-provider</artifactId>
-		  <version>1.0</version>
-		  <scope>system</scope>
-		  <systemPath>${basedir}/WebContent/WEB-INF/lib/cryptix-jce-provider.jar</systemPath>
-	  </dependency>
-	  <dependency>
-		  <groupId>cryptix-message-api</groupId>
-		  <artifactId>cryptix-message-api</artifactId>
-		  <version>1.0</version>
-		  <scope>system</scope>
-		  <systemPath>${basedir}/WebContent/WEB-INF/lib/cryptix-message-api.jar</systemPath>
-	  </dependency>
-	  <dependency>
-		  <groupId>cryptix-openpgp-provider</groupId>
-		  <artifactId>cryptix-openpgp-provider</artifactId>
-		  <version>1.0</version>
-		  <scope>system</scope>
-		  <systemPath>${basedir}/WebContent/WEB-INF/lib/cryptix-openpgp-provider.jar</systemPath>
-	  </dependency>
-	  <dependency>
-		  <groupId>cryptix-pki-api</groupId>
-		  <artifactId>cryptix</artifactId>
-		  <version>1.0</version>
-		  <scope>system</scope>
-		  <systemPath>${basedir}/WebContent/WEB-INF/lib/cryptix-pki-api.jar</systemPath>
-	  </dependency>
   </dependencies>
   <build>
 	  <finalName>flyfish</finalName>
@@ -393,7 +344,6 @@
 			<version>3.0.0</version>
 			<configuration>
 				<warSourceDirectory>WebContent</warSourceDirectory>
-				<warSourceExcludes>WebContent\html\*</warSourceExcludes>
 				<webXml>WebContent\WEB-INF\web.xml</webXml>
 			</configuration>
 		</plugin>
