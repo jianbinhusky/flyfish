@@ -271,6 +271,10 @@ public class FileUtil {
 		File file = new File(filepath);
 		InputStream fileInputStream = null;
 		List<ConnectionBean> list = new ArrayList<ConnectionBean>();
+		//if history file not exists,return empty list
+		if (!file.exists()) {
+			return list;
+		}
 		try {
 			fileInputStream = new FileInputStream(file);
 			BufferedReader reader = new BufferedReader(new InputStreamReader(fileInputStream));
